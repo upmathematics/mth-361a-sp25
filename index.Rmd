@@ -143,7 +143,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 
 | **Week** | **Day** | **Topic** | **Read** |
 |:---:|:----:|:---------------:|:----:|
-| **1** | M 1/13 | Orientation | Syllabus |
+| **1** | M 1/13 | [Orientation](lessons/1.1-orientation/1.1-orientation.html?presentme=true){target="_blank"} | Syllabus |
 |  | W 1/15 | Statistical Thinking | - |
 |  | F 1/17 | R and R Studio | - |
 | **2** | M 1/20 | _MLK Day (no classes, offices closed)_ | - |
