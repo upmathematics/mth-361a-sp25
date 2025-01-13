@@ -54,7 +54,7 @@ Franz Hall 125
 
 We will be using Teams as the main real-time communication tool for general announcements, question-answering discussions, and direct messages.
 
-> The Teams for this course is [MTH-361D-sp25](https://teams.microsoft.com/l/team/19%3A3vyM7rz44p46wEHgWhcQ6ZZmtG6El_hrQ3reRoSFA2o1%40thread.tacv2/conversations?groupId=d2b880a5-da06-4910-8bb9-a15ace1409a0&tenantId=ea8f3949-231c-40b6-a33f-56873af96f87){target="_blank"}. 
+> The Teams for this course is [MTH-361A-sp25](https://teams.microsoft.com/l/team/19%3A3vyM7rz44p46wEHgWhcQ6ZZmtG6El_hrQ3reRoSFA2o1%40thread.tacv2/conversations?groupId=d2b880a5-da06-4910-8bb9-a15ace1409a0&tenantId=ea8f3949-231c-40b6-a33f-56873af96f87){target="_blank"}. 
 
 ### **Class Website**
 
