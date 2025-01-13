@@ -1,4 +1,4 @@
-### MTH 361: Applied Statistics - Spring 2025
+### MTH 361: Applied Statistics I - Spring 2025
 
 **Quick Description:** This repository houses all of the MATH 361 course materials and student-facing website.
 
