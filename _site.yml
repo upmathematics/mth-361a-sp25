@@ -1,7 +1,7 @@
-name: "MTH-161Dsp2025"
+name: "MTH-361Asp2025"
 output_dir: "docs"
 description: |
-  Elementary Statistics Section D at the University of Portland
+  Applied Statistics Section A at the University of Portland
 output:
    rmdformats::readthedown:
       lib_dir: site_libs
