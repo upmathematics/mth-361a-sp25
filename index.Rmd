@@ -135,65 +135,54 @@ TBW
 
 ## Topics Schedule
 
-> You are required to read the materials, and are strongly encouraged to actively participate in class discussions and complete the worksheets efficiently to deepen your understanding and succeed in the course.
-
-The "Read" column in the table below contains page numbers (Pg.) or chapters (ch.) on which it refers to a label in the Books \& Online Resources List. For example "Pg. 1-5 @speegle2021probability" refers to pages 1-5 of the textbook titled "Probability, Statistics, and Data: A Fresh Approach Using R".
-
-### Tentative Schedule
-
-| **Week** | **Day** | **Topic** | **Read** |
-|:---:|:----:|:---------------:|:----:|
-| **1** | M 1/13 | [Orientation](lessons/1.1-orientation/1.1-orientation.html?presentme=true){target="_blank"} | Syllabus |
-|  | W 1/15 | Statistical Thinking | - |
-|  | F 1/17 | R and R Studio | - |
-| **2** | M 1/20 | _MLK Day (no classes, offices closed)_ | - |
-|  | W 1/22 | R Markdown | - |
-|  | F 1/24 | Data Principles | TBA |
-| **3** | M 1/27 | Data Processing and Visualizations & <br>**Homework 1** | - |
-|  | W 1/29 | Study Design | - |
-|  | F 1/31 | Inference | TBA |
-| **4** | M 2/3 | **Project Phase 1** | - |
-|  | W 2/5 | Probability & <br>Random Variables | TBA |
-|  | F 2/7 | Probability Functions &  <br>Expected Value and Variance | TBA |
-| **5** | M 2/10 | Random Sampling & <br>**Homework 2** | - |
-|  | W 2/12 | Discrete Random Variables & <br>Probability Mass Functions | TBA |
-|  | F 2/14 | Binomial and Geometric Distributions | TBA |
-| **6** | M 2/17 | Simulating Discrete Random Variables & <br>**Homework 3** | - |
-|  | W 2/19 | Continuous Random Variables & <br>Probability Density Functions | TBA |
-|  | F 2/21 | Normal and Exponential Distributions | TBA |
-| **7** | M 2/24 | **Project Phase 2** | - |
-|  | W 2/26 | Law of Large Numbers | TBA |
-|  | F 2/28 | Central Limit Theorem | TBA |
-| **8** | M 3/3 | _Spring Vacation_ | - |
-|  | W 3/5 | _Spring Vacation_ | - |
-|  | F 3/7 | _Spring Vacation_ | - |
-| **9** | M 3/10 | Simulating Continuous Random Variables & <br>**Homework 4** | - |
-|  | W 3/12 | Estimation and Variability | TBA |
-|  | F 3/14 | Decision Errors | TBA |
-| **10** | M 3/17 | Estimating Sampling Distributions & <br>**Homework 5** | - |
-|  | W 3/19 | Inference for Proportions | TBA |
-|  | F 3/21 | Inference for Means | TBA |
-| **11** | M 3/24 | **Project Phase 3** | - |
-|  | W 3/26 | Rank-Based Tests | TBA |
-|  | F 3/28 | Chi-Squared Tests | TBA |
-| **12** | M 3/31 | Hypothesis Testing for Proportions and Means & <br>**Homework 6** | - |
-|  | W 4/2 | Linear Regression and Least-Squares, & <br>Residual Analysis | TBA |
-|  | F 4/4 | Multiple Linear Regression | TBA |
-| **13** | M 4/7 | Hypothesis Testing for Linear Regression & <br>**Homework 7** | - |
-|  | W 4/9 | Inference for Many Means | TBA |
-|  | F 4/11 | ANalysis Of VAriance (ANOVA) | TBA |
-| **14** | M 4/14 | **Project Phase 4** | - |
-|  | W 4/16 | Logistic Regression | - |
-|  | F 4/18 | _Easter vacation_ | - |
-| **15** | M 4/21 | _Easter Vacation_ | - |
-|  | W 4/23 | Project Period | - |
-|  | F 4/25 | Project Period | - |
-| **16** | Tu 4/29 | **Final Project Presentations<br>(8:00 AM to 10:00 AM)** | - |
-
-### Books \& Online Resources Lists
-
-::: {#refs}
-:::
+| **Week** | **Day** | **Topic** |
+|:---:|:----:|:---------------|
+| **1** | M 1/13 | Orientation |
+|  | W 1/15 | Statistical Thinking |
+|  | F 1/17 | R and R Studio |
+| **2** | M 1/20 | _MLK Day (no classes, offices closed)_ |
+|  | W 1/22 | R Markdown |
+|  | F 1/24 | Data Principles |
+| **3** | M 1/27 | Data Processing and Visualizations & <br>**Homework 1** |
+|  | W 1/29 | Study Design |
+|  | F 1/31 | Inference |
+| **4** | M 2/3 | **Project Phase 1** |
+|  | W 2/5 | Probability & <br>Random Variables |
+|  | F 2/7 | Probability Functions & <br>Expected Value and Variance |
+| **5** | M 2/10 | Random Sampling & <br>**Homework 2** |
+|  | W 2/12 | Discrete Random Variables & <br>Probability Mass Functions |
+|  | F 2/14 | Binomial and Geometric Distributions |
+| **6** | M 2/17 | Simulating Discrete Random Variables & <br>**Homework 3** |
+|  | W 2/19 | Continuous Random Variables & <br>Probability Density Functions |
+|  | F 2/21 | Normal and Exponential Distributions |
+| **7** | M 2/24 | **Project Phase 2** |
+|  | W 2/26 | Law of Large Numbers |
+|  | F 2/28 | Central Limit Theorem |
+| **8** | M 3/3 | _Spring Vacation_ |
+|  | W 3/5 | _Spring Vacation_ |
+|  | F 3/7 | _Spring Vacation_ |
+| **9** | M 3/10 | Simulating Continuous Random Variables & <br>**Homework 4** |
+|  | W 3/12 | Estimation and Variability |
+|  | F 3/14 | Decision Errors |
+| **10** | M 3/17 | Estimating Sampling Distributions & <br>**Homework 5** |
+|  | W 3/19 | Inference for Proportions |
+|  | F 3/21 | Inference for Means |
+| **11** | M 3/24 | **Project Phase 3** |
+|  | W 3/26 | Rank-Based Tests |
+|  | F 3/28 | Chi-Squared Tests |
+| **12** | M 3/31 | Hypothesis Testing for Proportions and Means & <br>**Homework 6** |
+|  | W 4/2 | Linear Regression and Least-Squares, & <br>Residual Analysis |
+|  | F 4/4 | Multiple Linear Regression |
+| **13** | M 4/7 | Hypothesis Testing for Linear Regression & <br>**Homework 7** |
+|  | W 4/9 | Inference for Many Means |
+|  | F 4/11 | ANalysis Of VAriance (ANOVA) |
+| **14** | M 4/14 | **Project Phase 4** |
+|  | W 4/16 | Logistic Regression |
+|  | F 4/18 | _Easter vacation_ |
+| **15** | M 4/21 | _Easter Vacation_ |
+|  | W 4/23 | Project Period |
+|  | F 4/25 | Project Period |
+| **16** | Tu 4/29 | **Final Project Presentations <br>(8:00 AM to 10:00 AM)** |
 
 <br>
 
@@ -203,8 +192,8 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 
 > Dr. Alex John Quijano
 > 
-> * 4:00 PM - 5:00 PM Monday to Friday, Buckley Center 279
-> * [One-to-One, Buckley Center 279 or in Teams](https://calendly.com/alexjohnquijano/helphours){target="_blank"} <br> *Click on the link to sign-up for a 15-minute session.*
+> * Walk-in Monday to Friday at 4:00 PM - 5:00 PM, Buckley Center 279
+> * [One-to-One, Buckley Center 279 or in Teams](https://calendly.com/alexjohnquijano/helphours){target="_blank"} <br>*Click on the link to sign-up for a 15-minute session.*
 
 My walk-in help hours start week 2. Note that you can bring a fellow student with you when you sign-up for a session. Just click the "Add Guests" link when you sign-up, and add in your fellow student's UP email. If you need more than 15 minutes, you can book at least two consecutive sessions.
 
@@ -228,9 +217,9 @@ Note that these are recommendations so that you can get the most out of the help
 
 ### Collaboration Policy
 
-I expect you to participate in the class through lectures, discussion, labs, and other engagements. I also expect you to make use of opportunities to get help outside of class (help hours, Teams, email, tutoring) if you need help. Concise and specific messages are the most helpful so I know how I can best help you.
+I expect you to participate in the class through lectures, class activities, discussions, homework, and other engagements. I also expect you to make use of opportunities to get help outside of class (help hours, Teams, email, tutoring) if you need help. Concise and specific messages are the most helpful so I know how I can best help you.
 
-> You are encouraged to participate in discussions with your peers regarding worksheets, homeworks, and project phases. However, each student must take responsibility and ownership of their work and submit their work individually, except for group projects.
+> You are encouraged to participate in discussions with your peers regarding assignments. However, each student must take responsibility and ownership of their work and submit their work individually, except for group projects.
 
 <br>
 
@@ -261,12 +250,12 @@ Given the following marks, your work:
 
 | **Mark** | **Rubric Description** |
 |-----:|:---------------|
-| **Outstanding <br> (O)** | Demonstrates a full understanding of the material, clearly and concisely explains concepts, applies them correctly and efficiently to solve problems, and may extend the concepts to new situations. |
-| **Excellent <br> (E)** | Demonstrates an approximate understanding of the material, may have made minor errors but is able to correct them and explain the reasoning, solves problems correctly, and may need more time or practice to improve efficiency. |
-| **Acceptable <br> (A)** | Demonstrates some understanding of the material but makes errors, can solve some problems, may need help with more difficult ones, and may need to work on improving problem-solving skills and reasoning. |
-| **Needs Improvement <br> (NI)** | Shows potential but needs more work, may have made several errors, is unable to solve problems, and needs to focus on understanding the material and developing problem-solving skills. |
-| **Needs Major Improvement <br> (NMI)** | Shows little understanding of the material, may have made many significant errors, is unable to solve problems, and needs to focus on building a foundational understanding of the material. |
-| **Missing <br> (M)** | Shows incomplete (either entirely or partially) or incomprehensible work. |
+| **Outstanding <br>(O)** | Demonstrates a full understanding of the material, clearly and concisely explains concepts, applies them correctly and efficiently to solve problems, and may extend the concepts to new situations. |
+| **Excellent <br>(E)** | Demonstrates an approximate understanding of the material, may have made minor errors but is able to correct them and explain the reasoning, solves problems correctly, and may need more time or practice to improve efficiency. |
+| **Acceptable <br>(A)** | Demonstrates some understanding of the material but makes errors, can solve some problems, may need help with more difficult ones, and may need to work on improving problem-solving skills and reasoning. |
+| **Needs Improvement <br>(NI)** | Shows potential but needs more work, may have made several errors, is unable to solve problems, and needs to focus on understanding the material and developing problem-solving skills. |
+| **Needs Major Improvement <br>(NMI)** | Shows little understanding of the material, may have made many significant errors, is unable to solve problems, and needs to focus on building a foundational understanding of the material. |
+| **Missing <br>(M)** | Shows incomplete (either entirely or partially) or incomprehensible work. |
 
 Note that these are categorical marks (not numerical scores).
 
@@ -288,7 +277,7 @@ The above table shows the percent of given assignments. These percentages are mi
 
 > If you need more assistance on understanding your overall standing in this course, I encourage you to communicate with me directly.
 
-<br> 
+<br>
 
 ## **Assignments**
 
@@ -427,5 +416,25 @@ The University of Portland is a community dedicated to the investigation and dis
 ### Diversity and Inclusion Statement
 
 In the study of natural and mathematical sciences, often perceived as objective disciplines aimed at understanding the world, it is crucial to recognize the historical biases embedded within these fields, stemming from a limited set of privileged populations. Acknowledging the potential existence of overt and covert biases within the course, I emphasize that science is a human endeavor necessitating the incorporation of diverse experiences in the pursuit of knowledge and skill. Valuing every student irrespective of background, origin, race, religion, ethnicity, sexual orientation, disability status, etc., I am committed to fostering an inclusive climate throughout the course. Encouraging open communication about concerns or challenges, I assure confidentiality, except for instances of academic integrity violations or sexual harassment, which are legally mandated to be reported. Within our classroom, diversity and individual differences are celebrated as strengths, and the use of mathematics as an analytical tool to challenge power, privilege, and oppression is supported. It is our collective responsibility to create a welcoming space where ideas can be challenged while maintaining respect for individuals.
+
+<br>
+
+# Materials
+
+> You are required to read the materials, and are strongly encouraged to actively participate in class discussions and complete the assignments efficiently to deepen your understanding and succeed in the course.
+
+## Class Readings and Presentations
+
+The "Read" column in the table below contains page numbers (Pg.) or chapters (ch.) on which it refers to a label in the Books \& Online Resources List. For example "Pg. 1-5 @speegle2021probability" refers to pages 1-5 of the textbook titled "Probability, Statistics, and Data: A Fresh Approach Using R".
+
+| **Topic** | **Read** |
+|:------|:---|
+| [Orientation](lessons/1.1-mth361-orientation/1.1-mth361-orientation.html) | Syllabus |
+| [Statistical Thinking](lessons/1.2-mth361-statistical-thinking/1.2-mth361-statistical-thinking.html) | - |
+
+## Books \& Online Resources Lists
+
+::: {#refs}
+:::
 
 <br>
