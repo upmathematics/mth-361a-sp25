@@ -107,18 +107,17 @@ knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
 ::::
 
 :::: {.column width=48%}
-* **Data Handling:**
+* **Data Fundamentals:**
 
-  - Understand & manipulate diverse data structures (e.g., vectors, matrices, data frames)
-  - Master data collection methods & their limitations
-  - Visualize data effectively (charts, plots)
-  - Calculate key statistical properties (mean, median, standard deviation)
+  - *Understanding Data:* Comprehend data structures, collection methods, and limitations.
+  - *Data Exploration:* Perform exploratory data analysis, including data visualization and descriptive statistics.
 ::::
 
 :::: {.column width=48%}
-* **Modeling:**
-  - Apply linear regression models appropriately
-  - Interpret model results in real-world contexts
+* **Statistical Modeling:**
+
+  - *Regression Analysis:* Apply and interpret linear regression models.
+  - *Inferential Statistics:* Conduct hypothesis testing, construct confidence intervals, and perform estimation.
 ::::
 
 :::: {.column width=1%}
@@ -132,20 +131,23 @@ The full course learning outcomes and objectives is in the [Syllabus](../../inde
 ::::
 
 :::: {.column width=48%}
-* **Probability & Inference:**
+* **Probability Theory:**
+
+  - *Foundations:* Understand random variables, probability distributions, and their applications in statistical analysis.
   
-  - Grasp fundamental concepts of probability & random variables
-  - Perform statistical inference (hypothesis testing, confidence intervals, estimation)
-  - Critically evaluate claims & decisions based on data
+* **Data-Driven Conclusions:**
+
+  - *Critical Evaluation:* Assess claims, draw meaningful conclusions from data, and make informed decisions.
 ::::
 
 :::: {.column width=48%}
 * **R Programming:**
-  - Develop & execute basic R code for data analysis, modeling, & visualization
-  
+
+  - *Implementation:* Develop and execute R code for data analysis, modeling, and visualization.
+
 * **Communication:**
-  
-  - Produce detailed written reports demonstrating strong understanding of data analysis, modeling, & inference
+
+  - *Reporting:* Produce clear and concise written reports summarizing findings and insights.
 ::::
 
 :::: {.column width=1%}
