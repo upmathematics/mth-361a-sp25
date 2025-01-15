@@ -267,13 +267,13 @@ Note that these are categorical marks (not numerical scores).
 |  |  | E | - | 80% | - | - |
 |  |  | A | - | - | 70% | - |
 |  |  | NI | - | - | - | 60% |
-| **Homeworks** | 3 | O | 100% | - | - | - |
+| **Homeworks** | 2 | O | 100% | - | - | - |
 |  |  | E | - | 90% | - | - |
 |  |  | A | - | - | 80% | - |
 |  |  | NI | - | - | - | 70% |
-| **Worksheets** | 4 | Completed | 90% | 80% | 70% | 60% |
+| **Worksheets** | 3 | Completed | 90% | 80% | 70% | 60% |
 
-The above table shows the percent of given assignments. These percentages are minimum requirements for each letter grade. The rank determines the importance of each assignment where 1 means the highest rank and 4 means lowest rank.
+The above table shows the percent of given assignments. These percentages are minimum requirements for each letter grade. The rank determines the importance of each assignment where 1 means the highest rank and 3 means lowest rank.
 
 > If you need more assistance on understanding your overall standing in this course, I encourage you to communicate with me directly.
 
