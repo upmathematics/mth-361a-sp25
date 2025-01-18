@@ -1,8 +1,8 @@
 ---
-title: "MTH361: Applied Statistics I"
+title: "MTH 361: Applied Statistics I"
 subtitle: | 
   | Section A 
-  | Spring 2025 | 
+  | Spring 2025 
   | Department of Mathematics 
   | University of Portland
 author: | 
