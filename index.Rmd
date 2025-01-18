@@ -53,9 +53,16 @@ This course uses the following textbook - which is free to access - for reading 
 refs <- bibtex::read.bib("references.bib")
 ```
 
-*Click on the link to access the resources.*
+>  * `r capture.output(print(refs["speegle2021probability"]))`
 
-  * `r capture.output(print(refs["speegle2021probability"]))`
+*Amendment 3: The textbook was emphasized and the sentence "Click on the link to access the resources." was removed.*
+
+### Credit Hours and Prerequisites
+
+* Credit hours: 3
+* Prerequisites: MTH 201 (Calculus I) with a grade of C- or higher
+
+*Amendment 4: The subsection "Credit Hours and Prerequisites" was added with the number of course credits and prerequisites.*
 
 <br>
 
