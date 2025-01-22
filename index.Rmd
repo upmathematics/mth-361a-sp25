@@ -466,13 +466,25 @@ Here are some other rules regarding group formations:
 
 ### Deadline Extension Policy
 
-If you need more time to submit a homework assignment, you may request an extension by following these steps:
+If you need more time to submit an assignment, you may request an extension by following these steps:
 
   * Communicate with me at least 12 hours before the deadline.
   * Specify the exact day you plan to submit your work or the number of extra days you need.
   * Please ensure that you adhere to the established timeline for submitting assignments, as it is important to maintain fairness and avoid over-reliance on extensions.
 
-Submitting a few hours late is usually not a major issue, as long as I receive your work before I begin marking and providing feedback. An extension is not required in such cases. Extensions for worksheets will only be granted if I decide to extend the deadline for the entire class.
+Submitting a few hours late is usually not a major issue, as long as I receive your work before I begin marking and providing feedback. An extension is not required in such cases. Extensions for in-class assignments --such as worksheets, mini-assignments, or activities-- will only be granted if I decide to extend the deadline for the entire class.
+
+*Amendment 5: The sentence "If you need more time to submit a homework assignment, you may request an extension by following these steps:" was changed to "If you need more time to submit an assignment, you may request an extension by following these steps:".*
+
+*Amendment 6: The sentence "Extensions for worksheets will only be granted if I decide to extend the deadline for the entire class." was changed to "Extensions for in-class assignments --such as worksheets, mini-assignments, or activities-- will only be granted if I decide to extend the deadline for the entire class."*
+
+### Late Assignments
+
+You are expected to turn in all completed assignments on time. Circumstances that may disallow you to turn in your work on time - such as a medical reason - are understandable. Please let me know if you have missed the deadline way beyond its original posted date without prior communication regarding extensions. Because every assignment is an important aspect of your learning in this class, we will discuss when you will turn in the assignment as well as decide upon an acceptable consequence for your turning it in late. I am committed to successfully helping you learn from this course.
+
+*Amendment 7: The "Late Assignments" subsection was moved.*
+
+*Amendment 8: The sentence "Please let me know if you are unable to submit your work and have missed the deadline way beyond its original posted date." was modified to "Please let me know if you have missed the deadline way beyond its original posted date without prior communication regarding extensions."*
 
 ### Withdrawal Procedures
 
@@ -492,11 +504,7 @@ Attendance is not tracked. However, participation is highly recommended. You are
 
 Generally, students are expected to attend all class sessions according to the instructor’s direction. Students who feel unwell should NOT attend class in person. These students should inform their instructor as soon as possible. 
 
-Should the instructor need to miss class, the course may be temporarily conducted remotely. Should the instructor be unable to teach for an extended period of time, the respective department or unit will find a substitute to continue the course. 
-
-### Late Assignments
-
-You are expected to turn in all completed assignments on time. Circumstances that may disallow you to turn in your work on time - such as a medical reason - are understandable. Please let me know if you are unable to submit your work and have missed the deadline way beyond its original posted date. Because every assignment is an important aspect of your learning in this class, we will discuss when you will turn in the assignment as well as decide upon an acceptable consequence for your turning it in late. I am committed to successfully helping you learn from this course.
+Should the instructor need to miss class, the course may be temporarily conducted remotely. Should the instructor be unable to teach for an extended period of time, the respective department or unit will find a substitute to continue the course.
 
 ### Incompletes
 
@@ -562,7 +570,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Orientation](lessons/1.1-mth361-orientation/1.1-mth361-orientation.html) | Syllabus |
 | [Statistical Thinking](lessons/1.2-mth361-statistical-thinking/1.2-mth361-statistical-thinking.html) | - |
 | [R and R Studio](lessons/1.3-mth361-r-and-r-studio/1.3-mth361-r-and-r-studio.html) | - |
-| R Markdown | - |
+| [RMarkdown](lessons/2.1-mth361-rmarkdown/2.1-mth361-rmarkdown.html) | - |
 | Data Principles | ch. 1.5-1.8 @speegle2021probability |
 | Data Processing and Visualizations | ch. 6.1-6.4 & ch. 7.1 @speegle2021probability |
 | Study Design | - |
