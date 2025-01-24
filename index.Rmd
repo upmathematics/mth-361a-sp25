@@ -193,11 +193,11 @@ The following learning objectives are designed to build on one another, with som
 |  | W 1/15 | Statistical Thinking |
 |  | F 1/17 | R and R Studio |
 | **2** | M 1/20 | _MLK Day (no classes, offices closed)_ |
-|  | W 1/22 | R Markdown |
-|  | F 1/24 | Data Principles |
-| **3** | M 1/27 | Data Processing and Visualizations & <br>**Homework 1** |
-|  | W 1/29 | Study Design |
-|  | F 1/31 | Inference |
+|  | W 1/22 | RMarkdown |
+|  | F 1/24 | _Cancelled_ |
+| **3** | M 1/27 | Data Principles & <br>**Homework 1** |
+|  | W 1/29 | Data Processing and Visualizations |
+|  | F 1/31 | Study Design & Inference |
 | **4** | M 2/3 | Exploring Numerical Data & <br>**Project Phase 1** |
 |  | W 2/5 | Probability & <br>Random Variables |
 |  | F 2/7 | Probability Functions & <br>Expected Value and Variance |
@@ -573,8 +573,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [RMarkdown](lessons/2.1-mth361-rmarkdown/2.1-mth361-rmarkdown.html) | - |
 | Data Principles | ch. 1.3-1.8 @speegle2021probability |
 | Data Processing and Visualizations | ch. 6.1-6.4 & ch. 7.1 @speegle2021probability |
-| Study Design | - |
-| Inference | - |
+| Study Design & Inference | - |
 | Exploring Numerical Data | ch. 7.2-7.3 @speegle2021probability |
 | Probability & <br>Random Variables | ch. 2.1 & ch. 2.3-2.4 @speegle2021probability |
 | Probability Functions & <br>Expected Value and Variance | - |

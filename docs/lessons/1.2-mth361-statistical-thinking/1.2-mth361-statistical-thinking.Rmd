@@ -45,6 +45,10 @@ A way of understanding the world through data.
 knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
 ```
 
+::: {style="color: red;"}
+$\star$ Statistical thinking is our guiding principle as we learn statistical concepts and techniques.
+:::
+
 ## Example 1: Statistical Question
 
 *Question:* **What is the crime rate in Portland, OR?**
