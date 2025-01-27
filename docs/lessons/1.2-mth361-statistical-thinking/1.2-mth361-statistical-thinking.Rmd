@@ -1,12 +1,13 @@
 ---
 title: "Statistical Thinking"
 subtitle: "Applied Statistics"
-author: "MTH-361D | Spring 2025 | University of Portland"
+author: "MTH-361A | Spring 2025 | University of Portland"
 date: "January 15, 2025"
 output:
   slidy_presentation:
     font_adjustment: +5
     footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
 bibliography: ../../references.bib
 csl: ../../mbe.csl
 ---
@@ -163,7 +164,7 @@ The full course learning outcomes and objectives is in the [Syllabus](../../inde
 
 **Scenario:** Researchers conducted a study to understand whether drinking coffee impacts productivity at work. They collected data on how much coffee people drink daily and how productive they feel during their workday. The study examined whether there is a consistent pattern between coffee consumption and productivity levels.
 
-**Discussion Questions:**
+**Discussion Questions:** Write your individual answers for the following questions on paper, then discuss them with your peers.
 
 1. What is the main focus of the study?
 2. How might coffee consumption affect productivity, based on your intuition?

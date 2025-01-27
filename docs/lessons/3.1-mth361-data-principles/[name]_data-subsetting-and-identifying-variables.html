@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="[First name] [First letter of last name]" />
+<meta name="author" content="[First name][Last initial]" />
 
-<meta name="date" content="2025-01-22" />
+<meta name="date" content="2025-01-27" />
 
-<title>My First RMarkdown Document</title>
+<title>Data Sub-Setting and Identifying Variables</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,68 +350,106 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">My First RMarkdown Document</h1>
+<h1 class="title toc-ignore">Data Sub-Setting and Identifying
+Variables</h1>
 <h3 class="subtitle">Applied Statistics</h3>
-<h4 class="author">[First name] [First letter of last name]</h4>
-<h4 class="date">2025-01-22</h4>
+<h4 class="author">[First name][Last initial]</h4>
+<h4 class="date">2025-01-27</h4>
 
 </div>
 
 
-<div id="instructions" class="section level1" style="color: red">
+<div id="syllabus-reminders" class="section level1">
+<h1>Syllabus Reminders</h1>
+<ul>
+<li>You must submit your mini-assignment individually by end-of-class or
+end-of-day. Your name must exist in your mini-assignment and the names
+of your collaborators.</li>
+<li>Mini-assignments are marked mostly on completion, and partially on
+correctness. It will be marked either pass or fail, there will no
+detailed feedback on mini-assignments, and no opportunities for
+revisions and make-up.</li>
+</ul>
+</div>
+<div id="instructions" class="section level1">
 <h1>Instructions</h1>
-<p>For the exercises, please provide your answers in full sentences.
-Write your answers by replacing the text “[Write your answer here]”.
-Please read the problems fully and carefully before answering.</p>
+<ul>
+<li>For the exercises, please provide your answers in full
+sentences.</li>
+<li>Write your answers by replacing the text “[Write your answer
+here]”.</li>
+<li>Please read the problems fully and carefully before answering.</li>
+<li>When finished, knit this <code>.Rmd</code> to
+<code>.html</code>.</li>
+<li>Submit this <code>.Rmd</code> and the recently knitted
+<code>.html</code>.</li>
+</ul>
+</div>
+<div id="collaborators" class="section level1">
+<h1>Collaborators</h1>
+<div style="color: blue;">
+<p>[Write your answer here]</p>
+</div>
 </div>
 <div id="exercises" class="section level1">
 <h1>Exercises</h1>
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
-<p>Describe the five basic parts of an RMarkdown document. What are
-they? What are their functions?</p>
+<p>The following code chunk installs the <a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank">Palmer Penguins</a> package, which contains the
+<code>penguins</code> data set. The R code chunk has an option called
+<code>eval=FALSE</code>, which indicate that –when knitting– the code
+chunk will not run. Explain what happens after a knitting attempt if
+<code>eval=TRUE</code>.</p>
 <div style="color: blue;">
+<pre class="r"><code>install.packages(&quot;palmerpenguins&quot;)</code></pre>
 <p>[Write your answer here]</p>
 </div>
 </div>
 <div id="problem-2" class="section level2">
 <h2>Problem 2</h2>
-<p>Explain the similarities between running R commands on the console
-versus running R commands in the RMarkdown code chunks.</p>
+<p>Load the <code>palmerpenguins</code> and the <code>tidyverse</code>
+packages. Are there any warning messages after loading the packages? If
+so, what does it say and what do you think it means?</p>
 <div style="color: blue;">
 <p>[Write your answer here]</p>
 </div>
 </div>
 <div id="problem-3" class="section level2">
 <h2>Problem 3</h2>
-<p>When “knitting” an RMarkdown document, describe what happens in
-general. What does it create?</p>
+<p>Show a preview of the <code>penguins</code> data frame. How many rows
+and columns are there in the <code>penguins</code> data set? Is the data
+frame a base R data frame or a tibble? Explain your reasoning.</p>
 <div style="color: blue;">
 <p>[Write your answer here]</p>
 </div>
 </div>
 <div id="problem-4" class="section level2">
 <h2>Problem 4</h2>
-<p>The R code chunks in an RMarkdown document runs in two ways. Describe
-the difference on what happens to the R commands when “knitting” vs
-running the code blocks in the RMarkdown file.</p>
+<p>Statistical variables are classified into two main types: numerical
+and categorical. Numerical variables can be further divided into
+discrete and continuous subtypes, while categorical variables can be
+classified as nominal or ordinal.</p>
+<p>Each row of the <code>penguins</code> data set is an observation of a
+penguin. What type of statistical variables are there in the columns of
+the data frame? Explain your reasoning.</p>
 <div style="color: blue;">
 <p>[Write your answer here]</p>
 </div>
 </div>
 <div id="problem-5" class="section level2">
 <h2>Problem 5</h2>
-<p>Describe the levels of headers according to the “#” key.</p>
-<div style="color: blue;">
-<p>[Write your answer here]</p>
-</div>
-</div>
-<div id="problem-6" class="section level2">
-<h2>Problem 6</h2>
-<p>On the upper left hand corner of this pane, there are two buttons
-“Source” and “Visual”. Describe your observations when clicking the
-button “Visual”. What are the differences and similarities between the
-two settings?</p>
+<p>Subset the <code>penguins</code> data set using the following four
+cases. Each case should be a new tibble in a new R variable. Display the
+resulting tibbles using the <code>glimpse()</code> function.</p>
+<ul>
+<li>All rows with the “Adelie” species</li>
+<li>All rows in the year 2008</li>
+<li>All rows with bill length at least <span class="math inline">\(40\)</span> mm.</li>
+<li>All rows with the “Adelie” species in the year 2008, and with a bill
+length at lest <span class="math inline">\(40\)</span> mm.</li>
+</ul>
+<p>Make sure to write the R code clearly and include comments explaining
+the purpose of each step.</p>
 <div style="color: blue;">
 <p>[Write your answer here]</p>
 </div>
