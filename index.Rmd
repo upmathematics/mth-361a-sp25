@@ -196,9 +196,9 @@ The following learning objectives are designed to build on one another, with som
 |  | W 1/22 | RMarkdown |
 |  | F 1/24 | _Cancelled_ |
 | **3** | M 1/27 | Data Principles |
-|  | W 1/29 | Data Processing and Visualizations |
+|  | W 1/29 | Basics of Data Processing |
 |  | F 1/31 | Study Design & Inference |
-| **4** | M 2/3 | Exploring Numerical Data & <br>**Homework 1** & <br>**Project Phase 1** |
+| **4** | M 2/3 | Visualizations & Exploring Numerical Data & <br>**Homework 1** & <br>**Project Phase 1** |
 |  | W 2/5 | Probability & <br>Random Variables |
 |  | F 2/7 | Probability Functions & <br>Expected Value and Variance |
 | **5** | M 2/10 | Random Sampling & <br>**Homework 2** |
