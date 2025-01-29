@@ -838,7 +838,7 @@ frame.</li>
 </div>
 </div>
 <div id="chaining-dplyr-verbs-using-23" class="slide section level2">
-<h1>Chaining <code>dplyr</code> Verbs Using <code>|&gt;</code>
+<h1>Chaining <code>dplyr</code> Verbs Using <code>%&gt;%</code>
 (2/3)</h1>
 <p><strong>Simple Example.</strong> The following code sequence filters
 the <code>iris</code> data frame (in tibble form) to include only the
@@ -853,7 +853,7 @@ This is a common practice of organizing verbs in a pipeline.</p>
 </div>
 </div>
 <div id="chaining-dplyr-verbs-using-33" class="slide section level2">
-<h1>Chaining <code>dplyr</code> Verbs Using <code>|&gt;</code>
+<h1>Chaining <code>dplyr</code> Verbs Using <code>%&gt;%</code>
 (3/3)</h1>
 <p><strong>Advanced Example:</strong> The goal of this example is to
 transform the <code>iris</code> data set where we want to compute the
@@ -861,9 +861,9 @@ ratio of the variables <code>Petal.Length</code> and
 <code>Sepal.Length</code> of the “versicolor” species.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>iris_tibble <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>  <span class="co"># rule 1: choose only the &quot;setosa&quot; species</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">==</span> <span class="st">&quot;versicolor&quot;</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>  <span class="co"># rule 2: pick the variables sepal length and petal length</span></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  <span class="fu">select</span>(Sepal.Length,Petal.Length) <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  <span class="fu">select</span>(Sepal.Length,Petal.Length) <span class="sc">%&gt;%</span> </span>
 <span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>  <span class="co"># rule 3: create a new variable called length_ratio</span></span>
 <span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">length_ratio =</span> Petal.Length<span class="sc">/</span>Sepal.Length)</span></code></pre></div>
 <div style="color: blue">
