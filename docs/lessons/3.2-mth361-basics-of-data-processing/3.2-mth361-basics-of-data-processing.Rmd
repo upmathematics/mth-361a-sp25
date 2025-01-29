@@ -22,9 +22,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ::::
 
 :::: {.column width=70%}
-- **Develop an understanding of visualizing data**
 - **Know the basics of wrangling a data frame**
-- **Introduce the language of the `tidyverse` package**
+- **Introduce the language of the `dplyr` package**
 - **Activity: Visualize Data by Variable Type**
 ::::
 
@@ -40,7 +39,7 @@ knitr::include_graphics("variables.png")
 ## Previously... (2/3)
 
 :::: {.column width=49%}
-**R Packages:** `tidyverse` is a collection of packages suited for data processing and visualization.
+**R Packages:** `tidyverse` is a collection of packages suited for data processing and visualization, which includes `tibble` and `dplyr` packages.
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -289,8 +288,8 @@ iris_tibble %>%
   summarise(mean_sepal_length = mean(Sepal.Length))
 ```
 
-::: {style="color: blue"}
-$\dagger$ 
+::: {style="color: red"}
+$\star$ Note that you need to know the variable names of the tibble by examining the tibble first, usually by using the `glimpse()` function.
 :::
 
 ## Activity: Summarise Data by Category
@@ -306,8 +305,3 @@ The purpose of this activity is for you to start developing a proficiency in ide
 4. Read the provided instructions.
 
 5. Answer all exercise problems on the designated sections.
-
-## References
-
-::: {#refs}
-:::
