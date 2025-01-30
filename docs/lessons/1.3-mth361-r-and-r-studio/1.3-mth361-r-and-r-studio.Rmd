@@ -47,15 +47,12 @@ knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
 
 :::: {.column width=48%}
 * **Open-source and Free:** Accessible to everyone.
-
 * **Designed for Statistics:** Built with statistical analysis in mind.
 ::::
 
 :::: {.column width=48%}
 * **Extensive Libraries:** Thousands of packages available.
-
 * **Data Visualization:** Easy and powerful plotting capabilities.
-
 * **Active Community:** Help is just a forum post away.
 ::::
 
@@ -98,20 +95,15 @@ knitr::include_graphics("basic-parts-of-r-studio.png")
 :::: {.column width=48%}
 ### What is Posit Cloud?
 * **Cloud-Based Platform:** Accessible from any device with an internet connection.
-
 * **Developed by Posit (formerly RStudio):** Tailored for statistics and data science.
-
 * **No Installation Needed:** Run R and RStudio directly in your browser.
 ::::
 
 :::: {.column width=48%}
 ### Why Use Posit Cloud?
 * **Convenience:** No installation required; access RStudio instantly through the internet.
-
 * **Consistency:** Same environment across devices.
-
 * **Collaboration:** Share projects with students and instructors easily.
-
 * **Cost-Effective:** Free tier available with premium options for advanced features.
 ::::
 
@@ -133,11 +125,7 @@ knitr::include_graphics("basic-parts-of-posit-cloud.png")
 ## Activity: Setting up Posit Cloud
 
 1. Sign-up for a free [Posit Cloud](https://login.posit.cloud/){target="_blank"} account using your UP email. Then, log-in.
-
 2. Enter your email again using this form - [Email Entry for Activity: Setting up Posit Cloud](https://forms.office.com/r/8Rm8Ni7aDG?origin=lprLink){target="_blank"} so I can add you to the course's workspace. You will be invited to this course's Workspace soon. Check your email.
-
 3. Enter the Workspace using the link in the email sent from Posit Cloud, then click on the assignment named *Calculator [First name][Last initial]*. This will create a copy for you.
-
 4. Rename your copied assignment as *Calculator [First name][Last initial]*.
-
 5. For now you can explore Posit Cloud. We will discuss more about this tool as we progress.

@@ -33,21 +33,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Previously... (1/2)
 
-The guiding principle of elementary statistics is statistical thinking.
+```{r running-r-code-chunks, echo=FALSE, fig.cap="", fig.align='center', out.width = '75%'}
+knitr::include_graphics("running-rmarkdown-vs-knitting.png")
+```
+
+## Previously... (2/2)
+
+The guiding principle of statistics is statistical thinking.
 
 ```{r statistical-thinking-1, echo=FALSE, fig.cap="Statistical Thinking in the Data Science Life Cycle", fig.align='center', out.width = '55%'}
 knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
 ```
 
-## Previously... (2/2)
-
-```{r running-r-code-chunks, echo=FALSE, fig.cap="", fig.align='center', out.width = '75%'}
-knitr::include_graphics("running-rmarkdown-vs-knitting.png")
-```
-
 ## Types of Variables
 
-```{r types-of-variables, echo=FALSE, fig.cap="Types of Variables [@diez2012openintro]", fig.align='center', out.width = '70%'}
+```{r types-of-variables, echo=FALSE, fig.cap="Types of Variables", fig.align='center', out.width = '70%'}
 knitr::include_graphics("variables.png")
 ```
 
@@ -252,30 +252,73 @@ library("tidyverse")
 $\dagger$ Try the above code sequence in your console. Then, load the package `plotly`.
 :::
 
-## In-Class Demonstration
+## Data Frame Subsetting
 
-**Case Example:** Using the `iris` data set, convert the data frame into a tibble and save it as a new R variable. We want to subset all rows with the "versicolor" species and save them in its individual tibble.
+**How to Subset a Data Frame?** Data frames are organized into rows and columns and can be accessed in the following ways:
 
 :::: {.column width=49%}
-**The original data frame is shown below.**
+  * Accessing a column by Name using `$`
+```{r echo=TRUE, eval=FALSE}
+iris$Species
+```
 
-```{r}
-glimpse(iris)
+  * Accessing a column by name using `[]`
+```{r echo=TRUE, eval=FALSE}
+iris[,"Species"]
+```
+
+  * Accessing multiple columns using a vector of names
+```{r echo=TRUE, eval=FALSE}
+iris[,c("Species","Sepal.Length")]
 ```
 ::::
 
-:::: {.column width=49%}
-**The end result is the following data frames.**
+:::: {.column width=50%}
+  * Accessing rows by an index
+```{r echo=TRUE, eval=FALSE}
+iris[42,]
+```
 
-```{r}
-iris_tibble <- tibble(iris)
-versicolor_tibble <- tibble(iris_tibble[iris_tibble$Species == "versicolor",])
-glimpse(versicolor_tibble)
+  * Accessing specific rows and columns by index or name
+```{r echo=TRUE, eval=FALSE}
+iris[42,c("Species","Sepal.Length")]
+```
+
+  * Accessing specific rows according to some condition
+```{r echo=TRUE, eval=FALSE}
+iris[iris$Species == "setosa",]
 ```
 ::::
 
 ::: {style="color: blue"}
-$\dagger$ The task here is to replicate the shown data frames using R data frame subsetting.
+$\dagger$ Try to subset the `iris` data set, accessing the "viriginica" in the `Species` column.
+:::
+
+::: {style="color: red"}
+$\star$ The above examples uses the `iris` data set, which comes with base R.
+:::
+
+## Example: Subset a Data Frame based on Conditions
+
+**Define Data Frame as a Tibble**
+
+```{r echo=TRUE, eval=TRUE}
+iris_tibble <- tibble(iris)
+```
+
+**Case Example:** The following code sequence subsets the `iris` dataframe (in tibble form) to include only the "versicolor" species, and all rows with `Sepal.Length` at least $6$. 
+
+```{r echo=TRUE, eval=FALSE}
+# subset by species to match "versicolor"
+iris_versicolor <- iris_tibble[iris_tibble$Species == "versicolor",]
+# subset rows with Sepal.Length at least 6
+iris_versicolor2 <- iris_versicolor[iris_versicolor$Sepal.Length >= 6,]
+# display result
+glimpse(iris_versicolor2)
+```
+
+::: {style="color: red"}
+$\star$ The code sequence above uses different variable definitions to track subsetting conditions sequentially.
 :::
 
 ## Activity: Data Sub-Setting and Identifying Variables
@@ -283,13 +326,9 @@ $\dagger$ The task here is to replicate the shown data frames using R data frame
 The purpose of this activity is for you to start developing a proficiency in identifying statistical variables given a dataframe, using R packages, and subsetting data frames.
 
 1. Log-in to Posit Cloud and open the R Studio assignment *M 1/27 - Data Sub-Setting and Identifying Variables*.
-
 2. Make sure you are in the current working directory. Rename the `.Rmd` file by replacing `[name]` with your name using the format `[First name][Last initial]`. Then, open the `.Rmd` file.
-
 3. Change the author in the YAML header.
-
 4. Read the provided instructions.
-
 5. Answer all exercise problems on the designated sections.
 
 ## References

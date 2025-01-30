@@ -221,11 +221,7 @@ $\star$ Help hours --walk-in and by appointment-- exists!
 The purpose of this activity is for you to get a sense of how homework assignments are done.
 
 1. Log-in to Posit Cloud and open the R Studio assignment *W 1/22 - Modify a RMarkdown Document*.
-
 2. Make sure you are in the current working directory. Rename the `.Rmd` file by replacing `[name]` with your name using the format `[First name][Last initial]`. Then, open the `.Rmd` file.
-
 3. Change the author in the YAML header.
-
 4. Read the provided instructions.
-
 5. Answer all exercise problems on the designated sections.
