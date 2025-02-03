@@ -10,6 +10,7 @@ output:
     css: ../_style.css
 bibliography: ../../references.bib
 csl: ../../apa.csl
+nocite: '@*'
 ---
 
 ```{r setup, include=FALSE}
@@ -322,8 +323,6 @@ $\star$ The code sequence above uses different variable definitions to track sub
 :::
 
 ## Activity: Data Sub-Setting and Identifying Variables
-
-The purpose of this activity is for you to start developing a proficiency in identifying statistical variables given a dataframe, using R packages, and subsetting data frames.
 
 1. Log-in to Posit Cloud and open the R Studio assignment *M 1/27 - Data Sub-Setting and Identifying Variables*.
 2. Make sure you are in the current working directory. Rename the `.Rmd` file by replacing `[name]` with your name using the format `[First name][Last initial]`. Then, open the `.Rmd` file.
