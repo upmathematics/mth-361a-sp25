@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - **Develop the ability to identify and analyze relationships between variables in different study settings**
 - **Learn to differentiate between observational and experimental studies and understand the types of conclusions each can support**
 - **Gain insight into various experimental designs, their implications, and the types of statistical inference used to draw conclusions**
-- **Activity: Project Phase 1 - Group formation and data selection.**
+- **Activity: Project Phase 1 - Group formation and data selection**
 ::::
 
 :::: {.column width=15%}
@@ -317,11 +317,11 @@ knitr::include_graphics("random_sample_assignment.png")
 $\star$ **Key Idea:** Parameter estimation focuses on finding the best estimate of an unknown population value, while hypothesis testing determines whether there is enough evidence to support or reject a claim about the population.
 :::
 
-## Activity: Project Phase 1 - Group formation and data selection.
+## Activity: Project Phase 1 - Group formation and data selection
 
 1. Log-in to Posit Cloud and open your *Calculator `[First name][Last initial]`*.
 2. Create a new RMarkdown file and modify it with your name, and names of your group. Remove the default texts.
-3. Choose top 3 data sets in the [Project Data Sets](){target="_blank"}. Install and load the necessary packages, then look at the information about the data set you have chosen by using the `?` command. For example, `?iris` outputs information about the `iris` data frame. 
+3. Choose top 3 data sets in the [Project Data Sets](https://upmathematics.github.io/mth-361a-sp25/index.html#project-data-sets){target="_blank"} page. Install and load the necessary packages, then look at the information about the data set you have chosen by using the `?` command. For example, `?iris` outputs information about the `iris` data frame. 
 4. In your Rmarkdown file, create sections for each data set chosen, and start exploring it. For this phase of the project, here are the things to consider when exploring the data sets:
     a. Install and load necessary packages, then load the data and --if necessary-- convert it to a tibble.
     b. Examine the variables (columns) of the data set and determine the variable types.
