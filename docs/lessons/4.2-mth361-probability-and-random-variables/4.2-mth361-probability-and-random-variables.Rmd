@@ -24,7 +24,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 :::: {.column width=70%}
 - 
-- **Activity: **
+- **Activity: Computing Probabilities**
 ::::
 
 :::: {.column width=15%}
@@ -162,7 +162,7 @@ A **random variable** is a numerical outcome of a random experiment. It assigns 
 
 Probability functions must satisfy the following basic rules:
 
-* The sum of the probabilities for all outcomes in the sample space is equal to 1: $$P(X) = 1.$$
+* The sum of the probabilities for all outcomes in the sample space is equal to 1: $$P(\Omega) = 1.$$
   
 * The empty set has $0$ probability: $$P(\emptyset) = 0.$$
   
@@ -193,7 +193,7 @@ Now, let's do an experiment...
 
 What is the probability for our fair coin? We need to determine the **probability** for each **outcome**.
   
-* For a fair coin, $P(H) = \frac{1}{2}$ and $P(T) = \frac{1}{2}$ which does not change each flip. We call this **independent** events.
+* For a fair coin, $P(H) = \frac{1}{2}$ and $P(T) = \frac{1}{2}$ which does not change for each flip. We call this **independent** events.
 * Consequently, for independent events $A$ and $B$, $P(A \cap B) = P(A)P(B)$.
   - Question: What is the probability of getting $\{H,H,H\}$.
   - Answer: $P(\{H,H,H\}) = P(H)P(H)P(H) = \frac{1}{2} \frac{1}{2} \frac{1}{2} = \frac{1}{8}$

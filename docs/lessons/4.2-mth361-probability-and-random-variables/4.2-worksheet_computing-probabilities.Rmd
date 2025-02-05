@@ -44,7 +44,7 @@ A coin is flipped *four* times in a sequence.
 
 a. List all possible outcomes.
 \vfill
-b. Count the number of $\mathcal{T}$s in each outcome in Part (i).
+b. Count the number of $\mathcal{T}$s in each outcome in Part (a).
 \vfill
 c. Compute the probabilities of each possible number of $\mathcal{T}$.
 \vfill
@@ -57,7 +57,7 @@ A six-sided dice is rolled *twice* in a sequence.
 
 a. List all possible outcomes of the dice rolls.
 \vfill
-b. Add the numbers of the dice in each outcome in Part (i). Then count the frequency of each possible sum.
+b. Add the numbers of the dice in each outcome in Part (a). Then count the frequency of each possible sum.
 \vfill
 c. Compute the probabilities of each possible sum.
 \vfill

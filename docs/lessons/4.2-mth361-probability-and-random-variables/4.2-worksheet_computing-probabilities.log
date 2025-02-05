@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.28)  5 FEB 2025 11:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.28)  5 FEB 2025 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -610,18 +610,18 @@ L3 programming layer <2024-07-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14559 strings out of 473578
- 227508 string characters out of 5732242
+ 14561 strings out of 473578
+ 227530 string characters out of 5732242
  1933960 words of memory out of 5000000
  37187 multiletter control sequences out of 15000+600000
- 589321 words of font info for 77 fonts, out of 8000000 for 9000
+ 589412 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,11n,93p,1034b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2024
 /texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2024/texmf-dist/fonts/t
 ype1/public/lm/lmri12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/lm/lms
 y10.pfb>
-Output written on 4.2-worksheet_computing-probabilities.pdf (2 pages, 79460 byt
+Output written on 4.2-worksheet_computing-probabilities.pdf (2 pages, 79471 byt
 es).
 PDF statistics:
  70 PDF objects out of 1000 (max. 8388607)
