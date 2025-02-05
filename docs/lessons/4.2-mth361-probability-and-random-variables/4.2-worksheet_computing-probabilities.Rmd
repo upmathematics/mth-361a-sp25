@@ -1,0 +1,68 @@
+---
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LO,L]{\textbf{MTH-361 A} | Spring 2025}
+  \fancyhead[RO,R]{\textbf{W 2/5 Worksheet} | Pg. \thepage}
+  \fancyfoot[CO,C]{}
+  \usepackage{float}
+  \usepackage{multirow}
+output:
+  bookdown::pdf_document2:
+    toc: no
+    number_section: no
+urlcolor: blue
+link-citations: yes
+bibliography: ../../../references.bib
+csl: ../../../mbe.csl
+nocite: '@*'
+geometry: "left=0.50in,right=0.50in,top=0.75in,bottom=0.75in"
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Name:**
+
+**Collaborators:**
+
+\noindent\rule{\textwidth}{1pt}
+**Instructions:** 
+
+> You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+
+Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+\noindent\rule{\textwidth}{1pt}
+
+## Computing Probabilities
+
+### 1. Coin Flipping
+
+A coin is flipped *four* times in a sequence.
+
+a. List all possible outcomes.
+\vfill
+b. Count the number of $\mathcal{T}$s in each outcome in Part (i).
+\vfill
+c. Compute the probabilities of each possible number of $\mathcal{T}$.
+\vfill
+    
+\newpage
+
+### 2. Dice Rolling
+
+A six-sided dice is rolled *twice* in a sequence.
+
+a. List all possible outcomes of the dice rolls.
+\vfill
+b. Add the numbers of the dice in each outcome in Part (i). Then count the frequency of each possible sum.
+\vfill
+c. Compute the probabilities of each possible sum.
+\vfill
+
+## **References**
+
+::: {#refs}
+:::
