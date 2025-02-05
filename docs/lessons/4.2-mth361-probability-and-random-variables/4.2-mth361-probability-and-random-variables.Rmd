@@ -23,19 +23,14 @@ knitr::opts_chunk$set(echo = FALSE)
 ::::
 
 :::: {.column width=70%}
-- 
+- **Develop an understanding of the sample space, events, and random variables**
+- **Introduce the axioms of probability**
+- **Know how to compute basic probabilities using probability rules**
 - **Activity: Computing Probabilities**
 ::::
 
 :::: {.column width=15%}
 ::::
-
-## Previously... (1/2)
-
-
-
-## Previously... (2/2)
-
 
 ## Probability and Statistics
 
@@ -54,7 +49,7 @@ knitr::include_graphics("560-5602283_bunco-clipart.png")
 :::: {.column width=50%}
 **Statistics**
 
-```{r "fig-histogram-x", out.width = "70%", fig.align = "center", fig.path="1-files/", dev=c("png")}
+```{r fig-histogram-x, out.width = "70%", fig.align='center'}
 library(MASS)
 set.seed(0); x <- rnorm(1000)
 fit <- fitdistr(x, "normal")
@@ -67,7 +62,7 @@ dev.new()
 ```
 
   * Methods on answering how likely it is that a claim is true
-  * It's an Art
+  * It's an art and science
   * Data-driven approach to write conclusions
   * Multiple ways to solve problems
 ::::
@@ -131,7 +126,7 @@ knitr::include_graphics("events-A-and-B-disjoint.png")
 
 ## Fair Coin
 
-*What is a fair coin?* "Fair" means equal chance of getting a head ($H$) or tail ($T$).
+**What is a fair coin?** "Fair" means equal chance of getting a head ($H$) or tail ($T$).
 
 * For the fair coin, we have <br>
     $P(H) = \frac{1}{2} \longrightarrow$ the probability of heads is one half. <br>
@@ -147,7 +142,9 @@ knitr::include_graphics("events-A-and-B-disjoint.png")
 
 ## Random Variables
 
-A **random variable** is a numerical outcome of a random experiment. It assigns a number to each possible outcome in a **sample space**.
+A **random variable** is a numerical outcome of a random experiment. It assigns a number to each possible outcome in a sample space.
+
+In other words, a random variable is **a function that maps the sample space into real numbers**.
 
 **Types**
 
@@ -191,7 +188,7 @@ Now, let's do an experiment...
 
 ## Inpependence
 
-What is the probability for our fair coin? We need to determine the **probability** for each **outcome**.
+What is the probability for the fair coin? We need to determine the **probability** for each **outcome**.
   
 * For a fair coin, $P(H) = \frac{1}{2}$ and $P(T) = \frac{1}{2}$ which does not change for each flip. We call this **independent** events.
 * Consequently, for independent events $A$ and $B$, $P(A \cap B) = P(A)P(B)$.
@@ -218,9 +215,9 @@ Recall that the sample space for three coin flips is
 * Question: If we flip the coin three times, what is the probability of getting **at most** two heads in any order?
   - Answer: $P(\{T,T,T\},\{\{H,T,T\},\{T,T,H\},\{T,H,T\},\{H,H,T\},\{T,H,H\},\{H,T,H\}\}) = \frac{7}{8}$
   
-## Coin Flipping and Random Variables (1/2)
+## Coin Flipping and Random Variables (2/2)
 
-Let $X$ be a **random variable** that counts the number of $H$ in the sample space for three coin flips.
+Let $X$ be a random variable that **counts the number of $H$** in the sample space for three coin flips.
 
 $$X = \{0,1,2,3\}$$
 
@@ -240,6 +237,10 @@ The random variable $X$ is now a set of discrete numbers that counts the number 
 
 :::: {.column width=15%}
 ::::
+
+::: {style="color: red;"}
+$\star$ The above is an example of a probability distribution.
+:::
 
 ## Activity: Computing Probabilities
 

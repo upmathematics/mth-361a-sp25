@@ -44,9 +44,9 @@ A coin is flipped *four* times in a sequence.
 
 a. List all possible outcomes.
 \vfill
-b. Count the number of $\mathcal{T}$s in each outcome in Part (a).
+b. Count the number of $T$s in each outcome in Part (a).
 \vfill
-c. Compute the probabilities of each possible number of $\mathcal{T}$.
+c. Compute the probabilities of each possible number of $T$.
 \vfill
     
 \newpage
