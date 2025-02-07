@@ -1,0 +1,177 @@
+---
+title: "Probability Functions & <br>Expected Value and Variance"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2025 | University of Portland"
+date: "February 7, 2025"
+output:
+  slidy_presentation:
+    font_adjustment: +5
+    footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Develop an understanding on probability functions**
+- **Introduce the expected value and variance**
+- **Activity: Proving the Variance Formula**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Previously... (1/2)
+
+**Random Variables (R.V.)**
+
+A **random variable** is a numerical outcome of a random experiment. It assigns a number to each possible outcome in a sample space.
+
+In other words, a random variable is **a function that maps the sample space into real numbers**.
+
+**Types**
+
+* *Discrete Random Variable:* Takes on a countable number of values.
+* *Continuous Random Variable:* Takes on any value in an interval.
+
+*Coin Example:* <br>
+    A discrete random variable with sample space $\Omega = \{H,T\}$ maps to $X = \{H=1,T=0\}$. <br>
+    In this case, we can write $P(X = 1) = \frac{1}{2}$ and $P(X = 0) = \frac{1}{2}$.
+
+## Previously... (2/2)
+
+**Probability Axioms and Rules**
+
+* $P(\Omega) = 1$ where $\Omega$ is the sample space
+* $P \ge 0$ (positive)
+* $P \in [0,1]$
+* $P(A \cup B) = P(A) + P(B)$ if events $A$ and $B$ are disjoint
+* $P(A \cap B) = 0$ if events $A$ and $B$ are disjoint
+* $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ if events $A$ and $B$ are joint
+* $P(A \cap B) = P(A)P(B)$ if events $A$ and $B$ are independent events
+
+## R.V. of Binary Outcomes
+
+A **binary r.v.** $X$ is a variable that takes only two possible values, typically represented as:
+$$
+X = 
+\begin{cases}
+1 &  \\
+0 & 
+\end{cases}
+$$
+
+**Examples:**
+
+* A coin flip: $X=1$ (Heads), $X=0$ (tails)
+* A pass/fail test: $X=1$ (pass), $X=0$ (fail)
+
+::: {style="color: red;"}
+$\star$ A random variable with binary outcome is called the **Bernoulli R.V.**.
+:::
+
+## The Bernoulli Distribution
+
+A **Bernoulli r.v.** represents a single experiment with two possible outcomes: success (1) with probability $p$ and failure (0) with probability $1-p$.
+
+$$X \sim \text{Bern}(p)$$
+
+The **Bernoulli distribution** is a **probability function** that computes the probability of the Bernoulli random variable.
+
+$$
+P(X = x) = 
+\begin{cases}
+p & \text{, if } x = 1 \\
+1-p & \text{, if } x = 0
+\end{cases}
+$$
+
+where $p$ is the parameter (also the probability of "success").
+
+The above fuction can also be written as
+
+$$P(X = x) = p^x (1-p)^{1-x}, \ \ x \in \{0,1\}$$
+
+::: {style="color: red;"}
+$\star$ This is known as the **Probability Mass Function (PMF)** because the random variable is discrete.
+:::
+
+## The Expected Value of the Bernoulli R.V.
+
+$$\text{R.V. } \longrightarrow X \sim \text{Bern}(p)$$
+$$\text{PMF } \longrightarrow P(X = x) = p^x (1-p)^{1-x}, \ \ x \in \{0,1\}$$
+
+The **expected value (mean)** of $X$ is given by
+
+$$
+\begin{aligned}
+\text{E}(X) & = 1 \cdot p^{1} (1-p)^{1-1} + 0 \cdot p^{0} (1-p)^{1-0} \\
+     & = 1 \cdot p + 0 \cdot (1-p) \\
+     & = p
+\end{aligned}
+$$
+
+::: {style="color: red;"}
+$\star$ **Key Idea:** The mean of a Bernoulli random variable is simply its success probability $p$. The expected value represents the long-run average outcome of many trials.
+:::
+
+## Properties of the Expected Value
+
+The **expectation (expected value)** of a random variable $X$, denoted as $\text{E}(X)$ represents the **long-run average** or **center of mass** of the distribution of $X$.
+
+**Key Properties:**
+
+* *Linearity of Expectation:* $$\text{E}(aX + bY) = a\text{E}(X) + b\text{E}(Y)$$
+* *Expectation of a Constant:* $$\text{E}(c) = c$$
+* *Expectation of a Sum:* $$\text{E}\left(\sum_i^{n} X_i \right) = \sum_i^{n} E\left( X_i \right)$$
+* *Multiplication by a Constant:* $$\text{E}(cX) = c\text{E}(X)$$
+
+## The Variance of the Bernoulli R.V.
+
+$$\text{R.V. } \longrightarrow X \sim \text{Bern}(p)$$
+$$\text{PMF } \longrightarrow P(X = x) = p^x (1-p)^{1-x}, \ \ x \in \{0,1\}$$
+
+**Variance** measures the **spread** of a random variable around its expected value:
+
+$$\text{Var}(X) = \text{E}\left((X - \text{E}(X))^2\right)$$
+
+Using the properties of the expected value, the above variance formula reduces to
+
+$$\text{Var}(X) = \text{E}\left(X^2 \right) - \left( \text{E}(X) \right)^2$$
+
+The term $\text{E}\left(X^2 \right)$ is called the second moment.
+
+$$
+\begin{aligned}
+\text{E}\left( X^2 \right) & = 1^2 \cdot p^{1} (1-p)^{1-1} + 0^2 \cdot p^{0} (1-p)^{1-0} \\
+     & = 1 \cdot p + 0 \cdot (1-p) \\
+     & = p
+\end{aligned}
+$$
+
+So, since $\text{E}(X) = p$ and $\text{E}\left(X^2\right) = p$, then
+
+$$\text{Var}(X) = p - p^2 = p(1-p).$$
+
+## Activity: Proving the Variance Formula
+
+1. Make sure you have a copy of the *F 2/7 Worksheet*. This will be handed out physically and it is also digitally available on Moodle.
+2. Work on your worksheet by yourself for 10 minutes. Please read the instructions carefully. Ask questions if anything need clarifications.
+3. Get together with another student.
+4. Discuss your results.
+5. Submit your worksheet on Moodle as a `.pdf` file.
+
+## References
+
+::: {#refs}
+:::

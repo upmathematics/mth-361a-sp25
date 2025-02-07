@@ -244,11 +244,11 @@ $\star$ The above is an example of a probability distribution.
 
 ## Activity: Computing Probabilities
 
-1. Make sure you have a copy of the W 2/5 Worksheet. This will be handed out physically and it is also digitally available on Moodle.
+1. Make sure you have a copy of the *W 2/5 Worksheet*. This will be handed out physically and it is also digitally available on Moodle.
 2. Work on your worksheet by yourself for 10 minutes. Please read the instructions carefully. Ask questions if anything need clarifications.
 3. Get together with another student.
 4. Discuss your results.
-5. Submit your worksheet on Moodle as a .pdf file.
+5. Submit your worksheet on Moodle as a `.pdf` file.
 
 ## References
 
