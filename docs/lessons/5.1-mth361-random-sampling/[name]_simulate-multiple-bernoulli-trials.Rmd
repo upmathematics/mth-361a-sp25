@@ -1,0 +1,66 @@
+---
+title: "Simulate Multiple Bernoulli Trials"
+subtitle: "Applied Statistics"
+author: "[First name][Last initial]"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Syllabus Reminders
+
+* You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+* Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+
+# Instructions
+
+* For the exercises, please provide your answers in full sentences.
+* Write your answers by replacing the text "[Write your answer here]".
+* Please read the problems fully and carefully before answering.
+* When finished, knit this `.Rmd` to `.html`.
+* Submit this `.Rmd` and the recently knitted `.html`.
+
+# Packages
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+# Collaborators
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+# Exercises
+
+## Problem 1
+
+The following code sequence simulates the Bernoulli trials. Modify the code to simulate Bernoulli tries with 3 different success probabilities $p_1 = 0.25$, $p_2 = 0.50$, and $p_3 = 0.75$.
+
+Describe your observation of the proportion of outcomes as you increase the number of trails for each $p$.
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+# set parameters
+set.seed(42)  # for reproducibility
+n <- 1000       # number of trials
+x <- c("0","1")   # possible outcomes ("1"="success","0"="failure")
+p <- 0.6      # probability of success
+
+# simulate n Bernoulli trials with success probability p
+samples <- sample(x,size=n,prob=c(1-p,p),replace=TRUE)
+
+# convert samples into tibble form
+samples_tib <- tibble(x=samples) %>% 
+  group_by(x) %>% 
+  summarise(count=n(),
+            proportion=count/n)
+samples_tib
+```
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::

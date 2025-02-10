@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.28)  7 FEB 2025 11:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.28)  10 FEB 2025 08:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -603,10 +603,10 @@ L3 programming layer <2024-07-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14556 strings out of 473578
- 227561 string characters out of 5732242
+ 14558 strings out of 473578
+ 227627 string characters out of 5732242
  1935960 words of memory out of 5000000
- 37184 multiletter control sequences out of 15000+600000
+ 37186 multiletter control sequences out of 15000+600000
  591107 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,11n,93p,1039b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -615,7 +615,7 @@ Here is how much of TeX's memory you used:
 type1/public/lm/lmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/lm/lm
 r12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/
 2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on 4.3-worksheet_proving-the-variance-formula.pdf (1 page, 95887
+Output written on 4.3-worksheet_proving-the-variance-formula.pdf (1 page, 96064
  bytes).
 PDF statistics:
  71 PDF objects out of 1000 (max. 8388607)

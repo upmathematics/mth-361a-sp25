@@ -36,11 +36,11 @@ knitr::opts_chunk$set(echo = FALSE)
 Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
 \noindent\rule{\textwidth}{1pt}
 
-## Proving Variance Formula
+## Proving the Variance Formula
 
 ### 1. Derive the Variance Formula Using Expectation Properties
 
-Use the expected value properties to show that $\displaystyle \text{Var}(X) = \text{E}\left(X^2 \right) - \left( \text{E}(X) \right)^2$. Show each step and what properties used.
+Use the expected value properties to show that $$\displaystyle \text{Var}(X) = \text{E}\left((X - \text{E}(X))^2\right) = \text{E}\left(X^2 \right) - \left( \text{E}(X) \right)^2.$$ Show each step and what properties used.
 \vfill
 
 ## **References**
