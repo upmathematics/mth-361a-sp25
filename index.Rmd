@@ -578,7 +578,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Probability & <br>Random Variables](lessons/4.2-mth361-probability-and-random-variables/4.2-mth361-probability-and-random-variables.html) | ch. 2.1 & ch. 2.3-2.4 @speegle2021probability |
 | [Probability Functions & <br>Expected Value and Variance](lessons/4.3-mth361-probability-functions-and-expected-value-and-variance/4.3-mth361-probability-functions-and-expected-value-and-variance.html) | - |
 | [Random Sampling](lessons/5.1-mth361-random-sampling/5.1-mth361-random-sampling.html) | ch. 2.2 @speegle2021probability |
-| Discrete Random Variables & <br>Probability Mass Functions | ch. 3.1-3.2, 3.5 @speegle2021probability |
+| [Discrete Random Variables & <br>Probability Mass Functions](lessons/5.2-mth361-discrete-random-variables-and-probability-mass-functions/5.2-mth361-discrete-random-variables-and-probability-mass-functions.html) | ch. 3.1-3.2, 3.5 @speegle2021probability |
 | Binomial and Geometric Distributions | ch. 3.3-3.4 @speegle2021probability |
 | Simulating Discrete Random Variables | ch. 5.2 |
 | Continuous Random Variables & <br>Probability Density Functions | ch. 4.1-4.3 @speegle2021probability |

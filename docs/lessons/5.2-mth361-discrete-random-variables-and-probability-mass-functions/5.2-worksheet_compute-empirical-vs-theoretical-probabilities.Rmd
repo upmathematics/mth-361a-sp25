@@ -1,0 +1,72 @@
+---
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LO,L]{\textbf{MTH-361 A} | Spring 2025}
+  \fancyhead[RO,R]{\textbf{W 2/12 Worksheet} | Pg. \thepage}
+  \fancyfoot[CO,C]{}
+  \usepackage{float}
+  \usepackage{multirow}
+output:
+  bookdown::pdf_document2:
+    toc: no
+    number_section: no
+urlcolor: blue
+link-citations: yes
+bibliography: ../../../references.bib
+csl: ../../../mbe.csl
+nocite: '@*'
+geometry: "left=0.50in,right=0.50in,top=0.75in,bottom=0.75in"
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Name:**
+
+**Collaborators:**
+
+\noindent\rule{\textwidth}{1pt}
+**Instructions:** 
+
+> You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+
+Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+\noindent\rule{\textwidth}{1pt}
+
+## Compute Empirical vs Theoretical Probabilities
+
+### 1. Binomial Probability with Dice
+
+A fair six-sided die is rolled 10 times. Let $X$ be the number of times a "4" appears.
+
+a. Determine the appropriate probability distribution for $X$.
+\vfill
+
+b. Find the probability that exactly 3 fours appear.
+\vfill
+
+c. Find the probability that at most 2 fours appear.
+\vfill
+
+\newpage
+
+### 2. Taking Random Samples
+
+Conduct an experiment by rolling a fair six-sided die 10 times and recording the number of times a "4" appears.
+
+a. Repeat this experiment 10 times and record your results.
+\vfill
+
+b. Compute the relative frequency (empirical probability) of obtaining a "4" in your trials.
+\vfill
+
+c. Compare your empirical probability to the theoretical probability from Problem (1b) and (1c).
+\vfill
+
+## **References**
+
+::: {#refs}
+:::

@@ -66,7 +66,7 @@ $$X \sim \text{Bern}(p)$$
 
 The **Bernoulli distribution** is a **probability function** that computes the probability of the Bernoulli random variable.
 
-The **probability mass function** of the *Bernoulli r.v.* is give by $$P(X = x) = p^x (1-p)^{1-x}, \ \ x \in \{0,1\}$$ where $p$ is the parameter (also the probability of "success").
+The **probability mass function** of the *Bernoulli r.v.* is given by $$P(X = x) = p^x (1-p)^{1-x}, \ \ x \in \{0,1\}$$ where $p$ is the parameter (also the probability of "success").
 
 ## Simulating Bernoulli Trials
 

@@ -6,10 +6,10 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="MTH-361A | Spring 2025 | University of Portland" />
-  <meta name="date" content="2025-02-10" />
+  <meta name="date" content="2025-02-12" />
   <meta name="copyright" content="| MTH-361A Spring 2025 | &lt;a href=&#39;../../index.html&#39;&gt;Back to the Course Website&lt;/a&gt;" />
   <meta name="font-size-adjustment" content="5" />
-  <title>Random Sampling</title>
+  <title>Discrete Random Variabes &amp;  Probability Mass Functions</title>
   <style type="text/css">
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,134 +17,6 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-color: #aaaaaa;
-}
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } 
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
-code span.at { color: #7d9029; } 
-code span.bn { color: #40a070; } 
-code span.bu { color: #008000; } 
-code span.cf { color: #007020; font-weight: bold; } 
-code span.ch { color: #4070a0; } 
-code span.cn { color: #880000; } 
-code span.co { color: #60a0b0; font-style: italic; } 
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
-code span.do { color: #ba2121; font-style: italic; } 
-code span.dt { color: #902000; } 
-code span.dv { color: #40a070; } 
-code span.er { color: #ff0000; font-weight: bold; } 
-code span.ex { } 
-code span.fl { color: #40a070; } 
-code span.fu { color: #06287e; } 
-code span.im { color: #008000; font-weight: bold; } 
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
-code span.kw { color: #007020; font-weight: bold; } 
-code span.op { color: #666666; } 
-code span.ot { color: #007020; } 
-code span.pp { color: #bc7a00; } 
-code span.sc { color: #4070a0; } 
-code span.ss { color: #bb6688; } 
-code span.st { color: #4070a0; } 
-code span.va { color: #19177c; } 
-code span.vs { color: #4070a0; } 
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
-</style>
-  <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-{ counter-reset: source-line 0; }
-pre.numberSource code > span
-{ position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-{ content: counter(source-line);
-position: relative; left: -1em; text-align: right; vertical-align: baseline;
-border: none; display: inline-block;
--webkit-touch-callout: none; -webkit-user-select: none;
--khtml-user-select: none; -moz-user-select: none;
--ms-user-select: none; user-select: none;
-padding: 0 4px; width: 4em;
-color: #aaaaaa;
-}
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
-div.sourceCode
-{ }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } 
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
-code span.at { color: #7d9029; } 
-code span.bn { color: #40a070; } 
-code span.bu { color: #008000; } 
-code span.cf { color: #007020; font-weight: bold; } 
-code span.ch { color: #4070a0; } 
-code span.cn { color: #880000; } 
-code span.co { color: #60a0b0; font-style: italic; } 
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
-code span.do { color: #ba2121; font-style: italic; } 
-code span.dt { color: #902000; } 
-code span.dv { color: #40a070; } 
-code span.er { color: #ff0000; font-weight: bold; } 
-code span.ex { } 
-code span.fl { color: #40a070; } 
-code span.fu { color: #06287e; } 
-code span.im { color: #008000; font-weight: bold; } 
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
-code span.kw { color: #007020; font-weight: bold; } 
-code span.op { color: #666666; } 
-code span.ot { color: #007020; } 
-code span.pp { color: #bc7a00; } 
-code span.sc { color: #4070a0; } 
-code span.ss { color: #bb6688; } 
-code span.st { color: #4070a0; } 
-code span.va { color: #19177c; } 
-code span.vs { color: #4070a0; } 
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
   <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -525,12 +397,13 @@ list-style-type: none;
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Random Sampling</h1>
+  <h1 class="title">Discrete Random Variabes &amp; <br>Probability Mass
+Functions</h1>
   <h1 class="subtitle">Applied Statistics</h1>
   <p class="author">
 MTH-361A | Spring 2025 | University of Portland
   </p>
-  <p class="date">February 10, 2025</p>
+  <p class="date">February 12, 2025</p>
 </div>
 <div id="objectives" class="slide section level2">
 <h1>Objectives</h1>
@@ -539,10 +412,13 @@ MTH-361A | Spring 2025 | University of Portland
 </div>
 <div class="column" style="width:70%;">
 <ul>
-<li><strong>Develop an understanding of the long-run
-average</strong></li>
-<li><strong>Introduce random sampling simulations in R</strong></li>
-<li><strong>Activity: Simulate Multiple Bernoulli Trials</strong></li>
+<li><strong>Develop an understanding of sampling with or without
+replacement</strong></li>
+<li><strong>Introduce conditional probability</strong></li>
+<li><strong>Know how binomial and geometric random variables
+work</strong></li>
+<li><strong>Activity: Compute Empirical vs Theoretical
+Probabilities</strong></li>
 </ul>
 </div>
 <div class="column" style="width:15%;">
@@ -567,23 +443,7 @@ interval.</li>
 </div>
 <div id="previously-22" class="slide section level2">
 <h1>Previously… (2/2)</h1>
-<p><strong>The Expected Value</strong></p>
-<p>The <strong>expected value (mean)</strong> of a <em>discrete
-r.v.</em> <span class="math inline">\(X\)</span> is given by <span class="math display">\[\text{E}(X) = \sum_{i=1}^n x_i P(x_i)\]</span>
-where <span class="math inline">\(x_i\)</span> for <span class="math inline">\(i = 1, 2, \cdots, x_n\)</span> are the possible
-outcomes of <span class="math inline">\(X\)</span> with probability
-<span class="math inline">\(P(x_i)\)</span>, and <span class="math inline">\(n\)</span> is the total possible outcomes.</p>
-<p><strong>The Variance</strong></p>
-<p>The <strong>Variance</strong> measures the <strong>spread</strong> of
-a <em>discrete r.v.</em> <span class="math inline">\(X\)</span> around
-its expected value: <span class="math display">\[\text{Var}(X) =
-\text{E}\left(X^2 \right) - \left( \text{E}(X) \right)^2\]</span> where
-<span class="math inline">\(\text{E}\left(X^2 \right)\)</span> is called
-the 2nd raw moment or <span class="math display">\[\text{E}(X^2) =
-\sum_{i=1}^n x_i^2 P(x_i)\]</span></p>
-</div>
-<div id="the-bernoulli-distribution" class="slide section level2">
-<h1>The Bernoulli Distribution</h1>
+<p><strong>The Bernoulli R.V.</strong></p>
 <p>A <strong>Bernoulli r.v.</strong> represents a single experiment with
 two possible outcomes: success (1) with probability <span class="math inline">\(p\)</span> and failure (0) with probability <span class="math inline">\(1-p\)</span>.</p>
 <p><span class="math display">\[X \sim \text{Bern}(p)\]</span></p>
@@ -595,88 +455,190 @@ r.v.</em> is given by <span class="math display">\[P(X = x) = p^x
 (1-p)^{1-x}, \ \ x \in \{0,1\}\]</span> where <span class="math inline">\(p\)</span> is the parameter (also the probability
 of “success”).</p>
 </div>
-<div id="simulating-bernoulli-trials" class="slide section level2">
-<h1>Simulating Bernoulli Trials</h1>
-<p><strong>Load Packages</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<p><strong>Bournoulli Trials</strong></p>
-<p>A <strong>Bernoulli trial</strong> is a random experiment with two
-possible outcomes: success (1) or failure (0).</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># set parameters</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)  <span class="co"># for reproducibility</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span>       <span class="co"># number of trials</span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;0&quot;</span>,<span class="st">&quot;1&quot;</span>)   <span class="co"># possible outcomes (&quot;1&quot;=&quot;success&quot;,&quot;0&quot;=&quot;failure&quot;)</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.6</span>      <span class="co"># probability of success</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co"># simulate n Bernoulli trials with success probability p</span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">sample</span>(x,<span class="at">size=</span>n,<span class="at">prob=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">-</span>p,p),<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co"># convert samples into tibble form</span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>samples_tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x=</span>samples) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>  <span class="fu">group_by</span>(x) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>(),</span>
-<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>            <span class="at">proportion=</span>count<span class="sc">/</span>n)</span>
-<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>samples_tib</span></code></pre></div>
-<pre><code>## # A tibble: 2 × 3
-##   x     count proportion
-##   &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;
-## 1 0         7        0.7
-## 2 1         3        0.3</code></pre>
+<div id="sampling-with-replacement" class="slide section level2">
+<h1>Sampling with Replacement</h1>
+<p>The <strong>sampling with replacement</strong> is a sampling method
+where each selected item is returned to the population before the next
+selection.</p>
+<div class="column" style="width:50%;">
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li><em>Independent Trials:</em> Each draw does not affect the
+next.</li>
+<li><em>Same Probability:</em> Every item has the same chance of being
+selected each time.</li>
+<li><em>Allows Repetition:</em> The same item can be chosen multiple
+times.</li>
+</ul>
 </div>
-<div id="simulating-bernoulli-trials-sample-proportions" class="slide section level2">
-<h1>Simulating Bernoulli Trials: Sample Proportions</h1>
-<p>We can visualize the sample proportions of the simulated Bernoulli
-trials using a <strong>bar plot</strong>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">ggplot</span>(samples_tib,<span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>proportion)) <span class="sc">+</span> </span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span></code></pre></div>
-<p><img role="img" src="data:image/png;base64,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" width="60%" style="display: block; margin: auto;" /></p>
+<div class="column" style="width:49%;">
+<p><strong>Example:</strong></p>
+<ul>
+<li>Drawing a card from a deck, recording its value, and putting it back
+before drawing again.</li>
+<li>Rolling a die multiple times, where each roll does not influence the
+next.</li>
+</ul>
 </div>
-<div id="visualizing-the-bernoulli-distribution" class="slide section level2">
-<h1>Visualizing the Bernoulli Distribution</h1>
-<p>The <strong>Bernoulli distribution</strong> can be visualized using
-the vertical line plot.</p>
-<p><img role="img" src="data:image/png;base64,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" width="60%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="the-long-run-average-outcome-more-samples" class="slide section level2">
-<h1>The Long-Run Average Outcome: More Samples</h1>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># set parameters</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)  <span class="co"># for reproducibility</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span>       <span class="co"># number of trials</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;0&quot;</span>,<span class="st">&quot;1&quot;</span>)   <span class="co"># possible outcomes (&quot;1&quot;=&quot;success&quot;,&quot;0&quot;=&quot;failure&quot;)</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.6</span>      <span class="co"># probability of success</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co"># simulate n Bernoulli trials with success probability p</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">sample</span>(x,<span class="at">size=</span>n,<span class="at">prob=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">-</span>p,p),<span class="at">replace=</span><span class="cn">TRUE</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="co"># convert samples into tibble form</span></span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>samples_tib <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x=</span>samples) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>  <span class="fu">group_by</span>(x) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>(),</span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>            <span class="at">proportion=</span>count<span class="sc">/</span>n)</span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>samples_tib</span></code></pre></div>
-<pre><code>## # A tibble: 2 × 3
-##   x     count proportion
-##   &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;
-## 1 0       377      0.377
-## 2 1       623      0.623</code></pre>
+<div id="sampling-without-replacement" class="slide section level2">
+<h1>Sampling without Replacement</h1>
+<p>The <strong>sampling without replacement</strong> is a sampling
+method where each selected item is not returned to the population before
+the next selection.</p>
+<div class="column" style="width:50%;">
+<p><strong>Key Characteristics:</strong></p>
+<ul>
+<li><em>Dependent Trials:</em> Each draw changes the population.</li>
+<li><em>Changing Probability:</em> The chance of selecting an item
+increases or decreases based on previous</li>
+<li><em>No Repetition:</em> Once an item is chosen, it cannot be
+selected again.</li>
+</ul>
 </div>
-<div id="the-long-run-average-outcome-comparing-to-pmf" class="slide section level2">
-<h1>The Long-Run Average Outcome: Comparing to PMF</h1>
-<p><img role="img" src="data:image/png;base64,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" width="60%" style="display: block; margin: auto;" /></p>
+<div class="column" style="width:49%;">
+<p><strong>Example:</strong></p>
+<ul>
+<li>Drawing a card from a deck without returning it, meaning the next
+draw is from a smaller set.</li>
+<li>Drawing items from jars without return it before drawing the next
+item.</li>
+</ul>
 </div>
-<div id="activity-simulate-multiple-bernoulli-trials" class="slide section level2">
-<h1>Activity: Simulate Multiple Bernoulli Trials</h1>
+</div>
+<div id="multiple-bernoulli-trials" class="slide section level2">
+<h1>Multiple Bernoulli Trials</h1>
+<p><strong>Bernoulli R.V.</strong></p>
+<p><span class="math display">\[X \sim \text{Bern}(p)\]</span></p>
+<p><strong>Probability Mass Function (PMF)</strong></p>
+<p><span class="math display">\[P(X = x) = p^x (1-p)^{1-x}, \ \ x \in
+\{0,1\}\]</span></p>
+<p><strong>Multiple bernoulli trials</strong> is a sequence of
+independent Bernoulli trials, each with the same probability
+<em>p</em>.</p>
+<ul>
+<li><p><strong>Key assumption:</strong> Trials are independent (i.e.,
+one outcome does not affect the next).</p></li>
+<li><p>Leads to important distributions:</p>
+<ul>
+<li>Geometric Distribution (number of trials until the first
+success)</li>
+<li>Binomial Distribution (sum of multiple Bernoulli trials)</li>
+</ul></li>
+</ul>
+</div>
+<div id="the-geometric-r.v." class="slide section level2">
+<h1>The Geometric R.V.</h1>
+<p>A <strong>geometric R.V.</strong> is a discrete random variable that
+represents the number of Bernoulli trials until the first success. Each
+trial is independent, with a constant probability of success <span class="math inline">\(p\)</span>.</p>
+<p><span class="math display">\[X \sim \text{Geom}(p)\]</span></p>
+<div class="column" style="width:50%;">
+<p><strong>Possible Outcomes:</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+1 &amp; \longrightarrow 0 \text{ failure until success} \\
+0,1 &amp; \longrightarrow 1 \text{ failure until success} \\
+0,0,1 &amp; \longrightarrow 2 \text{ failures until success} \\
+0,0,0,1 &amp; \longrightarrow 3 \text{ failures until success} \\
+&amp; \vdots \\
+0,0,0,\cdots,1 &amp; \longrightarrow k \text{ failures until success} \\
+\end{aligned}
+\]</span></p>
+</div>
+<div class="column" style="width:49%;">
+<p><strong>Probabilities:</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+1 &amp; \longrightarrow p \\
+0,1 &amp; \longrightarrow (1-p) p \\
+0,0,1 &amp; \longrightarrow (1-p)^2 p \\
+0,0,0,1 &amp; \longrightarrow (1-p)^3 p \\
+&amp; \vdots \\
+0,0,0,\cdots,1 &amp; \longrightarrow (1-p)^k p \\
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+<div id="the-geometric-r.v.-pmf" class="slide section level2">
+<h1>The Geometric R.V.: PMF</h1>
+<p>The geometric R.V. <span class="math inline">\(X \sim
+\text{Geom}(p)\)</span> has infinite possible outcomes (or infinite
+sized sample space) with PMF given by <span class="math display">\[P(X=k) = (1-p)^k p\]</span> where <span class="math inline">\(k = 1,2,3, \cdots\)</span> and <span class="math inline">\(p\)</span> is the probability of success.</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>What is the probability of success after 5 trials with <span class="math inline">\(p=0.50\)</span>?</li>
+</ul>
+<p><span class="math display">\[P(X=5) = (1-0.50)^5 0.50 \approx
+0.016\]</span></p>
+</div>
+<div id="the-binomial-r.v." class="slide section level2">
+<h1>The Binomial R.V.</h1>
+<p>A <strong>binomial R.V.</strong> is a discrete random variable
+representing the number of successes in <span class="math inline">\(n\)</span> independent Bernoulli trials, each with
+probability of success <span class="math inline">\(p\)</span>.</p>
+<p><span class="math display">\[X \sim \text{Binom}(n,p)\]</span></p>
+<div class="column" style="width:50%;">
+<p><strong>Possible Outcomes:</strong></p>
+<p>Suppose <span class="math inline">\(n = 3\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+0,0,0 &amp; \longrightarrow 3 \text{ failure and } 0 \text{ success} \\
+0,0,1 &amp; \longrightarrow 2 \text{ failure and } 1 \text{ success} \\
+0,1,0 &amp; \longrightarrow 2 \text{ failure and } 1 \text{ success} \\
+0,1,1 &amp; \longrightarrow 1 \text{ failure and } 2 \text{ success} \\
+1,0,0 &amp; \longrightarrow 2 \text{ failure and } 1 \text{ success} \\
+1,0,1 &amp; \longrightarrow 1 \text{ failure and } 2 \text{ success} \\
+1,1,0 &amp; \longrightarrow 1 \text{ failure and } 2 \text{ success} \\
+1,1,1 &amp; \longrightarrow 0 \text{ failure and } 3 \text{ success} \\
+\end{aligned}
+\]</span></p>
+</div>
+<div class="column" style="width:49%;">
+<p><strong>Probabilities:</strong></p>
+<p>Suppose <span class="math inline">\(n = 3\)</span>. <span class="math display">\[
+\begin{aligned}
+0,0,0 &amp; \longrightarrow (1-p)^3 \\
+0,0,1 &amp; \longrightarrow (1-p)^2 p \\
+0,1,0 &amp; \longrightarrow (1-p)^2 p \\
+1,0,0 &amp; \longrightarrow (1-p)^2 p \\
+0,1,1 &amp; \longrightarrow (1-p) p^2 \\
+1,0,1 &amp; \longrightarrow (1-p) p^2 \\
+1,1,0 &amp; \longrightarrow (1-p) p^2 \\
+1,1,1 &amp; \longrightarrow p^3
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+<div id="the-binomial-r.v.-pmf" class="slide section level2">
+<h1>The Binomial R.V.: PMF</h1>
+<p>The binomial R.V. <span class="math inline">\(X \sim
+\text{Binom}(n,p)\)</span> has finite possible outcomes with PMF given
+by <span class="math display">\[P(X=k) = \binom{n}{k} p^k
+(1-p)^{n-k}\]</span> where <span class="math inline">\(k = 1,2,3,
+\cdots, n\)</span>, <span class="math inline">\(p\)</span> is the
+probability of success, and <span class="math inline">\(\binom{n}{k} =
+\frac{n!}{k! (n-k)!}\)</span> is the binomial coefficient</p>
+<p><strong>Example:</strong></p>
+<ul>
+<li>What is the probability of getting 4 successes in 10 trials with
+<span class="math inline">\(p=0.50\)</span>?</li>
+</ul>
+<p><span class="math display">\[P(X=4) =\binom{10}{4} (0.50)^4
+(1-0.50)^{n-k} \approx 0.205\]</span></p>
+</div>
+<div id="activity-compute-empirical-vs-theoretical-probabilities" class="slide section level2">
+<h1>Activity: Compute Empirical vs Theoretical Probabilities</h1>
 <ol style="list-style-type: decimal">
-<li>Log-in to Posit Cloud and open the R Studio assignment <em>M 2/10 -
-Simulate Multiple Bernoulli Trials</em>.</li>
-<li>Make sure you are in the current working directory. Rename the
-<code>.Rmd</code> file by replacing <code>[name]</code> with your name
-using the format <code>[First name][Last initial]</code>. Then, open the
-<code>.Rmd</code> file.</li>
-<li>Change the author in the YAML header.</li>
-<li>Read the provided instructions.</li>
-<li>Answer all exercise problems on the designated sections.</li>
+<li>Make sure you have a copy of the <em>W 2/12 Worksheet</em>. This
+will be handed out physically and it is also digitally available on
+Moodle.</li>
+<li>Work on your worksheet by yourself for 10 minutes. Please read the
+instructions carefully. Ask questions if anything need
+clarifications.</li>
+<li>Get together with another student.</li>
+<li>Discuss your results.</li>
+<li>Submit your worksheet on Moodle as a <code>.pdf</code> file.</li>
 </ol>
 </div>
 <div id="references" class="slide section level2">
