@@ -17,19 +17,15 @@ nocite: '@*'
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r message=FALSE, warning=FALSE}
-library(gridExtra)
-```
-
 ## Objectives
 
 :::: {.column width=15%}
 ::::
 
 :::: {.column width=70%}
-- **Develop an understanding of sampling with or without replacement**
-- **Introduce conditional probability**
-- **Know how binomial and geometric random variables work**
+- **Develop an understanding of sampling with and without replacement**
+- **Introduce the binomial and geometric random variables**
+- **Know how to compute probabilities of the binomial and geometric random variables**
 - **Activity: Compute Empirical vs Theoretical Probabilities**
 ::::
 
@@ -38,28 +34,28 @@ library(gridExtra)
 
 ## Previously... (1/2)
 
-**Random Variables (R.V.)**
+**Random Variables**
 
-A **random variable** is a numerical outcome of a random experiment. It assigns a number to each possible outcome in a sample space.
+A **random variable (r.v)** is a numerical outcome of a random experiment. It assigns a number to each possible outcome in a sample space.
 
 In other words, a random variable is **a function that maps the sample space into real numbers**.
 
-**Types**
+**Types:**
 
-* *Discrete Random Variable:* Takes on a countable number of values.
-* *Continuous Random Variable:* Takes on any value in an interval.
+* *Discrete Random Variable:* Takes on a countable number of outcomes
+* *Continuous Random Variable:* Takes on any value of outcomes in an interval
 
 ## Previously... (2/2)
 
-**The Bernoulli R.V.**
+A **Bernoulli r.v.** represents a single experiment with two possible outcomes: "success" ($X=1$) with probability $p$ and failure ($X=0$) with probability $1-p$. We denote this r.v. and its PMF as
+\[
+\begin{aligned}
+\text{R.V. } & \longrightarrow X \sim \text{Bern}(p) \\
+\text{PMF } & \longrightarrow P(X = x) = p^x (1-p)^{1-x}, \ \ x \in \{0,1\}
+\end{aligned}.
+\]
 
-A **Bernoulli r.v.** represents a single experiment with two possible outcomes: success (1) with probability $p$ and failure (0) with probability $1-p$.
-
-$$X \sim \text{Bern}(p)$$
-
-The **Bernoulli distribution** is a **probability function** that computes the probability of the Bernoulli random variable.
-
-The **probability mass function** of the *Bernoulli r.v.* is given by $$P(X = x) = p^x (1-p)^{1-x}, \ \ x \in \{0,1\}$$ where $p$ is the parameter (also the probability of "success").
+We have shown that the expected value of $X$ is $\text{E}(X) = p$ and the variance of $X$ is $\text{Var}(X) = p(1-p)$ using the definition of expected value and variance respectively.
 
 ## Sampling with Replacement
 
@@ -99,41 +95,52 @@ The **sampling without replacement** is a sampling method where each selected it
 * Drawing items from jars without return it before drawing the next item.
 ::::
 
+## Independent and Identically Distributed
+
+A sequence of random variables $X_1, X_2, \cdots, X_n$ is **independent and identically distributed (i.i.d)** if:
+
+* *Identically distributed:* Each $X_i$ follows the same probability distribution
+* *Independence:* The random variables do not influence each other
+
+:::: {.column width=50%}
+**Examples:**
+
+* Tossing a fair coin multiple times
+* Rolling a fair die multiple times
+::::
+
+:::: {.column width=49%}
+**Why is i.i.d. Important?**
+
+* Forms the foundation of probability and statistics (e.g., Law of Large Numbers, Central Limit Theorem).
+::::
+
 ## Multiple Bernoulli Trials
 
-**Bernoulli R.V.**
+A sequence of **multiple Bernoulli trials** consists i.i.d. Bernoulli random variables where each follows a Bernoulli distribution with "success" probability $p$.
 
-$$X \sim \text{Bern}(p)$$
+* This leads to important distributions:
+    - *Geometric Distribution* (number of trials until the first success)
+    - *Binomial Distribution* (sum of multiple Bernoulli trials)
 
-**Probability Mass Function (PMF)**
-
-$$P(X = x) = p^x (1-p)^{1-x}, \ \ x \in \{0,1\}$$
-
-**Multiple bernoulli trials** is a sequence of independent Bernoulli trials, each with the same probability *p*.
-
-* **Key assumption:** Trials are independent (i.e., one outcome does not affect the next).
-
-* Leads to important distributions:
-    - Geometric Distribution (number of trials until the first success)
-    - Binomial Distribution (sum of multiple Bernoulli trials)
+::: {style="color: red;"}
+$\star$ **Key Assumption:** Trials are independent (i.e., one outcome does not affect the next).
+:::
 
 ## The Geometric R.V.
 
-A **geometric R.V.** is a discrete random variable that represents the number of Bernoulli trials until the first success. Each trial is independent, with a constant probability of success $p$.
-
-$$X \sim \text{Geom}(p)$$
+A **geometric R.V.** is a discrete random variable that represents the number of Bernoulli trials until the first success where each trial is independent, with a constant probability of success $p$: $$X \sim \text{Geom}(p)$$
 
 :::: {.column width=50%}
 **Possible Outcomes:**
 
 \[
 \begin{aligned}
-1 & \longrightarrow 0 \text{ failure until success} \\
-0,1 & \longrightarrow 1 \text{ failure until success} \\
-0,0,1 & \longrightarrow 2 \text{ failures until success} \\
-0,0,0,1 & \longrightarrow 3 \text{ failures until success} \\
+1 & \longrightarrow 0 \text{ fail until success} \\
+0,1 & \longrightarrow 1 \text{ fail until success} \\
+0,0,1 & \longrightarrow 2 \text{ fail until success} \\
  & \vdots \\
-0,0,0,\cdots,1 & \longrightarrow k \text{ failures until success} \\
+0,0,0,\cdots,1 & \longrightarrow k \text{ fail until success} \\
 \end{aligned}
 \]
 ::::
@@ -143,31 +150,49 @@ $$X \sim \text{Geom}(p)$$
 
 \[
 \begin{aligned}
-1 & \longrightarrow p \\
-0,1 & \longrightarrow (1-p) p \\
+1 & \longrightarrow (1-p)^0 p \\
+0,1 & \longrightarrow (1-p)^1 p \\
 0,0,1 & \longrightarrow (1-p)^2 p \\
-0,0,0,1 & \longrightarrow (1-p)^3 p \\
  & \vdots \\
 0,0,0,\cdots,1 & \longrightarrow (1-p)^k p \\
 \end{aligned}
 \]
 ::::
 
+::: {style="color: red;"}
+$\star$ **Key Idea:** The geometric random variable counts the number of "failures" before a "success" and can also be viewed as counting the number of trials including the first "success."
+:::
+
 ## The Geometric R.V.: PMF
 
-The geometric R.V. $X \sim \text{Geom}(p)$ has infinite possible outcomes (or infinite sized sample space) with PMF given by $$P(X=k) = (1-p)^k p$$ where $k = 1,2,3, \cdots$ and $p$ is the probability of success.
+The geometric r.v. $X \sim \text{Geom}(p)$ has infinite possible outcomes (or infinite sized sample space) where $p$ is the "success" probability.
 
-**Example:**
+The PMF of the geometric r.v. can be written in two ways: 
 
-* What is the probability of success after 5 trials with $p=0.50$?
+* *k "failures" until "success":* $$P(X=k) = (1-p)^k p, \ k = 0,1,2, \cdots$$
+* *k trials including 1st "success":* $$P(X=k) = (1-p)^{k-1} p, \ k = 1,2, \cdots$$
 
-$$P(X=5) = (1-0.50)^5 0.50 \approx 0.016$$
+::: {style="color: red;"}
+$\star$ **Key Idea:** The geometric random variable models a situation where samples are taken with replacement, and the number of failures until the first success is counted.
+:::
+
+## The Geometric R.V.: Examples
+
+* What is the probability of "success" on the 6th trial with $p=0.50$? $$P(X=5) = (1-0.50)^5 (0.50) \approx 0.016$$ because there are 5 "failures" before the 6th trial.
+
+* What is the probability that the first "success" occurs on or before the 6th trial, given $p=0.50$? 
+$$
+\begin{aligned}
+P(X \le 5) & = \sum_{i=0}^5 P(X = i) \\ 
+           & = \sum_{i=0}^5 (1-0.50)^{i} (0.50) \\ 
+P(X \le 5) & \approx 0.984 \\
+\end{aligned}
+$$
+because we need to count five or fewer "failures" before a success occurs.
 
 ## The Binomial R.V.
 
-A **binomial R.V.** is a discrete random variable representing the number of successes in $n$ independent Bernoulli trials, each with probability of success $p$.
-
-$$X \sim \text{Binom}(n,p)$$
+A **binomial R.V.** is a discrete random variable representing the number of successes in $n$ independent Bernoulli trials, each with probability of success $p$: $$X \sim \text{Binom}(n,p)$$
 
 :::: {.column width=50%}
 **Possible Outcomes:**
@@ -176,14 +201,14 @@ Suppose $n = 3$.
 
 \[
 \begin{aligned}
-0,0,0 & \longrightarrow 3 \text{ failure and } 0 \text{ success} \\
-0,0,1 & \longrightarrow 2 \text{ failure and } 1 \text{ success} \\
-0,1,0 & \longrightarrow 2 \text{ failure and } 1 \text{ success} \\
-0,1,1 & \longrightarrow 1 \text{ failure and } 2 \text{ success} \\
-1,0,0 & \longrightarrow 2 \text{ failure and } 1 \text{ success} \\
-1,0,1 & \longrightarrow 1 \text{ failure and } 2 \text{ success} \\
-1,1,0 & \longrightarrow 1 \text{ failure and } 2 \text{ success} \\
-1,1,1 & \longrightarrow 0 \text{ failure and } 3 \text{ success} \\
+0,0,0 & \longrightarrow 3 \text{ fail and } 0 \text{ success} \\
+0,0,1 & \longrightarrow 2 \text{ fail and } 1 \text{ success} \\
+0,1,0 & \longrightarrow 2 \text{ fail and } 1 \text{ success} \\
+0,1,1 & \longrightarrow 1 \text{ fail and } 2 \text{ success} \\
+1,0,0 & \longrightarrow 2 \text{ fail and } 1 \text{ success} \\
+1,0,1 & \longrightarrow 1 \text{ fail and } 2 \text{ success} \\
+1,1,0 & \longrightarrow 1 \text{ fail and } 2 \text{ success} \\
+1,1,1 & \longrightarrow 0 \text{ fail and } 3 \text{ success} \\
 \end{aligned}
 \]
 ::::
@@ -194,27 +219,69 @@ Suppose $n = 3$.
 Suppose $n = 3$.
 \[
 \begin{aligned}
-0,0,0 & \longrightarrow (1-p)^3 \\
-0,0,1 & \longrightarrow (1-p)^2 p \\
-0,1,0 & \longrightarrow (1-p)^2 p \\
-1,0,0 & \longrightarrow (1-p)^2 p \\
-0,1,1 & \longrightarrow (1-p) p^2 \\
-1,0,1 & \longrightarrow (1-p) p^2 \\
-1,1,0 & \longrightarrow (1-p) p^2 \\
-1,1,1 & \longrightarrow p^3
+0,0,0 & \longrightarrow (1-p)^3 p^0 \\
+0,0,1 & \longrightarrow (1-p)^2 p^1 \\
+0,1,0 & \longrightarrow (1-p)^2 p^1 \\
+1,0,0 & \longrightarrow (1-p)^2 p^1 \\
+0,1,1 & \longrightarrow (1-p)^1 p^2 \\
+1,0,1 & \longrightarrow (1-p)^1 p^2 \\
+1,1,0 & \longrightarrow (1-p)^1 p^2 \\
+1,1,1 & \longrightarrow (1-p)^0 p^3
 \end{aligned}
 \]
 ::::
 
+::: {style="color: red;"}
+$\star$ **Key Idea:** The binomial random variable counts the number of "successes" in $n$ independent Bernoulli trials, where each trial has a "success" probability $p$.
+:::
+
+## Counting the Number of Combinations
+
+:::: {.column width=49%}
+**Permutations**
+
+An arrangement of objects in a specific order. For $n$ objects, we pick $k$ objects to permute with **number of permutations** given by $$_n P_k = \frac{n!}{(n-k)!}.$$
+::::
+
+:::: {.column width=50%}
+**Combinations**
+
+A selection of objects where order does not matter. For $n$ objects, we pick $k$ objects to combine with **number of combinations** given by $$_n C_k = \binom{n}{k} = \frac{n!}{k!(n-k)!}.$$
+::::
+
+## The Binomial Coefficient
+
+The **binomial coefficient**, denoted as $\binom{n}{k}$ represents the number of ways to choose $k$ objects from a set of $n$ objects without regard to order. It is given by the formula: $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
+
+Expanding binomial expressions using the **Binomial Theorem**: $$(x+y)^n = \sum_{k=0}^n \binom{n}{k} y^k x^{n-k}$$
+
+If we let $x=1-p$ and $y=p$ (Bernoulli PMF), then $$(1-p+p)^n = \sum_{k=0}^n \binom{n}{k} p^k (1-p)^{n-k} = 1.$$
+
+::: {style="color: red;"}
+$\star$ **Key Idea:** Since $p$ is the "success" probability and the Binomial Theorem reduces to $1$, then this satisfies the probability axioms.
+:::
+
 ## The Binomial R.V.: PMF
 
-The binomial R.V. $X \sim \text{Binom}(n,p)$ has finite possible outcomes with PMF given by $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$ where $k = 1,2,3, \cdots, n$, $p$ is the probability of success, and $\binom{n}{k} = \frac{n!}{k! (n-k)!}$ is the binomial coefficient
+The binomial R.V. $X \sim \text{Binom}(n,p)$ has finite possible outcomes with PMF given by $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2,3, \cdots, n$$ where $p$ is the "success" probability. The term $\binom{n}{k} = \frac{n!}{k! (n-k)!}$ is the binomial coefficient.
 
-**Example:**
+::: {style="color: red;"}
+$\star$ **Key Idea:** The binomial random variable models a situation where samples are taken with replacement, and the number of successes is counted within a finite number of trials.
+:::
 
-* What is the probability of getting 4 successes in 10 trials with $p=0.50$?
+## The Binomial R.V.: Examples
 
-$$P(X=4) =\binom{10}{4} (0.50)^4 (1-0.50)^{n-k} \approx 0.205$$
+* What is the probability of getting 4 "success" in 10 trials with $p=0.50$? $$P(X=4) =\binom{10}{4} (0.50)^4 (1-0.50)^{n-k} \approx 0.205$$
+
+* What is the probability of getting at most 4 "success" in 10 trials with $p=0.50$?
+$$
+\begin{aligned}
+P(X \le 4) & = \sum_{i=0}^4 P(X = i) \\ 
+           & = \sum_{i=0}^4 \binom{10}{i} (0.50)^i (1-0.50)^{10-i} \\
+P(X \le 4) & \approx 0.377 \\
+\end{aligned}
+$$
+because we need to count four or fewer "success" in 10 trials.
 
 ## Activity: Compute Empirical vs Theoretical Probabilities
 

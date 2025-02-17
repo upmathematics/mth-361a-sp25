@@ -1,5 +1,5 @@
 ---
-title: "Simulate Multiple Bernoulli Trials"
+title: "Comparing Binomial Distribution with Different Parameters"
 subtitle: "Applied Statistics"
 author: "[name]"
 date: "`r Sys.Date()`"
@@ -44,31 +44,34 @@ library(tidyverse)
 
 ## Problem 1
 
-The following code simulates a sequence of Bernoulli trials, where each trial follows a Bernoulli distribution with a success probability of $p=0.60$ and a failure probability of $1-p=0.40$.
+The following code simulates the Binomial distribution, with a success probability of $p=0.50$ and $n=10$ to be the number of trials.
 
-```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
-# set hyperparameters
-set.seed(42) # for reproducibility
-n <- 10 # number of trials
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+# set seed for reproducibility
+set.seed(42)
 
-# set parameter and PMF of the Bernoulli r.v
-X <- c("0","1") # outcomes ("0"="failure","1"="success")
-p <- 0.6 # probability of success
-bern_pmf <- c(1-p,p)
+# set parameters, outcomes, and probabilities
+N <- 100 # number of simulations
+n <- 10
+p <- 0.5 # set "success" probability
+x_outcomes <- seq(0,10,1) # set outcome from 0 to 10 (technically infinite)
+binom_samples <- rbinom(N,n,p) # function `rbinom()` is the sampling from Binomial PMF
+df <- tibble(x=binom_samples) # convert to tibble
 
-# simulate n Bernoulli trials
-samples <- sample(X,size=n,prob=bern_pmf,replace=TRUE)
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x)) + 
+  geom_bar() + 
+  geom_vline(xintercept = mean(df$x), color="pink", linewidth=1) + 
+  geom_vline(xintercept = n*p, color="red", linewidth=1) + 
+  ggtitle(paste("Random Samples from the Binomial PMF (n=",n,", p=",p,")",sep="")) + # sets the title of the plot
+  scale_x_discrete(limits=x_outcomes) + 
+  theme_minimal() # set theme of entire plot
 
-# convert samples into tibble form and compute proportions
-samples_tib <- tibble(X=samples) %>% 
-  group_by(X) %>% 
-  summarise(count=n(),proportion=count/n)
-
-# view tibble
-samples_tib
+# display plot
+p1
 ```
 
-Modify the above code sequence to simulate Bernoulli trials with 3 different success probabilities:
+Modify the above code sequence to simulate binomial distribution with 3 different success probabilities:
 
   a. $p_1 = 0.25$
   b. $p_2 = 0.50$
@@ -80,7 +83,7 @@ Modify the above code sequence to simulate Bernoulli trials with 3 different suc
 
 ## Problem 2
 
-Describe your observation of the proportion of outcomes ("success" and "failure") as you increase the number of trails for each $p$ in Problem (1).
+Describe your observation of the sample mean and the expected value as you change $p$.
 
 ::: {style="color: blue;"}
 [Write your answer here]

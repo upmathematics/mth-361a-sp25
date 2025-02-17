@@ -581,7 +581,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Expected Value and Variance](lessons/4.3-mth361-expected-value-and-variance/4.3-mth361-expected-value-and-variance.html) | - |
 | [Random Sampling & <br>Law of Large Numbers](lessons/5.1-mth361-random-sampling-and-law-of-large-numbers/5.1-mth361-random-sampling-and-law-of-large-numbers.html) | ch. 2.2 @speegle2021probability |
 | [Discrete Random Variables & <br>Probability Mass Functions](lessons/5.2-mth361-discrete-random-variables-and-probability-mass-functions/5.2-mth361-discrete-random-variables-and-probability-mass-functions.html) | ch. 3.1-3.2, 3.5 @speegle2021probability |
-| Binomial and Geometric Distributions | ch. 3.3-3.4 @speegle2021probability |
+| [Binomial and Geometric Distributions](lessons/6.1-mth361-binomial-and-geometric-distributions/6.1-mth361-binomial-and-geometric-distributions.html) | ch. 3.3-3.4 @speegle2021probability |
 | Continuous Random Variables & <br>Probability Density Functions | ch. 4.1-4.3 @speegle2021probability |
 | Normal and Exponential Distributions | ch. 4.4-4.5 @speegle2021probability |
 | Conditional Probability | Ch. 2.3-2.4 @speegle2021probability |

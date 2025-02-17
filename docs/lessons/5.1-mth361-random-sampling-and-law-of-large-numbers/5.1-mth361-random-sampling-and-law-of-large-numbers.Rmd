@@ -84,7 +84,7 @@ pmf <- tibble(x=c("0","1"),
 p1 <- ggplot(pmf,aes(x=x,y=p)) + 
   geom_point(size=3) + # size here is defined for all points
   geom_segment(aes(x=x,xend=x,
-                   y=c(0,0),yend=p)) + # draws a line between two defined point
+                   y=c(0,0),yend=p)) + # draws a line between two defined points
   ggtitle(paste("Bernoulli PMF (p=",p,")",sep="")) + # sets the title of the plot
   ylim(0,1) + # set limits of the y-axis for viewing
   scale_x_discrete(labels=c("0"="0","1"="1")) + 

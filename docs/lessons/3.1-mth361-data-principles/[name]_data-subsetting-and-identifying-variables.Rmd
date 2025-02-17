@@ -12,16 +12,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Syllabus Reminders
 
-* You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
-* Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+- You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+- Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
 
 # Instructions
 
-* For the exercises, please provide your answers in full sentences.
-* Write your answers by replacing the text "[Write your answer here]".
-* Please read the problems fully and carefully before answering.
-* When finished, knit this `.Rmd` to `.html`.
-* Submit this `.Rmd` and the recently knitted `.html`.
+- For the exercises, please provide your answers in full sentences.
+- Write your answers by replacing the text "[Write your answer here]".
+- Whenever a problem asks you to run something in R, create an R code chunk and write your R commands inside that chunk.
+- If a problem requires modifying an existing R code chunk, make the necessary changes at the appropriate lines within the given code.
+- Please read the problems fully and carefully before answering.
+- When finished, knit this `.Rmd` to `.html`.
+- Submit this `.Rmd` and the recently knitted `.html` to Moodle.
 
 # Collaborators
 
@@ -35,11 +37,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 The following code chunk installs the [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/){target="_blank"} package, which contains the `penguins` data set. The R code chunk has an option called `eval=FALSE`, which indicate that --when knitting-- the code chunk will not run. Explain what happens after a knitting attempt if `eval=TRUE`.
 
-::: {style="color: blue;"}
 ```{r install-palmerpenguins, eval=FALSE}
 install.packages("palmerpenguins")
 ```
 
+::: {style="color: blue;"}
 [Write your answer here]
 :::
 

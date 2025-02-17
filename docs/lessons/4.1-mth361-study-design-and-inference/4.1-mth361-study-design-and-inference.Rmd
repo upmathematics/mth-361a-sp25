@@ -521,7 +521,7 @@ knitr::include_graphics("random_sample_assignment.png")
 5. When finished, knit your `.Rmd` to `.html`, then Submit your `.Rmd` and the recently knitted `.html` to Moodle.
     
 ::: {style="color: red;"}
-$\star$ Your report for this phase will be due on the next phase of the project. You group and final data sets will be announced.
+$\star$ Your report for this phase will be due on the next phase of the project. Your group and final data sets will be announced.
 :::
 
 ## References
