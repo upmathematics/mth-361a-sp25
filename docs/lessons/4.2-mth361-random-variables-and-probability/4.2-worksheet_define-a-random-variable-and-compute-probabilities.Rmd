@@ -1,0 +1,76 @@
+---
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LO,L]{\textbf{MTH-361 A} | Spring 2025}
+  \fancyhead[RO,R]{\textbf{W 2/5 Worksheet} | Pg. \thepage}
+  \fancyfoot[CO,C]{}
+  \usepackage{float}
+  \usepackage{multirow}
+output:
+  bookdown::pdf_document2:
+    toc: no
+    number_section: no
+urlcolor: blue
+link-citations: yes
+bibliography: ../../../references.bib
+csl: ../../../mbe.csl
+nocite: '@*'
+geometry: "left=0.50in,right=0.50in,top=0.75in,bottom=0.75in"
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+**Name:**
+
+**Collaborators:**
+
+\noindent\rule{\textwidth}{1pt}
+**Instructions:** 
+
+> You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+
+Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+\noindent\rule{\textwidth}{1pt}
+
+## Define a Random Variable and Compute Probabilities
+
+### 1. Flipping Coins
+
+Suppose we conduct an experiment of flipping *three* fair coins in a sequence.
+
+a. What is the sample space $S$ and how many possible outcomes?
+\vfill
+
+b. Let $X$ be a random variable (r.v.) that counts the number of $T$ outcomes. What are the possible values of the r.v.? Provide a mapping written as a function and an illustration from the sample space to the r.v..
+\vfill
+
+c. Compute the probabilities of each outcome in the r.v. using the probability rules. Are the probability axioms satisfied? Explain your reasoning.
+\vfill
+    
+\newpage
+
+### 2. Sum of Two Dice
+
+When rolling two fair six-sided dice, the sum of the two numbers rolled can range from 2 to 12. Each outcome has a different probability of occurring.
+
+a. The left table below lists all possible sums of two six-sided dice. Complete the table by summing the outcome of the two dice. Why are there $36$ possible outcomes? Explain your reasoning.
+\vfill
+
+b. The right table below counts the number of ways each sum can occur. Compute the probability of each sum by dividing the count by the total number of outcomes. Does the probability axiom requiring a total sum of 1 hold? Explain your reasoning.
+\vfill
+
+c. Determine which table illustrates the sample space, the random variable, and the probability distribution. Explain your reasoning.
+
+```{r dice-sums, echo=FALSE, fig.cap="", out.width="250px",out.height="250px",fig.show='hold',fig.align='center'}
+knitr::include_graphics("dice-sums-table-blank.pdf")
+knitr::include_graphics("dice-sums-probs-table-blank.pdf")
+```
+
+## **References**
+
+::: {#refs}
+:::

@@ -52,6 +52,53 @@ knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
 knitr::include_graphics("variables.png")
 ```
 
+## Numerical: Discrete vs Continuous
+
+**Numerical variables** are quantitative variables that represent measurable amounts or quantities.
+
+:::: {.column width=49%}
+**Discrete**
+
+* Take distinct, separate values (often whole numbers).
+* Typically countable.
+* Examples:
+    - Number of students in a class (e.g. 25 students)
+    - Books sold per day (e.g. 10 books/day)
+::::
+
+:::: {.column width=49%}
+**Continuous**
+
+* Can take any value within a range, including fractions and decimals.
+* Measured rather than counted.
+* Examples:
+    - Height of a person (e.g., 5.7 ft).
+    - Time taken to complete a task (e.g., 3.25 hours).
+::::
+
+## Categorical: Nominal vs Ordinal
+
+**Categorical variables** are qualitative variables that represent labels or categories. They describe characteristics and are not inherently numerical.
+
+:::: {.column width=49%}
+**Nominal**
+
+* Categories have no natural order or ranking.
+* Used for labeling without quantitative significance.
+* Examples:
+    - Colors of cars (e.g., red, blue, green).
+    - Types of animals (e.g., cat, dog, bird).
+::::
+
+:::: {.column width=49%}
+**Ordinal**
+
+* Categories have a meaningful order or ranking, but the intervals between ranks are not consistent.
+* Examples:
+    - Education level (e.g., high school, bachelor’s, master’s).
+    - Customer satisfaction (e.g., satisfied, neutral, dissatisfied).
+::::
+
 ## Case Study 1
 
 A survey was conducted on students in an introductory statistics course. Below are a few of the questions on the survey, and the corresponding variables the data from the responses were stored in:
@@ -71,15 +118,15 @@ A survey was conducted on students in an introductory statistics course. Below a
 :::: {.column width=15%}
 ::::
 
-## Data Matrix
+## Case Study 1: Data Matrix
 
 Data collected on students in a statistics class on a variety of variables:
 
-```{r data-matrix-with-labels, echo=FALSE, fig.cap="Example Data Matrix [@diez2012openintro]", fig.align='center', out.width = '70%'}
+```{r data-matrix-with-labels, echo=FALSE, fig.cap="Example Data Matrix", fig.align='center', out.width = '70%'}
 knitr::include_graphics("data-matrix-with-labels.png")
 ```
 
-## Identify Types of Variables
+## Case Study 1: Identify Types of Variables
 
 :::: {.column width=50%}
 ```{r data-matrix, echo=FALSE, fig.cap="", fig.align='center', out.width = '100%'}
@@ -95,7 +142,7 @@ knitr::include_graphics("data-matrix.png")
 * **dread:** ordinal categorical - could also be used as numerical
 ::::
 
-## Variables
+## R Variables
 
 **How are variables created and stored in R?**
 
@@ -107,11 +154,7 @@ knitr::include_graphics("how-variables-are-stored.png")
 $\dagger$ Create a variable named `ria` and initially define it as a number. Then, redefine `ria` as a vector. What happens to the original value of `ria` (the number) after it is redefined as a vector?
 :::
 
-::: {style="color: red"}
-$\star$ Knowing and keeping track of what variables are defined is key to understanding why some errors occur.
-:::
-
-## Data Frame, An Introduction
+## Introduction to Data Frames
 
 :::: {.column width=15%}
 ::::
@@ -164,7 +207,7 @@ $\star$ A base R data frame can be converted to a tibble data frame using the `t
 :::: {.column width=15%}
 ::::
 
-## Base R versus R Packages {.smaller}
+## Base R versus R Packages
 
 | **Aspect** | **Base R** | **R Packages** |
 |:---|:------|:------|
@@ -299,7 +342,7 @@ $\dagger$ Try to subset the `iris` data set, accessing the "viriginica" in the `
 $\star$ The above examples uses the `iris` data set, which comes with base R.
 :::
 
-## Example: Subset a Data Frame based on Conditions
+## Subset a Data Frame based on Conditions
 
 **Define Data Frame as a Tibble**
 
@@ -307,7 +350,7 @@ $\star$ The above examples uses the `iris` data set, which comes with base R.
 iris_tibble <- tibble(iris)
 ```
 
-**Case Example:** The following code sequence subsets the `iris` dataframe (in tibble form) to include only the "versicolor" species, and all rows with `Sepal.Length` at least $6$. 
+**Example:** The following code sequence subsets the `iris` dataframe (in tibble form) to include only the "versicolor" species, and all rows with `Sepal.Length` at least $6$. 
 
 ```{r echo=TRUE, eval=FALSE}
 # subset by species to match "versicolor"
