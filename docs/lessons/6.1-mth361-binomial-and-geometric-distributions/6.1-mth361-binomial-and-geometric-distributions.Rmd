@@ -241,7 +241,7 @@ Let $p=0.50$ be the success probability.
 \[
 \begin{aligned}
 \text{R.V. } & \longrightarrow X \sim \text{Geom}(0.60) \\
-\text{PMF } & \longrightarrow P(X=k) = (1-0.50)^k (0.50), \ k = 0,1,2, \cdots
+\text{PMF } & \longrightarrow P(X=k) = (1-0.50)^k (0.50), \ k = 0,1,2, \cdots \\
 \text{expected value} & \longrightarrow \text{E}(X) \approx 0.667
 \end{aligned}
 \]
@@ -454,7 +454,7 @@ Let $p=0.50$ be the success probability and $n=10$ the number of trials.
 \[
 \begin{aligned}
 \text{R.V. } & \longrightarrow X \sim \text{Binom}(p) \\
-\text{PMF } & \longrightarrow P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2,3, \cdots, n
+\text{PMF } & \longrightarrow P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2,3, \cdots, n \\
 \text{expected value} & \longrightarrow \text{E}(X) \approx 5
 \end{aligned}
 \]
@@ -472,7 +472,7 @@ In general, the expected value of the Binomial r.v. is given by $$\text{E}(X) = 
 N <- 100 # number of simulations
 n <- 10
 p <- 0.5 # set "success" probability
-x_outcomes <- seq(0,10,1) # set outcome from 0 to 10 (technically infinite)
+x_outcomes <- seq(0,n,1) # set outcome from 0 to n
 binom_samples <- rbinom(N,n,p) # function `rbinom()` is the sampling from Binomial PMF
 df <- tibble(x=binom_samples) # convert to tibble
 

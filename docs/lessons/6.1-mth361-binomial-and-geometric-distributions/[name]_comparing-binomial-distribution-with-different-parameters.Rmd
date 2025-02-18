@@ -44,7 +44,7 @@ library(tidyverse)
 
 ## Problem 1
 
-The following code simulates the Binomial distribution, with a success probability of $p=0.50$ and $n=10$ to be the number of trials.
+The following code simulates the Binomial distribution, with a success probability of $p=0.60$ and $n=10$ to be the number of trials.
 
 ```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
 # set seed for reproducibility
@@ -53,8 +53,8 @@ set.seed(42)
 # set parameters, outcomes, and probabilities
 N <- 100 # number of simulations
 n <- 10
-p <- 0.5 # set "success" probability
-x_outcomes <- seq(0,10,1) # set outcome from 0 to 10 (technically infinite)
+p <- 0.6 # set "success" probability
+x_outcomes <- seq(0,n,1) # set outcome from 0 to n
 binom_samples <- rbinom(N,n,p) # function `rbinom()` is the sampling from Binomial PMF
 df <- tibble(x=binom_samples) # convert to tibble
 
