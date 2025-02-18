@@ -20,8 +20,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
 library(tidyverse)
 library(openintro)
-library(gridExtra)
 library(gghighlight)
+library(latex2exp)
 data(COL)
 seed <- 42
 ```
@@ -109,9 +109,10 @@ Let $p=0.50$ be the success probability.
 
 \[
 \begin{aligned}
-\text{R.V. } & \longrightarrow X \sim \text{Geom}(0.60) \\
-\text{PMF } & \longrightarrow P(X=k) = (1-0.50)^k (0.50), \ k = 0,1,2, \cdots
-\end{aligned}.
+\text{R.V. } & \longrightarrow X \sim \text{Geom}(0.50) \\
+\text{PMF } & \longrightarrow P(X=k) = (1-0.50)^k (0.50) \\
+\text{for } & k = 0,1,2, \cdots
+\end{aligned}
 \]
 ::::
 
@@ -146,7 +147,13 @@ p1
 :::: {.column width=49%}
 **Example:**
 
-What is the probability of "success" on the 6th trial with $p=0.50$? $$P(X=5) = (1-0.50)^5 (0.50) \approx 0.016$$ because there are 5 "failures" before the 6th trial.
+What is the probability of "success" on the 6th trial with $p=0.50$?
+$$
+\begin{aligned}
+P(X=5) & = (1-0.50)^5 (0.50) \\ 
+       & \approx 0.016
+\end{aligned}
+$$
 
 **Using R:**
 
@@ -155,6 +162,10 @@ p <- 0.5
 dgeom(5,p)
 ```
 ::::
+
+::: {style="color: red;"}
+$\star$ Note that the `dgeom()` function computes the probability $P(X = k)$, meaning it computes the probability at exactly $X=k$ using the Geometric PMF.
+:::
 
 ## Geometric Probabilities (2/2)
 
@@ -187,7 +198,7 @@ p1
 :::: {.column width=49%}
 **Example:**
 
-What is the probability that the first "success" occurs on or before the 6th trial, given $p=0.50$? 
+What is the probability that the first "success" occurs before the 6th trial, given $p=0.50$? 
 $$
 \begin{aligned}
 P(X \le 5) & = \sum_{i=0}^5 P(X = i) \\ 
@@ -195,7 +206,6 @@ P(X \le 5) & = \sum_{i=0}^5 P(X = i) \\
 P(X \le 5) & \approx 0.984 \\
 \end{aligned}
 $$
-because we need to count five or fewer "failures" before a success occurs.
 
 **Using R:**
 
@@ -204,6 +214,10 @@ p <- 0.5
 pgeom(5,p)
 ```
 ::::
+
+::: {style="color: red;"}
+$\star$ Note that the `pgeom()` function computes the probability $P(X \le k)$, meaning it computes the sum of all probabilities from $X=0$ to $X=k$ using the Geometric PMF.
+:::
 
 ## Geometric Expected Value
 
@@ -214,7 +228,8 @@ pgeom(5,p)
 # set parameters, outcomes, and probabilities
 p <- 0.5 # set "success" probability
 x_outcomes <- seq(0,10,1) # set outcome from 0 to 10 (technically infinite)
-geom_pmf <- dgeom(x_outcomes,p) # function `dgeom()` is the Geometric PMF 
+geom_pmf <- dgeom(x_outcomes,p) # function `dgeom()` is the Geometric PMF
+geom_ev <- (1-p)/p # expected value
 df <- tibble(x=x_outcomes, pmf=geom_pmf) # convert to tibble
 
 # plot the Bernoulli distribution and store it into a R variable
@@ -223,7 +238,9 @@ p1 <- ggplot(df,aes(x=x,y=pmf)) +
   geom_segment(aes(x=x,xend=x, # draws a line between two defined points
                    y=rep(0,length(x)),yend=pmf), 
                    color="black") + 
-  geom_vline(xintercept = (1-p)/p, color="red", linewidth=1) + 
+  geom_vline(xintercept = geom_ev, color="red", linewidth=1) + 
+  geom_text(aes(geom_ev,0),label = paste(TeX("E(X)")," = ",geom_ev,sep=""), 
+            vjust = -15, hjust=-0.10,color="red") + 
   ggtitle(paste("Geometric PMF (p=",p,")",sep="")) + # sets the title of the plot
   scale_x_discrete(limits=x_outcomes) + 
   theme_minimal() # set theme of entire plot
@@ -255,18 +272,24 @@ In general, the expected value of the Geometric r.v. is given by $$\text{E}(X) =
 **Random Sampling from the Geometric Distribution**
 
 ```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+set.seed(seed)
 # set parameters, outcomes, and probabilities
 N <- 100 # number of simulations
 p <- 0.5 # set "success" probability
 x_outcomes <- seq(0,10,1) # set outcome from 0 to 10 (technically infinite)
 geom_samples <- rgeom(N,p) # function `rgeom()` is the sampling from Geometric PMF
+geom_mean <- mean(geom_samples) # sample mean
 df <- tibble(x=geom_samples) # convert to tibble
 
 # plot the Bernoulli distribution and store it into a R variable
 p1 <- ggplot(df,aes(x=x)) + 
   geom_bar() + 
-  geom_vline(xintercept = mean(df$x), color="pink", linewidth=1) + 
-  geom_vline(xintercept = (1-p)/p, color="red", linewidth=1) + 
+  geom_vline(xintercept = geom_mean, color="pink", linewidth=1) + 
+  geom_vline(xintercept = geom_ev, color="red", linewidth=1) + 
+  geom_text(aes(geom_mean,0),label = paste(TeX("E(X)")," = ",geom_mean,sep=""), 
+            vjust = -5, hjust=-0.10,color="pink") + 
+  geom_text(aes(geom_ev,0),label = paste(TeX("E(X)")," = ",geom_ev,sep=""), 
+            vjust = -15, hjust=-0.10,color="red") + 
   ggtitle(paste("Random Samples from the Geometric PMF (p=",p,")",sep="")) + # sets the title of the plot
   scale_x_discrete(limits=x_outcomes) + 
   theme_minimal() # set theme of entire plot
@@ -279,7 +302,15 @@ p1
 :::: {.column width=49%}
 **Sample Mean vs the Expected Value**
 
-The sample mean is not exactly equal to the expected value due to sampling variability but by the Law of Large Numbers, we know that as we increase the number of samples, we get closer to the expectation.
+The sample mean of $0.88$ is not exactly equal to the expected value of $1$ due to sampling variability. By the Law of Large Numbers, we know that as we increase the number of samples, the sample mean gets closer to the expectation.
+
+**Geometric Random Sampling using R**
+
+```{r echo=TRUE, eval=FALSE}
+N <- 100 # number of simulations
+p <- 0.5 # set "success" probability
+rgeom(N,p)
+```
 ::::
 
 ## Visualizing the Binomial Distribution
@@ -318,7 +349,8 @@ Let $p=0.50$ be the success probability and $n=10$ the number of trials.
 \[
 \begin{aligned}
 \text{R.V. } & \longrightarrow X \sim \text{Binom}(p) \\
-\text{PMF } & \longrightarrow P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2,3, \cdots, n
+\text{PMF } & \longrightarrow P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \\
+\text{for } & k = 0,1,2,3, \cdots, n
 \end{aligned}
 \]
 ::::
@@ -355,7 +387,13 @@ p1
 :::: {.column width=49%}
 **Example:**
 
-What is the probability of getting 4 "success" in 10 trials with $p=0.50$? $$P(X=4) =\binom{10}{4} (0.50)^4 (1-0.50)^{n-k} \approx 0.205$$
+What is the probability of getting 4 "success" in 10 trials with $p=0.50$?
+$$
+\begin{aligned}
+P(X=4) & = \binom{10}{4} (0.50)^4 (1-0.50)^{n-k} \\ 
+       & \approx 0.205
+\end{aligned}
+$$
 
 **Using R:**
 
@@ -365,6 +403,10 @@ p <- 0.5
 dbinom(4,n,p)
 ```
 ::::
+
+::: {style="color: red;"}
+$\star$ Note that the `dbinom()` function computes the probability $P(X = k)$, meaning it computes the probability at exactly $X=k$ using the Binomial PMF.
+:::
 
 ## Binomial Probabilities (2/2)
 
@@ -406,7 +448,6 @@ P(X \le 4) & = \sum_{i=0}^4 P(X = i) \\
 P(X \le 4) & \approx 0.377 \\
 \end{aligned}
 $$
-because we need to count four or fewer "success" in 10 trials.
 
 **Using R:**
 
@@ -416,6 +457,10 @@ p <- 0.5
 pbinom(4,n,p)
 ```
 ::::
+
+::: {style="color: red;"}
+$\star$ Note that the `pbinom()` function computes the probability $P(X \le k)$, meaning it computes the sum of all probabilities from $X=0$ to $X=k$ using the Binomial PMF.
+:::
 
 ## Binomial Expected Value
 
@@ -428,6 +473,7 @@ n <- 10 # number of trials
 p <- 0.5 # set "success" probability
 x_outcomes <- seq(0,n,1) # set outcome from 0 to n
 binom_pmf <- dbinom(x_outcomes,n,p) # function `dbinom()` is the Binomial PMF 
+binom_ev <- n*p # expected value
 df <- tibble(x=x_outcomes, pmf=binom_pmf) # convert to tibble
 
 # plot the Bernoulli distribution and store it into a R variable
@@ -437,6 +483,8 @@ p1 <- ggplot(df,aes(x=x,y=pmf)) +
                    y=rep(0,length(x)),yend=pmf), 
                    color="black") + 
   geom_vline(xintercept = n*p, color="red", linewidth=1) + 
+  geom_text(aes(binom_ev,0),label = paste(TeX("E(X)")," = ",binom_ev,sep=""), 
+            vjust = -15, hjust=-0.10,color="red") + 
   ggtitle(paste("Binomial PMF (n=",n,", p=",p,")",sep="")) + # sets the title of the plot
   scale_x_discrete(limits=x_outcomes) + 
   theme_minimal() # set theme of entire plot
@@ -468,12 +516,14 @@ In general, the expected value of the Binomial r.v. is given by $$\text{E}(X) = 
 **Random Sampling from the Geometric Distribution**
 
 ```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+set.seed(seed)
 # set parameters, outcomes, and probabilities
 N <- 100 # number of simulations
 n <- 10
 p <- 0.5 # set "success" probability
 x_outcomes <- seq(0,n,1) # set outcome from 0 to n
 binom_samples <- rbinom(N,n,p) # function `rbinom()` is the sampling from Binomial PMF
+binom_mean <- mean(binom_samples) # sample mean
 df <- tibble(x=binom_samples) # convert to tibble
 
 # plot the Bernoulli distribution and store it into a R variable
@@ -481,6 +531,10 @@ p1 <- ggplot(df,aes(x=x)) +
   geom_bar() + 
   geom_vline(xintercept = mean(df$x), color="pink", linewidth=1) + 
   geom_vline(xintercept = n*p, color="red", linewidth=1) + 
+  geom_text(aes(binom_mean,0),label = paste(TeX("E(X)")," = ",binom_mean,sep=""), 
+            vjust = -5, hjust=-0.10,color="pink") + 
+  geom_text(aes(binom_ev,0),label = paste(TeX("E(X)")," = ",binom_ev,sep=""), 
+            vjust = -15, hjust=-0.10,color="red") + 
   ggtitle(paste("Random Samples from the Binomial PMF (n=",n,", p=",p,")",sep="")) + # sets the title of the plot
   scale_x_discrete(limits=x_outcomes) + 
   theme_minimal() # set theme of entire plot
@@ -493,8 +547,34 @@ p1
 :::: {.column width=49%}
 **Sample Mean vs the Expected Value**
 
-The sample mean is not exactly equal to the expected value due to sampling variability but by the Law of Large Numbers, we know that as we increase the number of samples, we get closer to the expectation.
+The sample mean of $4.74$ is not exactly equal to the expected value of $5$ due to sampling variability. By the Law of Large Numbers, we know that as we increase the number of samples, the sample mean gets closer to the expectation.
+
+**Geometric Random Sampling using R**
+
+```{r echo=TRUE, eval=FALSE}
+N <- 100 # number of simulations
+n <- 10 #number of trials
+p <- 0.5 # set "success" probability
+rbinom(N,n,p)
+```
 ::::
+
+## Geometric vs Binomial Distribution Summary
+
+| **R.V.** $X$ | **Geometric** | **Binomial** |
+|:---|:------:|:------|
+| *Description* | number of "fail" trials before a "success" | number of "success" in $n$ trials |
+| *Sampling* | with replacement | with replacement |
+| *Parameters* | $p \longrightarrow$ probability of "success" | $n \longrightarrow$ number of trials<br>$p \longrightarrow$ probability of "success" |
+| *PMF* | $P(X=k) = (1-p)^k p$ <br>$k=0,1,2,\cdots$ | $P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$ <br>$k = 0,1,2,3, \cdots, n$ |
+| *Expected Value* $\text{E}(X)$ | $\frac{1-p}{p}$ | $np$ |
+| $P(X = k)$ | `dgeom(p)` | `dbinom(n,p)` |
+| $P(X \le k)$ | `pgeom(p)` | `pbinom(n,p)` |
+| $N$ *Simulations* | `rgeom(N,p)` | `rbinom(N,n,p)` |
+
+::: {style="color: red;"}
+$\star$ **Key Idea()** The basis for both Geometric and Binomial r.v. is the Bernoulli trials but with different counting methodology of "successes".
+:::
 
 ## Activity: Comparing Binomial Distribution with Different Parameters
 

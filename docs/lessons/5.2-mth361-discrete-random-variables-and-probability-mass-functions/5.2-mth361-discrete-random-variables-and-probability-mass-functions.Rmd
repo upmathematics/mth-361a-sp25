@@ -180,7 +180,7 @@ $\star$ **Key Idea:** The geometric random variable models a situation where sam
 
 * What is the probability of "success" on the 6th trial with $p=0.50$? $$P(X=5) = (1-0.50)^5 (0.50) \approx 0.016$$ because there are 5 "failures" before the 6th trial.
 
-* What is the probability that the first "success" occurs on or before the 6th trial, given $p=0.50$? 
+* What is the probability that the first "success" occurs before the 6th trial, given $p=0.50$? 
 $$
 \begin{aligned}
 P(X \le 5) & = \sum_{i=0}^5 P(X = i) \\ 
