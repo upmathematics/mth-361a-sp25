@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Random Variables**
 
-A **random variable (r.v)** is a numerical outcome of a random experiment. It assigns a number to each possible outcome in a sample space.
+A **random variable (r.v.)** is a numerical outcome of a random experiment. It assigns a number to each possible outcome in a sample space.
 
 In other words, a random variable is **a function that maps the sample space into real numbers**.
 
@@ -129,10 +129,10 @@ $\star$ **Key Assumption:** Trials are independent (i.e., one outcome does not a
 
 ## The Geometric R.V.
 
-A **geometric R.V.** is a discrete random variable that represents the number of Bernoulli trials until the first success where each trial is independent, with a constant probability of success $p$: $$X \sim \text{Geom}(p)$$
+A **geometric R.V.** is a discrete random variable that represents the number of Bernoulli trials until the first "success" where each trial is independent, with a constant "success" probability $p$: $$X \sim \text{Geom}(p)$$
 
 :::: {.column width=50%}
-**Possible Outcomes:**
+**Sample Space:**
 
 \[
 \begin{aligned}
@@ -188,14 +188,14 @@ P(X \le 5) & = \sum_{i=0}^5 P(X = i) \\
 P(X \le 5) & \approx 0.984 \\
 \end{aligned}
 $$
-because we need to count five or fewer "failures" before a success occurs.
+because we need to count five or fewer "failures" before a "success" occurs.
 
 ## The Binomial R.V.
 
-A **binomial R.V.** is a discrete random variable representing the number of successes in $n$ independent Bernoulli trials, each with probability of success $p$: $$X \sim \text{Binom}(n,p)$$
+A **binomial R.V.** is a discrete random variable representing the number of "success" in $n$ independent Bernoulli trials, each with "success" probability $p$: $$X \sim \text{Binom}(n,p)$$
 
 :::: {.column width=50%}
-**Possible Outcomes:**
+**Sample Space:**
 
 Suppose $n = 3$.
 
@@ -263,7 +263,7 @@ $\star$ **Key Idea:** Since $p$ is the "success" probability and the Binomial Th
 
 ## The Binomial R.V.: PMF
 
-The binomial R.V. $X \sim \text{Binom}(n,p)$ has finite possible outcomes with PMF given by $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2,3, \cdots, n$$ where $p$ is the "success" probability. The term $\binom{n}{k} = \frac{n!}{k! (n-k)!}$ is the binomial coefficient.
+The binomial r.v. $X \sim \text{Binom}(n,p)$ has finite possible outcomes with PMF given by $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2,3, \cdots, n$$ where $p$ is the "success" probability. The term $\binom{n}{k} = \frac{n!}{k! (n-k)!}$ is the binomial coefficient.
 
 ::: {style="color: red;"}
 $\star$ **Key Idea:** The binomial random variable models a situation where samples are taken with replacement, and the number of successes is counted within a finite number of trials.

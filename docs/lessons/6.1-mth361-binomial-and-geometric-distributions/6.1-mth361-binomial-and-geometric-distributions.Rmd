@@ -62,7 +62,8 @@ knitr::include_graphics("bernoulli-loln-sim.gif")
 \[
 \begin{aligned}
 \text{R.V. } & \longrightarrow X \sim \text{Geom}(p) \\
-\text{PMF } & \longrightarrow P(X=k) = (1-p)^k p, \ k = 0,1,2, \cdots
+\text{PMF } & \longrightarrow P(X=k) = (1-p)^k p \\
+\text{for } & k = 0,1,2, \cdots
 \end{aligned}
 \]
 
@@ -71,7 +72,8 @@ knitr::include_graphics("bernoulli-loln-sim.gif")
 \[
 \begin{aligned}
 \text{R.V. } & \longrightarrow X \sim \text{Binom}(p) \\
-\text{PMF } & \longrightarrow P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2,3, \cdots, n
+\text{PMF } & \longrightarrow P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \\
+\text{for } & k = 0,1,2,3, \cdots, n
 \end{aligned}
 \]
 
@@ -201,8 +203,8 @@ p1
 What is the probability that the first "success" occurs before the 6th trial, given $p=0.50$? 
 $$
 \begin{aligned}
-P(X \le 5) & = \sum_{i=0}^5 P(X = i) \\ 
-           & = \sum_{i=0}^5 (1-0.50)^{i} (0.50) \\ 
+P(X \le 5) & = \sum_{k=0}^5 P(X = k) \\ 
+           & = \sum_{k=0}^5 (1-0.50)^{k} (0.50) \\ 
 P(X \le 5) & \approx 0.984 \\
 \end{aligned}
 $$
@@ -258,7 +260,8 @@ Let $p=0.50$ be the success probability.
 \[
 \begin{aligned}
 \text{R.V. } & \longrightarrow X \sim \text{Geom}(0.60) \\
-\text{PMF } & \longrightarrow P(X=k) = (1-0.50)^k (0.50), \ k = 0,1,2, \cdots \\
+\text{PMF } & \longrightarrow P(X=k) = (1-0.50)^k (0.50) \\
+\text{for } & k = 0,1,2, \cdots \\
 \text{expected value} & \longrightarrow \text{E}(X) \approx 0.667
 \end{aligned}
 \]
@@ -302,7 +305,7 @@ p1
 :::: {.column width=49%}
 **Sample Mean vs the Expected Value**
 
-The sample mean of $0.88$ is not exactly equal to the expected value of $1$ due to sampling variability. By the Law of Large Numbers, we know that as we increase the number of samples, the sample mean gets closer to the expectation.
+The sample mean of $0.88$ is not exactly equal to the expected value of $1$ due to sampling variability. As we increase the number of samples, the sample mean gets closer to the expectation.
 
 **Geometric Random Sampling using R**
 
@@ -443,8 +446,8 @@ p1
 What is the probability of getting at most 4 "success" in 10 trials with $p=0.50$?
 $$
 \begin{aligned}
-P(X \le 4) & = \sum_{i=0}^4 P(X = i) \\ 
-           & = \sum_{i=0}^4 \binom{10}{i} (0.50)^i (1-0.50)^{10-i} \\
+P(X \le 4) & = \sum_{k=0}^4 P(X = k) \\ 
+           & = \sum_{k=0}^4 \binom{10}{k} (0.50)^k (1-0.50)^{10-k} \\
 P(X \le 4) & \approx 0.377 \\
 \end{aligned}
 $$
@@ -502,7 +505,8 @@ Let $p=0.50$ be the success probability and $n=10$ the number of trials.
 \[
 \begin{aligned}
 \text{R.V. } & \longrightarrow X \sim \text{Binom}(p) \\
-\text{PMF } & \longrightarrow P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \ k = 0,1,2,3, \cdots, n \\
+\text{PMF } & \longrightarrow P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \\
+\text{for } & k = 0,1,2,3, \cdots, n \\
 \text{expected value} & \longrightarrow \text{E}(X) \approx 5
 \end{aligned}
 \]
@@ -547,7 +551,7 @@ p1
 :::: {.column width=49%}
 **Sample Mean vs the Expected Value**
 
-The sample mean of $4.74$ is not exactly equal to the expected value of $5$ due to sampling variability. By the Law of Large Numbers, we know that as we increase the number of samples, the sample mean gets closer to the expectation.
+The sample mean of $4.74$ is not exactly equal to the expected value of $5$ due to sampling variability. As we increase the number of samples, the sample mean gets closer to the expectation.
 
 **Geometric Random Sampling using R**
 
@@ -573,7 +577,7 @@ rbinom(N,n,p)
 | $N$ *Simulations* | `rgeom(N,p)` | `rbinom(N,n,p)` |
 
 ::: {style="color: red;"}
-$\star$ **Key Idea()** The basis for both Geometric and Binomial r.v. is the Bernoulli trials but with different counting methodology of "successes".
+$\star$ **Key Idea** The basis for both Geometric and Binomial r.v. is the Bernoulli trials but with different counting methodology of "successes".
 :::
 
 ## Activity: Comparing Binomial Distribution with Different Parameters
