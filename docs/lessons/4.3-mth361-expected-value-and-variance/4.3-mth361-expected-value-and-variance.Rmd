@@ -96,7 +96,7 @@ knitr::include_graphics("binary-rv.png")
 ::::
 
 ::: {style="color: red;"}
-$\star$ **Key Idea:** A r.v. with binary outcome is called the **Bernoulli R.V.** with a probability of "success" $p$ and "failure" $1-p$, where $p$ is called the *parameter*.
+$\star$ **Key Idea:** A r.v. with binary outcome is called the **Bernoulli R.V.** with a probability of "success" $p$ and "failure" $1-p$, where $p$ is called the *parameter*. One trial with binary outcomes is called a **Bernoulli trial**.
 :::
 
 ## The Bernoulli R.V.

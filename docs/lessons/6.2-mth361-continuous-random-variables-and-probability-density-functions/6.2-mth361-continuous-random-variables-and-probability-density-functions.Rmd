@@ -215,7 +215,8 @@ Let $X$ represent the time to finish the quiz.
 **Computing Probabilities:**
 
 * The exponential PDF is $$f(x) = \frac{1}{15} e^{-\frac{1}{15} x}$$
-* What is the probability that a student finishes a quiz less than or equal to 15 minutes? \[
+* What is the probability that a student finishes a quiz less than or equal to 15 minutes?
+\[
 \begin{aligned}
 P(X \le 15) & = \int_0^{15} f(x) \ dx \\
             & = \int_0^{15} \frac{1}{15} e^{-\frac{1}{15} x} \ dx \\
