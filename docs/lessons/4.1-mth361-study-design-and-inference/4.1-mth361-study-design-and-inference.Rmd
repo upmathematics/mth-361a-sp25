@@ -513,7 +513,7 @@ knitr::include_graphics("random_sample_assignment.png")
 
 1. Log-in to Posit Cloud and open your *Calculator `[First name][Last initial]`*.
 2. Create a new RMarkdown file and modify it with your name, and names of your group. Remove the default texts.
-3. Choose top 3 data sets in the [Project Data Sets](https://upmathematics.github.io/mth-361a-sp25/index.html#project-data-sets){target="_blank"} page. Install and load the necessary packages, then look at the information about the data set you have chosen by using the `?` command. For example, `?iris` outputs information about the `iris` data frame. 
+3. Choose top 3 data sets in the [Project Data Sets](https://upmathematics.github.io/mth-361a-sp25/#data-sets){target="_blank"} page. Install and load the necessary packages, then look at the information about the data set you have chosen by using the `?` command. For example, `?iris` outputs information about the `iris` data frame. 
 4. In your Rmarkdown file, create sections for each data set chosen, and start exploring it. For this phase of the project, here are the things to consider when exploring the data sets:
     a. Install and load necessary packages, then load the data and --if necessary-- convert it to a tibble.
     b. Examine the variables (columns) of the data set and determine the variable types.
