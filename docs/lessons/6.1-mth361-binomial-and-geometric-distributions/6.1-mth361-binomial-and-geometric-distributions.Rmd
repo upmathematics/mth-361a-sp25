@@ -567,8 +567,8 @@ rbinom(N,n,p)
 
 | **R.V.** $X$ | **Geometric** | **Binomial** |
 |:---|:------:|:------|
-| *Description* | number of "fail" trials before a "success" | number of "success" in $n$ trials |
-| *Sampling* | with replacement | with replacement |
+| *Description* | Number of "fail" independent trials before a "success" | Number of "success" in $n$ independent trials |
+| *Sampling* | With replacement | With replacement |
 | *Parameters* | $p \longrightarrow$ probability of "success" | $n \longrightarrow$ number of trials<br>$p \longrightarrow$ probability of "success" |
 | *PMF* | $P(X=k) = (1-p)^k p$ <br>$k=0,1,2,\cdots$ | $P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$ <br>$k = 0,1,2,3, \cdots, n$ |
 | *Expected Value* $\text{E}(X)$ | $\frac{1-p}{p}$ | $np$ |

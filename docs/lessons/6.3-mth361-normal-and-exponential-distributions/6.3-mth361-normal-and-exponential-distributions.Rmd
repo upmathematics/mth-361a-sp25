@@ -82,7 +82,7 @@ p1
 :::: {.column width=49%}
 **Exponential R.V.**
 
-Let $\lambda=\frac{1}{15}$ be the success probability.
+Let $\lambda=\frac{1}{15}$ be the rate of "success".
 
 \[
 \begin{aligned}
@@ -170,7 +170,7 @@ p1
 :::: {.column width=49%}
 **Exponential R.V.**
 
-Let $\lambda=\frac{1}{15}$ be the success probability.
+Let $\lambda=\frac{1}{15}$ be the rate of "success".
 
 \[
 \begin{aligned}
@@ -572,7 +572,16 @@ $\star$ The normal approximation simplifies binomial probability calculations fo
 
 ## Exponential vs Normal Distribution Summary
 
-
+| **R.V.** $X$ | **Exponential** | **Normal** |
+|:---|:------:|:------|
+| *Description* |Unit length until a "success" event happens | Approximation to the Binomial with sufficiently large number of $n$ independent trials |
+| *Sampling* | With replacement | With replacement |
+| *Parameters* | $\lambda \longrightarrow$ rate of "success" | $\mu \longrightarrow$ mean<br>$\sigma^2 \longrightarrow$ variance |
+| *PMF* | $f(x) = f(x) = \lambda e^{- \lambda x}$ <br>$x \in [0,\infty)$ | $f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ <br>$x \in (-\infty,\infty)$ |
+| *Expected Value* $\text{E}(X)$ | $\frac{1}{\lambda}$ | $\mu$ |
+| $P(X = x)$ | `dexp(rate)` | `dnorm(mean,sd)` |
+| $P(X \le x)$ | `pexp(rate)` | `pnorm(mean,sd)` |
+| $N$ *Simulations* | `rexp(N,rate)` | `rnorm(N,mean,sd)` |
 
 ## Activity: The Galton Board and the Normal Distribution
 
