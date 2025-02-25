@@ -679,7 +679,7 @@ library(openintro)
 ## Groups^[Group names are inspired by *Avatar: The Last Airbender* and *Legend of Korra* seasons.]
 
 | **Name** | **Water** | **Earth** | **Fire** | **Air** | **Spirits** | **Change** |
-|:------:|:---:|:---:|:---:|:---:|:---:|:---:|
+|:-----:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **Members** | GraceD<br>IhlaraW | RuthS<br>EduardoG | KalynaB<br>JacqulynneS | MaiaS<br>SydneyL | CalvinP<br>GabeM | HassanE<br>JohnA |
 | **Final Data Set** | `conversation` | `military` | *TBD* | *TBD* | `chimps` | `pres_election` |
 | **Choice 1** | `conversation` | `military` | `bechdel` | `bechdel` | `chimps` | `pres_election` |
