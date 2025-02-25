@@ -2,7 +2,7 @@
 title: "Continuous Random Variables & <br>Probability Density Functions"
 subtitle: "Applied Statistics"
 author: "MTH-361A | Spring 2025 | University of Portland"
-date: "February 17, 2025"
+date: "February 19, 2025"
 output:
   slidy_presentation:
     font_adjustment: +5

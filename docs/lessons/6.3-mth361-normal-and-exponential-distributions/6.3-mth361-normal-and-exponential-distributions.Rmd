@@ -2,7 +2,7 @@
 title: "Normal and Exponential Distributions"
 subtitle: "Applied Statistics"
 author: "MTH-361A | Spring 2025 | University of Portland"
-date: "February 17, 2025"
+date: "February 21, 2025"
 output:
   slidy_presentation:
     font_adjustment: +5
@@ -32,9 +32,9 @@ seed <- 42
 ::::
 
 :::: {.column width=70%}
-- **Know how to compute exponential probabilities using R**
-- **Know how to simulate exponential distribution in R**
-- **Introduce the normal distribution**
+- **Develop and understanding of the exponential and normal distributions**
+- **Know how to compute exponential and normal probabilities using R**
+- **Introduce how to simulate exponential and normal random sampling in R**
 - **Activity: The Galton Board and Normal Distribution**
 ::::
 
@@ -150,13 +150,13 @@ $\star$ Note that the `pexp()` function computes the probability $P(X \le x)$, m
 ```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
 # set parameters, outcomes, and probabilities
 mean <- 15
-lambda <- 1/15 # set "success" probability
+lambda <- 1/15
 x_outcomes <- seq(0,60,0.10) # set outcome from 0 to 60 (technically infinite)
 exp_pdf <- dexp(x_outcomes,lambda) # function `dexp()` is the Exponential PDF 
-df <- tibble(x=x_outcomes, pmf=exp_pdf) # convert to tibble
+df <- tibble(x=x_outcomes, pdf=exp_pdf) # convert to tibble
 
 # plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df,aes(x=x,y=pmf)) + 
+p1 <- ggplot(df,aes(x=x,y=pdf)) + 
   geom_line(size=1,color="black") + # size here is defined for all points
   geom_vline(xintercept = mean, color="red", linewidth=1) + 
   ggtitle(TeX(paste("Exponential Distribution ","$\\lambda$","=","$\\frac{1}{",mean,"}$"))) + # sets the title of the plot
@@ -195,7 +195,7 @@ set.seed(seed)
 N <- 100 # number of simulations
 lambda <- 1/mean # set "success" probability
 x_outcomes <- seq(0,60,0.10) # set outcome from 0 to 60 (technically infinite)
-exp_samples <- rexp(N,lambda) # function `rgeom()` is the sampling from Exponential PDF
+exp_samples <- rexp(N,lambda) # function `rexp()` is the sampling from Exponential PDF
 exp_mean <- mean(exp_samples) # sample mean
 df <- tibble(x=exp_samples) # convert to tibble
 
@@ -242,6 +242,7 @@ n <- 10 # number of trials
 p <- 0.5 # set "success" probability
 x_outcomes <- seq(0,n,1) # set outcome from 0 to n
 binom_pmf <- dbinom(x_outcomes,n,p) # function `dbinom()` is the Binomial PMF 
+binom_ev <- n*p # expected value
 df <- tibble(x=x_outcomes, pmf=binom_pmf) # convert to tibble
 
 # plot the Bernoulli distribution and store it into a R variable
@@ -250,6 +251,9 @@ p1 <- ggplot(df,aes(x=x,y=pmf)) +
   geom_segment(aes(x=x,xend=x, # draws a line between two defined points
                    y=rep(0,length(x)),yend=pmf), 
                    color="black") + 
+  geom_vline(xintercept = n*p, color="red", linewidth=1) + 
+  geom_text(aes(binom_ev,0),label = paste(TeX("E(X)")," = ",binom_ev,sep=""), 
+            vjust = -15, hjust=-0.10,color="red") + 
   ggtitle(paste("Binomial PMF (n=",n,", p=",p,")",sep="")) + # sets the title of the plot
   scale_x_discrete(limits=x_outcomes) + 
   theme_minimal() # set theme of entire plot
@@ -266,9 +270,10 @@ Let $p=0.50$ be the success probability and $n=10$ the number of trials.
 
 \[
 \begin{aligned}
-\text{R.V. } & \longrightarrow X \sim \text{Binom}(p) \\
+\text{R.V. } & \longrightarrow X \sim \text{Binom}(n,p) \\
 \text{PMF } & \longrightarrow P(X=k) = \binom{n}{k} p^k (1-p)^{n-k} \\
-\text{for } & k = 0,1,2,3, \cdots, n
+\text{for } & k = 0,1,2,3, \cdots, n \\
+\text{expected value} & \longrightarrow \text{E}(X) \approx 5
 \end{aligned}
 \]
 ::::
@@ -315,7 +320,7 @@ $\dagger$ Can you determine the probabilities of observing $H$ outcomes in $4$ t
 
 ## Flipping $\mathbf{n}$ Coins: The Expected Number of $H$ outcomes in $n$ Trials
 
-How many $H$ outcomes do we expect to have in $n$ independent Bernoulli trials?
+How many $H$ outcomes do we expect to have in $n$ independent Bernoulli trials with "success" probability $p$?
 
 :::: {.column width=50%}
 **Example**
@@ -330,38 +335,23 @@ How many $H$ outcomes do we expect to have in $n$ independent Bernoulli trials?
 :::: {.column width=49%}
 **In general:**
 
-- Let $p$ be the probability of "success" for each independent Bernoulli trial.
-- Let $n$ be the number of trials.
-- The expected value of "success" outcomes is $n \times p$.
+- The expected value of "success" outcomes is $\text{E}(X) = n \times p$.
+- The binomial coefficient tells you how many ways $k$ "success" outcomes can occur in $n$ trials, corresponding to the $k$-th column in the $n$-th row of Pascal’s Triangle.
 ::::
 
 ::: {style="color: red;"}
-$\star$ **Key Idea:** expected number of successes in $n$ trials with success probability $p$. Over many repetitions, the long-run average number of successes is $n \times p$, reflecting the frequentist interpretation of probability.
+$\star$ **Key Idea:** Over many repetitions, the long-run average number of "success" outcomes is $n \times p$, reflecting the frequentist interpretation of probability.
 :::
 
-## Approximating the Binomial
-
-**The Normal Approximation**
-
-The binomial distribution can be approximated by a normal distribution with mean $\mu$ and variance $\sigma^2$ when:
-
-* $n$ is sufficiently large
-* $np \ge 5$ and $n(1-p) \ge 5$ (Rule of Thumb)
-
-**Mean and Standard Deviation of the Normal Approximation**
-
-* Mean: $\mu = np$
-* Variance: $\sigma^2 = np(1-p)$
-* Standard Deviation: $\sigma = \sqrt{np(1-p)}$
-
-## The Normal Distribution
+## Normal Approximation to the Binomial
 
 ```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
-# binomial pmf
+# binomial random samples using the binomial pmf
 p <- 0.50
 n <- 20
+N <- 10000
 x_binom <- seq(0,n)
-binom_pmf <- dbinom(x_binom,n,p)
+binom_samples <- rbinom(N,n,p)
 
 # normal pdf
 mu <- n*p
@@ -370,19 +360,19 @@ x_norm <- seq(0,n,0.10)
 norm_pdf <- dnorm(x_norm,mu,sigma)
 
 # convert pmf and pdf into tibble
-df_binom <- tibble(x=x_binom, binom_pmf=binom_pmf)
+df_binom <- tibble(x=binom_samples) %>% 
+  group_by(x) %>% 
+  summarise(x_prop=n()/N)
 df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
 
 # plot the Bernoulli distribution and store it into a R variable
-p1 <- ggplot(df_binom,aes(x=x,y=binom_pmf)) + 
-  geom_point(size=3,aes(color="Binomal PMF")) + # size here is defined for all points
-  geom_segment(aes(x=x,xend=x, # draws a line between two defined points
-                   y=rep(0,length(x)),yend=binom_pmf), 
-                   color="black") + 
+p1 <- ggplot(df_binom,aes(x=x,y=x_prop)) + 
+  geom_col(aes(fill="Binomial Samples")) + 
   geom_line(data=df_norm,aes(x=x,y=norm_pdf, color="Normal PDF"), linewidth=1) + 
   ylab("density") + 
-  scale_color_manual(values=c("Binomal PMF"="black","Normal PDF"="#009159")) +
-  ggtitle("Binomial vs Normal Distributions") + # sets the title of the plot
+  scale_color_manual(values=c("Normal PDF"="#009159")) +
+  scale_fill_manual(values=c("Binomial Samples"="darkgray")) + 
+  ggtitle("Binomial Samples Approximated by a Normal Distribution") + # sets the title of the plot
   theme_minimal() + # set theme of entire plot
   theme(legend.title=element_blank())
 
@@ -394,19 +384,214 @@ p1
 $\star$ **Key Idea:** The Binomial distribution is approximately the normal distribution given large enough samples because of the Law of Large Numbers.
 :::
 
-## The Galton Board and the Normal Distribution
+## The Normal R.V.
 
-https://youtu.be/UCmPmkHqHXk?si=0npB9FARd3Xt5UwD
+A **normal r.v.** is a type of continuous r.v. whose probability distribution follows the *normal distribution*, also known as the *Gaussian distribution*. The normal distribution is characterized by two parameters, $\mu$ as the mean and $\sigma^2$ as the variance: $$X \sim \text{N}(\mu,\sigma^2)$$
 
-## Activity: The Galton Board and Normal Distribution
+**Sample Space:**
 
-1. Make sure you have a copy of the *W 2/19 - The Galton Board and Normal Distribution*. This will be handed out physically and it is also digitally available on Moodle.
-2. Work on your worksheet by yourself for 10 minutes. Please read the instructions carefully. Ask questions if anything need clarifications.
-3. Get together with another student.
-4. Discuss your results.
-5. Submit your worksheet on Moodle as a `.pdf` file.
+* $x \in (-\infty,\infty)$ because the normal r.v. can take any value from the entire real number line and it is a continuous random variable.
+
+**Parameters**
+
+* $\mu$ is the mean (center) or the mode of the distribution.
+* $\sigma^2$ measures the spread of the distribution.
+
+## The Normal R.V.: PDF
+
+The normal r.v. $X \sim \text{N}(\mu,\sigma^2)$ has infinite possible outcomes (or infinite sized sample space) where $\mu$ is the mean and $\sigma^2$ is the variance with PDF given as $$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}, \ -\infty < x < \infty$$
+
+::: {style="color: red;"}
+$\star$ **Key Idea:** The normal r.v. often approximates the distribution of many types of data, especially when there are large numbers of independent factors contributing to the outcome.
+:::
+
+## Normal Probabilities
+
+:::: {.column width=50%}
+**Normal Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mu <- 20*0.50
+sd <- sqrt(20*0.50*(1-0.50))
+x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
+norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
+df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x,y=pdf)) + 
+  geom_line(size=1,color="black") + # size here is defined for all points
+  geom_ribbon(data=subset(df,x>=0 & x<=13),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
+  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+What is $P(X \le 13)$ for $X \sim \text{N}(10,2.24)$? 
+\[
+\begin{aligned}
+P(X \le 13) & = \int_0^{13} f(x) \ dx \\
+            & = \int_0^{13} \frac{1}{\sqrt{2 \pi (2.24)^2}} e^{-\frac{(x-10)^2}{2(2.24)^2}} \ dx \\
+P(X \le 13) & \approx 0.9098
+\end{aligned}
+\]
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+mu <- 10
+sd <- 2.24
+pnorm(13,mu,sd)
+```
+::::
+
+::: {style="color: red;"}
+$\star$ Note that the `pnorm()` function computes the probability $P(X \le x)$, meaning it computes the area under $f(x)$ from $X=0$ to $X=x$ using the Normal PDF. The `dnorm()` function computes the density, not probability because $P(X = x)=0$ at any $x$.
+:::
+
+## Normal Expected Value
+
+:::: {.column width=50%}
+**Normal Distribution with Expected Value**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mu <- 20*0.50
+sd <- sqrt(20*0.50*(1-0.50))
+x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
+norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
+df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x,y=pdf)) + 
+  geom_line(size=1,color="black") + # size here is defined for all points
+  geom_vline(xintercept = mu, color="red", linewidth=1) + 
+  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+::::
+
+:::: {.column width=49%}
+**Normal R.V.**
+
+Let $\mu=10$ and $s=2.24$ be the mean and standard deviation respectively.
+
+\[
+\begin{aligned}
+\text{R.V. } & \longrightarrow X \sim \text{N}\left(10,2.24^2\right) \\
+\text{PDF } & \longrightarrow f(x) = \frac{1}{\sqrt{2 \pi (2.24)^2}} e^{-\frac{(x-10)^2}{2(2.24)^2}} \\
+\text{for } & x \in (-\infty,\infty) \\
+\text{expected value} & \longrightarrow \text{E}(X) = 10
+\end{aligned}
+\]
+
+In general, the expected value of the exponential r.v. is given by $$\text{E}(X) = \frac{1}{\lambda},$$ which is the reciprocal of the "success" rate.
+::::
+
+## Simulating the Normal Distribution
+
+:::: {.column width=50%}
+**Random Sampling from the Exponential Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+set.seed(seed)
+# set parameters, outcomes, and probabilities
+N <- 100 # number of simulations
+mu <- 20*0.50
+sd <- sqrt(20*0.50*(1-0.50))
+x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
+norm_samples <- rnorm(N,mu,sd) # function `rnorm()` is the sampling from Normal PDF
+norm_mean <- mean(norm_samples) # sample mean
+df <- tibble(x=norm_samples) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x)) + 
+  geom_histogram(bin=30) + 
+  geom_vline(xintercept = norm_mean, color="pink", linewidth=1) + 
+  geom_vline(xintercept = mu, color="red", linewidth=1) + 
+  geom_text(aes(norm_mean,0),label = paste(TeX("E(X)")," = ",round(norm_mean,2),sep=""), 
+            vjust = -5, hjust=-0.10,color="pink") + 
+  geom_text(aes(mu,0),label = paste(TeX("E(X)")," = ",mu,sep=""), 
+            vjust = -15, hjust=-0.10,color="red") + 
+  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+::::
+
+:::: {.column width=49%}
+**Sample Mean vs the Expected Value**
+
+The sample mean of $10.07$ is not exactly equal to the expected value of $10$ due to sampling variability. As we increase the number of samples, the sample mean gets closer to the expectation.
+
+**Normal Random Sampling using R**
+
+```{r echo=TRUE, eval=FALSE}
+N <- 100 # number of simulations
+mu <- 10
+sd <- 2.24
+rnorm(N,mu,sd)
+```
+::::
+
+## Normal Approximation to the Binomial (Revisited)
+
+:::: {.column width=50%}
+**When Can we use it?**
+
+The binomial distribution $X \sim \text{Binom}(n,p)$ can be approximated by a normal distribution when:
+
+* $np$ (expected "success") and $np(1-p)$ (expected "fail") are sufficiently large
+::::
+
+:::: {.column width=49%}
+**Approximation Formula**
+
+* If $X \sim \text{Binom}(n,p)$, then for large $n$, $$X \approx \text{N}(\mu,\sigma^2)$$ where $\mu = np$ and $\sigma^2 = np(1-p)$.
+::::
+
+::: {style="color: red;"}
+$\star$ The normal approximation simplifies binomial probability calculations for large $n$.
+:::
+
+## Why Use Normal Approximation for Binomial?
+
+* **Computational convenience:** Calculating binomial probabilities for large $n$ can be computationally intense because you have to evaluate a large number of terms. The normal approximation simplifies this by allowing you to use the normal distribution.
+* **Simplifies calculations:** When $n$ is large, the binomial distribution can become cumbersome to work with directly. The normal approximation provides a simpler alternative that still gives reasonably accurate results.
+
+## Exponential vs Normal Distribution Summary
+
+
+
+## Activity: The Galton Board and the Normal Distribution
+
+1. Watch this video: https://youtu.be/UCmPmkHqHXk?si=LT1apiUwe0meA8PS.
+2. Get together with another student.
+3. Discuss the video by answering the following question.
+    - How does the structure of Pascal's triangle relate to the binomial distribution?
+    - Why does the shape of the bead distribution on a Galton board become approximately normal as the number of rows increases?
+4. Make sure to write your name in the attendance sheet.
 
 ## References
 
 ::: {#refs}
 :::
+
+## Appendix: The Binomial Coefficient
+
+**Pascal’s Triangle and Combinations** This formula calculates the number of ways to choose $k$ elements from a set of $n$. Each number in Pascal’s Triangle corresponds to a combination. Also known as the **binomial coefficient**.
+
+```{r pascals-triangle-binom-comb, echo=FALSE, fig.cap="", out.width="60%", fig.align="center"}
+knitr::include_graphics("pascals-triangle-binom-comb.png")
+```

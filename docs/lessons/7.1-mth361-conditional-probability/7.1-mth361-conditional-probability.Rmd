@@ -1,0 +1,99 @@
+---
+title: "Conditional Probability"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2025 | University of Portland"
+date: "February 24, 2025"
+output:
+  slidy_presentation:
+    font_adjustment: +5
+    footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(gghighlight)
+library(latex2exp)
+data(COL)
+seed <- 42
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Introduce conditional probability**
+- **Develop an understanding of dependent events**
+- **Know how to compute conditional probabilities**
+- **Activity: **
+::::
+
+:::: {.column width=15%}
+::::
+
+## Previously... (1/2)
+
+**Basic Probability Rules**
+
+| **Rule** | **Formula** |
+|:---|:------|
+| *Independence* | $P(A \cap B) = P(A)P(B)$ |
+| *Joint (Union)* | $P(A \cup B) = P(A) + P(B) - P(A \cap B)$ |
+| *Disjoint* | $P(A \cap B) = 0$ |
+| *Complement* | If $P(A) + P(B) = 1$, then $1-P(A)=P(B)$. |
+
+## Previously... (2/2)
+
+| **Axiom** | **Statement** |
+|:---|:------|
+| $P(S) = 1$ | The sum of the probabilities for all outcomes in the sample space is equal to 1. |
+| $P \in [0,1]$ | Probabilities are always positive and always between $0$ and $1$. |
+| $P(A \cup B) = P(A) + P(B)$ | If events A and B are disjoint (mutually exclusive), then their probabilities can be added. |
+
+## Sampling with Replacement
+
+
+
+## Sampling without Replacement
+
+
+
+## Drawing Cards
+
+
+
+## Conditional Probability
+
+
+
+## Balls in Urns Problem (Part 1/2)
+
+
+
+
+## Bayes' Rule
+
+
+
+## Balls in Urns Problem (Part 2/2)
+
+
+
+## Activity: 
+
+
+
+## References
+
+::: {#refs}
+:::
