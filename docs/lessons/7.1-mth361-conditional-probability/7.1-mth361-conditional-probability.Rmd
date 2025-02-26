@@ -35,7 +35,7 @@ seed <- 42
 - **Introduce conditional probability**
 - **Develop an understanding of dependent events**
 - **Know how to compute conditional probabilities**
-- **Activity: **
+- **Activity: Balls in Urns Problem**
 ::::
 
 :::: {.column width=15%}
@@ -62,11 +62,47 @@ seed <- 42
 
 ## Sampling with Replacement
 
+**Sampling with replacement** is a sampling method where each selected unit is returned to the population before the next selection. Each selection is independent of previous selection.
 
+:::: {.column width=50%}
+**Characteristics:**
+
+* The population remains unchanged after each selection.
+* Each item can be chosen more than once.
+* Items are independently chosen with the same probability.
+::::
+
+:::: {.column width=49%}
+```{r sampling-with-replacement, echo=FALSE, fig.cap="", out.width="70%", fig.align="center"}
+knitr::include_graphics("sampling-with-replacement.png")
+```
+::::
 
 ## Sampling without Replacement
 
+**Sampling without replacement** is a sampling method where each selected unit is not returned to the population before the next draw. Each selection depends on previous selections, as the population size decreases.
 
+:::: {.column width=50%}
+**Characteristics:**
+
+* The population changes after each selection.
+* Each item can be chosen only once.
+* Items are dependently chosen with changing probability.
+::::
+
+:::: {.column width=49%}
+```{r sampling-without-replacement, echo=FALSE, fig.cap="", out.width="70%", fig.align="center"}
+knitr::include_graphics("sampling-without-replacement.png")
+```
+::::
+
+## With vs Without Replacement
+
+| **Feature** | **Sampling with Replacement** | **Sampling without Replacement** |
+|:---|:---|:---|
+| _Independence_ | Yes | No |
+| _Duplication_ | Yes | No |
+| _Changing Sample Space_ | No | Yes |
 
 ## Drawing Cards
 
@@ -81,15 +117,16 @@ seed <- 42
 
 
 
-## Bayes' Rule
-
-
 
 ## Balls in Urns Problem (Part 2/2)
 
 
 
-## Activity: 
+## Bayes' Rule
+
+
+
+## Activity: Balls in Urns Problem
 
 
 

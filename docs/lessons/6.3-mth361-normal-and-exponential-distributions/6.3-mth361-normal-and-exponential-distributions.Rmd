@@ -494,7 +494,7 @@ Let $\mu=10$ and $s=2.24$ be the mean and standard deviation respectively.
 \end{aligned}
 \]
 
-In general, the expected value of the exponential r.v. is given by $$\text{E}(X) = \frac{1}{\lambda},$$ which is the reciprocal of the "success" rate.
+In general, the expected value of the normal r.v. is given by $$\text{E}(X) = \mu,$$ which is the center of the normal distribution.
 ::::
 
 ## Simulating the Normal Distribution

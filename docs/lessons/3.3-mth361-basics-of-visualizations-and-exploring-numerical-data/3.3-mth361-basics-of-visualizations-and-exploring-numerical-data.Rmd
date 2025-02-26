@@ -49,7 +49,7 @@ set.seed(42)
 knitr::include_graphics("variables.png")
 ```
 
-## Previously... (1/2)
+## Previously... (2/2)
 
 **Chaining `dplyr` Verbs Using `%>%`**
 

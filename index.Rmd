@@ -207,25 +207,25 @@ The following learning objectives are designed to build on one another, with som
 | **6** | M 2/17 | Binomial and Geometric Distributions & <br>**Homework 2** |
 |  | W 2/19 | Continuous Random Variables & <br>Probability Density Functions |
 |  | F 2/21 | Normal and Exponential Distributions |
-| **7** | M 2/24 | Conditional Probability & <br>**Homework 3** & <br>**Project Phase 2** |
+| **7** | M 2/24 | Conditional Probability & <br>**Project Phase 2** |
 |  | W 2/26 | Advanced Visualizations & <br>Exploring Categorical Data  |
 |  | F 2/28 | Central Limit Theorem |
 | **8** | M 3/3 | _Spring Vacation_ |
 |  | W 3/5 | _Spring Vacation_ |
 |  | F 3/7 | _Spring Vacation_ |
-| **9** | M 3/10 | Parameter Estimation & <br>**Homework 4** |
+| **9** | M 3/10 | Parameter Estimation |
 |  | W 3/12 | Hypothesis Testing |
 |  | F 3/14 | Bootstrapping and Randomizations |
-| **10** | M 3/17 | Decision Errors & <br>**Homework 5** |
+| **10** | M 3/17 | Decision Errors & <br>**Homework 3** |
 |  | W 3/19 | Inference for Proportions |
 |  | F 3/21 | Inference for Means |
 | **11** | M 3/24 | Choosing Tests for Parameter Estimations & <br>**Project Phase 3** |
 |  | W 3/26 | Rank-Based Tests |
 |  | F 3/28 | Chi-Squared Tests |
-| **12** | M 3/31 | Hypothesis Testing for Proportions and Means & <br>**Homework 6** |
+| **12** | M 3/31 | Hypothesis Testing for Proportions and Means |
 |  | W 4/2 | Linear Regression and Least-Squares, & <br>Residual Analysis |
 |  | F 4/4 | Multiple Linear Regression |
-| **13** | M 4/7 | Hypothesis Testing for Linear Regression & <br>**Homework 7** |
+| **13** | M 4/7 | Hypothesis Testing for Linear Regression & <br>**Homework 4** |
 |  | W 4/9 | Inference for Many Means |
 |  | F 4/11 | ANalysis Of VAriance (ANOVA) |
 | **14** | M 4/14 | Choosing Hypothesis Tests & <br>**Project Phase 4** |
@@ -584,8 +584,8 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Binomial and Geometric Distributions](lessons/6.1-mth361-binomial-and-geometric-distributions/6.1-mth361-binomial-and-geometric-distributions.html) | ch. 3.3-3.4 @speegle2021probability |
 | [Continuous Random Variables & <br>Probability Density Functions](lessons/6.2-mth361-continuous-random-variables-and-probability-density-functions/6.2-mth361-continuous-random-variables-and-probability-density-functions.html) | ch. 4.1-4.3 @speegle2021probability |
 | [Normal and Exponential Distributions](lessons/6.3-mth361-normal-and-exponential-distributions/6.3-mth361-normal-and-exponential-distributions.html) | ch. 4.4-4.5 @speegle2021probability |
-| Conditional Probability | Ch. 2.3-2.4 @speegle2021probability |
-| Advanced Visualizations & <br>Exploring Categorical Data | ch. 6.5-6.7 & ch. 7.4 @speegle2021probability |
+| Conditional Probability | ch. 2.3-2.4 @speegle2021probability |
+| [Advanced Visualizations & <br>Exploring Categorical Data](lessons/7.2-mth361-advanced-visualizations-and-exploring-categorical-data/7.2-mth361-advanced-visualizations-and-exploring-categorical-data.html) | ch. 6.5-6.7 & ch. 7.4 @speegle2021probability |
 | Central Limit Theorem | ch. 5.1-5.4 @speegle2021probability |
 | Inference | - |
 | Parameter Estimation | ch. 5.5-5.6 @speegle2021probability |
@@ -681,7 +681,7 @@ library(openintro)
 | **Name**^[Group names are inspired by *Avatar: The Last Airbender* and *Legend of Korra* seasons.] | **Water** | **Earth** | **Fire** | **Air** | **Spirits** | **Change** |
 |:---|:---|:---|:---|:---|:---|:---|
 | **Members** | GraceD<br>IhlaraW | RuthS<br>EduardoG | KalynaB<br>JacqulynneS | MaiaS<br>SydneyL | CalvinP<br>GabeM | HassanE<br>JohnA |
-| **Final Data Set** | `conversation` | `military` | *TBD* | *TBD* | `chimps` | `pres_election` |
+| **Final Data Set** | `conversation` | `military` | `bechdel` | `gender` | `chimps` | `pres_election` |
 | **Choice 1** | `conversation` | `military` | `bechdel` | `bechdel` | `chimps` | `pres_election` |
 | **Choice 2** | `bechdel` | `conversation` | `conversation` | `gender` | `ecars` | `houses` |
 | **Choice 3** | `cern` | `bechdel` | `cern` | `converstation` | `accelerometer` | `ecars` |

@@ -335,7 +335,7 @@ p1 <- ggplot(df,aes(x=x,y=pmf)) +
   geom_segment(aes(x=x,xend=x, # draws a line between two defined points
                    y=rep(0,length(x)),yend=pmf), 
                    color="black") + 
-  ggtitle(paste("Binomial PMF (n=",n,", p=",p,")",sep="")) + # sets the title of the plot
+  ggtitle(paste("Binomial PMF (n=",n,", p=",round(p,3),")",sep="")) + # sets the title of the plot
   scale_x_discrete(limits=x_outcomes) + 
   theme_minimal() # set theme of entire plot
 
@@ -347,7 +347,7 @@ p1
 :::: {.column width=49%}
 **Binomial R.V.**
 
-Let $p=0.50$ be the success probability and $n=10$ the number of trials.
+Let $p=0.50$ be the "success" probability and $n=10$ the number of trials.
 
 \[
 \begin{aligned}
@@ -378,7 +378,7 @@ p1 <- ggplot(df,aes(x=x,y=pmf)) +
                    y=rep(0,length(x)),yend=pmf), 
                    color="blue") + 
   gghighlight(x==4,unhighlighted_colour = "black") + 
-  ggtitle(paste("Binomial PMF (n=",n,", p=",p,")",sep="")) + # sets the title of the plot
+  ggtitle(paste("Binomial PMF (n=",n,", p=",round(p,3),")",sep="")) + # sets the title of the plot
   scale_x_discrete(limits=x_outcomes) + 
   theme_minimal() # set theme of entire plot
 
@@ -393,8 +393,9 @@ p1
 What is the probability of getting 4 "success" in 10 trials with $p=0.50$?
 $$
 \begin{aligned}
-P(X=4) & = \binom{10}{4} (0.50)^4 (1-0.50)^{n-k} \\ 
-       & \approx 0.205
+P(X=4) & = \binom{10}{4} (0.50)^4 (1-0.50)^{10-4} \\ 
+       & = 210 (0.50)^4 (0.50)^{6} \\
+P(X=4) & \approx 0.205
 \end{aligned}
 $$
 
@@ -431,7 +432,7 @@ p1 <- ggplot(df,aes(x=x,y=pmf)) +
                    y=rep(0,length(x)),yend=pmf), 
                    color="blue") + 
   gghighlight(x<=4,unhighlighted_colour = "black") + 
-  ggtitle(paste("Binomial PMF (n=",n,", p=",p,")",sep="")) + # sets the title of the plot
+  ggtitle(paste("Binomial PMF (n=",n,", p=",round(p,3),")",sep="")) + # sets the title of the plot
   scale_x_discrete(limits=x_outcomes) + 
   theme_minimal() # set theme of entire plot
 
