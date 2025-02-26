@@ -82,7 +82,7 @@ knitr::include_graphics("p3_plot2.png")
 
 Use the `geom_boxplot()` to replicate the following plot, which shows the `fare` variable comparing different genders and survival.
 
-```{r echo=FALSE, fig.align='center', out.width = "40%"}
+```{r echo=FALSE, fig.align='center', out.width = "80%"}
 knitr::include_graphics("p4_plot.png")
 ```
 
