@@ -24,7 +24,7 @@ fontsize: 12pt
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-**Name:**
+**Name:** \textcolor{blue}{Solutions}
 
 **Collaborators:**
 
@@ -43,12 +43,40 @@ Worksheets are marked mostly on completion, and partially on correctness. It wil
 Suppose we conduct an experiment of flipping *three* fair coins in a sequence.
 
 a. What is the sample space $S$ and how many possible outcomes?
+
+\textcolor{blue}{
+There are $2^3 = 8$ possible outcomes. \\
+These outcomes are $\{ TTT, TTH, THT, HTT, THH, HTH, HHT, HHH \}$.
+}
 \vfill
 
 b. Let $X$ be a random variable (r.v.) that counts the number of $T$ outcomes. What are the possible values of the r.v.? Provide a mapping written as a function and an illustration from the sample space to the r.v..
+
+\textcolor{blue}{
+\[
+\begin{aligned}
+X(TTT) & = 0 \\
+X(TTH,THT,HTT) & = 1 \\
+X(THH,HTH,HHT) & = 2 \\
+X(HHH) & = 3
+\end{aligned}
+\]
+}
 \vfill
 
 c. Compute the probabilities of each outcome in the r.v. using the probability rules. Are the probability axioms satisfied? Explain your reasoning.
+
+\textcolor{blue}{
+\[
+P(X=x) = \begin{cases}
+\frac{1}{8}, & x = 0 \\
+\frac{3}{8}, & x = 1 \\
+\frac{3}{8}, & x = 2 \\
+\frac{1}{8}, & x = 3
+\end{cases}
+\]
+The probability axioms are satisfied since each probability is in between $0$ and $1$, the $\sum_{x=0}^{3} P(X=x) = 1$, and the outcomes are disjoint.
+}
 \vfill
     
 \newpage
@@ -58,16 +86,28 @@ c. Compute the probabilities of each outcome in the r.v. using the probability r
 When rolling two fair six-sided dice, the sum of the two numbers rolled can range from 2 to 12. Each outcome has a different probability of occurring.
 
 a. The left table below lists all possible sums of two six-sided dice. Complete the table by summing the outcome of the two dice. Why are there $36$ possible outcomes? Explain your reasoning.
+
+\textcolor{blue}{
+There are $36$ possible outcomes because the two dice has $6$ sides and $6 \times 6 = 36$.
+}
 \vfill
 
 b. The right table below counts the number of ways each sum can occur. Compute the probability of each sum by dividing the count by the total number of outcomes. Does the probability axiom requiring a total sum of 1 hold? Explain your reasoning.
+
+\textcolor{blue}{
+The sum of all probabilities are shown to be $1$ and each probability is between $0$ and $1$, which satisfies the probability axioms. Also, each sum outcome is disjoint.
+}
 \vfill
 
 c. Determine which table illustrates the sample space, the r.v., and the probability distribution. Explain your reasoning.
 
+\textcolor{blue}{
+The left table shows the sample space since it shows all the possible sums of the two dice. The right table shows the r.v. and the probability distribution because it follows the probability rules.
+}
+
 ```{r dice-sums, echo=FALSE, fig.cap="", out.width="250px",out.height="250px",fig.show='hold',fig.align='center'}
-knitr::include_graphics("dice-sums-table-blank.pdf")
-knitr::include_graphics("dice-sums-probs-table-blank.pdf")
+knitr::include_graphics("solutions_dice-sums-table-blank.pdf")
+knitr::include_graphics("solutions_dice-sums-probs-table-blank.pdf")
 ```
 
 ## **References**

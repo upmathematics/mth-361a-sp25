@@ -1,7 +1,7 @@
 ---
 title: "Simulate Multiple Bernoulli Trials"
 subtitle: "Applied Statistics"
-author: "[name]"
+author: "<span style='color:blue'>Solutions</span>"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -37,7 +37,7 @@ library(tidyverse)
 # Collaborators
 
 ::: {style="color: blue;"}
-[Write your answer here]
+<span style='color:blue'>Solutions</span>
 :::
 
 # Exercises
@@ -75,7 +75,41 @@ Modify the above code sequence to simulate Bernoulli trials with 3 different "su
   c. $p_3 = 0.75$
 
 ::: {style="color: blue;"}
-[Write your answer here]
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+# set hyperparameters
+set.seed(42) # for reproducibility
+n <- 1000 # number of trials
+
+# set parameter and PMF of the Bernoulli r.v
+X <- c("0","1") # outcomes ("0"="failure","1"="success")
+p_a <- 0.25 # part (a) p
+p_b <- 0.50 # part (b) p
+p_c <- 0.75 # part (c) p
+bern_pmf_a <- c(1-p_a,p_a) # part (a) pmf
+bern_pmf_b <- c(1-p_b,p_b) # part (b) pmf
+bern_pmf_c <- c(1-p_c,p_c) # part (b) pmf
+
+# simulate n Bernoulli trials
+samples_a <- sample(X,size=n,prob=bern_pmf_a,replace=TRUE) # part (a) samples
+samples_b <- sample(X,size=n,prob=bern_pmf_b,replace=TRUE) # part (b) samples
+samples_c <- sample(X,size=n,prob=bern_pmf_c,replace=TRUE) # part (c) samples
+
+# convert samples into tibble form and compute proportions
+samples_tib_a <- tibble(X=samples_a) %>% # part (a) samples as tibble
+  group_by(X) %>% 
+  summarise(count=n(),proportion=count/n)
+samples_tib_b <- tibble(X=samples_b) %>% # part (b) samples as tibble
+  group_by(X) %>% 
+  summarise(count=n(),proportion=count/n)
+samples_tib_c <- tibble(X=samples_c) %>% # part (c) samples as tibble
+  group_by(X) %>% 
+  summarise(count=n(),proportion=count/n)
+
+# view tibble
+samples_tib_a
+samples_tib_b
+samples_tib_c
+```
 :::
 
 ## Problem 2
@@ -83,5 +117,5 @@ Modify the above code sequence to simulate Bernoulli trials with 3 different "su
 Describe your observation of the proportion of outcomes ("success" and "failure") as you increase the number of trials for each $p$ in Problem (1).
 
 ::: {style="color: blue;"}
-[Write your answer here]
+As the number of trials increase, the "success" and "failure" proportions of the samples are getting closer to their respective probabilities.
 :::

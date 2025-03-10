@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.15)  2 MAR 2025 13:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.15)  2 MAR 2025 17:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**4.2-worksheet_define-a-random-variable-and-compute-probabilities.tex
-(./4.2-worksheet_define-a-random-variable-and-compute-probabilities.tex
+**5.2S-worksheet_probabilities-vs-sample-proportions.tex
+(./5.2S-worksheet_probabilities-vs-sample-proportions.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -412,8 +412,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count312
 \l__pdf_internal_box=\box64
-) (./4.2-worksheet_define-a-random-variable-and-compute-probabilities.aux)
-\openout1 = `4.2-worksheet_define-a-random-variable-and-compute-probabilities.aux'.
+) (./5.2S-worksheet_probabilities-vs-sample-proportions.aux)
+\openout1 = `5.2S-worksheet_probabilities-vs-sample-proportions.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
 LaTeX Font Info:    ... okay on input line 117.
@@ -474,33 +474,33 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 117.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 149.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 144.
 (c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 149.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 144.
 (c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 149.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 144.
 (c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 149.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 144.
 (c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 149.
+(Font)              <12> on input line 144.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 149.
+(Font)              <8> on input line 144.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 149.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 149.
+(Font)              <6> on input line 144.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 144.
 (c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 149.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 144.
 (c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -514,24 +514,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1{c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 
-{c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-<dice-sums-table-blank.pdf, id=20, 145.86395pt x 97.20013pt>
-File: dice-sums-table-blank.pdf Graphic file (type pdf)
-<use dice-sums-table-blank.pdf>
-Package pdftex.def Info: dice-sums-table-blank.pdf  used on input line 180.
-(pdftex.def)             Requested size: 250.94563pt x 167.22394pt.
-<dice-sums-probs-table-blank.pdf, id=21, 139.3235pt x 161.59973pt>
-File: dice-sums-probs-table-blank.pdf Graphic file (type pdf)
-<use dice-sums-probs-table-blank.pdf>
-Package pdftex.def Info: dice-sums-probs-table-blank.pdf  used on input line 180.
-(pdftex.def)             Requested size: 216.3531pt x 250.9455pt.
+{c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 210.
+(c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+<5.2S-worksheet_probabilities-vs-sample-proportions_files/figure-latex/unnamed-chunk-3-1.pdf, id=25, 552.0625pt x 135.50626pt>
+File: 5.2S-worksheet_probabilities-vs-sample-proportions_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use 5.2S-worksheet_probabilities-vs-sample-proportions_files/figure-latex/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: 5.2S-worksheet_probabilities-vs-sample-proportions_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 218.
+(pdftex.def)             Requested size: 542.07895pt x 133.05573pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--194
+Underfull \hbox (badness 10000) in paragraph at lines 266--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--198
+Underfull \hbox (badness 10000) in paragraph at lines 270--273
 
  []
 
@@ -544,25 +543,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[2{c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc} <./dice-sums-table-blank.pdf> <./dice-sums-probs-table-blank.pdf>] (./4.2-worksheet_define-a-random-variable-and-compute-probabilities.aux)
+[2{c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./5.2S-worksheet_probabilities-vs-sample-proportions_files/figure-latex/unnamed-chunk-3-1.pdf>] (./5.2S-worksheet_probabilities-vs-sample-proportions.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 12411 strings out of 475172
- 195506 string characters out of 5764330
- 622308 words of memory out of 5000000
- 35204 multiletter control sequences out of 15000+600000
- 588415 words of font info for 59 fonts, out of 8000000 for 9000
+ 12444 strings out of 475172
+ 196521 string characters out of 5764330
+ 635290 words of memory out of 5000000
+ 35227 multiletter control sequences out of 15000+600000
+ 594770 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,11n,93p,716b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb>
-Output written on 4.2-worksheet_define-a-random-variable-and-compute-probabilities.pdf (2 pages, 111019 bytes).
+ 89i,11n,93p,534b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/ajavq/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on 5.2S-worksheet_probabilities-vs-sample-proportions.pdf (2 pages, 141170 bytes).
 PDF statistics:
- 107 PDF objects out of 1000 (max. 8388607)
- 88 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 119 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
+ 21 named destinations out of 1000 (max. 500000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

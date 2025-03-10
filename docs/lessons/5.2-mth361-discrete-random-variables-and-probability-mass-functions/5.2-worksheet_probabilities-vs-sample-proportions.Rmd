@@ -1,0 +1,107 @@
+---
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LO,L]{\textbf{MTH-361 A} | Spring 2025}
+  \fancyhead[RO,R]{\textbf{W 2/12 Worksheet} | Pg. \thepage}
+  \fancyfoot[CO,C]{}
+  \usepackage{float}
+  \usepackage{multirow}
+output:
+  bookdown::pdf_document2:
+    toc: no
+    number_section: no
+urlcolor: blue
+link-citations: yes
+bibliography: ../../../references.bib
+csl: ../../../mbe.csl
+nocite: '@*'
+geometry: "left=0.50in,right=0.50in,top=0.75in,bottom=0.75in"
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(knitr)
+library(gridExtra)
+data(COL)
+seed = 42
+```
+
+**Name:**
+
+**Collaborators:**
+
+\noindent\rule{\textwidth}{1pt}
+**Instructions:** 
+
+> You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+
+Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+\noindent\rule{\textwidth}{1pt}
+
+## Probabilities vs Sample Proportions
+
+### 1. Binomial Probability with Dice
+
+Ten fair six-sided die is rolled simultaneously. Let $X$ be the number of times a 4 appears.
+
+a. Determine the appropriate probability distribution for $X$.
+\vfill
+
+b. Find the probability that exactly three 4s appear.
+\vfill
+
+c. Find the probability that at most two 4s appear.
+\vfill
+
+\newpage
+
+### 2. Estimate Probabilities
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+set.seed(seed)
+k_possible <- tibble(k=0:10)
+N <- 30
+n <- 10
+p <- 1/6
+samples <- tibble(outcome = rbinom(N,n,p))
+```
+
+a. Data Collection
+
+    - Work in pairs. Roll 10 six-sided dice 30 times.
+    - For each roll, count the number of times a 4 appears. This will be your "success" outcomes.
+    - Record each count as a dot on the blank axis below, stacking dots above each number value to create a dot plot. As you progress, a distribution will appear.
+
+```{r message=FALSE, warning=FALSE, fig.width=8, fig.height=2, out.width='100%', fig.align='center'}
+ggplot(k_possible,aes(k)) + 
+  ylim(-0.05,0.20) + 
+  scale_x_discrete(limits=k_possible$k) + 
+  xlab("Number of 4 Occurrence") + 
+  ylab("") + 
+  theme_minimal() + 
+  theme(axis.text.y=element_blank(), 
+        axis.ticks.y=element_blank())
+```
+
+b. Compute the relative frequency (or proportion) of obtaining three 4s. That is the frequency of three 4 outcomes out of the number of rolls. Note that rolling 10 dice simultaneously is considered 1 roll. Then, compare this proportion to the probability computed in Problem (1b).
+\vfill
+
+c. Compute the relative frequency (or proportion) of obtaining at most two 4s. Then, compare this proportion to the probability computed in Problem (1c).
+\vfill
+
+d. Would you expect the proportions in Parts (b) and (c) to be closer to the probabilities in Problems (1b) and (1c) if you increased the number of rolls? Explain your reasoning.
+\vfill
+
+*Extra Credit: If you rolled where you have all 4s in 10 dice (meaning you have 10 "success" occurrences in all 10 dice, then a +1 will be added to your worksheet totals.*
+
+## **References**
+
+::: {#refs}
+:::

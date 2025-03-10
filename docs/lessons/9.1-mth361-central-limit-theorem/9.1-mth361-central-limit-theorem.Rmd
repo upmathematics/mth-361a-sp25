@@ -1,0 +1,527 @@
+---
+title: "Central Limit Theorem"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2025 | University of Portland"
+date: "March 10, 2025"
+output:
+  slidy_presentation:
+    font_adjustment: +5
+    footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(gridExtra)
+library(latex2exp)
+data(COL)
+seed <- 42
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Introduce the Central Limit Theorem (CLT)**
+- **Develop an understanding how CLT works**
+- **Know how to use the standard normal distribution**
+- **Activity: Demonstrate CLT**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Previously... (1/3)
+
+**The normal r.v.**
+
+A **normal r.v.** is a type of continuous r.v. whose probability distribution follows the *normal distribution*, also known as the *Gaussian distribution*. The normal distribution is characterized by two parameters, $\mu$ as the mean and $\sigma^2$ as the variance: $$X \sim \text{N}(\mu,\sigma^2)$$
+
+**Sample Space:**
+
+* $x \in (-\infty,\infty)$ because the normal r.v. can take any value from the entire real number line and it is a continuous random variable.
+
+**Parameters**
+
+* $\mu$ is the mean (center) or the mode of the distribution.
+* $\sigma^2$ measures the spread of the distribution.
+
+## Previously... (2/3)
+
+**The Normal PDF**
+
+The normal r.v. $X \sim \text{N}(\mu,\sigma^2)$ has infinite possible outcomes (or infinite sized sample space) where $\mu$ is the mean and $\sigma^2$ is the variance with PDF given as $$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}, \ -\infty < x < \infty$$
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(0),label=c(TeX("$\\mu$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+## Previously... (3/3)
+
+**Normal Expected Value**
+
+:::: {.column width=50%}
+**Normal Distribution with Expected Value**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mu <- 20*0.50
+sd <- sqrt(20*0.50*(1-0.50))
+x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
+norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
+df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x,y=pdf)) + 
+  geom_line(size=1,color="black") + # size here is defined for all points
+  geom_vline(xintercept = mu, color="red", linewidth=1) + 
+  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+::::
+
+:::: {.column width=49%}
+**Normal R.V.**
+
+Let $\mu=10$ and $s=2.24$ be the mean and standard deviation respectively.
+
+\[
+\begin{aligned}
+\text{R.V. } & \longrightarrow X \sim \text{N}\left(10,2.24^2\right) \\
+\text{PDF } & \longrightarrow f(x) = \frac{1}{\sqrt{2 \pi (2.24)^2}} e^{-\frac{(x-10)^2}{2(2.24)^2}} \\
+\text{for } & x \in (-\infty,\infty) \\
+\text{expected value} & \longrightarrow \text{E}(X) = 10
+\end{aligned}
+\]
+
+In general, the expected value of the normal r.v. is given by $$\text{E}(X) = \mu,$$ which is the center of the normal distribution.
+::::
+
+## The Central Limit Theorem (CLT)
+
+```{r data-science-life-cycle, echo=FALSE, fig.cap="Key idea the Central Limit Theorem (CLT). Image source: Medium--AI/Data Science Digest", fig.align='center', out.width = '70%'}
+knitr::include_graphics("clt-diagram.png")
+```
+
+Watch the 1st 20 minutes of this YouTube video: https://www.youtube.com/watch?v=zeJD6dqJ5lo&t=564s
+
+## The Normal R.V.: Interval Probabilities (1/4)
+
+:::: {.column width=50%}
+**Normal Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mu <- 20*0.50
+sd <- sqrt(20*0.50*(1-0.50))
+x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
+norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
+df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x,y=pdf)) + 
+  geom_line(size=1,color="black") + # size here is defined for all points
+  geom_ribbon(data=subset(df,x>=7 & x<=14),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
+  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+What is $P(7 \le X \le 14)$ for $X \sim \text{N}(10,2.24)$? 
+\[
+\begin{aligned}
+P(7 \le X \le 13) & = \int_7^{14} f(x) \ dx \\
+            & = \int_7^{14} \frac{1}{\sqrt{2 \pi (2.24)^2}} e^{-\frac{(x-10)^2}{2(2.24)^2}} \ dx \\
+            & = P(X \le 13) - P(X \le 7) \\
+P(7 \le X \le 13) & \approx 0.8727
+\end{aligned}
+\]
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+mu <- 10
+sd <- 2.24
+pnorm(14,mu,sd)-pnorm(7,mu,sd)
+```
+::::
+
+::: {style="color: red;"}
+$\star$ Note that the Normal PDF is symmetrical but the interval probability we just computed was not.
+:::
+
+## The Normal R.V.: Interval Probabilities (2/4)
+
+:::: {.column width=50%}
+**Normal Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mu <- 20*0.50
+sd <- sqrt(20*0.50*(1-0.50))
+x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
+norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
+df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x,y=pdf)) + 
+  geom_line(size=1,color="black") + # size here is defined for all points
+  geom_ribbon(data=subset(df,x>=mu-sd & x<=mu+sd),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
+  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+What is $P(7.7639 \le X \le 12.2361)$ for $X \sim \text{N}(10,2.24)$? 
+\[
+\begin{aligned}
+P(7.7639 \le X \le 12.2361) & = P(X \le 12.2361) - P(X \le 7.7639) \\
+P(7.7639 \le X \le 12.2361) & \approx 0.6818
+\end{aligned}
+\]
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+mu <- 10
+sd <- 2.24
+pnorm(12.2361,mu,sd)-pnorm(7.7639,mu,sd)
+```
+::::
+
+::: {style="color: red;"}
+$\star$ Note that $P(7.7639 \le X \le 12.2361) = P(10-2.24 \le X \le 10+2.24) \approx 0.6818$.
+:::
+
+## The Normal R.V.: Interval Probabilities (3/4)
+
+:::: {.column width=50%}
+**Normal Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mu <- 300*0.50
+sd <- sqrt(300*0.50*(1-0.50))
+x_outcomes <- seq(100,200,0.10) # set outcome from 0 to 20 (technically infinite)
+norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
+df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x,y=pdf)) + 
+  geom_line(size=1,color="black") + # size here is defined for all points
+  geom_ribbon(data=subset(df,x>=mu-sd & x<=mu+sd),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
+  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+What is $P(141.3397 \le X \le 158.6603)$ for $X \sim \text{N}(150,8.66)$? 
+\[
+\begin{aligned}
+P(141.3397 \le X \le 158.6603) & = P(X \le 158.6603) - P(X \le 141.3397) \\
+P(141.3397 \le X \le 158.6603) & \approx 0.6827
+\end{aligned}
+\]
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+mu <- 150
+sd <- 8.66
+pnorm(158.6603,mu,sd)-pnorm(141.3397,mu,sd)
+```
+::::
+
+::: {style="color: red;"}
+$\star$ Note that $P(141.3397 \le X \le 158.6603) = P(150-8.66 \le X \le 150+8.66) \approx 0.6827$.
+:::
+
+## The Normal R.V.: Interval Probabilities (4/4)
+
+:::: {.column width=50%}
+**Normal Distribution**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=5,fig.height=3,out.width='100%'}
+# set parameters, outcomes, and probabilities
+mu <- 20*0.50
+sd <- sqrt(20*0.50*(1-0.50))
+x_outcomes <- seq(0,20,0.10) # set outcome from 0 to 20 (technically infinite)
+norm_pdf <- dnorm(x_outcomes,mu,sd) # function `dnorm()` is the Normal PDF 
+df <- tibble(x=x_outcomes, pdf=norm_pdf) # convert to tibble
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df,aes(x=x,y=pdf)) + 
+  geom_line(size=1,color="black") + # size here is defined for all points
+  geom_ribbon(data=subset(df,x>=mu-2*sd & x<=mu+2*sd),aes(x=x,ymax=dnorm(x,mu,sd)),ymin=0,alpha=0.3,fill="blue") +
+  ggtitle(TeX(paste("Normal Distribution ","$\\mu$","=",mu," ","$s$","=",round(sd,2)))) + # sets the title of the plot
+  theme_minimal() # set theme of entire plot
+
+# display plot
+p1
+```
+::::
+
+:::: {.column width=49%}
+**Example:**
+
+What is $P(5.5279 \le X \le 14.4721)$ for $X \sim \text{N}(10,2.24)$? 
+\[
+\begin{aligned}
+P(5.5279 \le X \le 14.4721) & = P(X \le 14.4721) - P(X \le 5.5279) \\
+P(5.5279 \le X \le 14.4721) & \approx 0.9541
+\end{aligned}
+\]
+
+**Using R:**
+
+```{r echo=TRUE, eval=TRUE}
+mu <- 10
+sd <- 2.24
+pnorm(14.4721,mu,sd)-pnorm(5.5279,mu,sd)
+```
+::::
+
+::: {style="color: red;"}
+$\star$ Note that $P(5.5279 \le X \le 14.4721) = P(10-2 \times 2.24 \le X \le 10+2 \times 2.24) \approx 0.9541$.
+:::
+
+::: {style="color: blue;"}
+$\dagger$ Is $P(141.3397 \le X \le 158.6603) = P(150-2 \times 8.66 \le X \le 150+2 \times 8.66) \approx 0.95$?
+:::
+
+## The 68-95-99.7 Rule (1/3)
+
+**1st standard deviation from the mean**
+
+$$P(\mu - \sigma \le X \le \mu + \sigma) \approx 0.68$$
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,x>=-1 & x<=1),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+## The 68-95-99.7 Rule (2/3)
+
+**2nd standard deviation from the mean**
+
+$$P(\mu - 2\sigma \le X \le \mu + 2\sigma) \approx 0.95$$
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,x>=-2 & x<=2),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+## The 68-95-99.7 Rule (3/3)
+
+**3rd standard deviation from the mean**
+
+$$P(\mu - 3\sigma \le X \le \mu + 3\sigma) \approx 0.997$$
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,x>=-3 & x<=3),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+## Total Area Under the Curve
+
+**The Normal PDF satisfies the probability axioms**
+
+$$P(\mu - \infty \le X \le \mu + \infty) \approx 1$$
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(x=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=x,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_norm,x>=-4 & x<=4),aes(x=x,ymax=dnorm(x,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-3,-2,-1,0,1,2,3),label=c(TeX("$\\mu-3\\sigma$"),TeX("$\\mu-2\\sigma$"),TeX("$\\mu-1\\sigma$"),TeX("$\\mu$"),TeX("$\\mu+1\\sigma$"),TeX("$\\mu+2\\sigma$"),TeX("$\\mu+3\\sigma$"))) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ **Key Idea:** Because of the axiom that the sum of the probabilities for all outcomes in the sample space is equal to 1, the total area under the Normal PDF is always 1.
+:::
+
+## Standard Normal Distribution (1/2)
+
+The **standard normal distribution** is when $\mu=0$ and $s=1$ or $Z \sim \text{N}(0,1)$.
+
+**The transformation formula (the z-score)**
+
+Standardized scores that measure how many standard deviations a value is from the mean. $$Z = \frac{X - \mu}{\sigma}$$
+
+**The Standard Normal PDF**
+
+Using the z-score transformation, the normal PDF reduces to $$f(z) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{z^2}{2}}, \ -\infty < z < \infty$$
+
+## Standard Normal Distribution (2/2)
+
+**The standard normal distribution, $Z \sim \text{N}(0,1)$.**
+
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='80%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(z=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=z,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  ylab("density") + 
+  ggtitle("Standard Normal Distribution") + # sets the title of the plot
+  scale_x_discrete(limits=c(-4,-3,-2,-1,0,1,2,3,4)) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+
+::: {style="color: red;"}
+$\star$ **Key Idea:** The standard normal distribution is that it is a normal distribution with a mean of 0 and a standard deviation of 1. It serves as a reference distribution, allowing any normally distributed variable to be standardized.
+:::
+
+## CLT Conditions
+
+* **Independence** – Sample values must be independent
+* **Identical Distribution** – Variables should be from the same distribution
+* **Finite Variance** – The population must have a finite variance
+* **Large Sample Size** – A larger sample size improves approximation
+
+## Activity: Understanding the CLT
+
+1. Make sure you have a copy of the *M 3/10 Worksheet*. This will be handed out physically and it is also digitally available on Moodle.
+2. Work on your worksheet by yourself for 10 minutes. Please read the instructions carefully. Ask questions if anything need clarifications.
+3. Get together with another student.
+4. Discuss your results.
+5. Submit your worksheet on Moodle as a `.pdf` file.
+
+## References
+
+::: {#refs}
+:::

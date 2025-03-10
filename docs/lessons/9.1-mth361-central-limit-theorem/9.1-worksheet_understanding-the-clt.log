@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.28)  12 FEB 2025 11:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.28)  10 MAR 2025 11:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**5.2-worksheet_compute-empirical-vs-theoretical-probabilities.tex
-(./5.2-worksheet_compute-empirical-vs-theoretical-probabilities.tex
+**9.1-worksheet_understanding-the-clt.tex
+(./9.1-worksheet_understanding-the-clt.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
 (c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -445,8 +445,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count312
 \l__pdf_internal_box=\box65
-) (./5.2-worksheet_compute-empirical-vs-theoretical-probabilities.aux)
-\openout1 = `5.2-worksheet_compute-empirical-vs-theoretical-probabilities.aux'.
+) (./9.1-worksheet_understanding-the-clt.aux)
+\openout1 = `9.1-worksheet_understanding-the-clt.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 127.
 LaTeX Font Info:    ... okay on input line 127.
@@ -541,46 +541,7 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 127.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-52.
-(c:/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-52.
-(c:/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-152.
-(c:/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-152.
-(c:/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 152.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 152.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 152.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 152
-.
-(c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (c:/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 152
-.
-(c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (c:/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -593,38 +554,27 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/202
 4/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 
-{c:/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[2] (./5.2-worksheet_compute-empirical-vs-theoretical-probabilities.aux)
+] (./9.1-worksheet_understanding-the-clt.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 14551 strings out of 473578
- 227720 string characters out of 5732242
- 1933960 words of memory out of 5000000
- 37184 multiletter control sequences out of 15000+600000
- 584801 words of font info for 74 fonts, out of 8000000 for 9000
+ 14372 strings out of 473578
+ 223693 string characters out of 5732242
+ 1936960 words of memory out of 5000000
+ 37059 multiletter control sequences out of 15000+600000
+ 572150 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,11n,93p,1057b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,11n,93p,1032b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2024
-/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/
-type1/public/lm/lmr12.pfb>
-Output written on 5.2-worksheet_compute-empirical-vs-theoretical-probabilities.
-pdf (2 pages, 67142 bytes).
+/texmf-dist/fonts/type1/public/lm/lmr12.pfb>
+Output written on 9.1-worksheet_understanding-the-clt.pdf (1 page, 61386 bytes)
+.
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
- 16 named destinations out of 1000 (max. 500000)
- 14369 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 47 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 8217 words of extra memory for PDF output out of 10000 (max. 10000000)
 

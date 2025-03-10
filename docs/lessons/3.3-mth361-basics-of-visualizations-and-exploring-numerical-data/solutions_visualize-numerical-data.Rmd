@@ -1,7 +1,7 @@
 ---
 title: "Visualize Numerical Data"
 subtitle: "Applied Statistics"
-author: "[name]"
+author: "<span style='color:blue'>Solutions</span>"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -37,7 +37,7 @@ library(tidyverse)
 # Collaborators
 
 ::: {style="color: blue;"}
-[Write your answer here]
+<span style='color:blue'>Solutions</span>
 :::
 
 # Exercises
@@ -47,7 +47,9 @@ library(tidyverse)
 Create a code chunk. In this chunk, load the `palmerpenguins` package. These packages are pre-installed.
 
 ::: {style="color: blue;"}
-[Write your answer here]
+```{r}
+library(palmerpenguins)
+```
 :::
 
 ## Problem 2
@@ -55,7 +57,12 @@ Create a code chunk. In this chunk, load the `palmerpenguins` package. These pac
 Examine the `penguins` tibble. You may notice that there are `NA` values, which means missing data. Use the `drop_na()` function to remove all rows that has missing values on any column. Here, you may use chaining to pipe the tibble into `drop_na()`, and save the new tibble as a new R variable. How many rows was removed in the data set?
 
 ::: {style="color: blue;"}
-[Write your answer here]
+```{r}
+df <- penguins %>% 
+  drop_na()
+```
+
+There were 344 rows in the `penguins` tibble and 333 rows when the `NA` values are removed.
 :::
 
 ## Problem 3
@@ -67,7 +74,10 @@ knitr::include_graphics("penguins-flipper-vs-bill-length.png")
 ```
 
 ::: {style="color: blue;"}
-[Write your answer here]
+```{r}
+ggplot(df,aes(x=flipper_length_mm,y=bill_length_mm,color=species)) + 
+  geom_point()
+```
 :::
 
 ## Problem 4
@@ -79,7 +89,10 @@ knitr::include_graphics("penguins-flipper-length-distribution.png")
 ```
 
 ::: {style="color: blue;"}
-[Write your answer here]
+```{r}
+ggplot(df,aes(x=flipper_length_mm,fill=species)) + 
+  geom_histogram(bins=30)
+```
 :::
 
 ## Problem 5
@@ -87,5 +100,13 @@ knitr::include_graphics("penguins-flipper-length-distribution.png")
 Create two plots similar to Problems 3 and 4, but instead of using the `species`, use the `sex` variable to group the numerical variables.
 
 ::: {style="color: blue;"}
-[Write your answer here]
+```{r}
+# scatterplot
+ggplot(df,aes(x=flipper_length_mm,y=bill_length_mm,color=sex)) + 
+  geom_point()
+
+# histogram
+ggplot(df,aes(x=flipper_length_mm,fill=sex)) + 
+  geom_histogram(bins=30)
+```
 :::

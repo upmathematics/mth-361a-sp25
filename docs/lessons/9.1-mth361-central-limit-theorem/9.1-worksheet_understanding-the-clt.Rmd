@@ -3,7 +3,7 @@ header-includes: |
   \usepackage{fancyhdr}
   \pagestyle{fancy}
   \fancyhead[LO,L]{\textbf{MTH-361 A} | Spring 2025}
-  \fancyhead[RO,R]{\textbf{W 2/12 Worksheet} | Pg. \thepage}
+  \fancyhead[RO,R]{\textbf{M 3/10 Worksheet} | Pg. \thepage}
   \fancyfoot[CO,C]{}
   \usepackage{float}
   \usepackage{multirow}
@@ -36,34 +36,17 @@ knitr::opts_chunk$set(echo = FALSE)
 Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
 \noindent\rule{\textwidth}{1pt}
 
-## Compute Empirical vs Theoretical Probabilities
+## Understanding the CLT
 
-### 1. Binomial Probability with Dice
+### 1. Intuition and Conditions Behind the CLT
 
-A fair six-sided die is rolled 10 times. Let $X$ be the number of times a "4" appears.
-
-a. Determine the appropriate probability distribution for $X$.
+a. Explain in your own words what the Central Limit Theorem states and why it is important in statistics.
 \vfill
 
-b. Find the probability that exactly 3 fours appear.
+b. The CLT has certain conditions that must be met. Identify these conditions and explain why they are necessary.
 \vfill
 
-c. Find the probability that at most 2 fours appear.
-\vfill
-
-\newpage
-
-### 2. Taking Random Samples
-
-Conduct an experiment by rolling a fair six-sided die 10 times and recording the number of times a "4" appears.
-
-a. Repeat this experiment 10 times and record your results.
-\vfill
-
-b. Compute the relative frequency (empirical probability) of obtaining a "4" in your trials.
-\vfill
-
-c. Compare your empirical probability to the theoretical probability from Problem (1b) and (1c).
+c. What might happen if one or more of these conditions are not satisfied?
 \vfill
 
 ## **References**

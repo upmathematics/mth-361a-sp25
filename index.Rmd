@@ -586,7 +586,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Normal and Exponential Distributions](lessons/6.3-mth361-normal-and-exponential-distributions/6.3-mth361-normal-and-exponential-distributions.html) | ch. 4.4-4.5 @speegle2021probability |
 | Conditional Probability | ch. 2.3-2.4 @speegle2021probability |
 | [Advanced Visualizations & <br>Exploring Categorical Data](lessons/7.2-mth361-advanced-visualizations-and-exploring-categorical-data/7.2-mth361-advanced-visualizations-and-exploring-categorical-data.html) | ch. 6.5-6.7 & ch. 7.4 @speegle2021probability |
-| Central Limit Theorem | ch. 5.1-5.4 @speegle2021probability |
+| [Central Limit Theorem](lessons/9.1-mth361-central-limit-theorem/9.1-mth361-central-limit-theorem.html) | ch. 5.1-5.4 @speegle2021probability |
 | Inference | - |
 | Parameter Estimation | ch. 5.5-5.6 @speegle2021probability |
 | Hypothesis Testing | - |

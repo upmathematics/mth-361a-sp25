@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="[name]" />
+<meta name="author" content="Solutions" />
 
-<meta name="date" content="2025-03-01" />
+<meta name="date" content="2025-03-02" />
 
-<title>Modify a RMarkdown Document</title>
+<title>Simulate Multiple Bernoulli Trials</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,10 +350,10 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Modify a RMarkdown Document</h1>
+<h1 class="title toc-ignore">Simulate Multiple Bernoulli Trials</h1>
 <h3 class="subtitle">Applied Statistics</h3>
-<h4 class="author">[name]</h4>
-<h4 class="date">2025-03-01</h4>
+<h4 class="author"><span style="color:blue">Solutions</span></h4>
+<h4 class="date">2025-03-02</h4>
 
 </div>
 
@@ -388,62 +388,118 @@ necessary changes at the appropriate lines within the given code.</li>
 <code>.html</code> to Moodle.</li>
 </ul>
 </div>
+<div id="packages" class="section level1">
+<h1>Packages</h1>
+<p>The following R packages have already been loaded for you, so there’s
+no need to load them yourself—they will be used in the problem sets. If
+you need any additional packages, you can load them here as well.</p>
+<pre class="r"><code># load packages
+library(tidyverse)</code></pre>
+</div>
 <div id="collaborators" class="section level1">
 <h1>Collaborators</h1>
 <div style="color: blue;">
-<p>[Write your answer here]</p>
+<p><span style="color:blue">Solutions</span></p>
 </div>
 </div>
 <div id="exercises" class="section level1">
 <h1>Exercises</h1>
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
-<p>Describe the five basic parts of an RMarkdown document. What are
-they? What are their functions?</p>
+<p>The following code simulates a sequence of Bernoulli trials, where
+each trial follows a Bernoulli distribution with a “success” probability
+of <span class="math inline">\(p=0.60\)</span> and a “failure”
+probability of <span class="math inline">\(1-p=0.40\)</span>.</p>
+<pre class="r"><code># set hyperparameters
+set.seed(42) # for reproducibility
+n &lt;- 10 # number of trials
+
+# set parameter and PMF of the Bernoulli r.v
+X &lt;- c(&quot;0&quot;,&quot;1&quot;) # outcomes (&quot;0&quot;=&quot;failure&quot;,&quot;1&quot;=&quot;success&quot;)
+p &lt;- 0.6 # probability of success
+bern_pmf &lt;- c(1-p,p)
+
+# simulate n Bernoulli trials
+samples &lt;- sample(X,size=n,prob=bern_pmf,replace=TRUE)
+
+# convert samples into tibble form and compute proportions
+samples_tib &lt;- tibble(X=samples) %&gt;% 
+  group_by(X) %&gt;% 
+  summarise(count=n(),proportion=count/n)
+
+# view tibble
+samples_tib</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##   X     count proportion
+##   &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;
+## 1 0         7        0.7
+## 2 1         3        0.3</code></pre>
+<p>Modify the above code sequence to simulate Bernoulli trials with 3
+different “success” probabilities:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(p_1 = 0.25\)</span></li>
+<li><span class="math inline">\(p_2 = 0.50\)</span></li>
+<li><span class="math inline">\(p_3 = 0.75\)</span></li>
+</ol>
 <div style="color: blue;">
-<p>[Write your answer here]</p>
+<pre class="r"><code># set hyperparameters
+set.seed(42) # for reproducibility
+n &lt;- 1000 # number of trials
+
+# set parameter and PMF of the Bernoulli r.v
+X &lt;- c(&quot;0&quot;,&quot;1&quot;) # outcomes (&quot;0&quot;=&quot;failure&quot;,&quot;1&quot;=&quot;success&quot;)
+p_a &lt;- 0.25 # part (a) p
+p_b &lt;- 0.50 # part (b) p
+p_c &lt;- 0.75 # part (c) p
+bern_pmf_a &lt;- c(1-p_a,p_a) # part (a) pmf
+bern_pmf_b &lt;- c(1-p_b,p_b) # part (b) pmf
+bern_pmf_c &lt;- c(1-p_c,p_c) # part (b) pmf
+
+# simulate n Bernoulli trials
+samples_a &lt;- sample(X,size=n,prob=bern_pmf_a,replace=TRUE) # part (a) samples
+samples_b &lt;- sample(X,size=n,prob=bern_pmf_b,replace=TRUE) # part (b) samples
+samples_c &lt;- sample(X,size=n,prob=bern_pmf_c,replace=TRUE) # part (c) samples
+
+# convert samples into tibble form and compute proportions
+samples_tib_a &lt;- tibble(X=samples_a) %&gt;% # part (a) samples as tibble
+  group_by(X) %&gt;% 
+  summarise(count=n(),proportion=count/n)
+samples_tib_b &lt;- tibble(X=samples_b) %&gt;% # part (b) samples as tibble
+  group_by(X) %&gt;% 
+  summarise(count=n(),proportion=count/n)
+samples_tib_c &lt;- tibble(X=samples_c) %&gt;% # part (c) samples as tibble
+  group_by(X) %&gt;% 
+  summarise(count=n(),proportion=count/n)
+
+# view tibble
+samples_tib_a</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##   X     count proportion
+##   &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;
+## 1 0       754      0.754
+## 2 1       246      0.246</code></pre>
+<pre class="r"><code>samples_tib_b</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##   X     count proportion
+##   &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;
+## 1 0       504      0.504
+## 2 1       496      0.496</code></pre>
+<pre class="r"><code>samples_tib_c</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##   X     count proportion
+##   &lt;chr&gt; &lt;int&gt;      &lt;dbl&gt;
+## 1 0       266      0.266
+## 2 1       734      0.734</code></pre>
 </div>
 </div>
 <div id="problem-2" class="section level2">
 <h2>Problem 2</h2>
-<p>Explain the similarities between running R commands on the console
-versus running R commands in the RMarkdown code chunks.</p>
+<p>Describe your observation of the proportion of outcomes (“success”
+and “failure”) as you increase the number of trials for each <span class="math inline">\(p\)</span> in Problem (1).</p>
 <div style="color: blue;">
-<p>[Write your answer here]</p>
-</div>
-</div>
-<div id="problem-3" class="section level2">
-<h2>Problem 3</h2>
-<p>When “knitting” an RMarkdown document, describe what happens in
-general. What does it create?</p>
-<div style="color: blue;">
-<p>[Write your answer here]</p>
-</div>
-</div>
-<div id="problem-4" class="section level2">
-<h2>Problem 4</h2>
-<p>The R code chunks in an RMarkdown document runs in two ways. Describe
-the difference on what happens to the R commands when “knitting” vs
-running the code blocks in the RMarkdown file.</p>
-<div style="color: blue;">
-<p>[Write your answer here]</p>
-</div>
-</div>
-<div id="problem-5" class="section level2">
-<h2>Problem 5</h2>
-<p>Describe the levels of headers according to the “#” key.</p>
-<div style="color: blue;">
-<p>[Write your answer here]</p>
-</div>
-</div>
-<div id="problem-6" class="section level2">
-<h2>Problem 6</h2>
-<p>On the upper left hand corner of this pane, there are two buttons
-“Source” and “Visual”. Describe your observations when clicking the
-button “Visual”. What are the differences and similarities between the
-two settings?</p>
-<div style="color: blue;">
-<p>[Write your answer here]</p>
+<p>As the number of trials increase, the “success” and “failure”
+proportions of the samples are getting closer to their respective
+probabilities.</p>
 </div>
 </div>
 </div>
