@@ -214,8 +214,8 @@ The following learning objectives are designed to build on one another, with som
 |  | W 3/5 | _Spring Vacation_ |
 |  | F 3/7 | _Spring Vacation_ |
 | **9** | M 3/10 | Central Limit Theorem |
-|  | W 3/12 | Parameter Estimation & <br>Hypothesis Testing |
-|  | F 3/14 | Bootstrapping and Randomizations |
+|  | W 3/12 | Bootstrapping and Randomization |
+|  | F 3/14 | Parameter Estimation & <br>Hypothesis Testing |
 | **10** | M 3/17 | Decision Errors & <br>**Homework 3** |
 |  | W 3/19 | Inference for Proportions |
 |  | F 3/21 | Inference for Means |
@@ -587,9 +587,8 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | Conditional Probability | ch. 2.3-2.4 @speegle2021probability |
 | [Advanced Visualizations & <br>Exploring Categorical Data](lessons/7.2-mth361-advanced-visualizations-and-exploring-categorical-data/7.2-mth361-advanced-visualizations-and-exploring-categorical-data.html) | ch. 6.5-6.7 & ch. 7.4 @speegle2021probability |
 | [Central Limit Theorem](lessons/9.1-mth361-central-limit-theorem/9.1-mth361-central-limit-theorem.html) | ch. 5.1-5.4 @speegle2021probability |
-| Inference | - |
-| Parameter Estimation | ch. 5.5-5.6 @speegle2021probability |
-| Hypothesis Testing | - |
+| Bootstrapping and Randomization | - |
+| Parameter Estimation & Hypothesis Testing | ch. 5.5-5.6 @speegle2021probability |
 | Decision Errors | - |
 | Inference for Proportions | TBA |
 | Inference for Means | TBA |

@@ -1,0 +1,88 @@
+---
+title: "Resample Data"
+subtitle: "Applied Statistics"
+author: "[name]"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Syllabus Reminders
+
+- You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+- Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+
+# Instructions
+
+- For the exercises, please provide your answers in full sentences.
+- Write your answers by replacing the text "[Write your answer here]".
+- Whenever a problem asks you to run something in R, create an R code chunk and write your R commands inside that chunk.
+- If a problem requires modifying an existing R code chunk, make the necessary changes at the appropriate lines within the given code.
+- Please read the problems fully and carefully before answering.
+- When finished, knit this `.Rmd` to `.html`.
+- Submit this `.Rmd` and the recently knitted `.html` to Moodle.
+
+# Packages
+
+The following R packages have already been loaded for you, so there's no need to load them yourself—they will be used in the problem sets. If you need any additional packages, you can load them here as well.
+
+```{r message=FALSE, warning=FALSE}
+# load packages
+library(tidyverse)
+library(rsample)
+```
+
+# Collaborators
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+# Exercises
+
+## Problem 1
+
+Load the `titanic.csv` data set using the `read_csv()` function, then store it to a R variable.
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 2
+
+Examine the `fare` variable in the `titanic` data frame from Problem 1. Compute the mean and standard deviation of this variable and highlight them in the distribution.
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 3
+
+Perform a bootstrapping method using these steps, then answer the following questions:
+
+* Randomly sample with replacement from the original sample to create a new dataset of the same size $n$. Each bootstrap sample is equally likely to contain duplicate values from the original sample.
+* Calculate the mean for each bootstrap sample. This step is repeated for a large number of bootstrap samples (e.g., 1000 or more).
+* The collection of computed statistics from all bootstrap samples forms the bootstrap distribution of the statistic. This distribution helps approximate the variability of the statistic.
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 4
+
+Using the results from Problem (3), what is the mean and standard deviation of the bootstrap samples? Compare the mean of the bootstrap samples and the mean of the `fare` variable computed in Problem (2).
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 5
+
+Repeat Problems (3) and (4) using the proportion of "yes" category of the `survived` variable in the `titanic` data frame.
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
