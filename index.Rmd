@@ -589,7 +589,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Central Limit Theorem](lessons/9.1-mth361-central-limit-theorem/9.1-mth361-central-limit-theorem.html) | ch. 5.1-5.4 @speegle2021probability |
 | Bootstrapping and Randomization | - |
 | [Parameter Estimation](lessons/9.3-mth361-parameter-estimation/9.3-mth361-parameter-estimation.html) | - |
-| Hypothesis Testing and Decision Errors | - |
+| [Hypothesis Testing and Decision Errors](lessons/10.1-mth361-hypthesis-testing-and-decision-errors/10.1-mth361-hypthesis-testing-and-decision-errors.html) | - |
 | Inference for Proportions | Ch. 10.2 @speegle2021probability |
 | Inference for Means | TBA |
 | Choosing Tests for Parameter Estimations | TBA |
