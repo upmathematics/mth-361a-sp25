@@ -1,0 +1,82 @@
+---
+title: "Inference for Proportions"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2025 | University of Portland"
+date: "March 19, 2025"
+output:
+  slidy_presentation:
+    font_adjustment: +5
+    footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(gridExtra)
+library(latex2exp)
+data(COL)
+seed <- 42
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Develop an understanding of inference for one proportion**
+- **Know how to compute the confidence interval of one proportion**
+- **Know how to conduct a hypothesis test for one proportion**
+- **Activity: Rock-Paper-Scissors Hypothesis Testing**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Previously... (1/3)
+
+The guiding principle of statistics is statistical thinking.
+
+```{r statistical-thinking-1, echo=FALSE, fig.cap="Statistical Thinking in the Data Science Life Cycle", fig.align='center', out.width = '55%'}
+knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
+```
+
+## Previously... (2/3)
+
+**Types of Inference**
+
+|  | **Parameter Estimation** | **Hypothesis Testing** |
+|:---|:------|:------|
+| _Goal_ | Estimate an unknown population value | Assess claims about a population value |
+| _Methods_ | Point Estimation: A single value estimate (e.g., sample mean) <br>Interval Estimation: A range of plausible values (e.g., confidence interval) | State a null and an alternative hypothesis <br>Compute a test statistic and compare it to a threshold (p-value or critical value) |
+| _Key Concept_ | Focuses on precision in estimation (confidence intervals) | Focuses on decision-making based on evidence (reject or fail to reject the null hypothesis) |
+
+## Previously... (3/3)
+
+**Types of Decision Errors**
+
+| Reality/Decision | **Reject $H_0$**                                                      | **Fail to reject $H_0$**                                                  |
+|------------------|-------------------------------------------------------------------|-----------------------------------------------------------------------|
+| **$H_0$ is true**    | Type I error<br>with probability $\alpha$<br>(significance level) | Correct decision<br>with probability $1-\alpha$<br>(confidence level) |
+| **$H_0$ is false**   | Correct decision<br>with probability $1-\beta$<br>(power of test) | Type II error<br>with probability $\beta$                             |
+
+## Activity: Rock-Paper-Scissors Hypothesis Testing
+
+1. Make sure you have a copy of the *W 3/19 Worksheet*. This will be handed out physically and it is also digitally available on Moodle.
+2. Work on your worksheet by yourself for 10 minutes. Please read the instructions carefully. Ask questions if anything need clarifications.
+3. Get together with another student.
+4. Discuss your results.
+5. Submit your worksheet on Moodle as a `.pdf` file.
+
+## References
+
+::: {#refs}
+:::

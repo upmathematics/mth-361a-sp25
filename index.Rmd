@@ -590,7 +590,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | Bootstrapping and Randomization | - |
 | [Parameter Estimation](lessons/9.3-mth361-parameter-estimation/9.3-mth361-parameter-estimation.html) | - |
 | [Hypothesis Testing and Decision Errors](lessons/10.1-mth361-hypthesis-testing-and-decision-errors/10.1-mth361-hypthesis-testing-and-decision-errors.html) | - |
-| Inference for Proportions | Ch. 10.2 @speegle2021probability |
+| [Inference for Proportions](lessons/10.2-mth361-inference-for-proportions/10.2-mth361-inference-for-proportions.html) | Ch. 10.2 @speegle2021probability |
 | Inference for Means | TBA |
 | Choosing Tests for Parameter Estimations | TBA |
 | Rank-Based Tests | TBA |

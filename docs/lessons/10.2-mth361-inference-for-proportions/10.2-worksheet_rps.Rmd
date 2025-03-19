@@ -1,0 +1,102 @@
+---
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LO,L]{\textbf{MTH-361 A} | Spring 2025}
+  \fancyhead[RO,R]{\textbf{W 3/19 Worksheet} | Pg. \thepage}
+  \fancyfoot[CO,C]{}
+  \usepackage{float}
+  \usepackage{multirow}
+output:
+  bookdown::pdf_document2:
+    toc: no
+    number_section: no
+urlcolor: blue
+link-citations: yes
+bibliography: ../../../references.bib
+csl: ../../../mbe.csl
+nocite: '@*'
+geometry: "left=0.50in,right=0.50in,top=0.75in,bottom=0.75in"
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+data(COL)
+seed = 42
+```
+
+**Name:**
+
+**Collaborators:**
+
+\noindent\rule{\textwidth}{1pt}
+**Instructions:** 
+
+> You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+
+Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+\noindent\rule{\textwidth}{1pt}
+
+## Rock-Paper-Scissors Hypothesis Testing
+
+### 1. Data Collection
+
+Use hypothesis testing for one proportion to determine whether a player’s ability to win Rock-Paper-Scissors (RPS) is affected by being blindfolded or not.
+
+  * The probability of winning a fair RPS game is \( \frac{1}{3} \) (since each round can result in a win, loss, or tie).  
+  * Our goal is to test if a blindfolded player’s performance deviates from this expected probability.  
+
+**State Hypotheses:**  
+  - **Null hypothesis** (\( H_0 \)): The probability of winning is the same whether blindfolded or not (\( p = \frac{1}{3} \)).  
+  - **Alternative hypothesis** (\( H_A \)): The probability of winning changes when blindfolded (\( p \neq \frac{1}{3} \)).  
+
+Get into *groups of three or four*: *Player* (plays RPS), *Opponent* (plays against the player), *Recorder* (keeps track of wins, losses, and ties). 
+
+Play *30 rounds*.
+  
+  * *15 rounds while not blindfolded* 
+  * *15 rounds while blindfolded*
+
+a. Record only **wins**, ignoring ties. 
+  - **Wins without a blindfold:**
+  \vfill
+  
+  - **Wins with a blindfold:**
+  \vfill
+
+b. Compute the sample proportions.
+  - **Win Proportion without a blindfold:**
+  \vfill
+  
+  - **Win Proportion a blindfold:**
+  \vfill
+
+\newpage
+
+### 2. Hypothesis Testing
+
+a. State the hypotheses and set the significance value $\alpha$.
+\vfill
+
+b. Determine the confidence interval of the point estimate, compute the test statistic, and the p-value.
+\vfill
+
+c. Compare p-values and interpret results.
+\vfill
+
+e. Define the type I and type II errors in this context. Which type of error is worse in this context?
+\vfill
+
+f. What external factors might have influenced the results? (e.g., guessing patterns, reaction time)
+\vfill
+
+## **References**
+
+::: {#refs}
+:::
