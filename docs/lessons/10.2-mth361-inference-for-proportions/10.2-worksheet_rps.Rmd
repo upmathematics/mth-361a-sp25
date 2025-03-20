@@ -74,7 +74,7 @@ b. Compute the sample proportions.
   - **Win Proportion without a blindfold:**
   \vfill
   
-  - **Win Proportion a blindfold:**
+  - **Win Proportion with a blindfold:**
   \vfill
 
 \newpage

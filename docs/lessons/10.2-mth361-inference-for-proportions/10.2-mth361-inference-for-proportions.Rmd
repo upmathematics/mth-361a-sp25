@@ -68,6 +68,111 @@ knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
 | **$H_0$ is true**    | Type I error<br>with probability $\alpha$<br>(significance level) | Correct decision<br>with probability $1-\alpha$<br>(confidence level) |
 | **$H_0$ is false**   | Correct decision<br>with probability $1-\beta$<br>(power of test) | Type II error<br>with probability $\beta$                             |
 
+## Parameter Estimation for One Proportion
+
+**Conditions**
+
+* Independent samples
+* Success-failure outcomes is $np \ge 10$ and $n(1-p) \ge 10$.
+* We can assume Normal approximation of the Binomial PMF.
+
+**Confidence Intervals for One Proportion**
+
+$$\hat{p} \pm z^{\star} SE_{\hat{p}}$$
+
+* $\hat{p}$ is the sample proportion
+* $z^{\star}$ is the critical z-score for a given confidence level
+* $SE_{\hat{p}} = \sqrt{\frac{\hat{p}\left(1-\hat{p}\right)}{n}}$ is the standard error
+
+## Parameter Estimation for Two Proportions
+
+**Conditions**
+
+* Independent samples
+* Success-failure outcomes is $n_Ap_A \ge 10$, $n_A(1-p_A) \ge 10$, $n_Bp_B \ge 10$, and $n_B(1-p_B) \ge 10$
+* We can assume Normal approximation of the Binomial PMF.
+
+**Confidence Intervals for Two Proportions**
+
+$$\hat{p}_B - \hat{p}_A \pm z^{\star} SE_{\hat{p}_B - \hat{p}_A}$$
+
+* $\hat{p}_A$ is the sample proportion for group $A$
+* $\hat{p}_B$ is the sample proportion for group $B$
+* $z^{\star}$ is the critical z-score for a given confidence level
+* $SE_{\hat{p}_B - \hat{p}_A} = \sqrt{ \frac{\hat{p}_A \left( 1-\hat{p}_A \right)}{n_A} + \frac{\hat{p}_B \left( 1-\hat{p}_B \right)}{n_B} }$ is the standard error
+
+## Hypothesis Testing for One Proportion (1/2)
+
+Let $p$ be the population parameter and $p_0$ be the null value.
+
+**State Hypotheses**
+
+* Null Hypothesis $H_0$: The population proportion remains unchanged. $$p = p_0$$
+* Alternative Hypothesis $H_A$: The population proportion has changed. $$p \ne p_0$$
+
+::: {style="color: red;"}
+$\star$ Note: The alternative hypothesis can be $\ne$ (two-sided) and $<$ or $>$ (one-sided) depending on context.
+:::
+
+**Set Significance Value $\alpha$**
+
+Common values are $\alpha = 0.10, 0.05, 0.01$. Note that $\alpha$ is the Type I error rate.
+
+## Hypothesis Testing for One Proportion (2/2)
+
+**Compute the Test Statistic**
+
+$$z = \frac{\hat{p}-p_0}{SE_p}$$
+
+* $\hat{p}$ is the point estimate
+* $SE_p = \sqrt{\frac{p_0\left( 1-p_0 \right)}{n}}$ is the standard error of the null sampling distribution
+
+**Determine the P-Value**
+
+* You need to find $P(Z \le z)$ for one-sided test or $2 \times P(Z \le z)$ for a two sided test from $Z \sim N(0,1)$, the standard normal distribution
+
+**Make a Decision and conclusion**
+
+* *Reject $H_0$ if the $\text{p-value} < \alpha$:* There is enough evidence to support $H_A$.
+* *Fail to reject the $H_0$ if the $\text{p-value} \ge \alpha$:* There is not enough evidence to support $H_A$.
+
+## Hypothesis Testing for Two Proportions (1/2)
+
+Let $p_A$ and $p_B$ be the population parameters for groups $A$ and $B$ respectively and $p_0$ be the null value.
+
+**State Hypotheses**
+
+* Null Hypothesis $H_0$: The difference in population proportion remains unchanged. $$p_B - p_A = p_0$$
+* Alternative Hypothesis $H_A$: The difference in population proportion has changed. $$p_B - p_A \ne p_0$$
+
+::: {style="color: red;"}
+$\star$ Note: The alternative hypothesis can be $\ne$ (two-sided) and $<$ or $>$ (one-sided) depending on context.
+:::
+
+**Set Significance Value $\alpha$**
+
+Common values are $\alpha = 0.10, 0.05, 0.01$. Note that $\alpha$ is the Type I error rate.
+
+## Hypothesis Testing for Two Proportions (2/2)
+
+**Compute the Test Statistic**
+
+$$z = \frac{\left(\hat{p}_B-\hat{p}_A\right)-p_0}{SE_{p_B - p_A}}$$
+
+* $\hat{p}_A$ is the point estimate for group $A$
+* $\hat{p}_B$ is the point estimate for group $B$
+* $SE_{p_B - p_A} = \sqrt{\hat{p}_{pool}\left( 1-\hat{p}_{pool} \right)\left( \frac{1}{n_A} + \frac{1}{n_B} \right)}$ is the standard error
+* $\hat{p}_{pool} = \frac{n_A \hat{p}_A + n_B \hat{p}_B}{n_A + n_B}$
+
+**Determine the P-Value**
+
+* You need to find $P(Z \le z)$ for one-sided test or $2 \times P(Z \le z)$ for a two sided test from $Z \sim N(0,1)$, the standard normal distribution
+
+**Make a Decision and conclusion**
+
+* *Reject $H_0$ if the $\text{p-value} < \alpha$:* There is enough evidence to support $H_A$.
+* *Fail to reject the $H_0$ if the $\text{p-value} \ge \alpha$:* There is not enough evidence to support $H_A$.
+
 ## Activity: Rock-Paper-Scissors Hypothesis Testing
 
 1. Make sure you have a copy of the *W 3/19 Worksheet*. This will be handed out physically and it is also digitally available on Moodle.
@@ -75,6 +180,38 @@ knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
 3. Get together with another student.
 4. Discuss your results.
 5. Submit your worksheet on Moodle as a `.pdf` file.
+
+## RPS Wins Data
+
+*Data collection was done on 3/19/2025*
+
+**Number of Wins**
+
+|  | Blind ($A$) | Non-Blind ($B$) | Difference ($B$-$A$)
+|:---:|:---:|:---:|:---:|
+| Demonstration| $6$ | $5$ | $-1$ |
+| Group 1 | $8$ | $4$ | $-4$ |
+| Group 2 | $6$ | $5$ | $-1$ |
+| Group 3 | $7$ | $5$ | $-2$ |
+| Group 4 | $4$ | $6$ | $2$ |
+| Total | $31$ | $25$ | $-6$ |
+
+## RPS Proportion of Wins Data
+
+*Data collection was done on 3/19/2025*
+
+**Proportions**
+
+Each group played 15 rounds for blind and 15 rounds for non-blind.
+
+|  | Blind ($A$) | Non-Blind ($B$) | Difference ($B$-$A$)
+|:---:|:---:|:---:|:---:|
+| Demonstration | $\hat{p}_A = \frac{6}{15} \approx 0.40$ | $\hat{p}_B = \frac{5}{15} \approx 0.3333$ | $\hat{p}_B - \hat{p}_A = \frac{-1}{15} \approx -0.0667$ |
+| Group 1 | $\hat{p}_A = \frac{8}{15} \approx 0.5333$ | $\hat{p}_B = \frac{4}{15} \approx 0.2667$ | $\hat{p}_B - \hat{p}_A = \frac{-4}{15} \approx -0.2667$ |
+| Group 2 | $\hat{p}_A = \frac{6}{15} = 0.40$ | $\hat{p}_B = \frac{5}{15} \approx 0.3333$ | $\hat{p}_B - \hat{p}_A = \frac{-1}{15} \approx -0.0667$ |
+| Group 3 | $\hat{p}_A = \frac{7}{15} \approx 0.4667$ | $\hat{p}_B = \frac{5}{15} \approx 0.3333$ | $\hat{p}_B - \hat{p}_A = \frac{-2}{15} \approx -0.1333$ |
+| Group 4 | $\hat{p}_A = \frac{4}{15} \approx 0.2667$ | $\hat{p}_B = \frac{6}{15} = 0.40$ | $\hat{p}_B - \hat{p}_A = \frac{2}{15} \approx 0.1333$ |
+| Overall | $\hat{p}_A = \frac{31}{75} \approx 0.4133$ | $\hat{p}_B = \frac{25}{75} \approx 0.3333$ | $\hat{p}_B - \hat{p}_A = \frac{-6}{75} \approx -0.08$ |
 
 ## References
 
