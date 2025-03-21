@@ -47,7 +47,20 @@ seed <- 42
 ## Previously... (2/3)
 
 
-## Previously... (3/3)
+
+## The Chi-Squared Statistic
+
+
+
+## The Chi-Squared Distribution
+
+
+
+## Example 1
+
+
+
+## Example 2
 
 
 
