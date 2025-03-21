@@ -33,7 +33,7 @@ seed <- 42
 
 :::: {.column width=70%}
 - **Introduce hypothesis testing**
-- **Know how to difference between null and alternative sampling distributions**
+- **Know how to differentiate between null and alternative sampling distributions**
 - **Develop an understanding of decision errors**
 - **Activity: Determine Claims and Error Types**
 ::::
@@ -154,8 +154,8 @@ p1
 
 **Decision Rule:**
 
-* If $p-value \le \alpha$, reject $H_0 \longrightarrow$ Evidence supports $H_A$.
-* If $p-value > \alpha$, fail to reject $H_0 \longrightarrow$ Not enough evidence for $H_A$.
+* If $\text{p-value} < \alpha$, reject $H_0 \longrightarrow$ Evidence supports $H_A$.
+* If $\text{p-value} \ge \alpha$, fail to reject $H_0 \longrightarrow$ Not enough evidence for $H_A$.
 
 **Why is Hypothesis Testing Important?**
 
@@ -208,18 +208,18 @@ This meme might be over used. If you find some memes similar to this but in "non
 | **$H_0$ is true**    | Type I error<br>with probability $\alpha$<br>(significance level) | Correct decision<br>with probability $1-\alpha$<br>(confidence level) |
 | **$H_0$ is false**   | Correct decision<br>with probability $1-\beta$<br>(power of test) | Type II error<br>with probability $\beta$                             |
 
-Conclusion errors: Type I error - false positive or Type II error - false negative
+Conclusion errors: Type I error (false positive) or Type II error (false negative)
 
 ## Trade-offs between Type I and Type II errors. (1/2)
 
 <div class='left' style='float:left;width:48%'>
-```{r type-1-dist, fig.asp=1, fig.cap = "", fig.align='center'}
+```{r type-1-dist, out.width="100%", fig.cap = "", fig.align='center'}
 knitr::include_graphics("type-i-error-rate.png")
 ```
 </div>
 
 <div class='left' style='float:left;width:48%'>
-```{r type-2-dist, fig.asp=1, fig.cap = "", fig.align='center'}
+```{r type-2-dist, out.width="100%", fig.cap = "", fig.align='center'}
 knitr::include_graphics("type-ii-error-rate.png")
 ```
 </div>
@@ -228,7 +228,7 @@ knitr::include_graphics("type-ii-error-rate.png")
 Images Source: [Type I and Type II errors by Pritha Bhandari](https://www.scribbr.com/statistics/type-i-and-type-ii-errors/){target="_blank"}
 </center>
 
-## Trade-offs between Type I and Type II errors. (2/2)
+## Trade-offs between Type I and Type II Errors. (2/2)
 
 ```{r type-1-and-2-dist, out.width="70%", fig.align='center',fig.cap = "Images Source: [Type I and Type II errors by Pritha Bhandari](https://www.scribbr.com/statistics/type-i-and-type-ii-errors/){target=_blank}"}
 knitr::include_graphics("type-i-and-type-ii-error.png")
