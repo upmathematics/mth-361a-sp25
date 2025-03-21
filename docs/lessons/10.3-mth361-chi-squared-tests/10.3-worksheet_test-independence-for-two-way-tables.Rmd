@@ -1,0 +1,88 @@
+---
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LO,L]{\textbf{MTH-161 D} | Spring 2025}
+  \fancyhead[RO,R]{\textbf{F 3/21 Worksheet} | Pg. \thepage}
+  \fancyfoot[CO,C]{}
+  \usepackage{float}
+  \usepackage{multirow}
+output:
+  bookdown::pdf_document2:
+    toc: no
+    number_section: no
+urlcolor: blue
+link-citations: yes
+bibliography: ../../../references.bib
+csl: ../../../mbe.csl
+nocite: '@*'
+geometry: "left=0.50in,right=0.50in,top=0.75in,bottom=0.75in"
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+data(COL)
+seed = 42
+```
+
+**Name:**
+
+**Collaborators:**
+
+\noindent\rule{\textwidth}{1pt}
+**Instructions:** 
+
+> You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+
+Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+\noindent\rule{\textwidth}{1pt}
+
+## Test Independence for Two-Way Tables
+
+### 1. RPS Win Data
+
+a. Create a two-way table showing the number of wins and losses/ties of the RPS win data from the last worksheet.
+\vfill.
+
+c. What are the null and alternative hypothesis.
+\vfill
+
+b. Compute the expected counts in each cell.
+\vfill
+
+c. Compute the Chi-Squared statistic, then compute the p-value.
+\vfill
+
+d. Make a conclusion.
+\vfill
+
+\newpage
+
+### 2. RPS Win Data (Last Semester)
+
+Here is the approximate average result of the same RPS game last semester, where students are specifically asked to try to win in any way.
+
+* Number of wins Blind: 3
+* Number of wins Non-Blind: 10
+* Total games for Blind: 15
+* Total games for Non-Blind: 15
+
+a. Conduct a hypothesis test using Chi-Square statistic.
+\vfill
+
+b. What is your conclusion?
+\vfill
+
+c. How does this compare to the current data?
+\vfill
+
+## **References**
+
+::: {#refs}
+:::

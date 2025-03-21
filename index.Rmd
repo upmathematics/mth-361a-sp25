@@ -591,7 +591,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Parameter Estimation](lessons/9.3-mth361-parameter-estimation/9.3-mth361-parameter-estimation.html) | - |
 | [Hypothesis Testing and Decision Errors](lessons/10.1-mth361-hypthesis-testing-and-decision-errors/10.1-mth361-hypthesis-testing-and-decision-errors.html) | - |
 | [Inference for Proportions](lessons/10.2-mth361-inference-for-proportions/10.2-mth361-inference-for-proportions.html) | Ch. 10.2 @speegle2021probability |
-| Chi-Squared Tests | TBA |
+| [Chi-Squared Tests](lessons/10.3-mth361-chi-squared-tests/10.3-mth361-chi-squared-tests.html) | TBA |
 | Inference for Means | TBA |
 | Rank-Based Tests | TBA |
 | Linear Regression | TBA |
