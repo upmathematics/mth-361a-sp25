@@ -220,10 +220,10 @@ The following learning objectives are designed to build on one another, with som
 |  | W 3/19 | Inference for Proportions |
 |  | F 3/21 | Chi-Squared Tests |
 | **11** | M 3/24 | Inference for Means, <br>**Homework 3** & <br>**Project Phase 3** |
-|  | W 3/26 | Rank-Based Tests |
-|  | F 3/28 | Linear Regression |
-| **12** | M 3/31 | Least-Squares Regression |
-|  | W 4/2 | Residual Analysis |
+|  | W 3/26 | Power Calculations |
+|  | F 3/28 | Rank-Based Tests |
+| **12** | M 3/31 | Linear Regression |
+|  | W 4/2 | Least-Squared Regression and Residual Analysis |
 |  | F 4/4 | Inference for Linear Regression |
 | **13** | M 4/7 | Multiple Linear Regression & <br>**Homework 4** |
 |  | W 4/9 | Inference for Many Means |
@@ -591,9 +591,10 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Parameter Estimation](lessons/9.3-mth361-parameter-estimation/9.3-mth361-parameter-estimation.html) | - |
 | [Hypothesis Testing and Decision Errors](lessons/10.1-mth361-hypthesis-testing-and-decision-errors/10.1-mth361-hypthesis-testing-and-decision-errors.html) | - |
 | [Inference for Proportions](lessons/10.2-mth361-inference-for-proportions/10.2-mth361-inference-for-proportions.html) | Ch. 10.2 @speegle2021probability |
-| [Chi-Squared Tests](lessons/10.3-mth361-chi-squared-tests/10.3-mth361-chi-squared-tests.html) | TBA |
-| Inference for Means | TBA |
-| Rank-Based Tests | TBA |
+| [Chi-Squared Tests](lessons/10.3-mth361-chi-squared-tests/10.3-mth361-chi-squared-tests.html) | Ch. 10.3-10.5 @speegle2021probability |
+| Inference for Means | Ch. 8.1-8.3 & Ch. 8.6 @speegle2021probability |
+| Power Calculations | Ch. 8.7 @speegle2021probability |
+| Rank-Based Tests | Ch. 9.1-9.2 @speegle2021probability |
 | Linear Regression | TBA |
 | Least-Squares Regression | TBA |
 | Residual Analysis | TBA |
