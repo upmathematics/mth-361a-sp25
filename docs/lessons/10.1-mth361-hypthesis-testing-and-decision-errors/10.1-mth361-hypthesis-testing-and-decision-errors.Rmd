@@ -210,7 +210,7 @@ This meme might be over used. If you find some memes similar to this but in "non
 
 Conclusion errors: Type I error (false positive) or Type II error (false negative)
 
-## Trade-offs between Type I and Type II errors. (1/2)
+## Trade-offs between Type I and Type II errors (1/2)
 
 <div class='left' style='float:left;width:48%'>
 ```{r type-1-dist, out.width="100%", fig.cap = "", fig.align='center'}
@@ -228,7 +228,7 @@ knitr::include_graphics("type-ii-error-rate.png")
 Images Source: [Type I and Type II errors by Pritha Bhandari](https://www.scribbr.com/statistics/type-i-and-type-ii-errors/){target="_blank"}
 </center>
 
-## Trade-offs between Type I and Type II Errors. (2/2)
+## Trade-offs between Type I and Type II Errors (2/2)
 
 ```{r type-1-and-2-dist, out.width="70%", fig.align='center',fig.cap = "Images Source: [Type I and Type II errors by Pritha Bhandari](https://www.scribbr.com/statistics/type-i-and-type-ii-errors/){target=_blank}"}
 knitr::include_graphics("type-i-and-type-ii-error.png")

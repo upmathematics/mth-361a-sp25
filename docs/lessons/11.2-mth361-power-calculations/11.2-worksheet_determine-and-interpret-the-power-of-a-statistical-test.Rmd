@@ -1,0 +1,68 @@
+---
+header-includes: |
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhead[LO,L]{\textbf{MTH-361 D} | Spring 2025}
+  \fancyhead[RO,R]{\textbf{F 3/28 Worksheet} | Pg. \thepage}
+  \fancyfoot[CO,C]{}
+  \usepackage{float}
+  \usepackage{multirow}
+output:
+  bookdown::pdf_document2:
+    toc: no
+    number_section: no
+urlcolor: blue
+link-citations: yes
+bibliography: ../../../references.bib
+csl: ../../../mbe.csl
+nocite: '@*'
+geometry: "left=0.50in,right=0.50in,top=0.75in,bottom=0.75in"
+fontsize: 12pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(kableExtra)
+data(COL)
+seed = 42
+```
+
+**Name:**
+
+**Collaborators:**
+
+\noindent\rule{\textwidth}{1pt}
+**Instructions:** 
+
+> You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+
+Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+\noindent\rule{\textwidth}{1pt}
+
+## Determine and Interpret the Power of a Statistical Test
+
+### 1. Population Weights
+
+A researcher wants to test whether the mean weight of a population differs from 70 kg. Assume the population standard deviation is 10 kg, the sample size is 25, and the significance level is \( \alpha = 0.05 \). The true population mean is actually 72 kg.
+
+a. State the null and alternative hypotheses.
+\vfill
+
+b. Compute the standardized effect size.
+\vfill
+
+c. Calculate the power of this test using R.
+\vfill
+
+d. Interpret the result. What does this power tell you about the likelihood of detecting the true effect?
+\vfill
+
+## **References**
+
+::: {#refs}
+:::

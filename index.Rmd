@@ -219,9 +219,9 @@ The following learning objectives are designed to build on one another, with som
 | **10** | M 3/17 | Hypothesis Testing and Decision Errors |
 |  | W 3/19 | Inference for Proportions |
 |  | F 3/21 | Chi-Squared Tests |
-| **11** | M 3/24 | Inference for Means, <br>**Homework 3** & <br>**Project Phase 3** |
-|  | W 3/26 | Power Calculations |
-|  | F 3/28 | Rank-Based Tests |
+| **11** | M 3/24 | Inference for One Mean, <br>**Homework 3** & <br>**Project Phase 3** |
+|  | W 3/26 | Inference for Two Means |
+|  | F 3/28 | Power Calculations |
 | **12** | M 3/31 | Linear Regression |
 |  | W 4/2 | Least-Squared Regression and Residual Analysis |
 |  | F 4/4 | Inference for Linear Regression |
@@ -593,7 +593,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Inference for Proportions](lessons/10.2-mth361-inference-for-proportions/10.2-mth361-inference-for-proportions.html) | Ch. 10.2 @speegle2021probability |
 | [Chi-Squared Tests](lessons/10.3-mth361-chi-squared-tests/10.3-mth361-chi-squared-tests.html) | Ch. 10.3-10.5 @speegle2021probability |
 | [Inference for Means](lessons/11.1-mth361-inference-for-means/11.1-mth361-inference-for-means.html) | Ch. 8.1-8.3 & Ch. 8.6 @speegle2021probability |
-| Power Calculations | Ch. 8.7 @speegle2021probability |
+| [Power Calculations](lessons/11.2-mth361-power-calculations/11.2-mth361-power-calculations.html) | Ch. 8.7 @speegle2021probability |
 | Rank-Based Tests | Ch. 9.1-9.2 @speegle2021probability |
 | Linear Regression | TBA |
 | Least-Squares Regression | TBA |
