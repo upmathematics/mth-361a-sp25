@@ -220,10 +220,10 @@ The following learning objectives are designed to build on one another, with som
 |  | W 3/19 | Inference for Proportions |
 |  | F 3/21 | Chi-Squared Tests |
 | **11** | M 3/24 | Inference for One Mean, <br>**Homework 3** & <br>**Project Phase 3** |
-|  | W 3/26 | Inference for Two Means |
+|  | W 3/26 | Inference for Difference of Two Means |
 |  | F 3/28 | Power Calculations |
 | **12** | M 3/31 | Linear Regression |
-|  | W 4/2 | Least-Squared Regression and Residual Analysis |
+|  | W 4/2 | Residual Analysis |
 |  | F 4/4 | Inference for Linear Regression |
 | **13** | M 4/7 | Multiple Linear Regression & <br>**Homework 4** |
 |  | W 4/9 | Inference for Many Means |
@@ -592,13 +592,13 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Hypothesis Testing and Decision Errors](lessons/10.1-mth361-hypthesis-testing-and-decision-errors/10.1-mth361-hypthesis-testing-and-decision-errors.html) | - |
 | [Inference for Proportions](lessons/10.2-mth361-inference-for-proportions/10.2-mth361-inference-for-proportions.html) | Ch. 10.2 @speegle2021probability |
 | [Chi-Squared Tests](lessons/10.3-mth361-chi-squared-tests/10.3-mth361-chi-squared-tests.html) | Ch. 10.3-10.5 @speegle2021probability |
-| [Inference for Means](lessons/11.1-mth361-inference-for-means/11.1-mth361-inference-for-means.html) | Ch. 8.1-8.3 & Ch. 8.6 @speegle2021probability |
-| [Power Calculations](lessons/11.2-mth361-power-calculations/11.2-mth361-power-calculations.html) | Ch. 8.7 @speegle2021probability |
-| Rank-Based Tests | Ch. 9.1-9.2 @speegle2021probability |
-| Linear Regression | TBA |
-| Least-Squares Regression | TBA |
-| Residual Analysis | TBA |
-| Inference for Linear Regression | TBA |
+| [Inference for One Mean](lessons/11.1-mth361-inference-for-one-mean/11.1-mth361-inference-for-one-mean.html) | Ch. 8.1-8.3 @speegle2021probability |
+| [Inference for Difference of Two Means](lessons/11.2-mth361-inference-for-difference-of-two-means/11.2-mth361-inference-for-difference-of-two-means.html) | Ch. 8.6 @speegle2021probability |
+| [Power Calculations](lessons/11.3-mth361-power-calculations/11.3-mth361-power-calculations.html) | Ch. 8.7 @speegle2021probability |
+| Linear Regression | Ch. 11.1-11.2 @speegle2021probability |
+| Least-Squares Regression | Ch. 11.3 @speegle2021probability |
+| Residual Analysis | Ch. 11.4 @speegle2021probability |
+| Inference for Linear Regression | Ch. 11.5 @speegle2021probability |
 | Multiple Linear Regression | TBA |
 | Inference for Many Means | TBA |
 | ANalysis Of VAriance (ANOVA) | TBA |
