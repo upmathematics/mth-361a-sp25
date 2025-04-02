@@ -249,7 +249,7 @@ In the case for a linear model with one predictor and one outcome, the relations
 ## Outliers in Linear Regression
 
 <div class='left' style='float:left;width:48%'>
-```{r outlier-plots-1, fig.cap = "Three plots, each with a least squares line and corresponding residual plot. Each dataset has at least one outlier. Image Source: [OpenIntro: IMS Section 7.3.](https://openintro-ims.netlify.app/model-slr.html#outliers-in-regression){target=_blank}", out.width = "100%", fig.width = 8, fig.asp = 0.6, fig.align='center', message=FALSE,warning=FALSE}
+```{r outlier-plots-1, fig.cap = "Three plots, each with a least squares line and corresponding residual plot. Each dataset has at least one outlier.", out.width = "100%", fig.width = 8, fig.asp = 0.6, fig.align='center', message=FALSE,warning=FALSE}
 d1 <- simulated_scatter %>% 
   filter(group == 24) %>%
   mutate(outlier = if_else(y == min(y), TRUE, FALSE))
@@ -373,7 +373,6 @@ grid.arrange(p_1,p_2,p_3,p_1_res,p_2_res,p_3_res,nrow=2)
 
 ## Outliers in Linear Regression
 
-
 **Types of outliers.**
   
 * A point (or a group of points) that stands out from the rest of the data is called an **outlier**.
@@ -383,57 +382,6 @@ grid.arrange(p_1,p_2,p_3,p_1_res,p_2_res,p_3_res,nrow=2)
 We must be cautious on removing outliers in our modeling. Sometimes outliers are interesting cases that might be worth investigating and it might even make amodel much better.
   
 Try out this [least-squares regression interactive demo](https://phet.colorado.edu/sims/html/least-squares-regression/latest/least-squares-regression_en.html){target=_blank} to play around with outliers in least squares regression.
-
-## Categorical Predictors with Two Levels
-
-<div class='left' style='float:left;width:48%'>
-```{r}
-mariokart_lt100 <- mariokart %>%
-  filter(total_pr < 100) %>%
-  mutate(cond = fct_relevel(cond, "used", "new"))
-```
-
-*Example:*
-
-```{r marioKartNewUsed, fig.cap="Total auction prices for the video game Mario Kart, divided into used ($x = 0$) and new ($x = 1$) condition games. The least squares regression line is also shown.", out.width="90%", warning=FALSE, message=FALSE, fig.width=5,fig.height=5}
-mariokart_lt100 %>%
-  filter(total_pr < 100) %>%
-  ggplot(aes(x = as.numeric(cond) - 1, y = total_pr)) +
-  geom_jitter(alpha = 0.8, position = position_jitter(width = 0.05)) +
-  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) +
-  scale_x_continuous(
-    breaks = c(0, 1), 
-    minor_breaks = c(0, 1),
-    limits = c(-0.2, 1.2),
-    labels = c("0\n(used)", "1\n(new)")
-    ) +
-  labs(
-    x = "Condition",
-    y = "Total price"
-  )
-```
-</div>
-
-<div class='right' style='float:right;width:48%'>
-* Categorical variables are also useful in predicting outcomes. Here we consider a categorical predictor with two levels (recall that a *level* is the same as a *category*).
-* Since the predictor is a categorical variable with text as levels, we can simplify the model by indicating that it is either new or not new (which means old). This **indicator variable** takes in a value of 1 (new) and 0 (old). 
-* Using this indicator variable and using least squares to estimate the intercept and slope, the linear model may be written as
-
-$$\widehat{\texttt{price}} = 42.87 + 10.9 \times \texttt{condnew}$$
-</div>
-
-## Categorical Predictors with Two Levels
-
-**Interpreting the slope and intercept for two-level categorical predictor:**
-
-* The estimated intercept is the value of the outcome variable for the first category (i.e., the category corresponding to an indicator value of 0). 
-* The estimated slope is the average change in the outcome variable between the two categories.
-  
-*example:*
-
-$$\widehat{\texttt{price}} = 42.87 + 10.9 \times \texttt{condnew}$$
-
-The average selling price of a used version of the game is $42.9$. The slope indicates that, on average, new games sell for about $10.9 more than used games.
 
 ## Activity: Assessing Residuals of a Linear Model
 
