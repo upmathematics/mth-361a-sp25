@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.28)  2 APR 2025 10:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.8.28)  2 APR 2025 11:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**11.2-worksheet_determine-confidence-intervals-for-difference-in-means.tex
-(./11.2-worksheet_determine-confidence-intervals-for-difference-in-means.tex
+**12.2-worksheet_assessing-residuals-of-a-linear-model.tex
+(./12.2-worksheet_assessing-residuals-of-a-linear-model.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
 (c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -524,9 +524,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count323
 \l__pdf_internal_box=\box75
-) (./11.2-worksheet_determine-confidence-intervals-for-difference-in-means.aux)
-\openout1 = `11.2-worksheet_determine-confidence-intervals-for-difference-in-me
-ans.aux'.
+) (./12.2-worksheet_assessing-residuals-of-a-linear-model.aux)
+\openout1 = `12.2-worksheet_assessing-residuals-of-a-linear-model.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 141.
 LaTeX Font Info:    ... okay on input line 141.
@@ -621,56 +620,64 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package hyperref Info: Link coloring ON on input line 141.
+<12.2-worksheet_assessing-residuals-of-a-linear-model_files/figure-latex/x-y-sc
+atterplot-1.pdf, id=4, 421.575pt x 421.575pt>
+File: 12.2-worksheet_assessing-residuals-of-a-linear-model_files/figure-latex/x
+-y-scatterplot-1.pdf Graphic file (type pdf)
+<use 12.2-worksheet_assessing-residuals-of-a-linear-model_files/figure-latex/x-
+y-scatterplot-1.pdf>
+Package pdftex.def Info: 12.2-worksheet_assessing-residuals-of-a-linear-model_f
+iles/figure-latex/x-y-scatterplot-1.pdf  used on input line 168.
+(pdftex.def)             Requested size: 162.61243pt x 162.61243pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-70.
+78.
 (c:/texlive/2024/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-70.
+78.
 (c:/texlive/2024/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-170.
+178.
 (c:/texlive/2024/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-170.
+178.
 (c:/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 170.
+(Font)              <12> on input line 178.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 170.
+(Font)              <8> on input line 178.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 170.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 170
+(Font)              <6> on input line 178.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 178
 .
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (c:/texlive/2024/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 170
+LaTeX Font Info:    Trying to load font information for U+msb on input line 178
 .
 (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (c:/texlive/2024/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<11.2-worksheet_determine-confidence-intervals-for-difference-in-means_files/fi
-gure-latex/unnamed-chunk-2-1.pdf, id=4, 413.545pt x 196.735pt>
-File: 11.2-worksheet_determine-confidence-intervals-for-difference-in-means_fil
-es/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
-<use 11.2-worksheet_determine-confidence-intervals-for-difference-in-means_file
-s/figure-latex/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: 11.2-worksheet_determine-confidence-intervals-for-diff
-erence-in-means_files/figure-latex/unnamed-chunk-2-1.pdf  used on input line 18
-0.
-(pdftex.def)             Requested size: 271.01593pt x 128.92989pt.
+<12.2-worksheet_assessing-residuals-of-a-linear-model_files/figure-latex/resid-
+scatter-hist-1.pdf, id=5, 568.1225pt x 277.035pt>
+File: 12.2-worksheet_assessing-residuals-of-a-linear-model_files/figure-latex/r
+esid-scatter-hist-1.pdf Graphic file (type pdf)
+<use 12.2-worksheet_assessing-residuals-of-a-linear-model_files/figure-latex/re
+sid-scatter-hist-1.pdf>
+Package pdftex.def Info: 12.2-worksheet_assessing-residuals-of-a-linear-model_f
+iles/figure-latex/resid-scatter-hist-1.pdf  used on input line 191.
+(pdftex.def)             Requested size: 379.42645pt x 185.02068pt.
 
 
 
@@ -684,8 +691,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/202
 4/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 
- <./11.2-worksheet_determine-confidence-intervals-for-difference-in-means_files
-/figure-latex/unnamed-chunk-2-1.pdf>]
+{c:/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2024/t
+exmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dv
+ips/lm/lm-mathsy.enc} <./12.2-worksheet_assessing-residuals-of-a-linear-model_f
+iles/figure-latex/x-y-scatterplot-1.pdf>]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -695,32 +704,32 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[2{c:/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2024
-/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2024/texmf-dist/fonts/
-enc/dvips/lm/lm-rm.enc}] (./11.2-worksheet_determine-confidence-intervals-for-d
-ifference-in-means.aux)
+[2 <./12.2-worksheet_assessing-residuals-of-a-linear-model_files/figure-latex/r
+esid-scatter-hist-1.pdf>] (./12.2-worksheet_assessing-residuals-of-a-linear-mod
+el.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 15933 strings out of 473578
- 250548 string characters out of 5732242
- 1938960 words of memory out of 5000000
- 38506 multiletter control sequences out of 15000+600000
- 585180 words of font info for 78 fonts, out of 8000000 for 9000
+ 15943 strings out of 473578
+ 251099 string characters out of 5732242
+ 1936960 words of memory out of 5000000
+ 38517 multiletter control sequences out of 15000+600000
+ 585172 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,11n,93p,1066b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,11n,93p,1049b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2024
 /texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2024/texmf-dist/fonts/
 type1/public/lm/lmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr
-12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on 11.2-worksheet_determine-confidence-intervals-for-difference-
-in-means.pdf (2 pages, 83567 bytes).
+12.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2
+024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
+Output written on 12.2-worksheet_assessing-residuals-of-a-linear-model.pdf (2 p
+ages, 124351 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 14366 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 105 PDF objects out of 1000 (max. 8388607)
+ 81 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
+ 14379 words of extra memory for PDF output out of 14400 (max. 10000000)
 

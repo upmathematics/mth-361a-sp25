@@ -596,8 +596,7 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Inference for Difference of Two Means](lessons/11.2-mth361-inference-for-difference-of-two-means/11.2-mth361-inference-for-difference-of-two-means.html) | Ch. 8.6 @speegle2021probability |
 | [Power Calculations](lessons/11.3-mth361-power-calculations/11.3-mth361-power-calculations.html) | Ch. 8.7 @speegle2021probability |
 | [Linear Regression](lessons/12.1-mth361-linear-regression/12.1-mth361-linear-regression.html) | Ch. 11.1-11.2 @speegle2021probability |
-| Least-Squares Regression | Ch. 11.3 @speegle2021probability |
-| Residual Analysis | Ch. 11.4 @speegle2021probability |
+| [Residual Analysis](lessons/12.2-mth361-residual-analysis/12.2-mth361-residual-analysis.html) | Ch. 11.3-11.4 @speegle2021probability |
 | Inference for Linear Regression | Ch. 11.5 @speegle2021probability |
 | Multiple Linear Regression | TBA |
 | Inference for Many Means | TBA |

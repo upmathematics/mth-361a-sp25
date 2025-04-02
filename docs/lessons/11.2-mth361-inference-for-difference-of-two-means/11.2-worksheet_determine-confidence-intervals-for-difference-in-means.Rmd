@@ -84,15 +84,12 @@ p_hist <- chickwts_h_l %>%
 p_box + p_hist
 ```
 
-a. Describe the distributions of weights of chickens that were fed horsebean and linseed.
+a. Use the given summary statistics and data visualizations to check if the conditions of CLT are satisfied. Assume that the observations are a simple random sample.
 \vfill
 
 \newpage
 
-b. Use the given summary statistics and data visualizations to check if the conditions of CLT are satisfied. Assume that the observations are a simple random sample.
-\vfil
-
-c. Compute the 99\% confidence interval for the average heights of adults.
+b. Compute the 99\% confidence interval for the average wieght of chickens.
 
     i. What is the point estimate?
     \vfill
@@ -100,13 +97,16 @@ c. Compute the 99\% confidence interval for the average heights of adults.
     ii. Determine the standard error $SE$.
     \vfill
     
-    iii. Compute the degrees of freedom $df$ and critical $t^*_{df}$ using a confidence level of $0.90$. 
+    iii. Determine the appropriate degrees of freedom $df$.
     \vfill
     
-    vi. Compute the 99\% confidence interval.
+    iii. Compute critical $t^*_{df}$ using a confidence level of $0.99$. 
+    \vfill
+    
+    vi. Determine the 99\% confidence interval.
     \vfill
 
-d. What is the conclusion? Interpret the confidence interval computed in Part (b).
+c. What is the conclusion? Interpret the confidence interval computed in Part (b).
 \vfill
 
 ## **References**

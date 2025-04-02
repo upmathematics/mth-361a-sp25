@@ -214,7 +214,7 @@ dolphin_summary_stats %>%
   
 ## Case Study I: One-sample t-interval (1/2)
 
-**One sample t-intervals**
+**One-sample t-intervals**
 
 $$
 \begin{aligned}
@@ -225,22 +225,24 @@ $$
 
 * We plug in $s$ and $n$ into the formula: $SE = \frac{s}{\sqrt{n}} = \frac{2.3}{\sqrt{19}} = 0.528.$
 * The degrees of freedom is easy to calculate: $df = n-1 = 19-1 = 18.$
-* We find the cutoff where the upper tail is equal to 2.5%: $t^*_{18} = 2.10.$ The area below -2.10 will also be equal to 2.5%.
+* For a 95% confidence level, we find the cutoff where the upper tail is equal to 2.5%: $t^*_{18} = 2.1009.$ The area below $t^*_{18} = -2.1009$ will also be equal to 2.5%.
 
-**Using R to find $t^*$**
+**Using R to find the critical $t^*$ with $df=18$**
 
 ```{r echo = TRUE}
-qt(0.025, df = 18)
+cl <- 0.95 # confidence level
+lt <- (1-cl)/2 # lower tail probability
+df <- 18 # degrees of freedom
+qt(lt, df) # t-star
 ```
 
 ## Case Study I: One-sample t-interval (2/2)
 
-**One sample t-intervals**
-
 \[
 \begin{aligned}
 \bar{x} \ &\pm\  t^*_{18} \times SE \\
-4.4 \ &\pm\  2.10 \times 0.528 \\
+4.4 \ &\pm\  2.1009 \times 0.528 \\
+4.4 \ &\pm\  1.1093 \\
 \end{aligned} 
 \]
 $$(3.29,5.51)$$

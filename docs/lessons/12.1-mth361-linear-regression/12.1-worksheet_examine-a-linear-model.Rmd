@@ -48,13 +48,15 @@ Worksheets are marked mostly on completion, and partially on correctness. It wil
 
 ### 1. The Coast Starlight
 
-The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel from one stop to another (in minutes). The correlation between travel time and distance is 0.636. The plot also shows the best linear fit (red line) of the data where the slope is estimated to be 0.7259 and the intercept is 50.8842.
+The Coast Starlight Amtrak train runs from Seattle to Los Angeles. The scatterplot below displays the distance between each stop (in miles) and the amount of time it takes to travel from one stop to another (in minutes). The correlation between travel time and distance is 0.636. The plot also shows the best linear fit (solid line) of the data where the slope is estimated to be 0.7259 and the intercept is 50.8842.
 
-```{r cs-line-model, fig.align='center', fig.height=8, fig.width=8, message=FALSE, warning=FALSE, out.width="40%"}
-par(mar=c(4,4,1,1), las=1, mgp=c(2.5,0.7,0), cex.lab = 1.5, cex.axis = 1.5)
-plot(coast_starlight$travel_time~ coast_starlight$dist, xlab = "Distance (miles)", ylab = "Travel Time (minutes)", pch=19, col=COL[1,2], cex=2)
-lm_cs = lm(coast_starlight$travel_time~ coast_starlight$dist)
-abline(lm_cs, col = COL[4], lwd = 3)
+```{r cs-line-model, fig.align='center', fig.height=4, fig.width=4, message=FALSE, warning=FALSE, out.width="40%"}
+ggplot(coast_starlight,aes(x=dist,y=travel_time)) + 
+  geom_point(size=2,color=COL[1,1]) + 
+  xlab("Distance (miles)") + 
+  ylab("Travel Time (minutes)") + 
+  geom_smooth(method='lm', formula= y~x, se=FALSE, color="black") + 
+  theme_minimal()
 ```
 
 a. What are the explanatory and response variables? Explain your reasoning.
