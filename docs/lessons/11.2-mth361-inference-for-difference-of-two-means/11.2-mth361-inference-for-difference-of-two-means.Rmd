@@ -154,7 +154,7 @@ $$
 \end{aligned}
 $$
 
-  * The **margin of error** is $t^*_{df} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$ where $t^*_{df}$ is calculated from a specified percentile on the t-distribution with *df* degrees of freedom.
+  * The **margin of error** is $SE = t^*_{df} \times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$ where $t^*_{df}$ is calculated from a specified percentile on the t-distribution with *df* degrees of freedom.
   * The official formula for the **degrees of freedom** is quite complex and is generally computed using R, so instead you may use the smaller of $n_1 - 1$ and $n_2 - 1$ for convenience if $n_1 \approx n_2$.
     
 ## Case Study I: Two-sample t-interval (2/3)
@@ -188,6 +188,7 @@ qt(lt, df) # t-star
   \[
   \begin{aligned}
   \bar{x}_{automatic} - \bar{x}_{manual} & \pm ME \\
+                             17.4 - 22.7 & \pm t^*_{df} \times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
                              17.4 - 22.7 & \pm 2.0639 \times 1.1456 \\
                                     -5.3 & \pm 2.3644
   \end{aligned}
@@ -206,7 +207,7 @@ $$df = n - 1$$
 
 **Two-sample t-interval**
 
-* **Minimum sample size.** If $n_1 \approx n_2$, then $df = \min{\left(n_1 - 1,n_2 - 2\right)}$. *Using this $df$ yields low statistical power.*
+* **Minimum sample size.** If $n_1 \approx n_2$, then $df = \min{\left(n_1 - 1,n_2 - 1\right)}$. *Using this $df$ yields low statistical power.*
 * **Pooled.** If $n_1 \ne n_2$ and $s_1 = s_2$, then $df = n_1 + n_2 - 2$.
 * **Welch's Formula.** If $n_1 \ne n_2$ and $s_1 \ne s_2$, then $df = \frac{\left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2}{\left(\frac{1}{n_1 - 1}\right) \left( \frac{s_1^2}{n_1} \right)^2 + \left(\frac{1}{n_2 - 1}\right) \left( \frac{s_2^2}{n_2} \right)^2}$. *Using this $df$ is the default*.
 

@@ -70,7 +70,7 @@ sst <- sum((y - mean(y))^2)
 sse <- sum(residuals$e^2)
 ```
 
-```{r x-y-scatterplot, fig.cap = "Scatterplot of variables x and y. The red line is the best fit linear model of the data.", fig.pos="H", out.width="30%", message=FALSE, warning=FALSE, fig.align='center', fig.width=6,fig.height=6}
+```{r x-y-scatterplot, fig.cap = "Scatterplot of variables x and y. The red line is the best fit linear model of the data.", out.width="35%", message=FALSE, warning=FALSE, fig.align='center', fig.width=4,fig.height=4}
 ggplot(df, aes(x = x, y = y)) +
   geom_point(alpha = 0.50, fill = IMSCOL["black", "full"], shape = 21, size = 3) +
   geom_smooth(method = "glm", color = IMSCOL["red", "full"], se = FALSE) +
@@ -95,10 +95,10 @@ histogram <- ggplot(data=residuals, aes(x=e)) + geom_histogram(bins=20, color="b
   xlab("Residuals") +  ylab("Frequency") + ggtitle("Histogram of Residuals") + 
   theme_minimal()
 
-scatter <- ggplot(data=residuals, aes(x = x, y = e)) + geom_point(size = 1.5) + # scatter plot
-  xlab("x") +  ylab("Residual") + # x and y label +
+scatter <- ggplot(data=residuals, aes(x = y.hat, y = e)) + geom_point(size = 1.5) + # scatter plot
+  xlab("Predicted y") +  ylab("Residual") + # x and y label +
   geom_hline(yintercept=0, linetype='dashed', col = 'red') +
-  ggtitle("x vs Residuals") + 
+  ggtitle("Predicted y vs Residuals") + 
   theme_minimal()
 
 grid.arrange(histogram, scatter, nrow=1, ncol=2)
