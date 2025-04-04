@@ -224,12 +224,12 @@ The following learning objectives are designed to build on one another, with som
 |  | F 3/28 | Power Calculations |
 | **12** | M 3/31 | Linear Regression |
 |  | W 4/2 | Residual Analysis |
-|  | F 4/4 | Inference for Linear Regression |
-| **13** | M 4/7 | Multiple Linear Regression & <br>**Homework 4** |
-|  | W 4/9 | Inference for Many Means |
-|  | F 4/11 | ANalysis Of VAriance (ANOVA) |
-| **14** | M 4/14 | Choosing Inferential Methods & <br>**Project Phase 4** |
-|  | W 4/16 | Logistic Regression |
+|  | F 4/4 | _Cancelled_ |
+| **13** | M 4/7 | Inference for Linear Regression & <br>**Homework 4** |
+|  | W 4/9 | Multiple Linear Regression |
+|  | F 4/11 | Inference for Many Means |
+| **14** | M 4/14 | ANalysis Of VAriance (ANOVA) & <br>**Project Phase 4** |
+|  | W 4/16 | Choosing Statistical Methods |
 |  | F 4/18 | _Easter vacation_ |
 | **15** | M 4/21 | _Easter Vacation_ |
 |  | W 4/23 | Project Period |
