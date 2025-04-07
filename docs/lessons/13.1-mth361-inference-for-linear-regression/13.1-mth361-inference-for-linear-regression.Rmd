@@ -1,0 +1,307 @@
+---
+title: "Inference for Linear Regression"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2025 | University of Portland"
+date: "April 7, 2025"
+output:
+  slidy_presentation:
+    font_adjustment: +5
+    footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(gridExtra)
+library(latex2exp)
+library(kableExtra)
+library(broom)
+library(scales)
+library(infer)
+library(tidymodels)
+data(COL)
+seed <- 42
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Introduce inference for linear regression**
+- **Develop an understanding of the sampling distribution of the slope and intercept**
+- **Know how to compute the confidence intervals of the slope and intercept**
+- **Activity: Determine Confidence Intervals of Linear Model**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Previously... 
+
+## Case Study I
+
+```{r sandpop, fig.cap = "Revenue as a linear model of advertising dollars for a population of sandwich stores, in thousands of dollars.", out.width="70%", fig.align='center', fig.width=6,fig.height=4, warning=FALSE, message=FALSE}
+set.seed(4747)
+popsize <- 1000
+ad <- rnorm(popsize, 4, 1)
+rev <- 12 + 4.7 * ad + rnorm(popsize, 0, 8)
+sandwich <- tibble(ad, rev)
+
+ggplot(sandwich, aes(x = ad, y = rev)) +
+  geom_point(alpha = 0.5, size = 2) +
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE) +
+  scale_x_continuous(labels = label_dollar(suffix = "K")) +
+  scale_y_continuous(labels = label_dollar(suffix = "K")) +
+  labs(
+    x = "Amount spent on advertising",
+    y = "Revenue",
+    title = "Chain sandwich store",
+    subtitle = "Hypothetical population"
+  ) +
+  coord_cartesian(ylim = c(0, 65)) + 
+  theme_minimal()
+```
+
+## Case Study I: The Linear Model
+
+The population model is: $$y_{revenue} = \beta_0 + \beta_1 x_{advertising} + e$$
+where $y$ is the response, $x$ is the predictor, $\beta_0$ is the intercept, $\beta_1$ is the slope, and $e$ is the error term.
+
+The least squares regression model uses the data to find a sample linear fit: 
+$$\hat{y}_{revenue} = b_0 + b_1 x_{advertising}.$$
+where $b_0 = 11.23$, $b_1 = 4.8$.
+
+## Case Study I: Variability of the Statistic (1/4)
+
+```{r echo = FALSE,warning=FALSE, message=FALSE}
+set.seed(470)
+sandwich2 <- sandwich %>%
+  sample_n(size = 20)
+sandwich3 <- sandwich %>%
+  sample_n(size = 20)
+sandwich_many <- sandwich %>%
+  rep_sample_n(size = 20, replace = FALSE, reps = 100)
+```
+
+```{r fig.cap = "A random sample of 20 stores from the entire population. A linear trend between advertising and revenue continues to be observed.", out.width="70%", fig.align='center', fig.width=6,fig.height=4, warning=FALSE, message=FALSE}
+ggplot(sandwich2, aes(x = ad, y = rev)) +
+  geom_point(size = 3, fill = IMSCOL["green", "full"], color = "#FFFFFF", shape = 22) +
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE, color = IMSCOL["green", "full"]) +
+  scale_x_continuous(labels = label_dollar(suffix = "K")) +
+  scale_y_continuous(labels = label_dollar(suffix = "K")) +
+  labs(
+    x = "Amount spent on advertising",
+    y = "Revenue",
+    title = "Chain sandwich store",
+    subtitle = "Random sample of 20 stores"
+  ) +
+  coord_cartesian(ylim = c(0, 65)) + 
+  theme_minimal()
+```
+  
+## Case Study I: Variability of the Statistic (2/4)
+
+A second sample of size 20 also shows a positive trend!
+
+```{r fig.cap = "A different random sample of 20 stores from the entire population. Again, a linear trend between advertising and revenue is observed.", out.width="70%", fig.align='center', fig.width=6,fig.height=4, warning=FALSE, message=FALSE}
+
+ggplot(sandwich3, aes(x = ad, y = rev)) +
+  geom_point(size = 3, fill = IMSCOL["gray", "full"], color = "#FFFFFF", shape = 23) +
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE, color = IMSCOL["gray", "full"]) +
+  scale_x_continuous(labels = label_dollar(suffix = "K")) +
+  scale_y_continuous(labels = label_dollar(suffix = "K")) +
+  labs(
+    x = "Amount spent on advertising",
+    y = "Revenue",
+    title = "Chain sandwich store",
+    subtitle = "Random sample of 20 stores"
+  ) +
+  coord_cartesian(ylim = c(0, 65)) + 
+  theme_minimal()
+```
+
+## Case Study I: Variability of the Statistic (3/4)
+
+```{r fig.cap = "The linear models from the two different random samples are quite similar, but they are not the same line.", out.width="70%", fig.align='center', warning=FALSE, message=FALSE, fig.width=6,fig.height=4}
+ggplot() +
+  geom_point(data = sandwich2, aes(x = ad, y = rev), 
+             size = 3, , shape = 22,
+             fill = IMSCOL["green", "full"], color = "#FFFFFF") +
+  geom_smooth(data = sandwich2, aes(x = ad, y = rev), 
+              method = "lm", se = FALSE, fullrange = TRUE, 
+              color = IMSCOL["green", "full"]) +
+  geom_point(data = sandwich3, aes(x = ad, y = rev), 
+             size = 3, , shape = 23,
+             fill = IMSCOL["gray", "full"], color = "#FFFFFF") +
+  geom_smooth(data = sandwich3, aes(x = ad, y = rev), 
+              method = "lm", se = FALSE, fullrange = TRUE, 
+              color = IMSCOL["gray", "full"]) +
+  scale_x_continuous(labels = label_dollar(suffix = "K")) +
+  scale_y_continuous(labels = label_dollar(suffix = "K")) +
+  labs(
+    x = "Amount spent on advertising",
+    y = "Revenue",
+    title = "Chain sandwich store",
+    subtitle = "Two random samples of 20 stores"
+  ) +
+  coord_cartesian(ylim = c(0, 65)) + 
+  theme_minimal()
+```
+
+## Case Study I: Variability of the Statistic (4/4)
+
+```{r slopes, fig.cap = "If repeated samples of size 20 are taken from the entire population, each linear model will be slightly different. The red line provides the linear fit to the entire population.", out.width="70%", fig.align='center', fig.width=6,fig.height=4, warning=FALSE, message=FALSE}
+ggplot() +
+  geom_smooth(
+    data = sandwich_many, aes(x = ad, y = rev, group = replicate),
+    method = "lm", se = FALSE, fullrange = TRUE, 
+    color = IMSCOL["gray", "f2"], size = 0.5
+  ) +
+  geom_smooth(
+    data = sandwich, aes(x = ad, y = rev), method = "lm", se = FALSE,
+    fullrange = TRUE, color = IMSCOL["red", "full"]
+  ) +
+  scale_x_continuous(labels = label_dollar(suffix = "K")) +
+  scale_y_continuous(labels = label_dollar(suffix = "K")) +
+  labs(
+    x = "Amount spent on advertising",
+    y = "Revenue",
+    title = "Chain sandwich store",
+    subtitle = "100 random samples of 20 stores"
+  ) +
+  coord_cartesian(ylim = c(0, 65)) + 
+  theme_minimal()
+```
+  
+## Case Study I: Sampling Distribution of the Slope Estimate
+
+```{r sand20lm, fig.cap="Variability of slope estimates taken from many different samples of stores, each of size 20.", out.width="70%", warning=FALSE, message=FALSE, fig.align='center', fig.width=6,fig.height=4}
+sandwich_many_lm <- sandwich_many %>%
+  group_by(replicate) %>%
+  do(tidy(lm(rev ~ ad, data = .))) %>%
+  filter(term == "ad")
+
+ggplot(sandwich_many_lm, aes(x = estimate)) +
+  geom_histogram(binwidth = 0.5) +
+  labs(
+    x = "Slope estimate",
+    y = "Count",
+    title = "Chain sandwich store",
+    subtitle = "100 random samples of 20 stores"
+    ) + 
+  geom_vline(xintercept = mean(sandwich_many_lm$estimate),color="red") + 
+  annotate(x=mean(sandwich_many_lm$estimate),y=+Inf,label="mean slope",vjust=11,geom="label",color="red") +
+  geom_vline(xintercept = 4.8,color="blue") + 
+  annotate(x=4.8,y=+Inf,label="actual slope",vjust=13,geom="label",color="blue") +
+  theme_minimal()
+```
+
+## Case Study I: Confidence Interval (1/2)
+
+The 95% Confidence interval for the slope and intercept using the bootstrapped samples. Here, we are using the percentiles of the bootstrapped samples to estimate the confidence interval.
+
+```{r message=FALSE, warning=FALSE, warning=FALSE, message=FALSE, fig.align='center', fig.width=6,fig.height=3}
+boots <- bootstraps(sandwich, times = 100, apparent = TRUE)
+
+fit_lm_on_bootstrap <- function(split) {
+    lm(rev ~ ad, analysis(split))
+}
+
+boot_models <-
+  boots %>% 
+  dplyr::mutate(model = map(splits, fit_lm_on_bootstrap),
+         coef_info = map(model, tidy))
+
+boot_coefs <- 
+  boot_models %>% 
+  unnest(coef_info)
+
+percentile_intervals <- int_pctl(boot_models, coef_info)
+percentile_intervals %>% 
+  select(term,.lower,.estimate,.upper)
+
+ggplot(boot_coefs, aes(estimate)) +
+  geom_histogram(bins = 30) +
+  facet_wrap( ~ term, scales = "free") +
+  labs(title="mtcars", subtitle = "mpg ~ wt") +
+  labs(caption = "95% confidence interval parameter estimates, intercept + estimate") +
+  geom_vline(aes(xintercept = .lower), data = percentile_intervals, col = '#528fad') +
+  geom_vline(aes(xintercept = .upper), data = percentile_intervals, col = '#528fad') + 
+  theme_minimal()
+```
+
+## Case Study I: Confidence Interval (2/2)
+
+```{r slopes2, fig.cap = "If repeated samples of size 20 are taken from the entire population, each linear model will be slightly different. The red line provides the linear fit to the entire population.", out.width="70%", fig.align='center', fig.width=6,fig.height=4, warning=FALSE, message=FALSE}
+ggplot() +
+  geom_smooth(
+    data = sandwich_many, aes(x = ad, y = rev, group = replicate),
+    method = "lm", se = FALSE, fullrange = TRUE, 
+    color = IMSCOL["gray", "f2"], size = 0.5
+  ) +
+  geom_smooth(
+    data = sandwich, aes(x = ad, y = rev), method = "lm", se = FALSE,
+    fullrange = TRUE, color = IMSCOL["red", "full"]
+  ) +
+  geom_abline(intercept = 9.834915	, slope = 5.236326) +
+  geom_abline(intercept = 13.218205	, slope = 4.358568) +
+  scale_x_continuous(labels = label_dollar(suffix = "K")) +
+  scale_y_continuous(labels = label_dollar(suffix = "K")) +
+  labs(
+    x = "Amount spent on advertising",
+    y = "Revenue",
+    title = "Chain sandwich store",
+    subtitle = "100 random samples of 20 stores"
+  ) +
+  coord_cartesian(ylim = c(0, 65)) + 
+  theme_minimal()
+```
+
+## Case Study I: Best Fit Line and Confidence Interval
+
+```{r sandpop2, fig.cap = "Revenue as a linear model of advertising dollars for a population of sandwich stores, in thousands of dollars.", out.width="70%", fig.align='center', fig.width=6,fig.height=4, warning=FALSE, message=FALSE}
+set.seed(4747)
+popsize <- 1000
+ad <- rnorm(popsize, 4, 1)
+rev <- 12 + 4.7 * ad + rnorm(popsize, 0, 8)
+sandwich <- tibble(ad, rev)
+
+ggplot(sandwich, aes(x = ad, y = rev)) +
+  geom_point(alpha = 0.5, size = 2) +
+  geom_smooth(method = "lm", se = TRUE, fullrange = TRUE) +
+  scale_x_continuous(labels = label_dollar(suffix = "K")) +
+  scale_y_continuous(labels = label_dollar(suffix = "K")) +
+  labs(
+    x = "Amount spent on advertising",
+    y = "Revenue",
+    title = "Chain sandwich store",
+    subtitle = "Hypothetical population"
+  ) +
+  coord_cartesian(ylim = c(0, 65)) + 
+  theme_minimal()
+```
+
+We can conclude that we are 95% confident that the true slope that models the spending amount on advertising versus revenue is 4.36 to 5.23.
+
+## Activity: Determine Confidence Intervals of Linear Model
+
+1. Log-in to Posit Cloud and open the R Studio assignment *M 4/7 - Determine Confidence Intervals of Linear Model*.
+2. Make sure you are in the current working directory. Rename the `.Rmd` file by replacing `[name]` with your name using the format `[First name][Last initial]`. Then, open the `.Rmd` file.
+3. Change the author in the YAML header.
+4. Read the provided instructions.
+5. Answer all exercise problems on the designated sections.
+
+## References
+
+::: {#refs}
+:::
