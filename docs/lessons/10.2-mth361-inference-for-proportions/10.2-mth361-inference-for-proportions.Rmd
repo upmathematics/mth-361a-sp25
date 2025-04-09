@@ -68,6 +68,103 @@ knitr::include_graphics("statistical-thinking-in-data-science-lifecycle.png")
 | **$H_0$ is true**    | Type I error<br>with probability $\alpha$<br>(significance level) | Correct decision<br>with probability $1-\alpha$<br>(confidence level) |
 | **$H_0$ is false**   | Correct decision<br>with probability $1-\beta$<br>(power of test) | Type II error<br>with probability $\beta$                             |
 
+## Case Study I
+
+Two scientists want to know if a certain drug is effective against high blood pressure. 
+
+1. The first scientist wants to give the drug to **1000 people with high blood pressure and see how many of them experience lower blood pressure levels.** 
+2. The second scientist wants to **give the drug to 500 people** with high blood pressure, and **not give the drug to another 500 people** with high blood pressure, and see how many in both groups experience lower blood pressure levels. 
+
+Which is the better way to test this drug?
+
+::: {style="color: red;"}
+$\star$ Answer: The second scientist that want 500 get the drug, 500 don’t.
+:::
+
+## Case Study I: Results from the GSS
+
+The GSS (General Social Survey) asks the same question, below is the distribution of responses from the 2010 survey:
+
+| Answer | Count |
+|:---|:---:|
+| All 1000 get the drug | 99 |
+| 500 get the drug 500 don't | 571 |
+| Total | 670 |
+
+## Case Study I: Parameter and Point Estimate
+
+We would like to estimate the proportion of all Americans who have good intuition about experimental design, i.e. would answer “500 get the drug 500 don't”? What are the parameter of interest and the point estimate?
+
+* **Parameter of interest:** proportion of all Americans who have good intuition about experimental design. $$p \longrightarrow \text{a population proportion}$$
+
+* **Point estimate:** proportion of sampled Americans who have good intuition about experimental design. $$\hat{p} \longrightarrow \text{a sample proportion}$$
+
+## Case Study I: Inference on a Proportion
+
+What percent of all Americans have good intuition about experimental design, i.e. would answer "500 get the drug
+500 don't"?
+
+We can answer this research question using a confidence interval, which we know is always of the form $$\text{point estimate} \pm z^{\star} \times \text{SE}.$$
+
+Standard error (SE) of a sample proportion $$SE_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}.$$
+
+## Case Study I: Central Limit Theorem for Proportions
+
+Sample proportions will be nearly normally distributed with mean equal to the population mean, $p$, and standard error equal to $\sqrt{\frac{p(1-p)}{n}}$.
+
+This is true only under certain conditions:
+
+* independent observations, at least 10 successes and 10 failures
+
+Note:
+
+* If $p$ is unknown (most cases), we use $\hat{p}$ in the calculation of the standard error.
+
+## Case Study I: Infering the True Proportion
+
+The GSS found that 571 out of 670 (85%) of Americans answered the question on experimental design correctly. Estimate (using a 95% confidence interval) the proportion of all Americans who have good intuition about experimental design?
+
+Given: $n = 670$, $\hat{p} = 0.85$. First check conditions.
+
+* **Independence:** The sample is random, and $670$ which is less than $10%$ of all Americans, therefore we can assume that one respondent's response is independent of another.
+* **Success-failure:** 571 people answered correctly (successes) and 99 answered incorrectly (failures), both are greater than 10.
+
+## Case Study I: Confidence Interval
+
+We are given that $n = 670$, $\hat{p} = 0.85$, we also just learned that the standard error of the sample proportion is $$SE_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}.$$
+
+Which of the below is the correct calculation of the 95\% confidence interval?
+
+1. $0.85 \pm 1.65 \times \sqrt{\frac{0.85 \times 0.15}{670}}$
+2. $0.85 \pm 1.96 \times \sqrt{\frac{0.85 \times 0.15}{670}}$
+3. $0.85 \pm 1.96 \times \frac{0.85 \times 0.15}{\sqrt{670}}$
+4. $571 \pm 1.96 \times \sqrt{\frac{571 \times 99}{670}}$
+
+::: {style="color: red;"}
+$\star$ Answer: $0.85 \pm 1.96 \times \sqrt{\frac{0.85 \times 0.15}{670}} \longrightarrow (0.82,0.88)$
+:::
+
+## Case Study I: Choosing a sample size
+
+Previously, for $n=670$ the margin of error is $1.96 \times \sqrt{\frac{0.85 \times 0.15}{670}} \approx 0.027$.
+
+How many people should you sample in order to cut the margin of error of a 95\% confidence interval down to 0.01?
+
+$$z^{\star} \times SE_{\hat{p}}$$
+
+\[
+\begin{aligned}
+1.96 \times \sqrt{\frac{0.85 \times 0.15}{n}} & \le 0.01 \\
+1.96^2 \times \frac{0.85 \times 0.15}{n} & \le 0.01^2 \\
+n & \ge \frac{1.96^2 \times 0.85 \times 0.15}{0.01^2} \\
+n & \ge 4898.04
+\end{aligned}
+\]
+
+::: {style="color: red;"}
+$\star$ The sample size should be at least 4,899 to have a 0.01 margin of error for 95\% confidence interval.
+:::
+
 ## Parameter Estimation for One Proportion
 
 **Conditions**
@@ -100,6 +197,134 @@ $$\hat{p}_B - \hat{p}_A \pm z^{\star} SE_{\hat{p}_B - \hat{p}_A}$$
 * $\hat{p}_B$ is the sample proportion for group $B$
 * $z^{\star}$ is the critical z-score for a given confidence level
 * $SE_{\hat{p}_B - \hat{p}_A} = \sqrt{ \frac{\hat{p}_A \left( 1-\hat{p}_A \right)}{n_A} + \frac{\hat{p}_B \left( 1-\hat{p}_B \right)}{n_B} }$ is the standard error
+
+## Case Study II
+
+**Customer Satisfaction at a Coffee Shop**
+
+**Background:** A local coffee shop prides itself on high customer satisfaction. The shop’s management claims that at least 85% of its customers are satisfied with their service. A market research firm is hired to assess this claim by conducting a survey.
+
+**Data Collection:** The research firm randomly surveys 200 customers who visited Brew Haven in the past month. Among them, 160 reported being satisfied with the service.
+
+**Objective:** Use hypothesis testing for one proportion to determine whether the claim that at least 85% of customers are satisfied is supported by the survey data.
+
+## Case Study II: Define Hypotheses
+
+Let $p$ represent the true proportion of satisfied customers.
+
+* **Null Hypothesis $H_0$:** $p = 0.85$ (The satisfaction rate is equal to 85%.)
+
+* **Alternative Hypothesis $H_A$:** $p < 0.85$ (The satisfaction rate is less than 85%.)
+
+* **Choose Significance Level:** A significance level of $\alpha = 0.05$ is chosen.
+
+::: {style="color: red;"}
+$\star$ This is a one-tailed test because the $H_A$ is using the $<$ sign.
+:::
+
+## Case Study II: Compute the Test Statistic
+
+The **sample proportion** is $$\hat{p} = \frac{160}{200} = 0.80.$$
+
+**Test statistic formula for one proportion:** $$z = \frac{\hat{p} - p_0}{SE_{p}}$$
+
+* $p_0 = 0.85$ (claimed proportion or the null value)
+* $SE_{p} = \sqrt{\frac{p_0(1-p_0)}{n}}$ (standard error)
+* $n = 200$ (sample size)
+
+**Substituting values:** $$z = \frac{0.80 - 0.85}{\sqrt{\frac{0.85(1-0.85)}{200}}} \approx -1.9803$$
+
+::: {style="color: red;"}
+$\star$ The standard error formula $SE_{p}$ is the Binomial standard error and here we used the null value.
+:::
+
+## Case Study II: Determine the P-Value
+
+Determine the probability associated with the computed test statistic.
+
+:::: {.column width=50%}
+```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='100%'}
+# normal pdf
+mu <- 0
+sigma <- 1
+x_norm <- seq(-4,4,0.10)
+norm_pdf <- dnorm(x_norm,mu,sigma)
+
+# convert pdf into tibble
+df_norm <- tibble(z=x_norm, norm_pdf=norm_pdf)
+
+# plot the Bernoulli distribution and store it into a R variable
+p1 <- ggplot(df_norm,aes(x=z,y=norm_pdf)) + 
+  geom_line(color="#009159",linewidth=1) + 
+  geom_vline(xintercept=-1.9803,color="blue") + 
+  geom_ribbon(data=subset(df_norm,z<=-1.9803),aes(x=z,ymax=dnorm(z,mu,sigma)),ymin=0,alpha=0.3,fill="#009159") +
+  ylab("density") + 
+  ggtitle("0.0238 Probability up to -1.9803") + # sets the title of the plot
+  scale_x_discrete(limits=c(-1.9803,0)) + 
+  theme_minimal() + # set theme of entire plot
+  theme(legend.title=element_blank())
+
+# display plot
+p1
+```
+::::
+
+:::: {.column width=49%}
+**Using R:**
+
+```{r echo=TRUE}
+pe <- 0.80 # point estimate
+p_0 <- 0.85 # null value
+n <- 200 # sample size
+SE_p <- sqrt((p_0*(1-p_0))/(n)) # standard error
+Z <- (pe-p_0)/SE_p # test statistic
+
+# p-value
+pnorm(Z,0,1) 
+```
+::::
+
+::: {style="color: red;"}
+$\star$ The p-value is the probability $P(Z \le -1.9803) = 0.0238$ using $Z \sim N(0,1$, the standard normal distribution. Since this is one-tailed test, we only use the left tail probability.
+:::
+
+## Case Study II: Make a Conclusion
+
+We compare the p-value to our chosen significance level of $\alpha = 0.05$.
+
+**Conclusion:**
+
+* **If $\text{p-value} < \alpha$, reject the null hypothesis and conclude that the satisfaction rate is significantly less than 85%.**
+
+* If $\text{p-value} \ge \alpha$, do not reject the null hypothesis; there is not enough evidence to claim that the satisfaction rate is lower than 85%.
+
+::: {style="color: red;"}
+$\star$ Since $0.0238 < 0.05$, we reject the null hypothesis ($H_0$).
+:::
+
+## Case Study II: What does the Significance Level Mean?
+
+Remember that we defined $\alpha = 0.05$ arbitrarily before we conducted the hypothesis test.
+
+The significance value $\alpha$ is related to the confidence level of the confidence interval of the point estimate, which is $1-\alpha$.
+
+::: {style="color: red;"}
+$\star$ **Key Idea:** The significance level $\alpha$ is the probability of rejecting the null hypothesis when it is actually true. In other words, it is the probability of making an error.
+:::
+
+## Case Study II: One Proportion Confidence Interval
+
+If we set a significance level $\alpha = 0.05$, then the confidence level for the sample proportion is $1-\alpha = 1 - 0.05 = 0.95$.
+
+That is a 95% confidence interval of the sample proportion $\hat{p} = 0.80$.
+
+* The critical z-value of a 0.95 confidence level is $z^{\star} = 1.96$.
+* Standard error of the null value is $SE_{p} = \sqrt{\frac{0.85(1-0.85)}{200}} \approx 0.0252$.
+* 95% confidence interval is $0.80 \pm 1.96 \times 0.0252$ or $(0.7506,0.8494)$.
+
+::: {style="color: red;"}
+$\star$ **Key Idea:** The null value of $0.85$ is not within the 95% confidence interval. We would reject the null hypothesis at the 5% significance level.
+:::
 
 ## Hypothesis Testing for One Proportion (1/2)
 

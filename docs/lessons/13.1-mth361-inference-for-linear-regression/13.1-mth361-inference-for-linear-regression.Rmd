@@ -40,13 +40,29 @@ seed <- 42
 - **Introduce inference for linear regression**
 - **Develop an understanding of the sampling distribution of the slope and intercept**
 - **Know how to compute the confidence intervals of the slope and intercept**
-- **Activity: Determine Confidence Intervals of Linear Model**
+- **Activity: Determine Confidence Intervals of a Linear Model**
 ::::
 
 :::: {.column width=15%}
 ::::
 
-## Previously... 
+## Previously... (1/2)
+
+**Linear Regression**
+
+\[ y = \beta_0 + \beta_1 x + \epsilon  \]
+
+* $y$ is the outcome, $x$ is the predictor, $\beta_0$ is the intercept, and $\beta_1$ is the slope. The notation $\epsilon$ is the model's error (residuals).
+* We estimate the slope $b_1$ and intercept $b_0$ of the least squares regression line by minimizing the sum of squared residuals.
+* The slope is given by $b_1 = \frac{s_y}{s_x} r$ , and the intercept is $b_0 = \bar{y} - b_1 \bar{x}$ , where $r$ is the correlation coefficient, $s_x$ and $s_y$ are the standard deviations of $x$ and $y$, and $\bar{x}$, $\bar{y}$ are their respective means.
+
+## Previously... (2/2)
+
+**Confidence Interval**
+
+$$\text{point estimate} \pm z^* SE$$
+
+where $SE$ is the standard error and $z^*$ is the critical z-value for a given confidence level assuming a standard normal distribution. Use $t_{df}^*$ for assuming a t-distribution given degrees of freedom $df$.
 
 ## Case Study I
 
@@ -77,9 +93,65 @@ ggplot(sandwich, aes(x = ad, y = rev)) +
 The population model is: $$y_{revenue} = \beta_0 + \beta_1 x_{advertising} + e$$
 where $y$ is the response, $x$ is the predictor, $\beta_0$ is the intercept, $\beta_1$ is the slope, and $e$ is the error term.
 
-The least squares regression model uses the data to find a sample linear fit: 
+```{r echo=FALSE}
+mod <- lm(rev ~ ad, data=sandwich)
+```
+
+The least squares regression model uses the data to find a best linear fit: 
 $$\hat{y}_{revenue} = b_0 + b_1 x_{advertising}.$$
-where $b_0 = 11.23$, $b_1 = 4.8$.
+where $b_0 = 11.23$, $b_1 = 4.85$.
+
+## Case Study I: Resdiual Analysis (1/2)
+
+```{r echo=FALSE}
+preds <- sandwich %>% 
+  mutate(rev_hat = predict(mod, sandwich),
+         resids = rev-rev_hat)
+```
+
+```{r echo=FALSE, fig.align='center', fig.height=2,fig.width=6, out.width="80%"}
+p1 <- ggplot(preds,aes(x=resids)) + 
+  geom_histogram(bins=30) + 
+  xlab("residuals") + 
+  ylab("count") + 
+  theme_minimal()
+
+p2 <- ggplot(preds,aes(x=rev_hat,y=resids)) + 
+  geom_point() + 
+  geom_hline(yintercept = 0, color="blue", linetype="dashed") + 
+  xlab("predicted revenue") + 
+  ylab("residuals") + 
+  theme_minimal()
+
+grid.arrange(p1,p2,nrow=1)
+```
+
+* The residuals appear approximately normal, supporting the normality assumption.
+* The residual plot shows roughly constant variance, suggesting homoskedasticity.
+* Slight clustering near the center may require further investigation but otherwise the residuals are independent of the model (no pattern).
+
+## Case Study I: Resdiual Analysis (2/2)
+
+A **Q-Q plot (quantile-quantile plot)** is a graphical tool used to assess whether a dataset follows a particular theoretical distribution—most commonly, the normal distribution.
+
+:::: {.column width=49%}
+```{r echo=FALSE, fig.align='center', fig.height=3, fig.width=4, out.width='100%'}
+ggplot(preds,aes(sample=resids)) + 
+  stat_qq() + 
+  stat_qq_line(color="blue") + 
+  xlab("theoretical quantiles") + 
+  ylab("sample quantiles") + 
+  theme_minimal()
+```
+::::
+
+:::: {.column width=50%}
+* In regression, we often use a Q-Q plot of residuals to check if they are normally distributed --one of the important assumptions for valid inference for linear regression.
+* Quick interpretation:
+  - Straight line means normality is a reasonable assumption.
+  - Curved or S-shaped means deviations from normality.
+  - Outliers far from the line means possible extreme values.
+::::
 
 ## Case Study I: Variability of the Statistic (1/4)
 
@@ -210,7 +282,7 @@ ggplot(sandwich_many_lm, aes(x = estimate)) +
 
 The 95% Confidence interval for the slope and intercept using the bootstrapped samples. Here, we are using the percentiles of the bootstrapped samples to estimate the confidence interval.
 
-```{r message=FALSE, warning=FALSE, warning=FALSE, message=FALSE, fig.align='center', fig.width=6,fig.height=3}
+```{r message=FALSE, warning=FALSE, warning=FALSE, message=FALSE, fig.align='center', fig.width=6,fig.height=3, out.width="60%"}
 boots <- bootstraps(sandwich, times = 100, apparent = TRUE)
 
 fit_lm_on_bootstrap <- function(split) {
@@ -291,9 +363,9 @@ ggplot(sandwich, aes(x = ad, y = rev)) +
   theme_minimal()
 ```
 
-We can conclude that we are 95% confident that the true slope that models the spending amount on advertising versus revenue is 4.36 to 5.23.
+We can conclude that we are 95% confident that the true slope that models the spending amount on advertising versus revenue is 4.36 to 5.23. Note that the slope of 0 --which means no association between the variables-- is not within the confidence interval, suggesting a statistically significant association.
 
-## Activity: Determine Confidence Intervals of Linear Model
+## Activity: Determine Confidence Intervals of a Linear Model
 
 1. Log-in to Posit Cloud and open the R Studio assignment *M 4/7 - Determine Confidence Intervals of Linear Model*.
 2. Make sure you are in the current working directory. Rename the `.Rmd` file by replacing `[name]` with your name using the format `[First name][Last initial]`. Then, open the `.Rmd` file.

@@ -188,7 +188,7 @@ qt(lt, df) # t-star
   \[
   \begin{aligned}
   \bar{x}_{automatic} - \bar{x}_{manual} & \pm ME \\
-                             17.4 - 22.7 & \pm t^*_{df} \times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}
+                             17.4 - 22.7 & \pm t^*_{df} \times \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}} \\
                              17.4 - 22.7 & \pm 2.0639 \times 1.1456 \\
                                     -5.3 & \pm 2.3644
   \end{aligned}
@@ -212,6 +212,151 @@ $$df = n - 1$$
 * **Welch's Formula.** If $n_1 \ne n_2$ and $s_1 \ne s_2$, then $df = \frac{\left( \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} \right)^2}{\left(\frac{1}{n_1 - 1}\right) \left( \frac{s_1^2}{n_1} \right)^2 + \left(\frac{1}{n_2 - 1}\right) \left( \frac{s_2^2}{n_2} \right)^2}$. *Using this $df$ is the default*.
 
 If the population variance is unknown, use the sample variance $s^2$. If the population variance is known, use population variance $\sigma^2$. Most real-world problems involve sample variances, especially for statistical inference.
+
+## Case Study II
+
+Every year, the US releases to the public a large data set containing information on births recorded in the country. This data set has been of interest to medical researchers who are studying the relation between habits and practices of expectant mothers and the birth of their children. We will work with a random sample of 1,000 cases from the data set released in 2014.
+
+Here are four examples in the data set.
+
+```{r babySmokeDF}
+births14 %>% 
+  select(-premie, -mature, -lowbirthweight, -whitemom, -marital,-gained) %>%
+  head(4) %>%
+  kable()
+```
+
+## Case Study II: Baby Weights - Smoker vs Non-Smoker
+
+We would like to know, is there convincing evidence that newborns from mothers who smoke have a different average birth weight than newborns from mothers who don't smoke?
+
+Here is the summary statistics for the dataset.
+
+```{r births14-summary-stats}
+births14_nona <- births14 %>%
+  filter(
+    !is.na(habit), !is.na(weight)
+  )
+
+births14_sample_stats <- births14_nona %>%
+  group_by(habit) %>%
+  summarise(
+    n = n(),
+    Mean = mean(weight),
+    SD = sd(weight)
+  )
+
+xbar_nonsmoker  <- round(births14_sample_stats %>% filter(habit == "nonsmoker") %>% pull(Mean), 2)
+xbar_smoker     <- round(births14_sample_stats %>% filter(habit == "smoker") %>% pull(Mean), 2)
+xbar_difference <- xbar_nonsmoker - xbar_smoker
+sd_nonsmoker    <- round(births14_sample_stats %>% filter(habit == "nonsmoker") %>% pull(SD), 2)
+sd_smoker       <- round(births14_sample_stats %>% filter(habit == "smoker") %>% pull(SD), 2)
+n_nonsmoker     <- births14_sample_stats %>% filter(habit == "nonsmoker") %>% pull(n)
+n_smoker        <- births14_sample_stats %>% filter(habit == "smoker") %>% pull(n)
+se_difference   <- round(sqrt(sd_nonsmoker^2/n_nonsmoker + sd_smoker^2/n_smoker), 2)
+t_difference    <- round(xbar_difference / se_difference, 2)
+df_difference   <- min(n_nonsmoker-1, n_smoker-1)
+
+births14_sample_stats %>%
+  kable()
+```
+
+## Case Study II: CLT Conditions
+
+Conditions:
+
+* The data come from a simple random sample, the observations are independent, both within and between samples.
+* Both groups over 30 observations, we inspect the data for any particularly extreme outliers and find none.
+
+Since both conditions are satisfied, the difference in sample means may be modeled using a $t$-distribution.
+
+## Case Study II: Examining the Distributions (1/2)
+
+```{r babySmokePlotOfTwoGroupsToExamineSkew, fig.cap="The top panel represents birth weights for infants whose mothers smoked during pregnancy. The bottom panel represents the birth weights for infants whose mothers who did not smoke during pregnancy.", message=FALSE, warning=FALSE, fig.align='center', fig.width=4,fig.height=3, out.width="50%"}
+births14_nona %>%
+  mutate(habit = fct_rev(if_else(habit == "smoker", "Mothers who smoked", "Mothers who did not smoke"))) %>%
+  ggplot(aes(x = weight,fill=habit)) +
+  geom_histogram(binwidth = 1) +
+  facet_wrap(~habit, ncol = 1, scales = "free_y") +
+  scale_x_continuous(breaks = seq(0, 10, 2), limits = c(0, 10)) +
+  labs(x = "Newborn weights (lbs)", y = "Count") + 
+  scale_fill_discrete(guide="none") + 
+  theme_minimal()
+```
+
+## Case Study II: Examining the Distributions (2/2)
+
+```{r boxplotWeights, message=FALSE, warning=FALSE, fig.align='center', fig.width=6,fig.height=3, out.width="50%"}
+ggplot(births14_nona, aes(x = weight, y = habit,fill=habit)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of weights broken down by smoking status.", x = "Newborn weights (lbs)", y = "") + 
+  scale_fill_discrete(guide="none") + 
+  theme_minimal()
+```
+
+## Case Study II: Two Sample t-test (1/4)
+
+```{r boxplotWeights2, message=FALSE, warning=FALSE, fig.align='center', fig.width=6,fig.height=3, out.width="50%"}
+ggplot(births14_nona, aes(x = weight, y = habit,fill=habit)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of weights broken down by smoking status.", x = "Newborn weights (lbs)", y = "") + 
+  scale_fill_discrete(guide="none") + 
+  theme_minimal()
+```
+
+```{r}
+births14_sample_stats %>%
+  kable()
+```
+
+Is there a difference in weight means between the smoking group and nonsmoking group?
+
+## Case Study II: Two Sample t-test (2/4)
+
+* Null Hypothesis $H_0$: There is no difference in means between the smoking and nonsmoking groups.
+    $$\mu_{smoking} = \mu_{nonsmoking}$$
+* Null Hypothesis $H_A$: There is a significant difference in means between the smoking and nonsmoking groups. In particular the smoking group weights is less than the nonsmoking group weights.
+    $$\mu_{smoking} < \mu_{nonsmoking}$$
+* The null value is $\mu_0 = 0$. The point-estimate is $\bar{x}_{smoking} - \bar{x}_{nonsmoking} = -0.5927$ and the sample standard deviations are $s_{smoking} = 1.5966$ and $s_{nonsmoking} = 1.2328$.
+* We set the significance value $\alpha = 0.01$.
+
+## Case Study II: Two Sample t-test (3/4)
+
+  * Compute the standard error
+    \[
+    \begin{aligned}
+    SE & = \sqrt{\frac{s_{smoking}^2}{n_{smoking}} + \frac{s_{nonsmoking}^2}{n_{nonsmoking}}} \\
+       & = \sqrt{\frac{1.5966^2}{114} + \frac{1.2328^2}{867}} \\
+    SE & = 0.1553
+    \end{aligned}
+    \]
+    
+  * Compute the T statistic
+    \[
+    \begin{aligned}
+    t & = \frac{\bar{x}_{smoking} - \bar{x}_{nonsmoking} - \mu_0}{SE} \\
+      & = \frac{-0.5927 - 0}{0.1553} \\
+    t & = -3.8165
+    \end{aligned}
+    \]
+    
+## Case Study II: Two Sample t-test (4/4)
+
+  * Degrees of freedom is $df = min(n_{smoking} - 1,n_{nonsmoking} - 1) = 114 - 1 = 113$.
+  * The p-value is $0.0001$.
+  
+**Using R to compute the p-value**
+
+```{r echo=TRUE}
+df <- 113 # degrees of freedom
+t <- -3.8165 # test statistic
+pt(t,df) # p-value
+```
+
+**Conclusions:**
+  
+  * Since the p-value is less than significance of $0.01$ (the p-value is really small), we can conclude there is is a strong evidence that there is a difference in weights between nonsmoking and smoking groups.
+  * Since the T statistic is negative, by the order of how we computed the difference, we can say that the average weights is less in the smoking group than in the nonsmoking group.
 
 ## Activity: Determine Confidence Intervals for Difference in Means
 

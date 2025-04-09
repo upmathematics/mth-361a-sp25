@@ -22,6 +22,7 @@ library(tidyverse)
 library(openintro)
 library(gridExtra)
 library(latex2exp)
+library(kableExtra)
 data(COL)
 seed <- 42
 ```
@@ -32,15 +33,18 @@ seed <- 42
 ::::
 
 :::: {.column width=70%}
-- **Develop an understanding of using the chi-squared distribution**
-- **Know how to conduct and interpret chi-squared test results**
-- **Activity: Test Independence for Two-Way Tables**
+- **Develop an understanding of inference for contingency tables**
+- **Know how to compute the chi-square test statistic**
+- **Practice on applying the chi-square test**
+- **Activity: Test for Independence**
 ::::
 
 :::: {.column width=15%}
 ::::
 
-## Previously... 
+*These slides are derived from @diez2012openintro.*
+
+## Previously... (1/3)
 
 **Confidence Interval for One Proportion**
 
@@ -53,6 +57,8 @@ z^{\star} & \longrightarrow \text{critical z-score at a given confidence level} 
 \text{SE}_{\hat{p}} & \longrightarrow \text{standard error of the sampling distribution} \\
 \end{aligned}
 \]
+
+## Previously... (2/3)
 
 **Hypothesis Testing for One Proportion**
 
@@ -67,7 +73,60 @@ z & \longrightarrow \text{test statistic} \\
 \end{aligned}
 \]
 
-## The Chi-Squared Statistic
+## Previously... (3/3)
+
+**Relationship Between Variables**
+
+$$\text{explanatory variable} \xrightarrow{\text{might affect}} \text{response variable}$$
+
+**Associated vs Independent Variables**
+
+* When two variables show some connection with one another, they are called <span style="color:blue">**associated**</span> or <span style="color:blue">**dependent**</span> variables.
+
+* In general, <span style="color:blue">**association does not imply causation**</span>, and causation can only be inferred from a randomized experiment.
+
+## Example 1
+
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+# The titanic.csv data is from https://www.kaggle.com/datasets/aliaamiri/titanic-passengers-and-crew-complete-list
+# The titanic data can also be accessed using the stablelearner package
+
+titanic <- read_csv("titanic.csv") |> 
+  select(survived,gender,age,class,fare) |> 
+  mutate(age = round(age,0),
+         class = case_when(
+           class == "deck crew" ~ "crew",
+           class == "engineering crew" ~ "crew",
+           class == "restaurant staff" ~ "crew",
+           class == "victualling crew" ~ "crew",
+           TRUE ~ class
+         ))
+```
+
+The contingency table below shows the distribution of survival and different classes of passengers on the Titanic.
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+titanic_surv_class <- titanic |> select(survived,class) |> 
+  group_by(survived,class) |> 
+  summarise(total = n(),
+            .groups = 'drop')
+kable(addmargins(xtabs(total ~ survived + class, titanic_surv_class)))
+```
+::::
+
+:::: {.column width=15%}
+::::
+
+Goals:
+
+1. To analyze whether the observed frequencies of class differ significantly from the expected frequencies of survived.
+2. To test whether class and survived are independent by comparing observed and expected frequencies in a two-way table.
+
+## The Chi-Squared Test
 
 The **Chi-Square statistic** is used in hypothesis testing to determine whether observed data differs significantly from expected data. Commonly used for categorical data analysis.
 
@@ -76,11 +135,64 @@ $$\chi^2 = \sum \frac{(O-E)^2}{E}$$
 * $O$ is the observed frequency
 * $E$ is the expected frequency
 
-## The Chi-Squared Distribution
+The **degrees of freedom (df)** in a **chi-square test** depend on the type of test being conducted:
+
+* *For a One-Way Table*: $df = r - 1$ where \( r \) is the number of categories.
+* *For a Two-Way Table*: $df = (r - 1) \times (c - 1)$ where \( r \) is the number of rows and \( c \) is the number of columns.
+
+## Example 1
+
+**1st Class Distribution**
+
+\[
+\begin{aligned}
+H_0: & \text{The observed distribution of survived among 1st class passengers follows the expectation.} \\
+H_A: & \text{The observed distribution of survived among 1st class passengers differs from the expectation.}
+\end{aligned}
+\]
+
+:::: {.column width=39%}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+titanic_surv_class <- titanic |> select(survived,class) |> 
+  group_by(survived,class) |> 
+  summarise(total = n(),
+            .groups = 'drop') |> 
+  filter(class == "1st")
+kable(xtabs(total ~ survived + class, titanic_surv_class))
+```
+
+* The expected proportions are $\frac{1}{2}$ assuming the passengers are equally likely to survive.
+* The expected frequency based on the data is $\left( \frac{1}{2} \right) 324 = 162$ for each survived category.
+::::
+
+:::: {.column width=60%}
+* Set $\alpha = 0.05$ and compute the $\chi^2$ statistic.
+
+\[
+\begin{aligned}
+\chi^2 & = \frac{(123 - 162)^2}{162} + \frac{(201 - 162)^2}{162} \\
+       & = 18.78
+\end{aligned}
+\]
+
+* Determine degrees of freedom, which is $df = 1$.
+
+* Compute the p-value using R.
+
+```{r echo=TRUE, eval=TRUE}
+df <- 1 # define degrees of freedom
+chisq <- 18.78 # set chi-square statistic
+1-pchisq(18.78,df) # compute the p-value
+```
+
+* Since the p-value is less than $\alpha$, then we reject $H_0$. We can conclude that we have enough evidence to support $H_A$.
+::::
+
+## Example 1: The Chi-Square Sampling Distribution
 
 ```{r eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center',fig.width=7,fig.height=3,out.width='100%'}
 # normal pdf
-df <- 4
+df <- 1
 x_chisq <- seq(0,30,0.10)
 chisq_pdf <- dchisq(x_chisq,df)
 
@@ -90,10 +202,11 @@ df_chisq <- tibble(z=x_chisq, chisq_pdf=chisq_pdf)
 # plot the Bernoulli distribution and store it into a R variable
 p1 <- ggplot(df_chisq,aes(x=z,y=chisq_pdf)) + 
   geom_line(color="#009159",linewidth=1) + 
+  geom_ribbon(data=subset(df_chisq,z>=18.78),aes(x=z,ymax=dchisq(z,df)),ymin=0,alpha=0.3,fill="#009159") +
   xlab(TeX("$\\chi^2$")) +
   ylab("density") + 
-  ggtitle("Chi-Squared Distribution with 4 Degrees of Freedom") + # sets the title of the plot
-  scale_x_discrete(limits=c(-1.75)) + 
+  ggtitle("Chi-Squared Distribution with 1 Degree of Freedom") + # sets the title of the plot
+  scale_x_discrete(limits=c(18.78)) + 
   theme_minimal() + # set theme of entire plot
   theme(legend.title=element_blank())
 
@@ -101,7 +214,63 @@ p1 <- ggplot(df_chisq,aes(x=z,y=chisq_pdf)) +
 p1
 ```
 
-## Example 1
+## Example 2: Inference for One-Way Table
+
+**2nd Class Distribution**
+
+\[
+\begin{aligned}
+H_0: & \text{The observed distribution of survived among 2nd class passengers follows the expectation.} \\
+H_A: & \text{The observed distribution of survived among 2nd class passengers differs from the expectation.}
+\end{aligned}
+\]
+
+:::: {.column width=39%}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+titanic_surv_class <- titanic |> select(survived,class) |> 
+  group_by(survived,class) |> 
+  summarise(total = n(),
+            .groups = 'drop') |> 
+  filter(class == "2nd")
+kable(xtabs(total ~ survived + class, titanic_surv_class))
+```
+::::
+
+:::: {.column width=60%}
+* The expected proportion are $\frac{1}{2}$ assuming the passengers are equally likely to survive.
+* The expected frequency based on the data is $\left( \frac{1}{2} \right) 284 = 142$ for each survived category.
+::::
+
+::: {style="color: blue;"}
+$\dagger$ Determine the $\chi^2$ test statistic and the p-value. What is your conclusion?
+:::
+
+## Example 3
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+titanic_surv_class <- titanic |> select(survived,class) |> 
+  group_by(survived,class) |> 
+  summarise(total = n(),
+            .groups = 'drop')
+kable(addmargins(xtabs(total ~ survived + class, titanic_surv_class)))
+```
+::::
+
+:::: {.column width=15%}
+::::
+
+\[
+\begin{aligned}
+H_0: & \text{There is no association between class and survived. The variables are independent.} \\
+H_A: & \text{There is an association between class and survived. The variables are dependent.}
+\end{aligned}
+\]
+
+## Example 3
 
 Consider the following problem description.
 
@@ -117,13 +286,13 @@ Consider the following problem description.
 
 Source: [Popular Kids Dataset](https://stat-jet-asu.github.io/Datasets/InstructorDescriptions/popular.html){target="_blank"}. This is from a 1992 study and was revisited 30 years later.
 
-## Example 1: The Chi-Squared Test for Independence (1/2)
+## Example 3: The Chi-Squared Test for Independence (1/2)
 
   * The null and alternative Hypothesis
     $$H_0: \text{Grade and goals are independent.  Goals do not vary by grade.}$$
   	$$H_A: \text{Grade and goals are dependent.  Goals vary by grade}$$
   	
-## Example 1: The Chi-Squared Test for Independence (2/2)	
+## Example 3: The Chi-Squared Test for Independence (2/2)	
   	
   * The Chi-Squared test statistic
     $$\chi^2_{k} = \sum_{i=1}^n \frac{(O_i - E_i)^2}{E_i}$$
@@ -132,7 +301,7 @@ Source: [Popular Kids Dataset](https://stat-jet-asu.github.io/Datasets/Instructo
     - $n$ is the number of cells in the table
     - $k = (R-1)(C-1)$ is the degrees of freedom where $R$ is the number of rows and C is the number of columns.
 
-## Example 1: Computing the $\chi^2$ statistic - Expected Frequency (1/3)
+## Example 3: Computing the $\chi^2$ statistic - Expected Frequency (1/3)
 
   * Start with the expected frequency of type $i$
 
@@ -156,7 +325,7 @@ $$\vdots$$
 $$\color{red}{E_{6th,Sports} = \frac{(183)(90)}{478} = 34}$$
 </div>
 
-## Example 1: Computing the $\chi^2$ statistic - Expected Frequency (2/3)
+## Example 3: Computing the $\chi^2$ statistic - Expected Frequency (2/3)
 
   * Question - What is the expected count for the highlighted cell?
   
@@ -171,7 +340,7 @@ $$\color{red}{E_{6th,Sports} = \frac{(183)(90)}{478} = 34}$$
 
   >- $$\color{green}{E_{5th,Popular} = \frac{(176)(141)}{478} = 52}$$
 
-## Example 1: Computing the $\chi^2$ statistic - Expected Frequency (3/3)
+## Example 3: Computing the $\chi^2$ statistic - Expected Frequency (3/3)
 
   * The expected frequency for each $\color{blue}{[cell]}$.
 
@@ -182,7 +351,7 @@ $$\color{red}{E_{6th,Sports} = \frac{(183)(90)}{478} = 34}$$
 | 6th | 96 $\color{blue}{[95]}$ | 55 $\color{blue}{[54]}$ | 32 $\color{blue}{[34]}$ | 183 |
 | Total | 247 | 141 | 90 | 478 |
 
-## Example 1: Computing the $\chi^2$ statistic
+## Example 3: Computing the $\chi^2$ statistic
 
   * The $\chi^2$ statistic.
     $$\chi^2_{k} = \frac{(63-61)^2}{61} + \frac{(31-35)^2}{35} + \cdots + \frac{(32-34)^2}{34} = 0.967$$
@@ -190,7 +359,7 @@ $$\color{red}{E_{6th,Sports} = \frac{(183)(90)}{478} = 34}$$
   * Degrees of freedom.
     $$k = (3-1) \times (3-1) = 2(2) = 4$$
 
-## Example 1: Computing the p-value
+## Example 3: Computing the p-value
 
   * $\chi^2_{k} = 1.3121$ and $k = 4$
   
@@ -228,58 +397,25 @@ p1 <- ggplot(df_chisq,aes(x=z,y=chisq_pdf)) +
 p1
 ```
 
-## Example 1: Conclusion
+## Example 3: Conclusion
 
   * Do these data provide evidence to suggest that goals vary by grade?
-    $$H_0: \text{Grade and goals are independent.  Goals do not vary by grade.}$$
-  	$$H_A: \text{Grade and goals are dependent.  Goals vary by grade}$$
+    $$H_0: \text{Grade and goals are independent. Goals do not vary by grade.}$$
+  	$$H_A: \text{Grade and goals are dependent. Goals vary by grade}$$
   	
   * Since the p-value is large, we fail to reject $H_0$. The data do not provide convincing evidence that grade and goals are dependent. It doesn't appear that goals vary by grade.
 
-## Example 2
+## Summary: Steps for $\chi^2$ Tests
 
-The problem shown below was taken and slightly modified from your textbook [OpenIntro: Introduction to Modern Statistics Section 18.4](https://openintro-ims.netlify.app/inference-one-prop.html#chp16-exercises){target="_blank"}. Consider the research study described below.
+* Compute the expected values.
+* Set the significance value $\alpha$.
+* Compute the $\chi^2$ test statistic and the degrees of freedom $df$.
+* Determine the p-value using the $\chi^2$ test statistic.
+* Make a conclusion.
 
-**Coffee and Depression.**
-    
-> Researchers conducted a study investigating the relationship between caffeinated coffee consumption and risk of depression in women. They collected data on 50,739 women free of depression symptoms at the start of the study in the year 1996, and these women were followed through 2006. The researchers used questionnaires to collect data on caffeinated coffee consumption, asked each individual about physician- diagnosed depression, and also asked about the use of antidepressants. The table below shows the distribution of incidences of depression by amount of caffeinated coffee consumption.  [Lucas et al. 2011](https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/1105943){target="_blank"}
-
-```{r message=FALSE, warning=FALSE}
-library(tidyverse)
-library(kableExtra)
-
-tribble(
-  ~`Clinical depression`, ~`1 cup / week or fewer`, ~`2-6 cups / week`, ~`1 cups / day`, ~`2-3 cups / day`, ~`4 cups / day or more`, ~Total,
-  "Yes",                 670,          373,        905,           564,         95,   2607,
-  "No",                11545,        6244,      16329,         11726,       2288,  48132,
-  "Total",             12215,        6617,      17234,         12290,       2383,  50739
-) %>%
-  kbl(linesep = "", booktabs = TRUE, align = "lrrrrrr", format.args = list(big.mark = ",")) %>%
-  kable_styling(bootstrap_options = c("striped", "condensed"), 
-                latex_options = "HOLD_position", 
-                full_width = FALSE) %>%
-  column_spec(1, width = "1em") %>%
-  column_spec(2:6, width = "3em") %>%
-  column_spec(7, width = "5em") %>%
-  add_header_above(c(" " = 1, "Caffeinated coffee consumption" = 5, " " = 1))
-```
-
-  1. Compute the test statistic. What is the p-value?
-
-  2. What is the conclusion of the hypothesis test?
-
-## Example 2: Results
-
-  * $\chi^2 =20.932$ and degrees of freedom is $k =4$
-  
-  * p-value: 
-  
-```{r}
-df <- 4
-1-pchisq(20.932,4)
-```
-  
-  * Therefore, p-value is small and we reject $H_0$. The data provide convincing evidence to suggest that caffeinated coffee consumption and depression in women are associated.
+::: {style="color: red;"}
+$\star$ **Key Idea:** The chi-square test assumes independent categorical data with sufficiently large expected counts and compares observed vs. expected frequencies to assess whether deviations are due to chance.
+:::
 
 ## Activity: Test Independence for Two-Way Tables
 

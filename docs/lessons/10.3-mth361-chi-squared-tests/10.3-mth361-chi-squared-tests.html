@@ -521,1035 +521,6 @@ list-style-type: none;
   });
 })()
 </script>
-  <script>$(document).ready(function(){
-    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
-        $('[data-toggle="tooltip"]').tooltip();
-    }
-    if ($('[data-toggle="popover"]').popover === 'function') {
-        $('[data-toggle="popover"]').popover();
-    }
-});
-</script>
-  <style type="text/css">
-.lightable-minimal {
-border-collapse: separate;
-border-spacing: 16px 1px;
-width: 100%;
-margin-bottom: 10px;
-}
-.lightable-minimal td {
-margin-left: 5px;
-margin-right: 5px;
-}
-.lightable-minimal th {
-margin-left: 5px;
-margin-right: 5px;
-}
-.lightable-minimal thead tr:last-child th {
-border-bottom: 2px solid #00000050;
-empty-cells: hide;
-}
-.lightable-minimal tbody tr:first-child td {
-padding-top: 0.5em;
-}
-.lightable-minimal.lightable-hover tbody tr:hover {
-background-color: #f5f5f5;
-}
-.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
-background-color: #f5f5f5;
-}
-.lightable-classic {
-border-top: 0.16em solid #111111;
-border-bottom: 0.16em solid #111111;
-width: 100%;
-margin-bottom: 10px;
-margin: 10px 5px;
-}
-.lightable-classic tfoot tr td {
-border: 0;
-}
-.lightable-classic tfoot tr:first-child td {
-border-top: 0.14em solid #111111;
-}
-.lightable-classic caption {
-color: #222222;
-}
-.lightable-classic td {
-padding-left: 5px;
-padding-right: 5px;
-color: #222222;
-}
-.lightable-classic th {
-padding-left: 5px;
-padding-right: 5px;
-font-weight: normal;
-color: #222222;
-}
-.lightable-classic thead tr:last-child th {
-border-bottom: 0.10em solid #111111;
-}
-.lightable-classic.lightable-hover tbody tr:hover {
-background-color: #F9EEC1;
-}
-.lightable-classic.lightable-striped tbody tr:nth-child(even) {
-background-color: #f5f5f5;
-}
-.lightable-classic-2 {
-border-top: 3px double #111111;
-border-bottom: 3px double #111111;
-width: 100%;
-margin-bottom: 10px;
-}
-.lightable-classic-2 tfoot tr td {
-border: 0;
-}
-.lightable-classic-2 tfoot tr:first-child td {
-border-top: 3px double #111111;
-}
-.lightable-classic-2 caption {
-color: #222222;
-}
-.lightable-classic-2 td {
-padding-left: 5px;
-padding-right: 5px;
-color: #222222;
-}
-.lightable-classic-2 th {
-padding-left: 5px;
-padding-right: 5px;
-font-weight: normal;
-color: #222222;
-}
-.lightable-classic-2 tbody tr:last-child td {
-border-bottom: 3px double #111111;
-}
-.lightable-classic-2 thead tr:last-child th {
-border-bottom: 1px solid #111111;
-}
-.lightable-classic-2.lightable-hover tbody tr:hover {
-background-color: #F9EEC1;
-}
-.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
-background-color: #f5f5f5;
-}
-.lightable-material {
-min-width: 100%;
-white-space: nowrap;
-table-layout: fixed;
-font-family: Roboto, sans-serif;
-border: 1px solid #EEE;
-border-collapse: collapse;
-margin-bottom: 10px;
-}
-.lightable-material tfoot tr td {
-border: 0;
-}
-.lightable-material tfoot tr:first-child td {
-border-top: 1px solid #EEE;
-}
-.lightable-material th {
-height: 56px;
-padding-left: 16px;
-padding-right: 16px;
-}
-.lightable-material td {
-height: 52px;
-padding-left: 16px;
-padding-right: 16px;
-border-top: 1px solid #eeeeee;
-}
-.lightable-material.lightable-hover tbody tr:hover {
-background-color: #f5f5f5;
-}
-.lightable-material.lightable-striped tbody tr:nth-child(even) {
-background-color: #f5f5f5;
-}
-.lightable-material.lightable-striped tbody td {
-border: 0;
-}
-.lightable-material.lightable-striped thead tr:last-child th {
-border-bottom: 1px solid #ddd;
-}
-.lightable-material-dark {
-min-width: 100%;
-white-space: nowrap;
-table-layout: fixed;
-font-family: Roboto, sans-serif;
-border: 1px solid #FFFFFF12;
-border-collapse: collapse;
-margin-bottom: 10px;
-background-color: #363640;
-}
-.lightable-material-dark tfoot tr td {
-border: 0;
-}
-.lightable-material-dark tfoot tr:first-child td {
-border-top: 1px solid #FFFFFF12;
-}
-.lightable-material-dark th {
-height: 56px;
-padding-left: 16px;
-padding-right: 16px;
-color: #FFFFFF60;
-}
-.lightable-material-dark td {
-height: 52px;
-padding-left: 16px;
-padding-right: 16px;
-color: #FFFFFF;
-border-top: 1px solid #FFFFFF12;
-}
-.lightable-material-dark.lightable-hover tbody tr:hover {
-background-color: #FFFFFF12;
-}
-.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
-background-color: #FFFFFF12;
-}
-.lightable-material-dark.lightable-striped tbody td {
-border: 0;
-}
-.lightable-material-dark.lightable-striped thead tr:last-child th {
-border-bottom: 1px solid #FFFFFF12;
-}
-.lightable-paper {
-width: 100%;
-margin-bottom: 10px;
-color: #444;
-}
-.lightable-paper tfoot tr td {
-border: 0;
-}
-.lightable-paper tfoot tr:first-child td {
-border-top: 1px solid #00000020;
-}
-.lightable-paper thead tr:last-child th {
-color: #666;
-vertical-align: bottom;
-border-bottom: 1px solid #00000020;
-line-height: 1.15em;
-padding: 10px 5px;
-}
-.lightable-paper td {
-vertical-align: middle;
-border-bottom: 1px solid #00000010;
-line-height: 1.15em;
-padding: 7px 5px;
-}
-.lightable-paper.lightable-hover tbody tr:hover {
-background-color: #F9EEC1;
-}
-.lightable-paper.lightable-striped tbody tr:nth-child(even) {
-background-color: #00000008;
-}
-.lightable-paper.lightable-striped tbody td {
-border: 0;
-}
-</style>
-  <style type="text/css">
-table{border-collapse:collapse;border-spacing:0}td,th{padding:0}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}table{background-color:transparent}caption{padding-top:8px;padding-bottom:8px;color:#777;text-align:left}th{text-align:left}.table{width:100%;max-width:100%;margin-bottom:20px}.table>thead>tr>th,.table>tbody>tr>th,.table>tfoot>tr>th,.table>thead>tr>td,.table>tbody>tr>td,.table>tfoot>tr>td{padding:8px;line-height:1.42857143;vertical-align:top;border-top:1px solid #ddd}.table>thead>tr>th{vertical-align:bottom;border-bottom:2px solid #ddd}.table>caption+thead>tr:first-child>th,.table>colgroup+thead>tr:first-child>th,.table>thead:first-child>tr:first-child>th,.table>caption+thead>tr:first-child>td,.table>colgroup+thead>tr:first-child>td,.table>thead:first-child>tr:first-child>td{border-top:0}.table>tbody+tbody{border-top:2px solid #ddd}.table .table{background-color:#fff}.table-condensed>thead>tr>th,.table-condensed>tbody>tr>th,.table-condensed>tfoot>tr>th,.table-condensed>thead>tr>td,.table-condensed>tbody>tr>td,.table-condensed>tfoot>tr>td{padding:5px}.table-bordered{border:1px solid #ddd}.table-bordered>thead>tr>th,.table-bordered>tbody>tr>th,.table-bordered>tfoot>tr>th,.table-bordered>thead>tr>td,.table-bordered>tbody>tr>td,.table-bordered>tfoot>tr>td{border:1px solid #ddd}.table-bordered>thead>tr>th,.table-bordered>thead>tr>td{border-bottom-width:2px}.table-striped>tbody>tr:nth-of-type(odd){background-color:#f9f9f9}.table-hover>tbody>tr:hover{background-color:#f5f5f5}table col[class*="col-"]{position:static;float:none;display:table-column}table td[class*="col-"],table th[class*="col-"]{position:static;float:none;display:table-cell}.table>thead>tr>td.active,.table>tbody>tr>td.active,.table>tfoot>tr>td.active,.table>thead>tr>th.active,.table>tbody>tr>th.active,.table>tfoot>tr>th.active,.table>thead>tr.active>td,.table>tbody>tr.active>td,.table>tfoot>tr.active>td,.table>thead>tr.active>th,.table>tbody>tr.active>th,.table>tfoot>tr.active>th{background-color:#f5f5f5}.table-hover>tbody>tr>td.active:hover,.table-hover>tbody>tr>th.active:hover,.table-hover>tbody>tr.active:hover>td,.table-hover>tbody>tr:hover>.active,.table-hover>tbody>tr.active:hover>th{background-color:#e8e8e8}.table>thead>tr>td.success,.table>tbody>tr>td.success,.table>tfoot>tr>td.success,.table>thead>tr>th.success,.table>tbody>tr>th.success,.table>tfoot>tr>th.success,.table>thead>tr.success>td,.table>tbody>tr.success>td,.table>tfoot>tr.success>td,.table>thead>tr.success>th,.table>tbody>tr.success>th,.table>tfoot>tr.success>th{background-color:#dff0d8}.table-hover>tbody>tr>td.success:hover,.table-hover>tbody>tr>th.success:hover,.table-hover>tbody>tr.success:hover>td,.table-hover>tbody>tr:hover>.success,.table-hover>tbody>tr.success:hover>th{background-color:#d0e9c6}.table>thead>tr>td.info,.table>tbody>tr>td.info,.table>tfoot>tr>td.info,.table>thead>tr>th.info,.table>tbody>tr>th.info,.table>tfoot>tr>th.info,.table>thead>tr.info>td,.table>tbody>tr.info>td,.table>tfoot>tr.info>td,.table>thead>tr.info>th,.table>tbody>tr.info>th,.table>tfoot>tr.info>th{background-color:#d9edf7}.table-hover>tbody>tr>td.info:hover,.table-hover>tbody>tr>th.info:hover,.table-hover>tbody>tr.info:hover>td,.table-hover>tbody>tr:hover>.info,.table-hover>tbody>tr.info:hover>th{background-color:#c4e3f3}.table>thead>tr>td.warning,.table>tbody>tr>td.warning,.table>tfoot>tr>td.warning,.table>thead>tr>th.warning,.table>tbody>tr>th.warning,.table>tfoot>tr>th.warning,.table>thead>tr.warning>td,.table>tbody>tr.warning>td,.table>tfoot>tr.warning>td,.table>thead>tr.warning>th,.table>tbody>tr.warning>th,.table>tfoot>tr.warning>th{background-color:#fcf8e3}.table-hover>tbody>tr>td.warning:hover,.table-hover>tbody>tr>th.warning:hover,.table-hover>tbody>tr.warning:hover>td,.table-hover>tbody>tr:hover>.warning,.table-hover>tbody>tr.warning:hover>th{background-color:#faf2cc}.table>thead>tr>td.danger,.table>tbody>tr>td.danger,.table>tfoot>tr>td.danger,.table>thead>tr>th.danger,.table>tbody>tr>th.danger,.table>tfoot>tr>th.danger,.table>thead>tr.danger>td,.table>tbody>tr.danger>td,.table>tfoot>tr.danger>td,.table>thead>tr.danger>th,.table>tbody>tr.danger>th,.table>tfoot>tr.danger>th{background-color:#f2dede}.table-hover>tbody>tr>td.danger:hover,.table-hover>tbody>tr>th.danger:hover,.table-hover>tbody>tr.danger:hover>td,.table-hover>tbody>tr:hover>.danger,.table-hover>tbody>tr.danger:hover>th{background-color:#ebcccc}.table-responsive{overflow-x:auto;min-height:0.01%}@media screen and (max-width:767px){.table-responsive{width:100%;margin-bottom:15px;overflow-y:hidden;-ms-overflow-style:-ms-autohiding-scrollbar;border:1px solid #ddd}.table-responsive>.table{margin-bottom:0}.table-responsive>.table>thead>tr>th,.table-responsive>.table>tbody>tr>th,.table-responsive>.table>tfoot>tr>th,.table-responsive>.table>thead>tr>td,.table-responsive>.table>tbody>tr>td,.table-responsive>.table>tfoot>tr>td{white-space:nowrap}.table-responsive>.table-bordered{border:0}.table-responsive>.table-bordered>thead>tr>th:first-child,.table-responsive>.table-bordered>tbody>tr>th:first-child,.table-responsive>.table-bordered>tfoot>tr>th:first-child,.table-responsive>.table-bordered>thead>tr>td:first-child,.table-responsive>.table-bordered>tbody>tr>td:first-child,.table-responsive>.table-bordered>tfoot>tr>td:first-child{border-left:0}.table-responsive>.table-bordered>thead>tr>th:last-child,.table-responsive>.table-bordered>tbody>tr>th:last-child,.table-responsive>.table-bordered>tfoot>tr>th:last-child,.table-responsive>.table-bordered>thead>tr>td:last-child,.table-responsive>.table-bordered>tbody>tr>td:last-child,.table-responsive>.table-bordered>tfoot>tr>td:last-child{border-right:0}.table-responsive>.table-bordered>tbody>tr:last-child>th,.table-responsive>.table-bordered>tfoot>tr:last-child>th,.table-responsive>.table-bordered>tbody>tr:last-child>td,.table-responsive>.table-bordered>tfoot>tr:last-child>td{border-bottom:0}}.tooltip{position:absolute;z-index:1070;display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-style:normal;font-weight:normal;letter-spacing:normal;line-break:auto;line-height:1.42857143;text-align:left;text-align:start;text-decoration:none;text-shadow:none;text-transform:none;white-space:normal;word-break:normal;word-spacing:normal;word-wrap:normal;font-size:12px;opacity:0;filter:alpha(opacity=0)}.tooltip.in{opacity:.9;filter:alpha(opacity=90)}.tooltip.top{margin-top:-3px;padding:5px 0}.tooltip.right{margin-left:3px;padding:0 5px}.tooltip.bottom{margin-top:3px;padding:5px 0}.tooltip.left{margin-left:-3px;padding:0 5px}.tooltip-inner{max-width:200px;padding:3px 8px;color:#fff;text-align:center;background-color:#000;border-radius:4px}.tooltip-arrow{position:absolute;width:0;height:0;border-color:transparent;border-style:solid}.tooltip.top .tooltip-arrow{bottom:0;left:50%;margin-left:-5px;border-width:5px 5px 0;border-top-color:#000}.tooltip.top-left .tooltip-arrow{bottom:0;right:5px;margin-bottom:-5px;border-width:5px 5px 0;border-top-color:#000}.tooltip.top-right .tooltip-arrow{bottom:0;left:5px;margin-bottom:-5px;border-width:5px 5px 0;border-top-color:#000}.tooltip.right .tooltip-arrow{top:50%;left:0;margin-top:-5px;border-width:5px 5px 5px 0;border-right-color:#000}.tooltip.left .tooltip-arrow{top:50%;right:0;margin-top:-5px;border-width:5px 0 5px 5px;border-left-color:#000}.tooltip.bottom .tooltip-arrow{top:0;left:50%;margin-left:-5px;border-width:0 5px 5px;border-bottom-color:#000}.tooltip.bottom-left .tooltip-arrow{top:0;right:5px;margin-top:-5px;border-width:0 5px 5px;border-bottom-color:#000}.tooltip.bottom-right .tooltip-arrow{top:0;left:5px;margin-top:-5px;border-width:0 5px 5px;border-bottom-color:#000}.popover{position:absolute;top:0;left:0;z-index:1060;display:none;max-width:276px;padding:1px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-style:normal;font-weight:normal;letter-spacing:normal;line-break:auto;line-height:1.42857143;text-align:left;text-align:start;text-decoration:none;text-shadow:none;text-transform:none;white-space:normal;word-break:normal;word-spacing:normal;word-wrap:normal;font-size:14px;background-color:#fff;-webkit-background-clip:padding-box;background-clip:padding-box;border:1px solid #ccc;border:1px solid rgba(0,0,0,0.2);border-radius:6px;-webkit-box-shadow:0 5px 10px rgba(0,0,0,0.2);box-shadow:0 5px 10px rgba(0,0,0,0.2)}.popover.top{margin-top:-10px}.popover.right{margin-left:10px}.popover.bottom{margin-top:10px}.popover.left{margin-left:-10px}.popover-title{margin:0;padding:8px 14px;font-size:14px;background-color:#f7f7f7;border-bottom:1px solid #ebebeb;border-radius:5px 5px 0 0}.popover-content{padding:9px 14px}.popover>.arrow,.popover>.arrow:after{position:absolute;display:block;width:0;height:0;border-color:transparent;border-style:solid}.popover>.arrow{border-width:11px}.popover>.arrow:after{border-width:10px;content:""}.popover.top>.arrow{left:50%;margin-left:-11px;border-bottom-width:0;border-top-color:#999;border-top-color:rgba(0,0,0,0.25);bottom:-11px}.popover.top>.arrow:after{content:" ";bottom:1px;margin-left:-10px;border-bottom-width:0;border-top-color:#fff}.popover.right>.arrow{top:50%;left:-11px;margin-top:-11px;border-left-width:0;border-right-color:#999;border-right-color:rgba(0,0,0,0.25)}.popover.right>.arrow:after{content:" ";left:1px;bottom:-10px;border-left-width:0;border-right-color:#fff}.popover.bottom>.arrow{left:50%;margin-left:-11px;border-top-width:0;border-bottom-color:#999;border-bottom-color:rgba(0,0,0,0.25);top:-11px}.popover.bottom>.arrow:after{content:" ";top:1px;margin-left:-10px;border-top-width:0;border-bottom-color:#fff}.popover.left>.arrow{top:50%;right:-11px;margin-top:-11px;border-right-width:0;border-left-color:#999;border-left-color:rgba(0,0,0,0.25)}.popover.left>.arrow:after{content:" ";right:1px;border-right-width:0;border-left-color:#fff;bottom:-10px}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}.center-block{display:block;margin-left:auto;margin-right:auto}.pull-right{float:right !important}.pull-left{float:left !important}.hide{display:none !important}.show{display:block !important}.invisible{visibility:hidden}.text-hide{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}.hidden{display:none !important}.affix{position:fixed}
-</style>
-  <script>/* ========================================================================
- * Bootstrap: tooltip.js v3.4.1
- * https://getbootstrap.com/docs/3.4/javascript/#tooltip
- * Inspired by the original jQuery.tipsy by Jason Frame
- * ========================================================================
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-+function ($) {
-  'use strict';
-
-  var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
-
-  var uriAttrs = [
-    'background',
-    'cite',
-    'href',
-    'itemtype',
-    'longdesc',
-    'poster',
-    'src',
-    'xlink:href'
-  ]
-
-  var ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i
-
-  var DefaultWhitelist = {
-    // Global attributes allowed on any supplied element below.
-    '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
-    a: ['target', 'href', 'title', 'rel'],
-    area: [],
-    b: [],
-    br: [],
-    col: [],
-    code: [],
-    div: [],
-    em: [],
-    hr: [],
-    h1: [],
-    h2: [],
-    h3: [],
-    h4: [],
-    h5: [],
-    h6: [],
-    i: [],
-    img: ['src', 'alt', 'title', 'width', 'height'],
-    li: [],
-    ol: [],
-    p: [],
-    pre: [],
-    s: [],
-    small: [],
-    span: [],
-    sub: [],
-    sup: [],
-    strong: [],
-    u: [],
-    ul: []
-  }
-
-  /**
-   * A pattern that recognizes a commonly useful subset of URLs that are safe.
-   *
-   * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
-   */
-  var SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi
-
-  /**
-   * A pattern that matches safe data URLs. Only matches image, video and audio types.
-   *
-   * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
-   */
-  var DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[a-z0-9+/]+=*$/i
-
-  function allowedAttribute(attr, allowedAttributeList) {
-    var attrName = attr.nodeName.toLowerCase()
-
-    if ($.inArray(attrName, allowedAttributeList) !== -1) {
-      if ($.inArray(attrName, uriAttrs) !== -1) {
-        return Boolean(attr.nodeValue.match(SAFE_URL_PATTERN) || attr.nodeValue.match(DATA_URL_PATTERN))
-      }
-
-      return true
-    }
-
-    var regExp = $(allowedAttributeList).filter(function (index, value) {
-      return value instanceof RegExp
-    })
-
-    // Check if a regular expression validates the attribute.
-    for (var i = 0, l = regExp.length; i < l; i++) {
-      if (attrName.match(regExp[i])) {
-        return true
-      }
-    }
-
-    return false
-  }
-
-  function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
-    if (unsafeHtml.length === 0) {
-      return unsafeHtml
-    }
-
-    if (sanitizeFn && typeof sanitizeFn === 'function') {
-      return sanitizeFn(unsafeHtml)
-    }
-
-    // IE 8 and below don't support createHTMLDocument
-    if (!document.implementation || !document.implementation.createHTMLDocument) {
-      return unsafeHtml
-    }
-
-    var createdDocument = document.implementation.createHTMLDocument('sanitization')
-    createdDocument.body.innerHTML = unsafeHtml
-
-    var whitelistKeys = $.map(whiteList, function (el, i) { return i })
-    var elements = $(createdDocument.body).find('*')
-
-    for (var i = 0, len = elements.length; i < len; i++) {
-      var el = elements[i]
-      var elName = el.nodeName.toLowerCase()
-
-      if ($.inArray(elName, whitelistKeys) === -1) {
-        el.parentNode.removeChild(el)
-
-        continue
-      }
-
-      var attributeList = $.map(el.attributes, function (el) { return el })
-      var whitelistedAttributes = [].concat(whiteList['*'] || [], whiteList[elName] || [])
-
-      for (var j = 0, len2 = attributeList.length; j < len2; j++) {
-        if (!allowedAttribute(attributeList[j], whitelistedAttributes)) {
-          el.removeAttribute(attributeList[j].nodeName)
-        }
-      }
-    }
-
-    return createdDocument.body.innerHTML
-  }
-
-  // TOOLTIP PUBLIC CLASS DEFINITION
-  // ===============================
-
-  var Tooltip = function (element, options) {
-    this.type       = null
-    this.options    = null
-    this.enabled    = null
-    this.timeout    = null
-    this.hoverState = null
-    this.$element   = null
-    this.inState    = null
-
-    this.init('tooltip', element, options)
-  }
-
-  Tooltip.VERSION  = '3.4.1'
-
-  Tooltip.TRANSITION_DURATION = 150
-
-  Tooltip.DEFAULTS = {
-    animation: true,
-    placement: 'top',
-    selector: false,
-    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
-    trigger: 'hover focus',
-    title: '',
-    delay: 0,
-    html: false,
-    container: false,
-    viewport: {
-      selector: 'body',
-      padding: 0
-    },
-    sanitize : true,
-    sanitizeFn : null,
-    whiteList : DefaultWhitelist
-  }
-
-  Tooltip.prototype.init = function (type, element, options) {
-    this.enabled   = true
-    this.type      = type
-    this.$element  = $(element)
-    this.options   = this.getOptions(options)
-    this.$viewport = this.options.viewport && $(document).find($.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : (this.options.viewport.selector || this.options.viewport))
-    this.inState   = { click: false, hover: false, focus: false }
-
-    if (this.$element[0] instanceof document.constructor && !this.options.selector) {
-      throw new Error('`selector` option must be specified when initializing ' + this.type + ' on the window.document object!')
-    }
-
-    var triggers = this.options.trigger.split(' ')
-
-    for (var i = triggers.length; i--;) {
-      var trigger = triggers[i]
-
-      if (trigger == 'click') {
-        this.$element.on('click.' + this.type, this.options.selector, $.proxy(this.toggle, this))
-      } else if (trigger != 'manual') {
-        var eventIn  = trigger == 'hover' ? 'mouseenter' : 'focusin'
-        var eventOut = trigger == 'hover' ? 'mouseleave' : 'focusout'
-
-        this.$element.on(eventIn  + '.' + this.type, this.options.selector, $.proxy(this.enter, this))
-        this.$element.on(eventOut + '.' + this.type, this.options.selector, $.proxy(this.leave, this))
-      }
-    }
-
-    this.options.selector ?
-      (this._options = $.extend({}, this.options, { trigger: 'manual', selector: '' })) :
-      this.fixTitle()
-  }
-
-  Tooltip.prototype.getDefaults = function () {
-    return Tooltip.DEFAULTS
-  }
-
-  Tooltip.prototype.getOptions = function (options) {
-    var dataAttributes = this.$element.data()
-
-    for (var dataAttr in dataAttributes) {
-      if (dataAttributes.hasOwnProperty(dataAttr) && $.inArray(dataAttr, DISALLOWED_ATTRIBUTES) !== -1) {
-        delete dataAttributes[dataAttr]
-      }
-    }
-
-    options = $.extend({}, this.getDefaults(), dataAttributes, options)
-
-    if (options.delay && typeof options.delay == 'number') {
-      options.delay = {
-        show: options.delay,
-        hide: options.delay
-      }
-    }
-
-    if (options.sanitize) {
-      options.template = sanitizeHtml(options.template, options.whiteList, options.sanitizeFn)
-    }
-
-    return options
-  }
-
-  Tooltip.prototype.getDelegateOptions = function () {
-    var options  = {}
-    var defaults = this.getDefaults()
-
-    this._options && $.each(this._options, function (key, value) {
-      if (defaults[key] != value) options[key] = value
-    })
-
-    return options
-  }
-
-  Tooltip.prototype.enter = function (obj) {
-    var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget).data('bs.' + this.type)
-
-    if (!self) {
-      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())
-      $(obj.currentTarget).data('bs.' + this.type, self)
-    }
-
-    if (obj instanceof $.Event) {
-      self.inState[obj.type == 'focusin' ? 'focus' : 'hover'] = true
-    }
-
-    if (self.tip().hasClass('in') || self.hoverState == 'in') {
-      self.hoverState = 'in'
-      return
-    }
-
-    clearTimeout(self.timeout)
-
-    self.hoverState = 'in'
-
-    if (!self.options.delay || !self.options.delay.show) return self.show()
-
-    self.timeout = setTimeout(function () {
-      if (self.hoverState == 'in') self.show()
-    }, self.options.delay.show)
-  }
-
-  Tooltip.prototype.isInStateTrue = function () {
-    for (var key in this.inState) {
-      if (this.inState[key]) return true
-    }
-
-    return false
-  }
-
-  Tooltip.prototype.leave = function (obj) {
-    var self = obj instanceof this.constructor ?
-      obj : $(obj.currentTarget).data('bs.' + this.type)
-
-    if (!self) {
-      self = new this.constructor(obj.currentTarget, this.getDelegateOptions())
-      $(obj.currentTarget).data('bs.' + this.type, self)
-    }
-
-    if (obj instanceof $.Event) {
-      self.inState[obj.type == 'focusout' ? 'focus' : 'hover'] = false
-    }
-
-    if (self.isInStateTrue()) return
-
-    clearTimeout(self.timeout)
-
-    self.hoverState = 'out'
-
-    if (!self.options.delay || !self.options.delay.hide) return self.hide()
-
-    self.timeout = setTimeout(function () {
-      if (self.hoverState == 'out') self.hide()
-    }, self.options.delay.hide)
-  }
-
-  Tooltip.prototype.show = function () {
-    var e = $.Event('show.bs.' + this.type)
-
-    if (this.hasContent() && this.enabled) {
-      this.$element.trigger(e)
-
-      var inDom = $.contains(this.$element[0].ownerDocument.documentElement, this.$element[0])
-      if (e.isDefaultPrevented() || !inDom) return
-      var that = this
-
-      var $tip = this.tip()
-
-      var tipId = this.getUID(this.type)
-
-      this.setContent()
-      $tip.attr('id', tipId)
-      this.$element.attr('aria-describedby', tipId)
-
-      if (this.options.animation) $tip.addClass('fade')
-
-      var placement = typeof this.options.placement == 'function' ?
-        this.options.placement.call(this, $tip[0], this.$element[0]) :
-        this.options.placement
-
-      var autoToken = /\s?auto?\s?/i
-      var autoPlace = autoToken.test(placement)
-      if (autoPlace) placement = placement.replace(autoToken, '') || 'top'
-
-      $tip
-        .detach()
-        .css({ top: 0, left: 0, display: 'block' })
-        .addClass(placement)
-        .data('bs.' + this.type, this)
-
-      this.options.container ? $tip.appendTo($(document).find(this.options.container)) : $tip.insertAfter(this.$element)
-      this.$element.trigger('inserted.bs.' + this.type)
-
-      var pos          = this.getPosition()
-      var actualWidth  = $tip[0].offsetWidth
-      var actualHeight = $tip[0].offsetHeight
-
-      if (autoPlace) {
-        var orgPlacement = placement
-        var viewportDim = this.getPosition(this.$viewport)
-
-        placement = placement == 'bottom' && pos.bottom + actualHeight > viewportDim.bottom ? 'top'    :
-                    placement == 'top'    && pos.top    - actualHeight < viewportDim.top    ? 'bottom' :
-                    placement == 'right'  && pos.right  + actualWidth  > viewportDim.width  ? 'left'   :
-                    placement == 'left'   && pos.left   - actualWidth  < viewportDim.left   ? 'right'  :
-                    placement
-
-        $tip
-          .removeClass(orgPlacement)
-          .addClass(placement)
-      }
-
-      var calculatedOffset = this.getCalculatedOffset(placement, pos, actualWidth, actualHeight)
-
-      this.applyPlacement(calculatedOffset, placement)
-
-      var complete = function () {
-        var prevHoverState = that.hoverState
-        that.$element.trigger('shown.bs.' + that.type)
-        that.hoverState = null
-
-        if (prevHoverState == 'out') that.leave(that)
-      }
-
-      $.support.transition && this.$tip.hasClass('fade') ?
-        $tip
-          .one('bsTransitionEnd', complete)
-          .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
-        complete()
-    }
-  }
-
-  Tooltip.prototype.applyPlacement = function (offset, placement) {
-    var $tip   = this.tip()
-    var width  = $tip[0].offsetWidth
-    var height = $tip[0].offsetHeight
-
-    // manually read margins because getBoundingClientRect includes difference
-    var marginTop = parseInt($tip.css('margin-top'), 10)
-    var marginLeft = parseInt($tip.css('margin-left'), 10)
-
-    // we must check for NaN for ie 8/9
-    if (isNaN(marginTop))  marginTop  = 0
-    if (isNaN(marginLeft)) marginLeft = 0
-
-    offset.top  += marginTop
-    offset.left += marginLeft
-
-    // $.fn.offset doesn't round pixel values
-    // so we use setOffset directly with our own function B-0
-    $.offset.setOffset($tip[0], $.extend({
-      using: function (props) {
-        $tip.css({
-          top: Math.round(props.top),
-          left: Math.round(props.left)
-        })
-      }
-    }, offset), 0)
-
-    $tip.addClass('in')
-
-    // check to see if placing tip in new offset caused the tip to resize itself
-    var actualWidth  = $tip[0].offsetWidth
-    var actualHeight = $tip[0].offsetHeight
-
-    if (placement == 'top' && actualHeight != height) {
-      offset.top = offset.top + height - actualHeight
-    }
-
-    var delta = this.getViewportAdjustedDelta(placement, offset, actualWidth, actualHeight)
-
-    if (delta.left) offset.left += delta.left
-    else offset.top += delta.top
-
-    var isVertical          = /top|bottom/.test(placement)
-    var arrowDelta          = isVertical ? delta.left * 2 - width + actualWidth : delta.top * 2 - height + actualHeight
-    var arrowOffsetPosition = isVertical ? 'offsetWidth' : 'offsetHeight'
-
-    $tip.offset(offset)
-    this.replaceArrow(arrowDelta, $tip[0][arrowOffsetPosition], isVertical)
-  }
-
-  Tooltip.prototype.replaceArrow = function (delta, dimension, isVertical) {
-    this.arrow()
-      .css(isVertical ? 'left' : 'top', 50 * (1 - delta / dimension) + '%')
-      .css(isVertical ? 'top' : 'left', '')
-  }
-
-  Tooltip.prototype.setContent = function () {
-    var $tip  = this.tip()
-    var title = this.getTitle()
-
-    if (this.options.html) {
-      if (this.options.sanitize) {
-        title = sanitizeHtml(title, this.options.whiteList, this.options.sanitizeFn)
-      }
-
-      $tip.find('.tooltip-inner').html(title)
-    } else {
-      $tip.find('.tooltip-inner').text(title)
-    }
-
-    $tip.removeClass('fade in top bottom left right')
-  }
-
-  Tooltip.prototype.hide = function (callback) {
-    var that = this
-    var $tip = $(this.$tip)
-    var e    = $.Event('hide.bs.' + this.type)
-
-    function complete() {
-      if (that.hoverState != 'in') $tip.detach()
-      if (that.$element) { // TODO: Check whether guarding this code with this `if` is really necessary.
-        that.$element
-          .removeAttr('aria-describedby')
-          .trigger('hidden.bs.' + that.type)
-      }
-      callback && callback()
-    }
-
-    this.$element.trigger(e)
-
-    if (e.isDefaultPrevented()) return
-
-    $tip.removeClass('in')
-
-    $.support.transition && $tip.hasClass('fade') ?
-      $tip
-        .one('bsTransitionEnd', complete)
-        .emulateTransitionEnd(Tooltip.TRANSITION_DURATION) :
-      complete()
-
-    this.hoverState = null
-
-    return this
-  }
-
-  Tooltip.prototype.fixTitle = function () {
-    var $e = this.$element
-    if ($e.attr('title') || typeof $e.attr('data-original-title') != 'string') {
-      $e.attr('data-original-title', $e.attr('title') || '').attr('title', '')
-    }
-  }
-
-  Tooltip.prototype.hasContent = function () {
-    return this.getTitle()
-  }
-
-  Tooltip.prototype.getPosition = function ($element) {
-    $element   = $element || this.$element
-
-    var el     = $element[0]
-    var isBody = el.tagName == 'BODY'
-
-    var elRect    = el.getBoundingClientRect()
-    if (elRect.width == null) {
-      // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
-      elRect = $.extend({}, elRect, { width: elRect.right - elRect.left, height: elRect.bottom - elRect.top })
-    }
-    var isSvg = window.SVGElement && el instanceof window.SVGElement
-    // Avoid using $.offset() on SVGs since it gives incorrect results in jQuery 3.
-    // See https://github.com/twbs/bootstrap/issues/20280
-    var elOffset  = isBody ? { top: 0, left: 0 } : (isSvg ? null : $element.offset())
-    var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() }
-    var outerDims = isBody ? { width: $(window).width(), height: $(window).height() } : null
-
-    return $.extend({}, elRect, scroll, outerDims, elOffset)
-  }
-
-  Tooltip.prototype.getCalculatedOffset = function (placement, pos, actualWidth, actualHeight) {
-    return placement == 'bottom' ? { top: pos.top + pos.height,   left: pos.left + pos.width / 2 - actualWidth / 2 } :
-           placement == 'top'    ? { top: pos.top - actualHeight, left: pos.left + pos.width / 2 - actualWidth / 2 } :
-           placement == 'left'   ? { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left - actualWidth } :
-        /* placement == 'right' */ { top: pos.top + pos.height / 2 - actualHeight / 2, left: pos.left + pos.width }
-
-  }
-
-  Tooltip.prototype.getViewportAdjustedDelta = function (placement, pos, actualWidth, actualHeight) {
-    var delta = { top: 0, left: 0 }
-    if (!this.$viewport) return delta
-
-    var viewportPadding = this.options.viewport && this.options.viewport.padding || 0
-    var viewportDimensions = this.getPosition(this.$viewport)
-
-    if (/right|left/.test(placement)) {
-      var topEdgeOffset    = pos.top - viewportPadding - viewportDimensions.scroll
-      var bottomEdgeOffset = pos.top + viewportPadding - viewportDimensions.scroll + actualHeight
-      if (topEdgeOffset < viewportDimensions.top) { // top overflow
-        delta.top = viewportDimensions.top - topEdgeOffset
-      } else if (bottomEdgeOffset > viewportDimensions.top + viewportDimensions.height) { // bottom overflow
-        delta.top = viewportDimensions.top + viewportDimensions.height - bottomEdgeOffset
-      }
-    } else {
-      var leftEdgeOffset  = pos.left - viewportPadding
-      var rightEdgeOffset = pos.left + viewportPadding + actualWidth
-      if (leftEdgeOffset < viewportDimensions.left) { // left overflow
-        delta.left = viewportDimensions.left - leftEdgeOffset
-      } else if (rightEdgeOffset > viewportDimensions.right) { // right overflow
-        delta.left = viewportDimensions.left + viewportDimensions.width - rightEdgeOffset
-      }
-    }
-
-    return delta
-  }
-
-  Tooltip.prototype.getTitle = function () {
-    var title
-    var $e = this.$element
-    var o  = this.options
-
-    title = $e.attr('data-original-title')
-      || (typeof o.title == 'function' ? o.title.call($e[0]) :  o.title)
-
-    return title
-  }
-
-  Tooltip.prototype.getUID = function (prefix) {
-    do prefix += ~~(Math.random() * 1000000)
-    while (document.getElementById(prefix))
-    return prefix
-  }
-
-  Tooltip.prototype.tip = function () {
-    if (!this.$tip) {
-      this.$tip = $(this.options.template)
-      if (this.$tip.length != 1) {
-        throw new Error(this.type + ' `template` option must consist of exactly 1 top-level element!')
-      }
-    }
-    return this.$tip
-  }
-
-  Tooltip.prototype.arrow = function () {
-    return (this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow'))
-  }
-
-  Tooltip.prototype.enable = function () {
-    this.enabled = true
-  }
-
-  Tooltip.prototype.disable = function () {
-    this.enabled = false
-  }
-
-  Tooltip.prototype.toggleEnabled = function () {
-    this.enabled = !this.enabled
-  }
-
-  Tooltip.prototype.toggle = function (e) {
-    var self = this
-    if (e) {
-      self = $(e.currentTarget).data('bs.' + this.type)
-      if (!self) {
-        self = new this.constructor(e.currentTarget, this.getDelegateOptions())
-        $(e.currentTarget).data('bs.' + this.type, self)
-      }
-    }
-
-    if (e) {
-      self.inState.click = !self.inState.click
-      if (self.isInStateTrue()) self.enter(self)
-      else self.leave(self)
-    } else {
-      self.tip().hasClass('in') ? self.leave(self) : self.enter(self)
-    }
-  }
-
-  Tooltip.prototype.destroy = function () {
-    var that = this
-    clearTimeout(this.timeout)
-    this.hide(function () {
-      that.$element.off('.' + that.type).removeData('bs.' + that.type)
-      if (that.$tip) {
-        that.$tip.detach()
-      }
-      that.$tip = null
-      that.$arrow = null
-      that.$viewport = null
-      that.$element = null
-    })
-  }
-
-  Tooltip.prototype.sanitizeHtml = function (unsafeHtml) {
-    return sanitizeHtml(unsafeHtml, this.options.whiteList, this.options.sanitizeFn)
-  }
-
-  // TOOLTIP PLUGIN DEFINITION
-  // =========================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.tooltip')
-      var options = typeof option == 'object' && option
-
-      if (!data && /destroy|hide/.test(option)) return
-      if (!data) $this.data('bs.tooltip', (data = new Tooltip(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  var old = $.fn.tooltip
-
-  $.fn.tooltip             = Plugin
-  $.fn.tooltip.Constructor = Tooltip
-
-
-  // TOOLTIP NO CONFLICT
-  // ===================
-
-  $.fn.tooltip.noConflict = function () {
-    $.fn.tooltip = old
-    return this
-  }
-
-}(jQuery);
-
-/* ========================================================================
- * Bootstrap: popover.js v3.4.1
- * https://getbootstrap.com/docs/3.4/javascript/#popovers
- * ========================================================================
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-+function ($) {
-  'use strict';
-
-  // POPOVER PUBLIC CLASS DEFINITION
-  // ===============================
-
-  var Popover = function (element, options) {
-    this.init('popover', element, options)
-  }
-
-  if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
-
-  Popover.VERSION  = '3.4.1'
-
-  Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
-    placement: 'right',
-    trigger: 'click',
-    content: '',
-    template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
-  })
-
-
-  // NOTE: POPOVER EXTENDS tooltip.js
-  // ================================
-
-  Popover.prototype = $.extend({}, $.fn.tooltip.Constructor.prototype)
-
-  Popover.prototype.constructor = Popover
-
-  Popover.prototype.getDefaults = function () {
-    return Popover.DEFAULTS
-  }
-
-  Popover.prototype.setContent = function () {
-    var $tip    = this.tip()
-    var title   = this.getTitle()
-    var content = this.getContent()
-
-    if (this.options.html) {
-      var typeContent = typeof content
-
-      if (this.options.sanitize) {
-        title = this.sanitizeHtml(title)
-
-        if (typeContent === 'string') {
-          content = this.sanitizeHtml(content)
-        }
-      }
-
-      $tip.find('.popover-title').html(title)
-      $tip.find('.popover-content').children().detach().end()[
-        typeContent === 'string' ? 'html' : 'append'
-      ](content)
-    } else {
-      $tip.find('.popover-title').text(title)
-      $tip.find('.popover-content').children().detach().end().text(content)
-    }
-
-    $tip.removeClass('fade top bottom left right in')
-
-    // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
-    // this manually by checking the contents.
-    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
-  }
-
-  Popover.prototype.hasContent = function () {
-    return this.getTitle() || this.getContent()
-  }
-
-  Popover.prototype.getContent = function () {
-    var $e = this.$element
-    var o  = this.options
-
-    return $e.attr('data-content')
-      || (typeof o.content == 'function' ?
-        o.content.call($e[0]) :
-        o.content)
-  }
-
-  Popover.prototype.arrow = function () {
-    return (this.$arrow = this.$arrow || this.tip().find('.arrow'))
-  }
-
-
-  // POPOVER PLUGIN DEFINITION
-  // =========================
-
-  function Plugin(option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.popover')
-      var options = typeof option == 'object' && option
-
-      if (!data && /destroy|hide/.test(option)) return
-      if (!data) $this.data('bs.popover', (data = new Popover(this, options)))
-      if (typeof option == 'string') data[option]()
-    })
-  }
-
-  var old = $.fn.popover
-
-  $.fn.popover             = Plugin
-  $.fn.popover.Constructor = Popover
-
-
-  // POPOVER NO CONFLICT
-  // ===================
-
-  $.fn.popover.noConflict = function () {
-    $.fn.popover = old
-    return this
-  }
-
-}(jQuery);
-</script>
   <link href="data:text/css,%2Eflat%2Dtable%20%7Bdisplay%3A%20block%3Bfont%2Dfamily%3A%20sans%2Dserif%3B%2Dwebkit%2Dfont%2Dsmoothing%3A%20antialiased%3Bfont%2Dsize%3A%20100%25%3Boverflow%3A%20auto%3Bwidth%3A%20auto%3B%7Dth%20%7Bbackground%2Dcolor%3A%20%230D776E%3Bcolor%3A%20white%3Bfont%2Dweight%3A%20normal%3Bpadding%3A%2020px%2030px%3Btext%2Dalign%3A%20center%3B%7Dtd%20%7Bbackground%2Dcolor%3A%20rgb%28238%2C%20238%2C%20238%29%3Bcolor%3A%20rgb%28111%2C%20111%2C%20111%29%3Bpadding%3A%2020px%2030px%3B%7D" rel="stylesheet" type="text/css" media="screen, projection, print" />
 </head>
 <body>
@@ -1568,19 +539,22 @@ MTH-361A | Spring 2025 | University of Portland
 </div>
 <div class="column" style="width:70%;">
 <ul>
-<li><strong>Develop an understanding of using the chi-squared
-distribution</strong></li>
-<li><strong>Know how to conduct and interpret chi-squared test
-results</strong></li>
-<li><strong>Activity: Test Independence for Two-Way Tables</strong></li>
+<li><strong>Develop an understanding of inference for contingency
+tables</strong></li>
+<li><strong>Know how to compute the chi-square test
+statistic</strong></li>
+<li><strong>Practice on applying the chi-square test</strong></li>
+<li><strong>Activity: Test for Independence</strong></li>
 </ul>
 </div>
 <div class="column" style="width:15%;">
 
 </div>
+<p><em>These slides are derived from <span class="citation">Diez et al.
+(2012)</span>.</em></p>
 </div>
-<div id="previously" class="slide section level2">
-<h1>Previously…</h1>
+<div id="previously-13" class="slide section level2">
+<h1>Previously… (1/3)</h1>
 <p><strong>Confidence Interval for One Proportion</strong></p>
 <p><span class="math display">\[\hat{p} \pm z^{\star}
 \text{SE}_{\hat{p}}\]</span></p>
@@ -1594,6 +568,9 @@ confidence level} \\
 sampling distribution} \\
 \end{aligned}
 \]</span></p>
+</div>
+<div id="previously-23" class="slide section level2">
+<h1>Previously… (2/3)</h1>
 <p><strong>Hypothesis Testing for One Proportion</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1609,8 +586,82 @@ distribution} \\
 \end{aligned}
 \]</span></p>
 </div>
-<div id="the-chi-squared-statistic" class="slide section level2">
-<h1>The Chi-Squared Statistic</h1>
+<div id="previously-33" class="slide section level2">
+<h1>Previously… (3/3)</h1>
+<p><strong>Relationship Between Variables</strong></p>
+<p><span class="math display">\[\text{explanatory variable}
+\xrightarrow{\text{might affect}} \text{response variable}\]</span></p>
+<p><strong>Associated vs Independent Variables</strong></p>
+<ul>
+<li><p>When two variables show some connection with one another, they
+are called <span style="color:blue"><strong>associated</strong></span>
+or <span style="color:blue"><strong>dependent</strong></span>
+variables.</p></li>
+<li><p>In general, <span style="color:blue"><strong>association does not
+imply causation</strong></span>, and causation can only be inferred from
+a randomized experiment.</p></li>
+</ul>
+</div>
+<div id="example-1" class="slide section level2">
+<h1>Example 1</h1>
+<p>The contingency table below shows the distribution of survival and
+different classes of passengers on the Titanic.</p>
+<div class="column" style="width:15%;">
+
+</div>
+<div class="column" style="width:70%;">
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">1st</th>
+<th align="right">2nd</th>
+<th align="right">3rd</th>
+<th align="right">crew</th>
+<th align="right">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">no</td>
+<td align="right">123</td>
+<td align="right">166</td>
+<td align="right">528</td>
+<td align="right">679</td>
+<td align="right">1496</td>
+</tr>
+<tr class="even">
+<td align="left">yes</td>
+<td align="right">201</td>
+<td align="right">118</td>
+<td align="right">181</td>
+<td align="right">211</td>
+<td align="right">711</td>
+</tr>
+<tr class="odd">
+<td align="left">Sum</td>
+<td align="right">324</td>
+<td align="right">284</td>
+<td align="right">709</td>
+<td align="right">890</td>
+<td align="right">2207</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="column" style="width:15%;">
+
+</div>
+<p>Goals:</p>
+<ol style="list-style-type: decimal">
+<li>To analyze whether the observed frequencies of class differ
+significantly from the expected frequencies of survived.</li>
+<li>To test whether class and survived are independent by comparing
+observed and expected frequencies in a two-way table.</li>
+</ol>
+</div>
+<div id="the-chi-squared-test" class="slide section level2">
+<h1>The Chi-Squared Test</h1>
 <p>The <strong>Chi-Square statistic</strong> is used in hypothesis
 testing to determine whether observed data differs significantly from
 expected data. Commonly used for categorical data analysis.</p>
@@ -1622,13 +673,187 @@ frequency</li>
 <li><span class="math inline">\(E\)</span> is the expected
 frequency</li>
 </ul>
+<p>The <strong>degrees of freedom (df)</strong> in a <strong>chi-square
+test</strong> depend on the type of test being conducted:</p>
+<ul>
+<li><em>For a One-Way Table</em>: <span class="math inline">\(df = r -
+1\)</span> where <span class="math inline">\(r\)</span> is the number of
+categories.</li>
+<li><em>For a Two-Way Table</em>: <span class="math inline">\(df = (r -
+1) \times (c - 1)\)</span> where <span class="math inline">\(r\)</span>
+is the number of rows and <span class="math inline">\(c\)</span> is the
+number of columns.</li>
+</ul>
 </div>
-<div id="the-chi-squared-distribution" class="slide section level2">
-<h1>The Chi-Squared Distribution</h1>
-<p><img role="img" src="data:image/png;base64,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" width="100%" style="display: block; margin: auto;" /></p>
-</div>
-<div id="example-1" class="slide section level2">
+<div id="example-1-1" class="slide section level2">
 <h1>Example 1</h1>
+<p><strong>1st Class Distribution</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+H_0: &amp; \text{The observed distribution of survived among 1st class
+passengers follows the expectation.} \\
+H_A: &amp; \text{The observed distribution of survived among 1st class
+passengers differs from the expectation.}
+\end{aligned}
+\]</span></p>
+<div class="column" style="width:39%;">
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">1st</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">no</td>
+<td align="right">123</td>
+</tr>
+<tr class="even">
+<td align="left">yes</td>
+<td align="right">201</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The expected proportions are <span class="math inline">\(\frac{1}{2}\)</span> assuming the passengers are
+equally likely to survive.</li>
+<li>The expected frequency based on the data is <span class="math inline">\(\left( \frac{1}{2} \right) 324 = 162\)</span> for
+each survived category.</li>
+</ul>
+</div>
+<div class="column" style="width:60%;">
+<ul>
+<li>Set <span class="math inline">\(\alpha = 0.05\)</span> and compute
+the <span class="math inline">\(\chi^2\)</span> statistic.</li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\chi^2 &amp; = \frac{(123 - 162)^2}{162} + \frac{(201 - 162)^2}{162} \\
+       &amp; = 18.78
+\end{aligned}
+\]</span></p>
+<ul>
+<li><p>Determine degrees of freedom, which is <span class="math inline">\(df = 1\)</span>.</p></li>
+<li><p>Compute the p-value using R.</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co"># define degrees of freedom</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>chisq <span class="ot">&lt;-</span> <span class="fl">18.78</span> <span class="co"># set chi-square statistic</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(<span class="fl">18.78</span>,df) <span class="co"># compute the p-value</span></span></code></pre></div>
+<pre><code>## [1] 1.466974e-05</code></pre>
+<ul>
+<li>Since the p-value is less than <span class="math inline">\(\alpha\)</span>, then we reject <span class="math inline">\(H_0\)</span>. We can conclude that we have enough
+evidence to support <span class="math inline">\(H_A\)</span>.</li>
+</ul>
+</div>
+</div>
+<div id="example-1-the-chi-square-sampling-distribution" class="slide section level2">
+<h1>Example 1: The Chi-Square Sampling Distribution</h1>
+<p><img role="img" src="data:image/png;base64,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" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="example-2-inference-for-one-way-table" class="slide section level2">
+<h1>Example 2: Inference for One-Way Table</h1>
+<p><strong>2nd Class Distribution</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+H_0: &amp; \text{The observed distribution of survived among 2nd class
+passengers follows the expectation.} \\
+H_A: &amp; \text{The observed distribution of survived among 2nd class
+passengers differs from the expectation.}
+\end{aligned}
+\]</span></p>
+<div class="column" style="width:39%;">
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">2nd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">no</td>
+<td align="right">166</td>
+</tr>
+<tr class="even">
+<td align="left">yes</td>
+<td align="right">118</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="column" style="width:60%;">
+<ul>
+<li>The expected proportion are <span class="math inline">\(\frac{1}{2}\)</span> assuming the passengers are
+equally likely to survive.</li>
+<li>The expected frequency based on the data is <span class="math inline">\(\left( \frac{1}{2} \right) 284 = 142\)</span> for
+each survived category.</li>
+</ul>
+</div>
+<div style="color: blue;">
+<p><span class="math inline">\(\dagger\)</span> Determine the <span class="math inline">\(\chi^2\)</span> test statistic and the p-value.
+What is your conclusion?</p>
+</div>
+</div>
+<div id="example-3" class="slide section level2">
+<h1>Example 3</h1>
+<div class="column" style="width:15%;">
+
+</div>
+<div class="column" style="width:70%;">
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">1st</th>
+<th align="right">2nd</th>
+<th align="right">3rd</th>
+<th align="right">crew</th>
+<th align="right">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">no</td>
+<td align="right">123</td>
+<td align="right">166</td>
+<td align="right">528</td>
+<td align="right">679</td>
+<td align="right">1496</td>
+</tr>
+<tr class="even">
+<td align="left">yes</td>
+<td align="right">201</td>
+<td align="right">118</td>
+<td align="right">181</td>
+<td align="right">211</td>
+<td align="right">711</td>
+</tr>
+<tr class="odd">
+<td align="left">Sum</td>
+<td align="right">324</td>
+<td align="right">284</td>
+<td align="right">709</td>
+<td align="right">890</td>
+<td align="right">2207</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="column" style="width:15%;">
+
+</div>
+<p><span class="math display">\[
+\begin{aligned}
+H_0: &amp; \text{There is no association between class and survived. The
+variables are independent.} \\
+H_A: &amp; \text{There is an association between class and survived. The
+variables are dependent.}
+\end{aligned}
+\]</span></p>
+</div>
+<div id="example-3-1" class="slide section level2">
+<h1>Example 3</h1>
 <p>Consider the following problem description.</p>
 <blockquote>
 <p>Students in grades 4-6 were asked whether good grades, athletic
@@ -1672,16 +897,16 @@ vary by grade?</p>
 <p>Source: <a href="https://stat-jet-asu.github.io/Datasets/InstructorDescriptions/popular.html" target="_blank">Popular Kids Dataset</a>. This is from a 1992 study and
 was revisited 30 years later.</p>
 </div>
-<div id="example-1-the-chi-squared-test-for-independence-12" class="slide section level2">
-<h1>Example 1: The Chi-Squared Test for Independence (1/2)</h1>
+<div id="example-3-the-chi-squared-test-for-independence-12" class="slide section level2">
+<h1>Example 3: The Chi-Squared Test for Independence (1/2)</h1>
 <ul>
 <li>The null and alternative Hypothesis <span class="math display">\[H_0: \text{Grade and goals are
 independent.  Goals do not vary by grade.}\]</span> <span class="math display">\[H_A: \text{Grade and goals are dependent.  Goals
 vary by grade}\]</span></li>
 </ul>
 </div>
-<div id="example-1-the-chi-squared-test-for-independence-22" class="slide section level2">
-<h1>Example 1: The Chi-Squared Test for Independence (2/2)</h1>
+<div id="example-3-the-chi-squared-test-for-independence-22" class="slide section level2">
+<h1>Example 3: The Chi-Squared Test for Independence (2/2)</h1>
 <ul>
 <li>The Chi-Squared test statistic <span class="math display">\[\chi^2_{k} = \sum_{i=1}^n \frac{(O_i -
 E_i)^2}{E_i}\]</span>
@@ -1698,8 +923,8 @@ rows and C is the number of columns.</li>
 </ul></li>
 </ul>
 </div>
-<div id="example-1-computing-the-chi2-statistic---expected-frequency-13" class="slide section level2">
-<h1>Example 1: Computing the <span class="math inline">\(\chi^2\)</span>
+<div id="example-3-computing-the-chi2-statistic---expected-frequency-13" class="slide section level2">
+<h1>Example 3: Computing the <span class="math inline">\(\chi^2\)</span>
 statistic - Expected Frequency (1/3)</h1>
 <ul>
 <li>Start with the expected frequency of type <span class="math inline">\(i\)</span></li>
@@ -1758,8 +983,8 @@ nearest integer for computing the expected frequencies.</p>
 \frac{(183)(90)}{478} = 34}\]</span></p>
 </div>
 </div>
-<div id="example-1-computing-the-chi2-statistic---expected-frequency-23" class="slide section level2">
-<h1>Example 1: Computing the <span class="math inline">\(\chi^2\)</span>
+<div id="example-3-computing-the-chi2-statistic---expected-frequency-23" class="slide section level2">
+<h1>Example 3: Computing the <span class="math inline">\(\chi^2\)</span>
 statistic - Expected Frequency (2/3)</h1>
 <ul>
 <li>Question - What is the expected count for the highlighted cell?</li>
@@ -1812,8 +1037,8 @@ statistic - Expected Frequency (2/3)</h1>
 \frac{(176)(141)}{478} = 52}\]</span></li>
 </ul>
 </div>
-<div id="example-1-computing-the-chi2-statistic---expected-frequency-33" class="slide section level2">
-<h1>Example 1: Computing the <span class="math inline">\(\chi^2\)</span>
+<div id="example-3-computing-the-chi2-statistic---expected-frequency-33" class="slide section level2">
+<h1>Example 3: Computing the <span class="math inline">\(\chi^2\)</span>
 statistic - Expected Frequency (3/3)</h1>
 <ul>
 <li>The expected frequency for each <span class="math inline">\(\color{blue}{[cell]}\)</span>.</li>
@@ -1867,8 +1092,8 @@ statistic - Expected Frequency (3/3)</h1>
 </tbody>
 </table>
 </div>
-<div id="example-1-computing-the-chi2-statistic" class="slide section level2">
-<h1>Example 1: Computing the <span class="math inline">\(\chi^2\)</span>
+<div id="example-3-computing-the-chi2-statistic" class="slide section level2">
+<h1>Example 3: Computing the <span class="math inline">\(\chi^2\)</span>
 statistic</h1>
 <ul>
 <li><p>The <span class="math inline">\(\chi^2\)</span> statistic. <span class="math display">\[\chi^2_{k} = \frac{(63-61)^2}{61} +
@@ -1878,15 +1103,15 @@ statistic</h1>
 (3-1) = 2(2) = 4\]</span></p></li>
 </ul>
 </div>
-<div id="example-1-computing-the-p-value" class="slide section level2">
-<h1>Example 1: Computing the p-value</h1>
+<div id="example-3-computing-the-p-value" class="slide section level2">
+<h1>Example 3: Computing the p-value</h1>
 <ul>
 <li><p><span class="math inline">\(\chi^2_{k} = 1.3121\)</span> and
 <span class="math inline">\(k = 4\)</span></p></li>
 <li><p>We can use the <code>pchisq</code> function in R.</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(<span class="fl">0.967</span>,df)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pchisq</span>(<span class="fl">0.967</span>,df)</span></code></pre></div>
 <pre><code>## [1] 0.9147579</code></pre>
 <pre><code>The p-value of 0.9148.</code></pre>
 <ul>
@@ -1896,162 +1121,35 @@ the current experiment.</strong></li>
 </ul>
 <p><img role="img" src="data:image/png;base64,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" width="100%" style="display: block; margin: auto;" /></p>
 </div>
-<div id="example-1-conclusion" class="slide section level2">
-<h1>Example 1: Conclusion</h1>
+<div id="example-3-conclusion" class="slide section level2">
+<h1>Example 3: Conclusion</h1>
 <ul>
 <li><p>Do these data provide evidence to suggest that goals vary by
 grade? <span class="math display">\[H_0: \text{Grade and goals are
-independent.  Goals do not vary by grade.}\]</span> <span class="math display">\[H_A: \text{Grade and goals are dependent.  Goals
+independent. Goals do not vary by grade.}\]</span> <span class="math display">\[H_A: \text{Grade and goals are dependent. Goals
 vary by grade}\]</span></p></li>
 <li><p>Since the p-value is large, we fail to reject <span class="math inline">\(H_0\)</span>. The data do not provide convincing
 evidence that grade and goals are dependent. It doesn’t appear that
 goals vary by grade.</p></li>
 </ul>
 </div>
-<div id="example-2" class="slide section level2">
-<h1>Example 2</h1>
-<p>The problem shown below was taken and slightly modified from your
-textbook <a href="https://openintro-ims.netlify.app/inference-one-prop.html#chp16-exercises" target="_blank">OpenIntro: Introduction to Modern Statistics Section
-18.4</a>. Consider the research study described below.</p>
-<p><strong>Coffee and Depression.</strong></p>
-<blockquote>
-<p>Researchers conducted a study investigating the relationship between
-caffeinated coffee consumption and risk of depression in women. They
-collected data on 50,739 women free of depression symptoms at the start
-of the study in the year 1996, and these women were followed through
-2006. The researchers used questionnaires to collect data on caffeinated
-coffee consumption, asked each individual about physician- diagnosed
-depression, and also asked about the use of antidepressants. The table
-below shows the distribution of incidences of depression by amount of
-caffeinated coffee consumption. <a href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/1105943" target="_blank">Lucas et al. 2011</a></p>
-</blockquote>
-<table class="table table-striped table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
-</th>
-<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="5">
-<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
-Caffeinated coffee consumption
-</div>
-</th>
-<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
-</th>
-</tr>
-<tr>
-<th style="text-align:left;">
-Clinical depression
-</th>
-<th style="text-align:right;">
-1 cup / week or fewer
-</th>
-<th style="text-align:right;">
-2-6 cups / week
-</th>
-<th style="text-align:right;">
-1 cups / day
-</th>
-<th style="text-align:right;">
-2-3 cups / day
-</th>
-<th style="text-align:right;">
-4 cups / day or more
-</th>
-<th style="text-align:right;">
-Total
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;width: 1em; ">
-Yes
-</td>
-<td style="text-align:right;width: 3em; ">
-670
-</td>
-<td style="text-align:right;width: 3em; ">
-373
-</td>
-<td style="text-align:right;width: 3em; ">
-905
-</td>
-<td style="text-align:right;width: 3em; ">
-564
-</td>
-<td style="text-align:right;width: 3em; ">
-95
-</td>
-<td style="text-align:right;width: 5em; ">
-2,607
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 1em; ">
-No
-</td>
-<td style="text-align:right;width: 3em; ">
-11,545
-</td>
-<td style="text-align:right;width: 3em; ">
-6,244
-</td>
-<td style="text-align:right;width: 3em; ">
-16,329
-</td>
-<td style="text-align:right;width: 3em; ">
-11,726
-</td>
-<td style="text-align:right;width: 3em; ">
-2,288
-</td>
-<td style="text-align:right;width: 5em; ">
-48,132
-</td>
-</tr>
-<tr>
-<td style="text-align:left;width: 1em; ">
-Total
-</td>
-<td style="text-align:right;width: 3em; ">
-12,215
-</td>
-<td style="text-align:right;width: 3em; ">
-6,617
-</td>
-<td style="text-align:right;width: 3em; ">
-17,234
-</td>
-<td style="text-align:right;width: 3em; ">
-12,290
-</td>
-<td style="text-align:right;width: 3em; ">
-2,383
-</td>
-<td style="text-align:right;width: 5em; ">
-50,739
-</td>
-</tr>
-</tbody>
-</table>
-<ol style="list-style-type: decimal">
-<li><p>Compute the test statistic. What is the p-value?</p></li>
-<li><p>What is the conclusion of the hypothesis test?</p></li>
-</ol>
-</div>
-<div id="example-2-results" class="slide section level2">
-<h1>Example 2: Results</h1>
+<div id="summary-steps-for-chi2-tests" class="slide section level2">
+<h1>Summary: Steps for <span class="math inline">\(\chi^2\)</span>
+Tests</h1>
 <ul>
-<li><p><span class="math inline">\(\chi^2 =20.932\)</span> and degrees
-of freedom is <span class="math inline">\(k =4\)</span></p></li>
-<li><p>p-value:</p></li>
+<li>Compute the expected values.</li>
+<li>Set the significance value <span class="math inline">\(\alpha\)</span>.</li>
+<li>Compute the <span class="math inline">\(\chi^2\)</span> test
+statistic and the degrees of freedom <span class="math inline">\(df\)</span>.</li>
+<li>Determine the p-value using the <span class="math inline">\(\chi^2\)</span> test statistic.</li>
+<li>Make a conclusion.</li>
 </ul>
-<pre><code>## [1] 0.0003266524</code></pre>
-<ul>
-<li>Therefore, p-value is small and we reject <span class="math inline">\(H_0\)</span>. The data provide convincing evidence
-to suggest that caffeinated coffee consumption and depression in women
-are associated.</li>
-</ul>
+<div style="color: red;">
+<p><span class="math inline">\(\star\)</span> <strong>Key Idea:</strong>
+The chi-square test assumes independent categorical data with
+sufficiently large expected counts and compares observed vs. expected
+frequencies to assess whether deviations are due to chance.</p>
+</div>
 </div>
 <div id="activity-test-independence-for-two-way-tables" class="slide section level2">
 <h1>Activity: Test Independence for Two-Way Tables</h1>

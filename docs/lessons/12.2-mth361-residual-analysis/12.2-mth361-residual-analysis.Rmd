@@ -379,7 +379,7 @@ grid.arrange(p_1,p_2,p_3,p_1_res,p_2_res,p_3_res,nrow=2)
 * Outliers that fall horizontally away from the center of the cloud of points are called **leverage points**.
 * Outliers that influence on the slope of the line are called **influential points**.
   
-We must be cautious on removing outliers in our modeling. Sometimes outliers are interesting cases that might be worth investigating and it might even make amodel much better.
+We must be cautious on removing outliers in our modeling. Sometimes outliers are interesting cases that might be worth investigating and it might even make a model much better.
   
 Try out this [least-squares regression interactive demo](https://phet.colorado.edu/sims/html/least-squares-regression/latest/least-squares-regression_en.html){target=_blank} to play around with outliers in least squares regression.
 

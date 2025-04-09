@@ -65,7 +65,7 @@ The **scatterplot** on the right shows the relationship between HS graduate rate
 </div>
 
 <div class='right' style='float:right;width:48%'>
-```{r poverty-scatter-1, fig.align='center', fig.width=5,fig.height=5,out.width="100%"}
+```{r poverty-scatter-1, fig.align='center', fig.height=5, fig.width=5, message=FALSE, warning=FALSE, out.width="100%"}
 poverty = read.table("poverty.txt", header = T, sep = "\t")
 
 library(openintro)

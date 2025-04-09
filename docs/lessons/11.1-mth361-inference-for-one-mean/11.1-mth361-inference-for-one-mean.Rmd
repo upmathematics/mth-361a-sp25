@@ -249,6 +249,146 @@ $$(3.29,5.51)$$
 
 We are 95% confident the average mercury content of muscles in Risso's dolphins is between 3.29 and 5.51 $\mu$g/wet gram, which is considered extremely high.
 
+## Case Study II
+
+Every year, the US releases to the public a large data set containing information on births recorded in the country. This data set has been of interest to medical researchers who are studying the relation between habits and practices of expectant mothers and the birth of their children. We will work with a random sample of 1,000 cases from the data set released in 2014.
+
+Here are four examples in the data set.
+
+```{r babySmokeDF}
+births14 %>% 
+  select(-premie, -mature, -lowbirthweight, -whitemom, -marital,-gained) %>%
+  head(4) %>%
+  kable()
+```
+
+## Case Study II: Baby Weights - Smoker vs Non-Smoker
+
+We would like to know, is there convincing evidence that newborns from mothers who smoke have a different average birth weight than newborns from mothers who don't smoke?
+
+Here is the summary statistics for the dataset.
+
+```{r births14-summary-stats}
+births14_nona <- births14 %>%
+  filter(
+    !is.na(habit), !is.na(weight)
+  )
+
+births14_sample_stats <- births14_nona %>%
+  group_by(habit) %>%
+  summarise(
+    n = n(),
+    Mean = mean(weight),
+    SD = sd(weight)
+  )
+
+xbar_nonsmoker  <- round(births14_sample_stats %>% filter(habit == "nonsmoker") %>% pull(Mean), 2)
+xbar_smoker     <- round(births14_sample_stats %>% filter(habit == "smoker") %>% pull(Mean), 2)
+xbar_difference <- xbar_nonsmoker - xbar_smoker
+sd_nonsmoker    <- round(births14_sample_stats %>% filter(habit == "nonsmoker") %>% pull(SD), 2)
+sd_smoker       <- round(births14_sample_stats %>% filter(habit == "smoker") %>% pull(SD), 2)
+n_nonsmoker     <- births14_sample_stats %>% filter(habit == "nonsmoker") %>% pull(n)
+n_smoker        <- births14_sample_stats %>% filter(habit == "smoker") %>% pull(n)
+se_difference   <- round(sqrt(sd_nonsmoker^2/n_nonsmoker + sd_smoker^2/n_smoker), 2)
+t_difference    <- round(xbar_difference / se_difference, 2)
+df_difference   <- min(n_nonsmoker-1, n_smoker-1)
+
+births14_sample_stats %>%
+  kable()
+```
+
+## Case Study II: CLT Conditions
+
+Conditions:
+
+* The data come from a simple random sample, the observations are independent, both within and between samples.
+* Both groups over 30 observations, we inspect the data for any particularly extreme outliers and find none.
+
+Since both conditions are satisfied, the difference in sample means may be modeled using a $t$-distribution.
+
+## Case Study II: Examining the Distributions (1/2)
+
+```{r babySmokePlotOfTwoGroupsToExamineSkew, fig.cap="The top panel represents birth weights for infants whose mothers smoked during pregnancy. The bottom panel represents the birth weights for infants whose mothers who did not smoke during pregnancy.", message=FALSE, warning=FALSE, fig.align='center', fig.width=4,fig.height=3, out.width="50%"}
+births14_nona %>%
+  mutate(habit = fct_rev(if_else(habit == "smoker", "Mothers who smoked", "Mothers who did not smoke"))) %>%
+  ggplot(aes(x = weight,fill=habit)) +
+  geom_histogram(binwidth = 1) +
+  facet_wrap(~habit, ncol = 1, scales = "free_y") +
+  scale_x_continuous(breaks = seq(0, 10, 2), limits = c(0, 10)) +
+  labs(x = "Newborn weights (lbs)", y = "Count") + 
+  scale_fill_discrete(guide="none") + 
+  theme_minimal()
+```
+
+## Case Study II: Examining the Distributions (2/2)
+
+```{r boxplotWeights, message=FALSE, warning=FALSE, fig.align='center', fig.width=6,fig.height=3, out.width="50%"}
+ggplot(births14_nona, aes(x = weight, y = habit,fill=habit)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of weights broken down by smoking status.", x = "Newborn weights (lbs)", y = "") + 
+  scale_fill_discrete(guide="none") + 
+  theme_minimal()
+```
+
+## Case Study II: One Sample t-test (1/4)
+
+Consider one group (smoking) from the data. It is known that a newborn baby has an average weight of $7.5$ lbs. We want to test whether the average weight for the smoking group is less than the average using a one sample t-test.
+
+```{r boxplotWeights1, fig.align='center', fig.width=4,fig.height=2, out.width="50%"}
+ggplot(births14_nona %>% filter(habit == "smoker"),aes(x=weight)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of weights in the smoking group.", x = "Newborn weights (lbs)", y = "") + 
+  theme_minimal()
+```
+
+Is the data (smoking group) a convincing evidence to support the claim of the average weight to be less than $7.5$ lbs?
+
+## Case Study II: One Sample t-test (2/4)
+
+* Null Hypothesis $H_0$: The average weight of the smoking group is $7.5$ lbs.
+    $$\mu = 7.5$$
+* Alternative Hypothesis $H_A$: The average weight of the smoking group is less than $7.5$ lbs.
+    $$\mu < 7.5$$
+* The null value is $\mu_0 = 7.5$. The point-estimate is $\bar{x} = 6.68$ and the sample standard deviation is $s = 1.5966$.
+* We set the significance value $\alpha = 0.01$.
+
+## Case Study II: One Sample t-test (3/4)
+
+  * Compute the standard error
+    \[
+    \begin{aligned}
+    SE & = \frac{s}{\sqrt{n}} \\
+       & = \frac{1.5966}{\sqrt{114}} \\
+    SE & = 0.1495
+    \end{aligned}
+    \]
+  * Compute the T statistic
+    \[
+    \begin{aligned}
+    t & = \frac{\bar{x} - \mu_0}{SE} \\
+      & = \frac{6.68 - 7.5}{0.1495} \\
+    t & = -5.4850
+    \end{aligned}
+    \]
+
+## Case Study II: One Sample t-test (4/4)
+
+* Degrees of freedom is $df = n - 1 = 114 - 1 = 113$.
+* The p-value is $1.27 \times 10^{-07} \approx 0$.
+  
+**Using R to find the p-value**
+
+```{r echo=TRUE}
+df <- 113 # degrees of freedom
+t <- -5.48495 # test statistic
+pt(t,df) # p-value
+```
+
+**Conclusions:**
+
+  * Since the p-value is less than significance value of $0.01$ (the p-value is really small), we can conclude that the data is a strong evidence that the average weights for the smoking group is not equal to $7.5$ lbs.
+  * Since the T statistic is negative, we can say that the average weights is less than the null value.
+
 ## Activity: Determine Confidence Intervals for One Mean
 
 1. Make sure you have a copy of the *M 3/24 Worksheet*. This will be handed out physically and it is also digitally available on Moodle.
