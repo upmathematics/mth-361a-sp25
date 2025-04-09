@@ -1,0 +1,224 @@
+---
+title: "Determine Confidence Intervals of a Linear Model"
+subtitle: "Applied Statistics"
+author: "[name]"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Syllabus Reminders
+
+- You must submit your worksheet individually by end-of-class or end-of-day. Your name must exist in your worksheet and the names of your collaborators.
+- Worksheets are marked mostly on completion, and partially on correctness. It will be marked either pass or fail, there will no detailed feedback on worksheets, and no opportunities for revisions and make-up.
+
+# Instructions
+
+- For the exercises, please provide your answers in full sentences.
+- Write your answers by replacing the text "[Write your answer here]".
+- Whenever a problem asks you to run something in R, create an R code chunk and write your R commands inside that chunk.
+- If a problem requires modifying an existing R code chunk, make the necessary changes at the appropriate lines within the given code.
+- Please read the problems fully and carefully before answering.
+- When finished, knit this `.Rmd` to `.html`.
+- Submit this `.Rmd` and the recently knitted `.html` to Moodle.
+
+# Packages
+
+The following R packages have already been loaded for you, so there's no need to load them yourself—they will be used in the problem sets. If you need any additional packages, you can load them here as well.
+
+```{r message=FALSE, warning=FALSE}
+# load packages
+library(tidyverse)
+library(openintro)
+library(statsr)
+library(broom)
+library(gridExtra)
+library(plotly)
+```
+
+# Collaborators
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+# Exercises
+
+## Problem 1
+
+The Human Freedom Index is a report that attempts to summarize the idea of “freedom” through a bunch of different variables for many countries around the globe. It serves as a rough objective measure for the relationships between the different types of freedom - whether it’s political, religious, economical or personal freedom - and other social and economic circumstances. The Human Freedom Index is an annually co-published report by the Cato Institute, the Fraser Institute, and the Liberales Institut at the Friedrich Naumann Foundation for Freedom.
+
+In this worksheet, you’ll be analysing data from the Human Freedom Index reports. Your aim will be to summarize a few of the relationships within the data both graphically and numerically in order to find which variables can help tell a story about freedom.
+
+You will explore and visualize the data using the tidyverse suite of packages. You will also use the statsr package to select a regression line that minimizes the sum of squared residuals and the broom package to tidy regression output. The data can be found in the openintro package, a companion package for OpenIntro resources.
+
+The data we’re working with is in the `openintro` package and it’s called `hfi`, short for Human Freedom Index.
+
+a. What are the dimensions of the dataset? What does each row represent?
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+b. The dataset spans a lot of years, but we are only interested in data from year 2016. Filter the data `hfi` data frame for year 2016, select the following variables, and assign the result to a data frame named `hfi_2016`.
+
+* `region`
+* `countries`
+* `pf_score`
+* `pf_expression_control`
+
+```{r}
+hfi_2010 <- hfi %>% 
+  filter(year == 2010)
+```
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 2
+
+Continued from Problem (1). What type of plot would you use to display the relationship between the personal freedom score, `pf_score`, and `pf_expression_control`? Plot this relationship using the variable `pf_expression_control` as the predictor. Does the relationship look linear? If you knew a country’s `pf_expression_control`, or its score out of 10, with 0 being the most, of political pressures and controls on media content, would you be comfortable using a linear model to predict the personal freedom score?
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 3
+
+If the relationship looks linear, we can quantify the strength of the relationship with the correlation coefficient (see example code below). Use the correlation coefficient to estimate the slope and intercept of a linear model, then interpret these values in context.
+
+```{r}
+hfi_2010 %>%
+  drop_na(pf_expression_control,pf_score) %>%
+  summarise(cor(pf_expression_control, pf_score))
+```
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 4
+
+You can use the lm function in R to fit the linear model (a.k.a. regression line).
+
+```{r}
+m1 <- lm(pf_score ~ pf_expression_control, data = hfi_2010)
+tidy(m1)
+glance(m1)
+```
+
+The first argument in the function `lm()` is a formula that takes the form `y ~ x`. Here it can be read that we want to make a linear model of `pf_score` as a function of pf_expression_control. The second argument specifies that R should look in the `hfi` data frame to find the two variables.
+
+The output of `lm()` is an object that contains all of the information we need about the linear model that was just fit. We can access this information using the `tidy()` and `glance()` function.
+
+Examine the output of the linear model and determine the $R^2$. Assess the model fit using $R^2$.
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 5
+
+Let’s create a scatterplot with the least squares line for m1 laid on top.
+
+```{r}
+ggplot(data = hfi_2010, aes(x = pf_expression_control, y = pf_score)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+Here, we are literally adding a layer on top of our plot. `geom_smooth` creates the line by fitting a linear model. It can also show us the standard error `se` associated with our line, but we’ll suppress that for now.
+
+This line can be used to predict $y$ at any value of $x$. When predictions are made for values of $x$ that are beyond the range of the observed data, it is referred to as extrapolation and is not usually recommended. However, predictions made within the range of the data are more reliable. They’re also used to compute the residuals.
+
+If someone saw the least squares regression line and not the actual data, how would they predict a country’s personal freedom school for one with a 3 rating for `pf_expression_control`? Is this an overestimate or an underestimate, and by how much? In other words, what is the residual for this prediction?
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 6
+
+To assess whether the linear model is reliable, we need to check for (1) linearity, (2) nearly normal residuals, and (3) constant variability.
+
+In order to do these checks we need access to the fitted (predicted) values and the residuals. We can use the `augment()` function to calculate these.
+
+```{r}
+m1_aug <- augment(m1)
+```
+
+**Linearity:** You already checked if the relationship between `pf_score` and `pf_expression_control` is linear using a scatterplot. We should also verify this condition with a plot of the residuals vs. fitted (predicted) values.
+
+```{r}
+ggplot(data = m1_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  xlab("Fitted values") +
+  ylab("Residuals")
+```
+
+Notice here that `m1` can also serve as a data set because stored within it are the fitted values ($\hat{y}$) and the residuals. Also note that we’re getting fancy with the code here. After creating the scatterplot on the first layer (first line of code), we overlay a red horizontal dashed line at $y=0$ (to help us check whether the residuals are distributed around 0), and we also rename the axis labels to be more informative.
+
+a. Is there any apparent pattern in the residuals plot? What does this indicate about the linearity of the relationship between the two variables?
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+b. Based on the residuals vs. fitted plot, does the constant variability condition (homoskedasticity) appear to be violated? Why or why not?
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 7
+
+**Nearly normal residuals:** To check this condition, we can look at a histogram of the residuals.
+
+```{r}
+ggplot(data = m1_aug, aes(x = .resid)) +
+  geom_histogram(binwidth = 0.25) +
+  xlab("Residuals")
+```
+
+You can also use the `stat_qq()` and the `stat_qq_line()` functions to check for normality of the residuals. Based on the results, does the nearly normal residuals condition appear to be violated? Why or why not?
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 8
+
+Using the results in Problem (4), use the point estimates and standard errors of the slope and intercept to determine the 95% confidence interval. Interpret this interval in context.
+
+```{r}
+tidy(m1)
+```
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 9
+
+Use the `geom_smooth()` function to visualize the linear model and the confidence interval.
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
+
+## Problem 10
+
+More Practice.
+
+a. Choose another variable that you think would strongly correlate with pf_score. Produce a scatterplot of the two variables and fit a linear model. At a glance, does there seem to be a linear relationship?
+b. Check the model diagnostics using appropriate visualisations and evaluate if the model conditions have been met.
+c. Determine a 95% confidence interval of the slope and intercept estimates. Visualize and interpret the confidence interval in context.
+
+::: {style="color: blue;"}
+[Write your answer here]
+:::
