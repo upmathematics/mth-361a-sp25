@@ -225,10 +225,10 @@ The following learning objectives are designed to build on one another, with som
 | **12** | M 3/31 | Linear Regression |
 |  | W 4/2 | Residual Analysis |
 |  | F 4/4 | _Cancelled_ |
-| **13** | M 4/7 | Inference for Linear Regression & <br>**Homework 4** |
-|  | W 4/9 | Multiple Linear Regression |
-|  | F 4/11 | Inference for Many Means |
-| **14** | M 4/14 | ANalysis Of VAriance (ANOVA) & <br>**Project Phase 4** |
+| **13** | M 4/7 | Inference for Linear Regression |
+|  | W 4/9 | Hypothesis Testing for Linear Regression |
+|  | F 4/11 | Multiple Linear Regression |
+| **14** | M 4/14 | Inference for Many Means & <br>**Homework 4** |
 |  | W 4/16 | Choosing Statistical Methods |
 |  | F 4/18 | _Easter vacation_ |
 | **15** | M 4/21 | _Easter Vacation_ |
@@ -598,11 +598,10 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Linear Regression](lessons/12.1-mth361-linear-regression/12.1-mth361-linear-regression.html) | Ch. 11.1-11.2 @speegle2021probability |
 | [Residual Analysis](lessons/12.2-mth361-residual-analysis/12.2-mth361-residual-analysis.html) | Ch. 11.3-11.4 @speegle2021probability |
 | [Inference for Linear Regression](lessons/13.1-mth361-inference-for-linear-regression/13.1-mth361-inference-for-linear-regression.html) | Ch. 11.5 @speegle2021probability |
+| Hypothesis Testing for Linear Regression | - |
 | Multiple Linear Regression | TBA |
 | Inference for Many Means | TBA |
-| ANalysis Of VAriance (ANOVA) | TBA |
 | Choosing Inferential Methods | TBA |
-| Logistic Regression | TBA |
 
 ## Books \& Online Resources Lists
 

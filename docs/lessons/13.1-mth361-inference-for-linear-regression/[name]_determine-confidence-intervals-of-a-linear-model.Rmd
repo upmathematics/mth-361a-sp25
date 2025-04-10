@@ -36,7 +36,6 @@ library(openintro)
 library(statsr)
 library(broom)
 library(gridExtra)
-library(plotly)
 ```
 
 # Collaborators
