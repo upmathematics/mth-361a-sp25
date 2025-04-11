@@ -124,11 +124,11 @@ Terms:
 
 ## Ordinary Least Squares Assumptions
 
-  1. The data is randomly sampled independent observations.
-  2. The distribution of the residuals is normally distributed and the residuals exhibits homoscedasticity.
-  3. The independent variables are uncorrelated with the error term.
-  4. The regression model is linear in the coefficients and the error term.
-  5. The independent variables should not be collinear - or correlated to each other.
+* The data is randomly sampled independent observations.
+* The distribution of the residuals is normally distributed and the residuals exhibits homoscedasticity.
+* The independent variables are uncorrelated with the error term.
+* The regression model is linear in the coefficients and the error term.
+* The independent variables should not be collinear - or correlated to each other.
   
 ## Sum of Squared Error (SSE) and the Total Sum of Squares (TSS)
 
@@ -151,10 +151,13 @@ where $\bar{y} = \frac{1}{n} \sum_{i-1}^n y_i$, and $n$ is the number of observa
 To find the best linear fit, we minimize the SSE.
 
 $$
-SSE = \sum_{i=1}^n (e_i)^2 = \sum_{i=1}^n (y_i - \hat{y_i})^2
+\begin{aligned}
+SSE & = \sum_{i=1}^n (e_i)^2 \\
+    & = \sum_{i=1}^n (y_i - \hat{y_i})^2
+\end{aligned}
 $$
 
-Plugging-in the linear equation $\hat{y_i} = b_0 + b_1 x$, we have
+Plugging-in the linear equation $\hat{y_i} = b_0 + b_1 x_i$, we have
 
 $$
 SSE = \sum_{i=1}^n (y_i - (b_0 + b_1 x_i)^2.
@@ -189,7 +192,7 @@ where $s_y$ and $s_x$ are the standard deviations of $x$ and $y$ respectively, a
 
 ## Least-Squares Example Visualization
 
-```{r least-squares-diagram, echo=FALSE, fig.cap="Least-Squares Example Visualization: Shown here is some data (orange dots) and the best fit linear model (red line) y = 5.37 + 0.62*x . You can try this [least-squares regression interactive demo](https://phet.colorado.edu/sims/html/least-squares-regression/latest/least-squares-regression_en.html){target=_blank} to visualize on how it works.", out.width="45%", fig.align="center"}
+```{r least-squares-diagram, echo=FALSE, fig.cap="Least-Squares Example Visualization: Shown here is some data (orange dots) and the best fit linear model (red line). You can try this [least-squares regression interactive demo](https://phet.colorado.edu/sims/html/least-squares-regression/latest/least-squares-regression_en.html){target=_blank} to visualize on how it works.", out.width="45%", fig.align="center"}
 knitr::include_graphics("least-squares-diagram.png")
 ```
 
@@ -209,9 +212,9 @@ $$
 \end{aligned}
 $$
 
-Note that the $n-1$ term  - known as Bessel's correction - in the sample variance $s^2$ is the unbiased estimator for the population variance $\sigma^2$.
+We typically use software --such as R-- to compute the above values.
 
-## Why do we care about the math when we can just use R progamming language?
+## Interpreting the Slope Estimate
 
 * Using least-squares regression is typically the most helpful when dealing with data.
 * The slope in terms of the standard deviations and correlation helps us interpret it more precisely.
@@ -233,7 +236,7 @@ $$
 where
 
 $$
-SSE = \sum_{i=1}^n (e_i)^2 \hspace{10px} \text{ and } \hspace{10px} SST =  \sum_{i=1}^n (y_i - \bar{y})^2.
+SSE = \sum_{i=1}^n (\epsilon_i)^2 \hspace{10px} \text{ and } \hspace{10px} SST =  \sum_{i=1}^n (y_i - \bar{y})^2.
 $$
 
 The range of $R^2$ is from 0 to 1. $R^2$ is the a measure of how well the linear regression fits the data.

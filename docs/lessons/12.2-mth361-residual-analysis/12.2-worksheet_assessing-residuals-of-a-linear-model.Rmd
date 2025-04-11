@@ -70,10 +70,10 @@ sst <- sum((y - mean(y))^2)
 sse <- sum(residuals$e^2)
 ```
 
-```{r x-y-scatterplot, fig.cap = "Scatterplot of variables x and y. The red line is the best fit linear model of the data.", out.width="35%", message=FALSE, warning=FALSE, fig.align='center', fig.width=4,fig.height=4}
+```{r x-y-scatterplot, fig.cap = "Scatterplot of variables x and y. The black line is the best fit linear model of the data.", out.width="35%", message=FALSE, warning=FALSE, fig.align='center', fig.width=4,fig.height=4}
 ggplot(df, aes(x = x, y = y)) +
-  geom_point(alpha = 0.50, fill = IMSCOL["black", "full"], shape = 21, size = 3) +
-  geom_smooth(method = "glm", color = IMSCOL["red", "full"], se = FALSE) +
+  geom_point(alpha = 0.50, fill = IMSCOL["gray", "full"], shape = 21, size = 3) +
+  geom_smooth(method = "glm", color = IMSCOL["black", "full"], se = FALSE) +
   labs(x = "x",y = "y") +
   scale_x_continuous() +
   scale_y_continuous() + 
