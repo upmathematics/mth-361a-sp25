@@ -241,7 +241,7 @@ lm(weight ~ weeks, data = births14) %>%
 
 **99% Confidence interval for the slope**
 
-$$b_1 \pm t_{df}^* SE$$
+$$b_1 \pm t_{df}^* \text{SE}_{b_1}$$
 
 * Critical t-star for a 0.99 confidence level: $t_{df}^* = t_{998}^* = 2.5808$. Note that we use $1-\alpha$ as the confidence level, where $alpha = 0.01$.
 
@@ -255,8 +255,8 @@ qt((1-0.99)/2,998)
 \begin{aligned}
 0.2792 & \pm  2.5808 \times 0.0135
 \end{aligned}
-(0.2444,0.3140)
 \]
+$$(0.2444,0.3140)$$
 
 We are 99% confident that the true slope is in between 0.2444 and 0.3140. Note that the null value of 0 (no slope) is not within the interval.
 

@@ -1811,7 +1811,8 @@ futher conclude the the relationship is strongly positive.</li>
 <div id="confidence-interval-12" class="slide section level2">
 <h1>Confidence Interval (1/2)</h1>
 <p><strong>99% Confidence interval for the slope</strong></p>
-<p><span class="math display">\[b_1 \pm t_{df}^* SE\]</span></p>
+<p><span class="math display">\[b_1 \pm t_{df}^*
+\text{SE}_{b_1}\]</span></p>
 <ul>
 <li>Critical t-star for a 0.99 confidence level: <span class="math inline">\(t_{df}^* = t_{998}^* = 2.5808\)</span>. Note that
 we use <span class="math inline">\(1-\alpha\)</span> as the confidence
@@ -1824,8 +1825,7 @@ level, where <span class="math inline">\(alpha = 0.01\)</span>.</li>
 \begin{aligned}
 0.2792 &amp; \pm  2.5808 \times 0.0135
 \end{aligned}
-(0.2444,0.3140)
-\]</span></p>
+\]</span> <span class="math display">\[(0.2444,0.3140)\]</span></p>
 <p>We are 99% confident that the true slope is in between 0.2444 and
 0.3140. Note that the null value of 0 (no slope) is not within the
 interval.</p>
