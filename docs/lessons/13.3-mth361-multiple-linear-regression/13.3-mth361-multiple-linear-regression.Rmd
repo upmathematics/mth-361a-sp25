@@ -149,7 +149,7 @@ p2 <- ggplot(log_houses, aes(x = log_sqft_living, y = log_price)) +
 grid.arrange(p1,p2,nrow=1)
 ```
 
-# Case Study I: The Multiple Linear Regression Model (1/2)
+## Case Study I: The Multiple Linear Regression Model (1/2)
 
 $$y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon$$
 
@@ -158,7 +158,7 @@ where $\beta_0$ is the intercept, $\beta_1$ and $\beta_2$ are the coefficients (
 * Explanatory variables: `log_sqft_lot` and `log_sqft_living`
 * Response Variable: `price`
 
-# Case Study I: The Multiple Linear Regression Model (2/2)
+## Case Study I: The Multiple Linear Regression Model (2/2)
 
 $$\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \epsilon$$
 
@@ -171,7 +171,7 @@ We ignore most of the output for now and focus on the estimates of the coefficie
 
 The p-values of the individual estimates are shown to be very low, which means statistically significant.
 
-# Assesing the Multiple Linear Regression Model
+## Assesing the Multiple Linear Regression Model
 
 The **R-squared** is the a measure of how well the simple linear regression fits the data but this is a biased estimate of the amount of variability explained by the model when applied to model with more than one predictor.
 
