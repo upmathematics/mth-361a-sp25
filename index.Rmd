@@ -599,9 +599,9 @@ The "Read" column in the table below contains page numbers (Pg.) or chapters (ch
 | [Residual Analysis](lessons/12.2-mth361-residual-analysis/12.2-mth361-residual-analysis.html) | Ch. 11.3-11.4 @speegle2021probability |
 | [Inference for Linear Regression](lessons/13.1-mth361-inference-for-linear-regression/13.1-mth361-inference-for-linear-regression.html) | Ch. 11.5 @speegle2021probability |
 | [Hypothesis Testing for Linear Regression](lessons/13.2-mth361-hypothesis-testing-for-linear-regression/13.2-mth361-hypothesis-testing-for-linear-regression.html) | - |
-| Multiple Linear Regression | TBA |
-| Inference for Many Means | TBA |
-| Choosing Inferential Methods | TBA |
+| [Multiple Linear Regression](lessons/13.3-mth361-multiple-linear-regression/13.3-mth361-multiple-linear-regression.html) | Ch. 13 @speegle2021probability |
+| Inference for Many Means | Ch. 12 @speegle2021probability |
+| Choosing Inferential Methods | - |
 
 ## Books \& Online Resources Lists
 

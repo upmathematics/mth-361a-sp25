@@ -214,7 +214,7 @@ Use the `geom_smooth()` function to visualize the linear model and the confidenc
 
 More Practice.
 
-a. Choose another variable that you think would strongly correlate with pf_score. Produce a scatterplot of the two variables and fit a linear model. At a glance, does there seem to be a linear relationship?
+a. Choose another variable that you think would strongly correlate with `pf_score`. Produce a scatterplot of the two variables and fit a linear model. At a glance, does there seem to be a linear relationship?
 b. Check the model diagnostics using appropriate visualisations and evaluate if the model conditions have been met.
 c. Determine a 95% confidence interval of the slope and intercept estimates. Visualize and interpret the confidence interval in context.
 

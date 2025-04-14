@@ -88,18 +88,17 @@ ggplot(sandwich, aes(x = ad, y = rev)) +
   theme_minimal()
 ```
 
+There are 1000 stores in our sample. Suppose that we know the population slope $\beta_1 = 4.7$ and intercept $\beta_0 = 12$.
+
 ## Case Study I: The Linear Model
 
-The population model is: $$y_{revenue} = \beta_0 + \beta_1 x_{advertising} + e$$
-where $y$ is the response, $x$ is the predictor, $\beta_0$ is the intercept, $\beta_1$ is the slope, and $e$ is the error term.
+The population model is: $$y_{revenue} = \beta_0 + \beta_1 x_{advertising} + e$$ where $y$ is the response, $x$ is the predictor, $\beta_0$ is the intercept, $\beta_1$ is the slope, and $e$ is the error term.
 
 ```{r echo=FALSE}
 mod <- lm(rev ~ ad, data=sandwich)
 ```
 
-The least squares regression model uses the data to find a best linear fit: 
-$$\hat{y}_{revenue} = b_0 + b_1 x_{advertising}.$$
-where $b_0 = 11.23$, $b_1 = 4.85$.
+The least squares regression model uses the data to find a best linear fit:  $$\hat{y}_{revenue} = b_0 + b_1 x_{advertising}.$$ where $b_0 = 11.23$, $b_1 = 4.85$. There will be our point estimates.
 
 ## Case Study I: Resdiual Analysis (1/2)
 
@@ -273,16 +272,16 @@ ggplot(sandwich_many_lm, aes(x = estimate)) +
     ) + 
   geom_vline(xintercept = mean(sandwich_many_lm$estimate),color="red") + 
   annotate(x=mean(sandwich_many_lm$estimate),y=+Inf,label="mean slope",vjust=11,geom="label",color="red") +
-  geom_vline(xintercept = 4.8,color="blue") + 
-  annotate(x=4.8,y=+Inf,label="actual slope",vjust=13,geom="label",color="blue") +
+  geom_vline(xintercept = 4.7,color="blue") + 
+  annotate(x=4.7,y=+Inf,label="actual slope",vjust=13,geom="label",color="blue") +
   theme_minimal()
 ```
 
-## Case Study I: Confidence Interval (1/2)
+## Case Study I: Confidence Interval
 
 The 95% Confidence interval for the slope and intercept using the bootstrapped samples. Here, we are using the percentiles of the bootstrapped samples to estimate the confidence interval.
 
-```{r message=FALSE, warning=FALSE, warning=FALSE, message=FALSE, fig.align='center', fig.width=6,fig.height=3, out.width="60%"}
+```{r message=FALSE, warning=FALSE}
 boots <- bootstraps(sandwich, times = 100, apparent = TRUE)
 
 fit_lm_on_bootstrap <- function(split) {
@@ -296,52 +295,35 @@ boot_models <-
 
 boot_coefs <- 
   boot_models %>% 
-  unnest(coef_info)
+  unnest(coef_info) %>% 
+  mutate(term = case_when(
+    term == "(Intercept)" ~ "$b_0$",
+    term == "ad" ~ "$b_1$"
+  ))
 
-percentile_intervals <- int_pctl(boot_models, coef_info)
-percentile_intervals %>% 
-  select(term,.lower,.estimate,.upper)
+percentile_intervals <- int_pctl(boot_models, coef_info) %>%
+  mutate(estimate = .estimate, `lower bound` = .lower, `upper bound` = .upper)%>% 
+  select(term,estimate,`lower bound`,`upper bound`) %>% 
+  mutate(term = case_when(
+    term == "(Intercept)" ~ "$b_0$",
+    term == "ad" ~ "$b_1$"
+  ))
+kable(percentile_intervals,digits=4)
+```
 
+```{r message=FALSE, warning=FALSE, fig.align='center', fig.width=6,fig.height=3, out.width="80%"}
 ggplot(boot_coefs, aes(estimate)) +
   geom_histogram(bins = 30) +
   facet_wrap( ~ term, scales = "free") +
-  labs(title="mtcars", subtitle = "mpg ~ wt") +
-  labs(caption = "95% confidence interval parameter estimates, intercept + estimate") +
-  geom_vline(aes(xintercept = .lower), data = percentile_intervals, col = '#528fad') +
-  geom_vline(aes(xintercept = .upper), data = percentile_intervals, col = '#528fad') + 
-  theme_minimal()
-```
-
-## Case Study I: Confidence Interval (2/2)
-
-```{r slopes2, fig.cap = "If repeated samples of size 20 are taken from the entire population, each linear model will be slightly different. The red line provides the linear fit to the entire population.", out.width="70%", fig.align='center', fig.width=6,fig.height=4, warning=FALSE, message=FALSE}
-ggplot() +
-  geom_smooth(
-    data = sandwich_many, aes(x = ad, y = rev, group = replicate),
-    method = "lm", se = FALSE, fullrange = TRUE, 
-    color = IMSCOL["gray", "f2"], size = 0.5
-  ) +
-  geom_smooth(
-    data = sandwich, aes(x = ad, y = rev), method = "lm", se = FALSE,
-    fullrange = TRUE, color = IMSCOL["red", "full"]
-  ) +
-  geom_abline(intercept = 9.834915	, slope = 5.236326) +
-  geom_abline(intercept = 13.218205	, slope = 4.358568) +
-  scale_x_continuous(labels = label_dollar(suffix = "K")) +
-  scale_y_continuous(labels = label_dollar(suffix = "K")) +
-  labs(
-    x = "Amount spent on advertising",
-    y = "Revenue",
-    title = "Chain sandwich store",
-    subtitle = "100 random samples of 20 stores"
-  ) +
-  coord_cartesian(ylim = c(0, 65)) + 
+  labs(title="95% confidence interval parameter estimates") +
+  geom_vline(aes(xintercept = `lower bound`), data = percentile_intervals, col = '#528fad') +
+  geom_vline(aes(xintercept = `upper bound`), data = percentile_intervals, col = '#528fad') + 
   theme_minimal()
 ```
 
 ## Case Study I: Best Fit Line and Confidence Interval
 
-```{r sandpop2, fig.cap = "Revenue as a linear model of advertising dollars for a population of sandwich stores, in thousands of dollars.", out.width="70%", fig.align='center', fig.width=6,fig.height=4, warning=FALSE, message=FALSE}
+```{r sandpop2, out.width="70%", fig.align='center', fig.width=6,fig.height=4, warning=FALSE, message=FALSE}
 set.seed(4747)
 popsize <- 1000
 ad <- rnorm(popsize, 4, 1)
@@ -363,7 +345,121 @@ ggplot(sandwich, aes(x = ad, y = rev)) +
   theme_minimal()
 ```
 
-We can conclude that we are 95% confident that the true slope that models the spending amount on advertising versus revenue is 4.36 to 5.23. Note that the slope of 0 --which means no association between the variables-- is not within the confidence interval, suggesting a statistically significant association.
+* We can conclude that we are 95% confident that the true slope that models the association between spending amount on advertising and revenue is \$4.40K to \$5.30K.
+* We are also 95% confident that the true intercept is in between \$9.47K and \$13.22K revenue  if spending amount is \$0K.
+* Note that the slope of 0 --which means no association between the variables-- is not within the confidence interval, suggesting a statistically significant relationship.
+
+## Using the $t$-distribution (1/2)
+
+An alternative to the bootstrapping method is using the $t$-distribution to determine the confidence interval at a given confidence level.
+
+The confidence intervals for the slope $b_1$ and intercept $b_0$ estimates is given by
+
+\[
+\begin{aligned}
+\text{slope } \longrightarrow b_1 \pm t_{df}^* \text{SE}_{b_1} \\
+\text{intercept } \longrightarrow b_0 \pm t_{df}^* \text{SE}_{b_0}
+\end{aligned}
+\]
+
+where $\text{SE}_{b_1}$ and $\text{SE}_{b_0}$ are the standard errors for the slope and intercept sampling distributions respectively. The critical $t_{df}^*$ is computed using the $t$-distribution given a confidence level and degrees of freedom, $df = n - 1$, where $n$ is the sample size.
+
+## Using the $t$-distribution (2/2)
+
+Computing the standard errors $\text{SE}_{b_1}$ and $\text{SE}_{b_0}$ are *fairly complicated* and it is usually computed via functions or bootstrapping simulations using software --such as R.
+
+However, the standard errors are given by
+
+\[
+\begin{aligned}
+\text{SE}_{b_1} & = \frac{1}{s_x} \times \sqrt{\frac{s^2}{n}} \\
+\text{SE}_{b_0} & = \sqrt{1 + \frac{\bar{x}}{s_x}} \times \sqrt{\frac{s^2}{n}}
+\end{aligned}
+\]
+
+where:
+
+* $s$ is the standard error of the regression, $s = s_{\epsilon} \sqrt{\frac{n-1}{n-2}}$, where $s_{\epsilon}$ is the standard deviation of the residual errors
+* $\bar{x}$ is the mean of $x$, the explanatory variable
+* $s_x$ is the standard deviation of $x$
+* $n$ is the sample size
+
+## Case Study I: Confidence Intervals using the $t$-Distribution (1/2)
+
+The summary statistics of our explanatory and response variables are given below, which includes the correlation coefficient.
+
+:::: {.column width=49%}
+```{r}
+stats <- sandwich %>% 
+  summarise(piv = 1,
+            `$\\bar{x}$` = mean(ad),
+            `$\\bar{y}$` = mean(rev),
+            `$s_x$` = sd(ad),
+            `$s_y$` = sd(rev),
+            `$r$` = cor(ad,rev)) %>% 
+  pivot_longer(!piv, names_to = "statistics",
+               values_to = "estimates") %>% 
+  select(-piv)
+kable(stats,digits=4)
+```
+::::
+
+:::: {.column width=50%}
+```{r}
+mod <- lm(rev ~ ad, data = sandwich)
+preds <- sandwich %>% 
+  mutate(rev_hat = predict(mod),
+         resids = rev-rev_hat)
+mod_summary <- tidy(mod) %>%
+  mutate(SE = std.error) %>% 
+  select(term,estimate,SE) %>% 
+  mutate(term = case_when(
+    term == "(Intercept)" ~ "$b_0$",
+    term == "ad" ~ "$b_1$"
+  ))
+kable(mod_summary,digits=4)
+```
+
+The best fit slope and intercept of the linear regression line is
+
+* $b_0 = \bar{y} - b_1 \bar{x} = 30.7142 - 4.853 (4.0137) \approx 11.23$
+* $b_1 = \frac{s_y}{s_x} r = \left( \frac{9.2371}{0.9909} \right) 0.5207 \approx 4.85$
+::::
+
+* The sample size is $n = 1000$.
+* The standard deviation of the residuals is $s_{\epsilon} = 7.8863$.
+* The standard error of the regression is $s = s_{\epsilon} \sqrt{\frac{n-1}{n-2}} = 7.8863 \sqrt{\frac{1000-1}{1000-2}} \approx 7.8903$.
+* Standard errors of the slope and intercept estimates:
+    - $\text{SE}_{b_0} = \sqrt{1 + \frac{\bar{x}}{s_x}} \times \sqrt{\frac{s^2}{n}} = \sqrt{1 + \frac{4.0137}{0.9909}} \times \sqrt{\frac{7.8903^2}{1000}} \approx 1.0415$
+    - $\text{SE}_{b_1} = \frac{1}{s_x} \times \sqrt{\frac{s^2}{n}} = \frac{1}{0.9909} \times \sqrt{\frac{7.8903^2}{1000}} = \approx 0.2519$
+
+## Case Study I: Confidence Intervals using the $t$-Distribution (2/2)
+
+The goal is to determine the 95% confidence interval of the slope and intercept estimates using the $t$-distribution approach.
+
+* The degrees of freedom is $df = n - 1 = 1000 - 1 = 999$
+* For a $0.95$ confidence level $t_{df}^* = t_{999}^* \approx 1.9623$
+* 95% confidence interval for the slope estimate:
+
+\[
+\begin{aligned}
+b_1 & \pm t_{df}^* \times \text{SE}_{b_1} \\
+4.8536 & \pm 1.9623 \times 0.2519
+\end{aligned}
+\]
+$$(4.3593,5.3479)$$
+
+* 95% confidence interval for the intercept estimate:
+
+\[
+\begin{aligned}
+b_0 & \pm t_{df}^* \times \text{SE}_{b_0} \\
+11.2334	 & \pm 1.9623 \times 1.0415
+\end{aligned}
+\]
+$$(9.1897,13.2771)$$
+
+The intervals computed using the $t$-distribution is assuming the CLT conditions and the results here are are approximately equal to the intervals computed using the bootstrapping method.
 
 ## Activity: Determine Confidence Intervals of a Linear Model
 

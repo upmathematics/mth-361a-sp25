@@ -1,0 +1,207 @@
+---
+title: "Multiple Linear Regression"
+subtitle: "Applied Statistics"
+author: "MTH-361A | Spring 2025 | University of Portland"
+date: "April 14, 2025"
+output:
+  slidy_presentation:
+    font_adjustment: +5
+    footer: "| MTH-361A Spring 2025 | <a href='../../index.html'>Back to the Course Website</a>"
+    css: ../_style.css
+bibliography: ../../references.bib
+csl: ../../apa.csl
+nocite: '@*'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r echo=FALSE, eval=TRUE,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openintro)
+library(gridExtra)
+library(latex2exp)
+library(kableExtra)
+library(broom)
+library(scales)
+library(infer)
+library(tidymodels)
+library(fosdata)
+data(COL)
+seed <- 42
+```
+
+## Objectives
+
+:::: {.column width=15%}
+::::
+
+:::: {.column width=70%}
+- **Introduce multiple linear regression**
+- **Develop an understanding on how to apply and assess a multiple linear regression model**
+- **Know how to conduct multiple linear regression in R**
+- **Activity: Selecting Variables for Multiple Linear Regression**
+::::
+
+:::: {.column width=15%}
+::::
+
+## Previously... (1/2)
+
+**Linear Regression**
+
+\[ y = \beta_0 + \beta_1 x + \epsilon  \]
+
+* $y$ is the outcome, $x$ is the predictor, $\beta_0$ is the intercept, and $\beta_1$ is the slope. The notation $\epsilon$ is the model's error (residuals).
+* We estimate the slope $b_1$ and intercept $b_0$ of the least squares regression line by minimizing the sum of squared residuals.
+* The slope is given by $b_1 = \frac{s_y}{s_x} r$ , and the intercept is $b_0 = \bar{y} - b_1 \bar{x}$ , where $r$ is the correlation coefficient, $s_x$ and $s_y$ are the standard deviations of $x$ and $y$, and $\bar{x}$, $\bar{y}$ are their respective means.
+
+## Previously... (2/2)
+
+**Confidence Intervals for Linear Regression**
+
+\[
+\begin{aligned}
+\text{slope } \longrightarrow b_1 \pm t_{df}^* \text{SE}_{b_1} \\
+\text{intercept } \longrightarrow b_0 \pm t_{df}^* \text{SE}_{b_0}
+\end{aligned}
+\]
+
+**Hypothesis testing for Linear Regression**
+
+* Null hypothesis ($H_0$): The two numerical variables has no linear relationship. $$\beta_0 = 0$$
+* Alternative hypothesis ($H_A$): The two numerical variables has some linear relationship. $$\beta_0 \ne 0$$
+* Depending on the context, we use $\ne$ sign for two-sided tests, or $<$ or $>$ for one-sided test.
+
+## Case Study I
+
+Housing sales data from King County, WA, which includes the city of Seattle. The data `houses` in the `fosdata` package contains a record of every house sold in King County  from May 2014 to May 2015.
+
+There are 21,613 houses in total with 21 variables. Below is a random sample of 4 houses with select variables.
+
+```{r}
+houses <- tibble(houses)
+houses %>% 
+  sample_n(4) %>% 
+  select(zipcode,price,bedrooms,bathrooms,sqft_living,sqft_lot,,floors,condition,grade)
+```
+
+
+## Case Study I: Subset
+
+In this example, we only look at the houses that is located on the specific zipcode of 98115. This reduced the data set to 583 houses. Below, we show 4 random samples with select variables.
+
+```{r}
+houses_sub <- houses %>% 
+  filter(zipcode == "98115") %>% 
+  select(id,price,bedrooms,bathrooms,sqft_living,sqft_lot,floors,condition,grade) %>% 
+  drop_na()
+houses_sub %>% 
+  sample_n(4)
+```
+
+## Case Study I: Data Exploration (1/3)
+
+Exploring the data. Our focus is to look at the `price`, `sqft_living`, and `sqft_lot` variables.
+
+```{r message=FALSE, warning=FALSE, fig.align='center', fig.height=2, fig.width=9}
+houses_sub_1 <- houses_sub %>% 
+  select(id,price,sqft_living,sqft_lot) %>% 
+  pivot_longer(!id,names_to = "variable", values_to = "value")
+
+ggplot(houses_sub_1,aes(x=value,group=variable)) + 
+  geom_histogram() + 
+  facet_wrap(~variable, scales = "free_x")
+```
+
+The variables appears to be moderately right-skewed.
+
+## Case Study I: Data Exploration (2/3)
+
+```{r message=FALSE, warning=FALSE, fig.align='center', fig.height=3, fig.width=7}
+p1 <- ggplot(houses_sub,aes(x = sqft_lot, y = price)) + 
+  geom_point()
+p2 <- ggplot(houses_sub,aes(x = sqft_living, y = price)) + 
+  geom_point()
+
+grid.arrange(p1,p2,nrow=1)
+```
+
+## Case Study I: Data Exploration (3/3)
+
+```{r}
+log_houses <- houses_sub %>%
+  mutate(
+    log_price = log(price),
+    log_sqft_living = log(sqft_living),
+    log_sqft_lot = log(sqft_lot)
+  ) %>%
+  select(matches("^log"))
+```
+
+```{r message=FALSE, warning=FALSE, fig.align='center', fig.height=3, fig.width=7}
+p1 <- ggplot(log_houses, aes(x = log_sqft_lot, y = log_price)) +
+  geom_point()
+p2 <- ggplot(log_houses, aes(x = log_sqft_living, y = log_price)) +
+  geom_point()
+
+grid.arrange(p1,p2,nrow=1)
+```
+
+# Case Study I: The Multiple Linear Regression Model (1/2)
+
+$$y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \epsilon$$
+
+where $\beta_0$ is the intercept, $\beta_1$ and $\beta_2$ are the coefficients (slopes) of the explanatory variables.
+
+* Explanatory variables: `log_sqft_lot` and `log_sqft_living`
+* Response Variable: `price`
+
+# Case Study I: The Multiple Linear Regression Model (2/2)
+
+$$\hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \epsilon$$
+
+```{r echo=TRUE}
+mlr_mod <- lm(log_price ~ log_sqft_living + log_sqft_lot, data = log_houses)
+summary(mlr_mod)
+```
+
+We ignore most of the output for now and focus on the estimates of the coefficients. Namely, $b_0 = 8.14199$, $b_1 = 0.65130$, and $b_2 = 0.03422$.
+
+The p-values of the individual estimates are shown to be very low, which means statistically significant.
+
+# Assesing the Multiple Linear Regression Model
+
+The **R-squared** is the a measure of how well the simple linear regression fits the data but this is a biased estimate of the amount of variability explained by the model when applied to model with more than one predictor.
+
+$$R^2 = 1 - \frac{SSE}{SST}$$
+
+The **adjusted R-squared** describes the power of the regression model that contain different numbers of predictors.
+
+This is computed as
+
+$$
+\begin{aligned}
+  R_{adj}^{2}
+    &= 1 - \frac{s_{\text{residuals}}^2 / (n-k-1)}
+        {s_{\text{outcome}}^2 / (n-1)} \\
+    &= 1 - \frac{s_{\text{residuals}}^2}{s_{\text{outcome}}^2}
+        \times \frac{n-1}{n-k-1}
+\end{aligned}
+$$
+
+where $n$ is the number of observations used to fit the model and $k$ is the number of predictor variables in the model.
+
+## Activity: Selecting Variables for Multiple Linear Regression
+
+1. Log-in to Posit Cloud and open the R Studio assignment *M 4/14 - Selecting Variables for Multiple Linear Regression*.
+2. Make sure you are in the current working directory. Rename the `.Rmd` file by replacing `[name]` with your name using the format `[First name][Last initial]`. Then, open the `.Rmd` file.
+3. Change the author in the YAML header.
+4. Read the provided instructions.
+5. Answer all exercise problems on the designated sections.
+
+## References
+
+::: {#refs}
+:::
